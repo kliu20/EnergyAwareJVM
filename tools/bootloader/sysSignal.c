@@ -118,7 +118,7 @@ EXTERNAL void hardwareTrapHandler(int signo, siginfo_t *si, void *context)
 
   readContextInformation(context, &instructionPtr, &instructionFollowingPtr,
                          &threadPtr, &jtocPtr);
-  VERBOSE_SIGNALS_PRINTF("%s: hardwareTrapHandler %d %p - %p %p %p %p\n", Me, signo,
+  VERBOSE_SIGNALS_PRINTF("%s: hardwareTrapHandler SignalNO:%d Context:%p - InsPtr:%p instFollowPtr:%p threadPtr:%p jtocPtr:%p\n", Me, signo,
                (void*)context, (void*)instructionPtr, (void*)instructionFollowingPtr,
                (void*)threadPtr, (void*)jtocPtr);
 

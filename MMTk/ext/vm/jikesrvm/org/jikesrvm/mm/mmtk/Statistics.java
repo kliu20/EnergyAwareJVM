@@ -12,7 +12,9 @@
  */
 package org.jikesrvm.mm.mmtk;
 
+import org.mmtk.utility.Constants;
 import org.mmtk.utility.statistics.PerfEvent;
+import org.jikesrvm.VM;
 import org.jikesrvm.runtime.Time;
 import static org.jikesrvm.runtime.SysCall.sysCall;
 
@@ -42,12 +44,12 @@ public final class Statistics extends org.mmtk.vm.Statistics {
 
   @Override
   public double nanosToMillis(long c) {
-    return (c) / 1e6;
+    return (c)/1e6;
   }
 
   @Override
   public double nanosToSecs(long c) {
-    return (c) / 1e9;
+    return (c)/1e9;
   }
 
   @Override
@@ -61,6 +63,14 @@ public final class Statistics extends org.mmtk.vm.Statistics {
   }
 
   private PerfEvent[] perfEvents;
+
+	/**
+	* @author kenan
+	*/
+//	@Override
+//	public PerfEvent[] getPerfEvents() {
+//		  return perfEvents;
+//	}
 
   @Override
   @Interruptible

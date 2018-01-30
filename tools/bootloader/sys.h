@@ -126,6 +126,27 @@ extern void* checkMalloc(int length);
 extern void* checkCalloc(int numElements, int sizeOfOneElement);
 extern void checkFree(void* mem);
 
+/**  Adding Kenan Related Files **/
+EXTERNAL void closeDVFSFiles();
+EXTERNAL void openDVFSFiles();
+EXTERNAL int checkFrequency();
+EXTERNAL void FreqAvailable(int *);
+EXTERNAL int Scale(int);
+EXTERNAL int getCurrentCpu();
+EXTERNAL int getCpuNum();
+EXTERNAL int SetGovernor(const char*);
+EXTERNAL int GetGovernor(char*);
+EXTERNAL void ProfileDealloc();
+EXTERNAL void EnergyStatCheck(char *);
+EXTERNAL void SetDramPowerLimit(int , int , double);
+EXTERNAL void SetPackageTimeWindowLimit(int , int , double);
+EXTERNAL void SetPackagePowerLimit(int , int , double );
+EXTERNAL double * GetDramPowerSpec();
+EXTERNAL double * GetPackagePowerSpec();
+EXTERNAL void SetPowerLimit (int);
+EXTERNAL int GetSocketNum();
+EXTERNAL int ProfileInit();
+
 // sysAlignmentCheck
 extern volatile int numEnableAlignCheckingCalls;
 EXTERNAL void sysEnableAlignmentChecking();
@@ -306,6 +327,8 @@ EXTERNAL void sysThreadYield();
 EXTERNAL Word sysGetThreadPriorityHandle();
 EXTERNAL int sysGetThreadPriority(Word thread, Word handle);
 EXTERNAL int sysSetThreadPriority(Word thread, Word handle, int priority);
+EXTERNAL void SetDramTimeWindowLimit(int, int, double);
+
 // sysThread - architecture specific
 // parameters are architecture specific too.
 EXTERNAL void bootThread(void *, void *, void *, void *);

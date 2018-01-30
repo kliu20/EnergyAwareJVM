@@ -55,7 +55,7 @@ FILE *SysTraceFile;
 int verbose = 0;
 
 /** Verbose signal handling command line option */
-int verboseSignalHandling = 0;
+int verboseSignalHandling = 1;
 
 /** Verbose boot up set */
 int verboseBoot = 0;

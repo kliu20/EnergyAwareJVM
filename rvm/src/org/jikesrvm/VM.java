@@ -16,6 +16,7 @@ import static org.jikesrvm.runtime.ExitStatus.EXIT_STATUS_BOGUS_COMMAND_LINE_ARG
 import static org.jikesrvm.runtime.ExitStatus.EXIT_STATUS_RECURSIVELY_SHUTTING_DOWN;
 import static org.jikesrvm.runtime.ExitStatus.EXIT_STATUS_SYSFAIL;
 
+import org.jikesrvm.compilers.common.CompiledMethods;
 import org.jikesrvm.adaptive.controller.Controller;
 import org.jikesrvm.adaptive.util.CompilerAdvice;
 import org.jikesrvm.architecture.StackFrameLayout;
@@ -32,6 +33,12 @@ import org.jikesrvm.classloader.TypeReference;
 import org.jikesrvm.compilers.baseline.BaselineCompiler;
 import org.jikesrvm.compilers.common.BootImageCompiler;
 import org.jikesrvm.compilers.common.RuntimeCompiler;
+import org.jikesrvm.energy.DataPrinter;
+import org.jikesrvm.energy.EnergyCheckUtils;
+import org.jikesrvm.energy.ProfileMap;
+import org.jikesrvm.energy.ProfileQueue;
+import org.jikesrvm.energy.ProfileStack;
+import org.jikesrvm.energy.Scaler;
 import org.jikesrvm.mm.mminterface.MemoryManager;
 import org.jikesrvm.runtime.BootRecord;
 import org.jikesrvm.runtime.Callbacks;
@@ -65,6 +72,8 @@ import org.vmmagic.unboxed.Extent;
 import org.vmmagic.unboxed.ObjectReference;
 import org.vmmagic.unboxed.Offset;
 import org.vmmagic.unboxed.Word;
+import org.jikesrvm.energy.LogQueue;
+
 
 /**
  * A virtual machine.
@@ -464,6 +473,17 @@ public class VM extends Properties {
 
     if (VM.BuildForAdaptiveSystem) {
       if (verboseBoot >= 1) VM.sysWriteln("Initializing adaptive system");
+      //Kenan: Initialize hardware counter/energy based profiling structures
+//      if(Controller.options.EVENTCOUNTER != null && Controller.options.EVENTCOUNTER.length() > 0){
+		Scaler.initScaler();
+		EnergyCheckUtils.initJrapl();
+		Scaler.openDVFSFiles();
+//	    ProfileStack.InitStack(EnergyCheckUtils.socketNum);
+		ProfileMap.initProfileMap();
+	    ProfileQueue.initShortMethod();
+	    DataPrinter.initPrintStream();
+	    LogQueue.InitStack(EnergyCheckUtils.socketNum);
+//      }
       Controller.boot();
     }
 
@@ -2639,6 +2659,49 @@ public class VM extends Properties {
       myThread.setDisallowAllocationsByThisThread();
     }
   }
+
+  /**
+   * record method id and decrease its yield point enable count by 1 before the stack is operated
+   * @author kenan
+   * @return Compiled method name before yield point is disabled
+   */
+  public static RVMMethod preYPDisabled() {
+		//Kenan:
+		int disabledCMID = Magic.getCompiledMethodID(Magic.getCallerFramePointer(Magic.getFramePointer()));
+		CompiledMethods.getCompiledMethod(disabledCMID).getMethod();
+		//Leave this operation until !yieldpoinEnabled in yieldpoint().
+//		if(!isOutOfBoundary(disabledCMID) && !ProfileQueue.isShortButFreqMethod(disabledCMID)
+//				&& ProfileQueue.hotMethodsByExeTime[disabledCMID]) {
+//
+//		}
+		RVMThread myThread = RVMThread.getCurrentThread();
+		RVMMethod method = CompiledMethods.getCompiledMethod(disabledCMID).getMethod();
+
+		myThread.preDisableYieldpoints(disabledCMID);
+		return method;
+  }
+
+  /**
+   * record method id and increase its yield point enable count by 1 after the stack is operated
+   * @author kenan
+   * @return Compiled method name before yield point is disabled
+   */
+  public static RVMMethod postYPEnabled() {
+		//Kenan: record method id after the stack is operated by GC
+		int disabledCMID = Magic.getCompiledMethodID(Magic.getCallerFramePointer(Magic.getFramePointer()));
+		CompiledMethods.getCompiledMethod(disabledCMID).getMethod();
+		//Leave this operation until !yieldpoinEnabled in yieldpoint().
+//		if(!isOutOfBoundary(disabledCMID) && !ProfileQueue.isShortButFreqMethod(disabledCMID)
+//				&& ProfileQueue.hotMethodsByExeTime[disabledCMID]) {
+//
+//		}
+		RVMThread myThread = RVMThread.getCurrentThread();
+		RVMMethod method = CompiledMethods.getCompiledMethod(disabledCMID).getMethod();
+
+		myThread.postEnableYieldpoints(disabledCMID);
+		return method;
+  }
+
 
   /**
    * enable GC; entry point when recursion is not OK.

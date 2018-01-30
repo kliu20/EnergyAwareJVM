@@ -12,6 +12,7 @@
  */
 package org.jikesrvm.adaptive.controller;
 
+import org.jikesrvm.adaptive.measurements.organizers.MethodEventCounterOrganizer;
 import java.util.Enumeration;
 import org.jikesrvm.VM;
 import org.jikesrvm.adaptive.OnStackReplacementEvent;
@@ -152,6 +153,28 @@ public final class ControllerThread extends SystemThread {
 
     controllerInitDone();
 
+    //Kenan
+    /**@author kenan
+     * Initialize Scaler files.
+     */
+//    if (!isOpenScaleFile) {
+//  		Scaler.initScaler();
+//  		EnergyCheckUtils.initJrapl();
+//  		Scaler.openDVFSFiles();
+//  	    VM.sysWriteln("Stack is going to be initialized!");
+//  	    ProfileStack.InitStack(EnergyCheckUtils.socketNum);
+//  	    ProfileQueue.initShortButFreqMethods();
+//  	    LogStack.InitStack(EnergyCheckUtils.socketNum);
+//  		isOpenScaleFile = true;
+//	  }
+
+    //Initialize profiling structure for energy/hardware counters
+//    ProfileQueue.initHotMethodQueue();
+//    ProfileQueue.initEventCounterQueue();
+
+//    if(Controller.options.ENABLE_COUNTER_PRINTER) {
+//    	ProfileQueue.initCorrelationMatrix();
+//    }
     // Enter main controller loop.
     // Pull an event to process off of
     // Controller.controllerInputQueue and handle it.
@@ -162,6 +185,8 @@ public final class ControllerThread extends SystemThread {
       if (opts.EARLY_EXIT && opts.EARLY_EXIT_TIME < Controller.controllerClock) {
         Controller.stop();
       }
+
+    //Kenan: unthread-safe here?
       Object event = Controller.controllerInputQueue.deleteMin();
       ((ControllerInputEvent) event).process();
     }
@@ -263,6 +288,8 @@ public final class ControllerThread extends SystemThread {
 
       // Install organizer to drive method recompilation
       Controller.organizers.add(new MethodSampleOrganizer(opts.DERIVED_FILTER_OPT_LEVEL));
+      //Kenan: Install organizer to drive event counter profiling.
+      Controller.organizers.add(new MethodEventCounterOrganizer());
       // Additional set up for feedback directed inlining
       if (opts.ADAPTIVE_INLINING) {
         Organizer decayOrganizer = new DecayOrganizer(new YieldCounterListener(opts.DECAY_FREQUENCY));

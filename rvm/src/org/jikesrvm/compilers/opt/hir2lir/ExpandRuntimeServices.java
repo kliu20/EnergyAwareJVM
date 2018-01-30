@@ -12,6 +12,7 @@
  */
 package org.jikesrvm.compilers.opt.hir2lir;
 
+import org.jikesrvm.adaptive.controller.Controller;
 import static org.jikesrvm.compilers.opt.driver.OptConstants.RUNTIME_SERVICES_BCI;
 import static org.jikesrvm.compilers.opt.ir.Operators.ATHROW_opcode;
 import static org.jikesrvm.compilers.opt.ir.Operators.CALL;
@@ -144,7 +145,12 @@ public final class ExpandRuntimeServices extends CompilerPhase {
    */
   @Override
   public void perform(IR ir) {
-    ir.getGc().resync(); // resync generation context -- yuck...
+        ir.getGc().resync(); // resync generation context -- yuck...
+      	if (Controller.options.ENABLE_COUNTER_PROFILING || Controller.options.ENABLE_ENERGY_PROFILING) {
+	                      org.jikesrvm.energy.Instrumentation instru = new org.jikesrvm.energy.Instrumentation(ir);
+			              //      instru.instrumentIO();
+				                            instru.perform();
+	}
 
     for (Instruction inst = ir.firstInstructionInCodeOrder(); inst != null; inst = next) {
       next = inst.nextInstructionInCodeOrder();

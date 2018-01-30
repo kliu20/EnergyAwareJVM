@@ -21,6 +21,10 @@ import static org.jikesrvm.objectmodel.ThinLockConstants.TL_THREAD_ID_SHIFT;
 
 import java.security.AccessController;
 import java.security.PrivilegedAction;
+import org.jikesrvm.adaptive.controller.Controller;
+
+
+import org.jikesrvm.energy.RuntimeScaler;
 
 import org.jikesrvm.VM;
 import org.jikesrvm.adaptive.OSRListener;
@@ -147,6 +151,28 @@ import org.vmmagic.unboxed.Word;
 @Uninterruptible
 @NonMoving
 public final class RVMThread extends ThreadContext {
+
+
+  //Kenan
+  public final static int entrySize = 256;
+  public int methodYPDisabledCount = 0;
+  //Index for YPDisabledMethodID
+  public int YPNextIndex = 0;
+	/*
+	 * Energy/hardware counter measurement when yieldpoint of methods are disabled when yieldpoint() gets invoked.
+	 * Record yieldpoint of methods that are disabled by compiled method stack based operations for each thread.
+	 * Eg. disableGC() and etc.
+	 */
+  /**This array maps cmid to index*/
+  public int[] YPDisabledMethodIndex = new int[entrySize + (entrySize >>> 2)];
+  /**Index for each method*/
+  public int[] YPDisabledMethodID = new int[entrySize];
+  /**If it's 1, the yieldpoint is enabled, < 1 it's not. Just like yieldpointsEnabledCount*/
+  public int[] YPDisabledMethods = new int[entrySize];
+  /**Counter for yield point disabled by GC only*/
+  public int YPDisabledCountByGC = 0;
+
+
   /*
    * debug and statistics
    */
@@ -1637,6 +1663,11 @@ public final class RVMThread extends ThreadContext {
     * @param priority The threads execution priority.
     */
    public RVMThread(byte[] stack, Thread thread, String name, boolean daemon, SystemThread systemThread, int priority) {
+	//Kenan
+//	YPDisabledMethodIndex = new int[entrySize + (entrySize >>> 2)];
+//	YPDisabledMethodID = new int[entrySize];
+//	YPDisabledMethods = new int[entrySize];
+
     this.stack = stack;
 
     this.daemon = daemon;
@@ -2597,6 +2628,70 @@ public final class RVMThread extends ThreadContext {
   public void disableYieldpoints() {
     --yieldpointsEnabledCount;
   }
+
+  /*
+   * Kenan: Methods handling energy/hardware counter profiling when yield point disabled
+   */
+
+  /**Increase yield point enabled count by 1 for each method before enableYieldpoints()*/
+  public void postEnableYieldpoints(int cmid) {
+	  int index = 0;
+	  if(!isOutBoundary(YPDisabledMethodIndex, cmid)) {
+		  index = YPDisabledMethodIndex[cmid];
+		  ++YPDisabledMethods[index];
+		  return;
+	  }
+	  growSize(YPDisabledMethodIndex, cmid);
+	  YPDisabledMethodIndex[cmid] = YPNextIndex;
+	  growSize(YPDisabledMethodID, YPNextIndex);
+	  YPDisabledMethodID[YPNextIndex] = cmid;
+	  growSize(YPDisabledMethods, YPNextIndex);
+	  ++YPDisabledMethods[index];
+	  YPNextIndex++;
+  }
+
+  /**Decrease yield point enabled count by 1 for each method before disableYieldpoints()*/
+  public void preDisableYieldpoints(int cmid) {
+	  int index = 0;
+	  if(!isOutBoundary(YPDisabledMethodIndex, cmid)) {
+		  index = YPDisabledMethodIndex[cmid];
+		  --YPDisabledMethods[index];
+		  return;
+	  }
+	  growSize(YPDisabledMethodIndex, cmid);
+	  YPDisabledMethodIndex[cmid] = YPNextIndex;
+	  growSize(YPDisabledMethodID, YPNextIndex);
+	  YPDisabledMethodID[YPNextIndex] = cmid;
+	  growSize(YPDisabledMethods, YPNextIndex);
+	  --YPDisabledMethods[index];
+	  YPNextIndex++;
+  }
+
+  /**
+   * @param methodList
+   * @param index
+   * @return true if the index is out of array boundary
+   */
+  public boolean isOutBoundary(int[] methodList, int index) {
+	  return methodList.length <= index;
+  }
+
+  /**
+   * @param methodList array to be increased
+   * @param index array index
+   */
+	public void growSize(int[] methodList, int index) {
+		//Index of method ID may be way larger than the current array size.
+		while(isOutBoundary(methodList, index)) {
+			int[] newQueue = new int[Math.max(index + 1, (int) (methodList.length * 1.25))];
+			System.arraycopy(methodList, 0, newQueue, 0, methodList.length);
+			methodList = newQueue;
+		}
+	}
+
+	/*
+	 * Kenan: End
+	 */
 
   /**
    * Fail if yieldpoints are disabled on this thread
@@ -4208,6 +4303,31 @@ public final class RVMThread extends ThreadContext {
 
     Throwable throwThis = null;
     t.monitor().lockNoHandshake();
+
+    //Kenan: Check if the current method of energy consumption needs to measured.
+    t.checkBlock();
+    /*
+     * kenan: After considering hot method by execution time, further filter hot methods for
+     * dynamic scaling by considering hardware events. Eg. cache miss rate and TLB miss.
+     */
+//    for(int i = 0; i < t.YPDisabledMethods.length; i++) {
+//		int id = t.YPDisabledMethodID[i];
+//		VM.sysWriteln("YPDisabledMethodID: " + id);
+//    }
+
+//	if (ypTakenInCallerCMID != StackframeLayoutConstants.INVISIBLE_METHOD_ID
+//			&& !ypTakenInCM.getMethod().getDeclaringClass()
+//					.hasBridgeFromNativeAnnotation()) {
+//		if(whereFrom == RVMThread.PROLOGUE)
+//			VM.sysWriteln("taken event counter sample method prologue: " + ypTakenInCM.getMethod());
+//		else if(whereFrom == RVMThread.EPILOGUE)
+//			VM.sysWriteln("taken event counter sample method epilogue: " + ypTakenInCM.getMethod());
+//	}
+//      RuntimeMeasurements.takeEventCounterSample(whereFrom, yieldpointServiceMethodFP);
+      //If dynamic scaling is enabled
+      if(Controller.options.ENABLE_SCALING_BY_COUNTERS) {
+    	  RuntimeScaler.dynamicScale(whereFrom, yieldpointServiceMethodFP);
+      }
 
     int takeYieldpointVal = t.takeYieldpoint;
     if (takeYieldpointVal != 0) {

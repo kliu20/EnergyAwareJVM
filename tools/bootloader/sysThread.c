@@ -333,6 +333,7 @@ EXTERNAL void sysStartMainThread(jboolean vmInSeparateThread, Address ip, Addres
   sysThreadArguments[3] = jtoc;
   if (!vmInSeparateThread) {
     sysThreadArguments[4] = MAIN_THREAD_DONT_TERMINATE;
+    TRACE_PRINTF("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     sysThreadStartup(sysThreadArguments);
   } else {
     *bootCompleted = 0;

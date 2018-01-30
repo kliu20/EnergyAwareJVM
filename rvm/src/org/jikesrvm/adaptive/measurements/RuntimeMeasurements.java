@@ -14,9 +14,12 @@ package org.jikesrvm.adaptive.measurements;
 
 import java.util.Vector;
 
+import org.jikesrvm.energy.ProfileQueue;
+import org.jikesrvm.ia32.StackframeLayoutConstants;
 import org.jikesrvm.adaptive.controller.Controller;
 import org.jikesrvm.adaptive.measurements.listeners.ContextListener;
 import org.jikesrvm.adaptive.measurements.listeners.MethodListener;
+import org.jikesrvm.adaptive.measurements.listeners.MethodEventCounterListener;
 import org.jikesrvm.adaptive.measurements.listeners.NullListener;
 import org.jikesrvm.adaptive.util.AOSLogging;
 import org.jikesrvm.architecture.StackFrameLayout;
@@ -67,6 +70,38 @@ public abstract class RuntimeMeasurements {
    */
   private static NullListener[] timerNullListeners = new NullListener[0];
 
+  //Kenan
+  private static MethodEventCounterListener[] eventCounterMethodListeners;
+
+
+  public static void initEventCounterMethodListener() {
+	  if(eventCounterMethodListeners == null)
+		  eventCounterMethodListeners = new MethodEventCounterListener[0];
+  }
+  /**
+   * Install a method energy listener on timer ticks = new MethodEnergyListener[0];
+   * @author kenan
+   * @param s
+   */
+  public static synchronized void installEventCounterMethodListener(MethodEventCounterListener s) {
+//	  eventCounterMethodListeners = new MethodEnergyListener[0];
+//	  if(eventCounterMethodListeners.length == 0) {
+//	  VM.sysWriteln("-----------kenan: install energy method listerner set----------");
+//	  }
+	  int numListeners = eventCounterMethodListeners.length;
+//	  VM.sysWriteln("timerNullListeners initialize size: " + timerNullListeners.length );
+//	  VM.sysWriteln("eventCounterMethodListeners initialize size: " + numListeners );
+	  MethodEventCounterListener[] tmp = new MethodEventCounterListener[numListeners + 1];
+	    for (int i = 0; i < numListeners; i++) {
+	        tmp[i] = eventCounterMethodListeners[i];
+	      }
+//	  System.arraycopy(eventCounterMethodListeners, 0, tmp, 0, numListeners);
+	    tmp[numListeners] = s;
+	  eventCounterMethodListeners = tmp;
+
+//	  VM.sysWriteln("after initialize size: " + eventCounterMethodListeners.length);
+  }
+
   /**
    * Install a method listener on timer ticks
    * @param s method listener to be installed
@@ -109,6 +144,70 @@ public abstract class RuntimeMeasurements {
     timerNullListeners = tmp;
   }
 
+
+public static boolean isOutOfBoundary(int cmid) {
+	  return ProfileQueue.longMethods.length <= cmid;
+//	return true;
+}
+/**
+ * Called from Thread.yieldpoint to do event counter profiling.
+ * @author Kenan
+ * @param whereFrom
+ * @param yieldpointServiceMethodFP
+ */
+@Uninterruptible
+public static void takeEventCounterSample(int whereFrom, Address yieldpointServiceMethodFP) {
+//	VM.sysWriteln("Kenan: take event counter sample begins!");
+	    Address ypTakenInFP = Magic.getCallerFramePointer(yieldpointServiceMethodFP); // method that took yieldpoint
+	    // Get the cmid for the method in which the yieldpoint was taken.
+	    int ypTakenInCMID = Magic.getCompiledMethodID(ypTakenInFP);
+
+	    if(isOutOfBoundary(ypTakenInCMID))
+	    	return;
+
+	    //In the first stage of AOS run, all methods are cold.
+	    //After that, If the current method is considered
+	    //as hot method by its execution time in previous stage.
+	    // Get the cmid for that method's caller.
+		if (!ProfileQueue.isShortMethod(ypTakenInCMID) && ProfileQueue.longMethods[ypTakenInCMID]) {
+//			VM.sysWriteln("Kenan: The method id is: " + ypTakenInCMID + " the future execution time is: " + ProfileQueue.hotMethodExeTime[ypTakenInCMID]);
+			Address ypTakenInCallerFP = Magic
+					.getCallerFramePointer(ypTakenInFP);
+			int ypTakenInCallerCMID = Magic
+					.getCompiledMethodID(ypTakenInCallerFP);
+
+			// Determine if ypTakenInCallerCMID corresponds to a real Java
+			// stackframe.
+			// If one of the following conditions is detected, set
+			// ypTakenInCallerCMID to -1
+			// Caller is out-of-line assembly (no RVMMethod object) or
+			// top-of-stack psuedo-frame
+			// Caller is a native method
+			CompiledMethod ypTakenInCM = CompiledMethods
+					.getCompiledMethod(ypTakenInCMID);
+//			if(whereFrom == RVMThread.PROLOGUE)
+//				VM.sysWriteln("taken event counter sample method prologue: " + ypTakenInCM.getMethod());
+//			else if(whereFrom == RVMThread.EPILOGUE)
+//				VM.sysWriteln("taken event counter sample method epilogue: " + ypTakenInCM.getMethod());
+//			VM.sysWriteln("Kenan: The method id is: " + ypTakenInCMID +
+//					" method name is: " + ypTakenInCM.getMethod() + " the future execution time is: " + ProfileQueue.hotMethodExeTime[ypTakenInCMID]);
+			if (ypTakenInCallerCMID == StackframeLayoutConstants.INVISIBLE_METHOD_ID
+					|| ypTakenInCM.getMethod().getDeclaringClass()
+							.hasBridgeFromNativeAnnotation()) {
+				ypTakenInCallerCMID = -1;
+			} else {
+				// Notify all registered listeners
+				for (MethodEventCounterListener listener : eventCounterMethodListeners) {
+					if (listener.isActive()) {
+						listener.update(ypTakenInCMID, whereFrom, ypTakenInCM);
+					}
+				}
+
+			}
+		} else {
+//			VM.sysWriteln("current method is cold");
+		}
+}
   /**
    * Called from Thread.yieldpoint every time it is invoked due to
    * a timer interrupt.

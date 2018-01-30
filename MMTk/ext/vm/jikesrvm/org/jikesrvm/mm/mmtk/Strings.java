@@ -12,7 +12,9 @@
  */
 package org.jikesrvm.mm.mmtk;
 
+import org.jikesrvm.util.Services;
 import org.jikesrvm.VM;
+import org.jikesrvm.classloader.RVMMethod;
 import org.jikesrvm.scheduler.RVMThread;
 import org.jikesrvm.util.Services;
 import org.vmmagic.pragma.*;
@@ -29,6 +31,7 @@ public final class Strings extends org.mmtk.vm.Strings {
   public void writeThreadId(char [] c, int len) {
     VM.tsysWrite(c, len);
   }
+
 
   @Override
   public int copyStringToChars(String str, char [] dst,
@@ -57,6 +60,10 @@ public final class Strings extends org.mmtk.vm.Strings {
                                     int dstBegin, int dstEnd) {
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);
     // FIXME Why do we need to disable thread switching here, in uninterruptible code??
+    //Kenan
+//    RVMMethod method = VM.preYPDisabled();
+//    VM.sysWriteln("Before YP is disabled by safeCopyStringToChars, the method is: " + method);
+
     RVMThread.getCurrentThread().disableYieldpoints();
     char[] str_backing = java.lang.JikesRVMSupport.getBackingCharArray(str);
     int str_length = java.lang.JikesRVMSupport.getStringLength(str);
@@ -66,6 +73,8 @@ public final class Strings extends org.mmtk.vm.Strings {
       Services.setArrayNoBarrier(dst, dstBegin + i, str_backing[str_offset + i]);
     }
     RVMThread.getCurrentThread().enableYieldpoints();
+//    method = VM.postYPEnabled();
+//    VM.sysWriteln("After YP is disabled by safeCopyStringToChars, the method is: " + method);
     return n;
   }
   /**
