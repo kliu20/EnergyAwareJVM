@@ -2,7 +2,7 @@ import java.lang.reflect.Field;
 public class EnergyCheckUtils {
 	public native static int scale(int freq);
 	public native static int[] freqAvailable();
-	
+
 	public native static double[] GetPackagePowerSpec();
 	public native static double[] GetDramPowerSpec();
 	public native static void SetPackagePowerLimit(int socketId, int level, double costomPower);
@@ -14,57 +14,67 @@ public class EnergyCheckUtils {
 	public native static String EnergyStatCheck();
 	public native static void ProfileDealloc();
 	public native static void SetPowerLimit(int ENABLE);
-	public static int wraparoundValue;	
-	
+	public static int wraparoundValue;
+
 	public static int socketNum;
 	static {
-		System.setProperty("java.library.path",
-				System.getProperty("user.dir"));
-//				System.out.print(System.getProperty("user.dir"));
+	
+		System.setProperty("java.library.path", System.getProperty("user.dir"));
 		try {
-			Field fieldSysPath = ClassLoader.class
-					.getDeclaredField("sys_paths");
+			Field fieldSysPath = ClassLoader.class.getDeclaredField("sys_paths");
 			fieldSysPath.setAccessible(true);
 			fieldSysPath.set(null, null);
-		} catch (Exception e) {
+		} catch (Exception e) { }
 
-		}
+		String lib_path = System.getProperty("java.library.path", System.getProperty("user.dir"));
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println(lib_path);
 		System.loadLibrary("CPUScaler");
 		wraparoundValue = ProfileInit();
-		socketNum = GetSocketNum();
+		//socketNum = GetSocketNum();
+		socketNum = 1;
 	}
-	
+
 	/**
 	 * @return an array of current energy information.
 	 * The first entry is: Dram/uncore gpu energy(depends on the cpu architecture.
 	 * The second entry is: CPU energy
 	 * The third entry is: Package energy
 	 */
-	
+
 	public static double[] getEnergyStats() {
-		socketNum = GetSocketNum();
+		//socketNum = GetSocketNum();
+		System.out.println("Tracing....");
+		System.out.println("[getEnergyStats] Begin ....");
 		String EnergyInfo = EnergyStatCheck();
-		System.out.println("energy is: " + EnergyInfo);
 		/*One Socket*/
+		String log = String.format("Calling getEnergyStats() .... Number of Sockets %d", socketNum);
+	        System.out.println(log);
+
 		if(socketNum == 1) {
 			double[] stats = new double[3];
 			String[] energy = EnergyInfo.split("#");
-			
+
+			System.out.println(String.format("energy value is ::: %s", EnergyInfo));
+
 			stats[0] = Double.parseDouble(energy[0]);
 			stats[1] = Double.parseDouble(energy[1]);
 			stats[2] = Double.parseDouble(energy[2]);
-			
+
 			return stats;
-		
+
 		} else {
 		/*Multiple sockets*/
+			System.out.println("Step 2");
 			String[] perSockEner = EnergyInfo.split("@");
 			double[] stats = new double[3*socketNum];
 			int count = 0;
 
-			
+
 			for(int i = 0; i < perSockEner.length; i++) {
 				String[] energy = perSockEner[i].split("#");
+				
 				for(int j = 0; j < energy.length; j++) {
 					count = i * 3 + j;	//accumulative count
 					stats[count] = Double.parseDouble(energy[j]);
@@ -74,49 +84,37 @@ public class EnergyCheckUtils {
 		}
 
 	}
-	
+	private static void runProcess(String command) throws Exception {
+		Process pro = Runtime.getRuntime().exec(command);
+		pro.waitFor();
+	}
+
+	public static void printTitle() {
+		System.out.println("Frequency,hotMethodMin,hotMethodMax,MethodID,MethodName,MethodNameHashCode,DRAM/uncoreGPU,CPU,Package,Package_power,WallClockTime");
+	}	
+
 	public static void main(String[] args) {
-		//Info info = (Info)energyInfo.EnergyStatCheck();
-		/*For jni header generation*/
-		//SetPowerLimit(0);
-	//	double[] info1 = GetPackagePowerSpec();
-//		double[] info2 = GetDramPowerSpec();
+		//String str = String.format("sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm -Xmx2500M -X:vm:errorsFatal=true -X:aos:enable_recompilation=true -X:aos:hot_method_time_min=50 -X:aos:hot_method_time_max=800 -X:aos:frequency_to_be_printed=%s -X:aos:event_counter=cache-misses -X:aos:enable_counter_profiling=false -X:aos:enable_energy_profiling=false -X:aos:profiler_file=threads.csv -X:aos:enable_scaling_by_counters=false -X:aos:enable_counter_printer=true -jar dacapo-2006-10-MR2.jar -s large eclipse -t %s", args[0], args[1]);
 
-
-
-		//for(int i = 0; i < 4; i++)
-			//System.out.println("package: " + info1[i]);
-		
-		//SetPackagePowerLimit(0, 0, 150.0);
-//		SetPackagePowerLimit(1, 0, 150.0);
-//		SetDramPowerLimit(0, 0, 130.0);
-//		SetDramPowerLimit(1, 0, 130.0);
-
-		//SetPackageTimeWindowLimit(0, 1, 1.0);
-//		SetPackageTimeWindowLimit(1, 1, 1.0);
-		
-		/*
-		EnergyStatCheck();
-		ProfileDealloc();
-
-		int[] a = freqAvailable();
-		scale(10000);
-		*/
-		
-
-
-		double[] before = getEnergyStats();
-		//System.out.println(before);
+		String str = String.format("sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm -Xmx2500M -X:vm:interruptQuantum=%s -X:vm:errorsFatal=true -X:aos:enable_recompilation=true -X:aos:hot_method_time_min=50 -X:aos:hot_method_time_max=800 -X:aos:frequency_to_be_printed=%s -X:aos:event_counter=cache-misses -X:aos:enable_counter_profiling=false -X:aos:enable_energy_profiling=false -X:aos:profiler_file=threads.csv -X:aos:enable_scaling_by_counters=false -X:aos:enable_counter_printer=true -jar dacapo-9.12-bach.jar -s large sunflow -t %s", args[2], args[0], args[1]);
+		double[] preEner = getEnergyStats();
+		long pre = System.currentTimeMillis();
+		double preTime = pre / 1000;
 		try {
-			Thread.sleep(10000);
+			for (int i = 0; i < 10; i++) {
+				runProcess(str);
+			}
 		} catch(Exception e) {
+		  e.printStackTrace();
 		}
-		double[] after = getEnergyStats();
-		//System.out.println(after);
-		//System.out.println(after_info[0][0]);
-		//System.out.println(before_info[0][0]);
+		double[] postEner = getEnergyStats();
+		long post = System.currentTimeMillis();
+		double postTime = post / 1000;
+		double time = postTime - preTime;
+		//printTitle();
+
 		for(int i = 0; i < socketNum; i++) {
-			System.out.println("dram: " + (after[0] - before[0]) / 10.0 + " cpu: " + (after[1] - before[1]) / 10.0 + " package: " + (after[2] - before[2]) / 10.0);
+			System.out.println(Integer.parseInt(args[0]) + "," + ",,,,," + (postEner[0] - preEner[0]) + "," + (postEner[1] - preEner[1]) + "," + (postEner[2] - preEner[2]) + "," + (postEner[2] - preEner[2]) / time + "," + (post - pre));
 		}
 		ProfileDealloc();
 	}
