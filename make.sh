@@ -12,8 +12,14 @@ if [ -d "target" ]; then
 	rm -r target
 fi
 
-echo $JAVA_HOME
+echo "Java Home: $JAVA_HOME"
 JAVA_HOME="/home/kmahmou1/jdk1.6.0_45"
+echo "++++++++ Printing Java Version ++++++++++++"
+java -version
+echo "+++++++++++++ Printing Java Version"
+PATH=/home/kmahmou1/jdk1.6.0_45/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+echo $PATH
 
 ant -Dconfig.include.aos=true -Dconfig.runtime.compiler=opt -Dconfig.bootimage.compiler=opt -Dconfig.assertions=none -Dconfig.include.perfevent=true
 #ant -Dconfig.bootimage.compiler=opt -Dconfig.assertions=none 

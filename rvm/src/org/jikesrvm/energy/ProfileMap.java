@@ -71,9 +71,6 @@ public class ProfileMap {
 			if (profiles.size() >= RECURSIVE_NUM) {
 				//Let the first entry record the total number of recursive call for this method
 				String[] info = key.split("#");
-				VM.sysWriteln("threadID: " + info[0] + " The recursive method name: " + 
-								Service.clsNameList[Integer.parseInt(info[1])] + "." + Service.methodNameList[Integer.parseInt(info[1])]);
-				VM.sysWriteln("If the method is short method: " + ProfileQueue.isShortMethod(Integer.parseInt(info[1])) + " recursive number is: " + firstEntry.count);
 				firstEntry.isOverProfiled = true;
 				//Keep counting the number of recursive calls
 				firstEntry.count++;
@@ -142,10 +139,7 @@ public class ProfileMap {
 		
 		if (firstEntry.isOverProfiled) {
 			String[] info = key.split("#");
-			VM.sysWriteln("method isOverProfiled: " + Service.clsNameList[Integer.parseInt(info[1])] + "." + Service.methodNameList[Integer.parseInt(info[1])]
-					+ " count is: " + firstEntry.count);
 			if (--firstEntry.count == 1) {
-				VM.sysWriteln("Time for the recursive calls calculation!!!");
 				return profileMap.remove(key).get(0).attrs;
 			}
 			//Record the profiling information of first calls only. Drop the other recursive calls

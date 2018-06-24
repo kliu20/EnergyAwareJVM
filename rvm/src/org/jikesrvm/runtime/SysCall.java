@@ -135,6 +135,8 @@ public abstract class SysCall {
   /*
    * Interface to performance events
    */
+   @SysCallTemplate
+   public abstract int sysInitPerf();
   @SysCallTemplate
   public abstract int sysPerfEventInit(int events);
   @SysCallTemplate
@@ -481,6 +483,7 @@ public abstract class SysCall {
 
   @SysCallTemplate
   public abstract void sysStackAlignmentTest();
+
 
 	   @SysCallTemplate
 	   public abstract int ProfileInit();

@@ -16,7 +16,7 @@ public class ProfileQueue {
 	/**Times of the method that is out of time range of method hotness*/
 	private final static int SHORT_METHOD_THRESHOLD = 10;
 
-	public static int numLongMethods = 0;
+	public static int numNonskippableMethods = 0;
 	//Method profiling array size for each profiling metric
 	public static int [] methodProfSize;
 	public static int entrySize = 256;
@@ -76,7 +76,7 @@ public class ProfileQueue {
 		}
 	}
 	
-	public static void initShortMethod() {
+	public static void initSkippableMethod() {
 //		shortMethodJudge = new int[entrySize + (entrySize >>> 2)];
 		shortMethod = new Boolean[entrySize + (entrySize >>> 2)];
 	}
@@ -154,9 +154,9 @@ public class ProfileQueue {
 	
 	//Insert event counter rates
 	//TODO: Accumulate the rates maybe better?
-	public static synchronized void insertToLongMethodsByEventCounter (int cmid, int event, double value) {
+	public static synchronized void insertToNonskippableMethodsByEventCounter (int cmid, int event, double value) {
 		if(cmid >= longMethodsByEventCounter[event].length) {
-			growLongMethodsByEventCounterSize(cmid);
+			growNonskippableMethodsByEventCounterSize(cmid);
 		}
 		longMethodsByEventCounter[event][cmid] = value;
 		//Test
@@ -165,9 +165,9 @@ public class ProfileQueue {
 //		}
 	}
 
-	public static synchronized void insertToLongMethods (int cmid) {
+	public static synchronized void insertToNonskippableMethods (int cmid) {
 		if(cmid >= longMethods.length) {
-			growLongMethodByExeTimeSize(cmid);
+			growNonskippableMethodByExeTimeSize(cmid);
 		}
 		longMethods[cmid] = true;
 	}
@@ -176,9 +176,9 @@ public class ProfileQueue {
 	 * Set the method to be short method
 	 * @param cmid Compiled method ID
 	 */
-	public static synchronized void setShortMethod(int cmid) {
+	public static synchronized void setSkippableMethod(int cmid) {
 		if(cmid >= shortMethod.length) {
-			growShortMethod(cmid);
+			growSkippableMethod(cmid);
 		}
 		shortMethod[cmid] = true;
 	}
@@ -187,9 +187,9 @@ public class ProfileQueue {
 	 * Set the method to be long method
 	 * @param cmid Compiled method ID
 	 */
-	public static synchronized void setLongMethod(int cmid) {
+	public static synchronized void setNonskippableMethod(int cmid) {
 		if(cmid >= shortMethod.length) {
-			growShortMethod(cmid);
+			growSkippableMethod(cmid);
 		}
 		shortMethod[cmid] = false;
 	}
@@ -198,9 +198,9 @@ public class ProfileQueue {
 	 * Increase the times of methods that 
 	 * @param cmid
 	 */
-	public static synchronized void increaseShortMethodJudge(int cmid, double totalWallClockTime) {
+	public static synchronized void increaseSkippableMethodJudge(int cmid, double totalWallClockTime) {
 		if(cmid >= shortMethodJudge.length) {
-			growShortMethodJudge(cmid);
+			growSkippableMethodJudge(cmid);
 		}
 		shortMethodJudge[cmid] += 1;
 	}
@@ -210,7 +210,7 @@ public class ProfileQueue {
 	 * @param cmid
 	 * @return
 	 */
-	public static synchronized boolean toBeInsertedToShortList(int cmid) {
+	public static synchronized boolean toBeInsertedToSkippableList(int cmid) {
 		if(shortMethodJudge.length > cmid && shortMethodJudge[cmid] >= SHORT_METHOD_THRESHOLD) {
 			return true;
 		} else {
@@ -218,13 +218,13 @@ public class ProfileQueue {
 		}
 	}
 	
-	public static Boolean isShortMethod(int cmid) {
+	public static Boolean isSkippableMethod(int cmid) {
 		if(shortMethod.length <= cmid)
 			return null;
 		return shortMethod[cmid];
 	}
 	
-	public static boolean isLongMethod(int cmid) {
+	public static boolean isNonskippableMethod(int cmid) {
 		if(longMethods.length <= cmid)
 			return false;
 		return longMethods[cmid];
@@ -234,7 +234,7 @@ public class ProfileQueue {
 	 * Grow the size of shortMethodJudge
 	 * @param cmid
 	 */
-	public static void growShortMethodJudge(int cmid) {
+	public static void growSkippableMethodJudge(int cmid) {
 		int [] newJudge = new int[Math.max(cmid + 1, (int) (shortMethodJudge.length * 1.25))];
 		System.arraycopy(shortMethodJudge, 0, newJudge, 0, shortMethodJudge.length);
 		shortMethodJudge = newJudge;
@@ -244,13 +244,13 @@ public class ProfileQueue {
 	 * Grow the size of shortMethod
 	 * @param cmid
 	 */
-	public static void growShortMethod(int cmid) {
+	public static void growSkippableMethod(int cmid) {
 		Boolean[] newQueue = new Boolean[Math.max(cmid + 1, (int) (shortMethod.length * 1.25))];
 		System.arraycopy(shortMethod, 0, newQueue, 0, shortMethod.length);
 		shortMethod = newQueue;
 	}
 	
-	public static void growLongMethodsByEventCounterSize(int cmid) {
+	public static void growNonskippableMethodsByEventCounterSize(int cmid) {
 		double[][] newQueue = new double[Scaler.getTotalEventNum()][Math.max(cmid + 1, (int) (longMethodsByEventCounter[0].length * 1.25))];
 		for (int i = 0; i < Scaler.getTotalEventNum(); i++) {
 			System.arraycopy(longMethodsByEventCounter[i], 0, newQueue[i], 0, longMethodsByEventCounter[i].length);
@@ -266,7 +266,7 @@ public class ProfileQueue {
 		}
 	}
 	
-	public static void growLongMethodByExeTimeSize(int cmid) {
+	public static void growNonskippableMethodByExeTimeSize(int cmid) {
 		Boolean[] newQueue = new Boolean[Math.max(cmid + 1, (int) (longMethods.length * 1.25))];
 		System.arraycopy(longMethods, 0, newQueue, 0, longMethods.length);
 		longMethods = newQueue;

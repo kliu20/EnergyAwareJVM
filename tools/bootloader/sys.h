@@ -274,6 +274,7 @@ EXTERNAL Extent parse_memory_size(const char *sizeName, /*  "initial heap" or "m
          const char *subtoken /* e.g., "200M" or "200" */,
          int *fastExit);
 // sysPerfEvent
+EXTERNAL void sysInitPerf();
 EXTERNAL void sysPerfEventInit(int events);
 EXTERNAL void sysPerfEventCreate(int id, const char *eventName);
 EXTERNAL void sysPerfEventEnable();

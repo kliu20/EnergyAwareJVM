@@ -78,14 +78,14 @@ public class Service implements ProfilingTypes {
 		Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
 		int eventId = 0;
 		int threadId = (int)Thread.currentThread().getId();
-//		if (!ProfileMap.isLongMethod(cmid)) {
-//			if (ProfileMap.isShortMethodMap(cmid)) {
+//		if (!ProfileMap.isNonskippableMethod(cmid)) {
+//			if (ProfileMap.isSkippableMethodMap(cmid)) {
 //				return;
 //			}
 //		}
 		// Check if the current method is not short method (long method) or it hasn't been calculated
-		Boolean isShort = ProfileQueue.isShortMethod(cmid);
-		if (isShort == null || isShort != null && !isShort) {
+		Boolean isSkippable = ProfileQueue.isSkippableMethod(cmid);
+		if (isSkippable == null || isSkippable != null && !isSkippable) {
 		
 			// Measure hardware counters
 			double wallClockTime = System.currentTimeMillis();
@@ -95,6 +95,14 @@ public class Service implements ProfilingTypes {
 			
 			String key = ProfileMap.createKey(threadId, cmid);
 			//Loop unwinding
+			if (Controller.options.ENABLE_COUNTER_PROFILING) {
+				for (int i = 0; i < Scaler.perfCounters; i++) {
+					perfCounter = Scaler.perfCheck(i);
+					profileAttrs[eventId++] = perfCounter;
+					
+				}
+			}
+	
 			if (Controller.options.ENABLE_ENERGY_PROFILING) {
 				
 				double[] energy = EnergyCheckUtils.getEnergyStats();
@@ -103,14 +111,7 @@ public class Service implements ProfilingTypes {
 					profileAttrs[eventId++] = energy[i];
 				}
 			}
-			if (Controller.options.ENABLE_COUNTER_PROFILING) {
-				for (int i = 0; i < Scaler.perfCounters; i++) {
-					perfCounter = Scaler.perfCheck(i);
-					profileAttrs[eventId++] = perfCounter;
-					
-				}
-			}
-			
+		
 			/**Preserve for dynamic scaling*/ 
 	//		int counterIndex = 0;
 	//		double[] energy = EnergyCheckUtils.getEnergyStats();
@@ -155,9 +156,10 @@ public class Service implements ProfilingTypes {
 
 		
 		// Check if the current method is not short method (long method) or it hasn't been calculated
-		Boolean isShort = ProfileQueue.isShortMethod(cmid);
+		Boolean isSkippable = ProfileQueue.isSkippableMethod(cmid);
+
 		
-		if (isShort == null || isShort != null && !isShort) {
+		if (isSkippable == null || isSkippable != null && !isSkippable) {
 			
 			String key = ProfileMap.createKey(threadId, cmid);
 			
@@ -176,43 +178,35 @@ public class Service implements ProfilingTypes {
 			double wallClockTime = System.currentTimeMillis();
 			
 			startWallClockTime = methodPreamble[Scaler.getPerfEnerCounterNum() - 1];
+			totalWallClockTime = wallClockTime - startWallClockTime;
 			// startWallClockTime = ProfileStack.pop(Scaler.getPerfEnerCounterNum() - 1, threadId, cmid);
 			
 			// Over recursive call threshold check. If it's a negative value, that means the current method
 			// is invoked itself more than a certain threshold times. We only need care the information of the whole
 			// recursive calls
-	//		if (startWallClockTime < 0) {
-	//			return;
-	//		}
-			totalWallClockTime = wallClockTime - startWallClockTime;
-
+	
 			// Get greater range since the method execution time varies a lot
 			double min = Controller.options.HOT_METHOD_TIME_MIN;
 			double max = Controller.options.HOT_METHOD_TIME_MAX;
-			
-//			if (totalWallClockTime >= min && totalWallClockTime < max) {
-//				VM.sysWriteln(" min " + min + " Max: " + max + " long method!!!! time usage is: " + totalWallClockTime + " is it short before? " + isShort);
-//			}
 
-			//Time to judge if the method is short method or long method
-			if (isShort == null) {
-				if (totalWallClockTime < min || totalWallClockTime >= max) {
-					ProfileQueue.setShortMethod(cmid);
+			  //Calculate method's profiling information
+			  calculateProfile(eventEnerValues, methodPreamble, totalWallClockTime, cmid);
+	
+			if (isSkippable == null) {
+				if (totalWallClockTime < 30 || eventEnerValues[0] / eventEnerValues[1] < min || eventEnerValues[0] / eventEnerValues[1] >= max) {
+					ProfileQueue.setSkippableMethod(cmid);
 					return;
 				} else {
-					ProfileQueue.setLongMethod(cmid);
+					ProfileQueue.setNonskippableMethod(cmid);
 				}
 			}
+	
 			
 			  /**Event counter printer object*/
-			//			  DataPrinter printer = new DataPrinter(EnergyCheckUtils.socketNum, cmid, clsNameList[cmid] + "." + methodNameList[cmid], 
-			//								  									totalWallClockTime);
 			  if(Controller.options.ENABLE_COUNTER_PRINTER && !titleIsPrinted) {
 				  //DataPrinter.printEventCounterTitle(Controller.options.ENABLE_COUNTER_PROFILING, Controller.options.ENABLE_ENERGY_PROFILING);
 				  titleIsPrinted = true;
 			  }
-			  //Calculate method's profiling information
-			  calculateProfile(eventEnerValues, methodPreamble, totalWallClockTime, cmid);
 			  
 			  for(int i = 1; i <= Scaler.getPerfEnerCounterNum() - 1; i++) {
 				  
@@ -224,18 +218,20 @@ public class Service implements ProfilingTypes {
 					  missRate = ((double)eventEnerValues[i + offset - Scaler.perfCounters] / (double)eventEnerValues[i + offset - Scaler.perfCounters + 1]);
 					  //get TLB misses
 					  tlbMisses = eventEnerValues[i + offset - Scaler.perfCounters + 2] + eventEnerValues[i + offset -Scaler.perfCounters + 3];
-				//					  LogQueue.add(i + offset - 1, threadId, cmid, missRate);
+					  LogQueue.add(i + offset - 1, threadId, cmid, missRate);
 					  //Move to the next index for TLBMISSES
 					  ++offset;
-				//					  LogQueue.add(i + offset - 1, threadId, cmid, tlbMisses);
+					  LogQueue.add(i + offset - 1, threadId, cmid, tlbMisses);
 					  continue;
 				  }
-				//				  LogQueue.add(i + offset - 1, threadId, cmid, eventEnerValues[i - 1]);
+				  LogQueue.add(i + offset - 1, threadId, cmid, eventEnerValues[i - 1]);
 			  }
 			  
+			  //Last entry for wall clock time
+			  int wallClockTimeEntry = Scaler.getPerfEnerCounterNum() - 1;
+			  LogQueue.add(wallClockTimeEntry, threadId, cmid, eventEnerValues[wallClockTimeEntry]);
 			  //Print the profiling information based on event counters
-			  //TODO: print the results in the end of program running
-			  printProfile(eventEnerValues, cmid, totalWallClockTime);
+			  //printProfile(eventEnerValues, cmid, totalWallClockTime);
 		}
 		
 	}

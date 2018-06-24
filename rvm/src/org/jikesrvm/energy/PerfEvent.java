@@ -9,7 +9,7 @@ public class PerfEvent {
 	
 	  /** The previously read value of the counter (used to detect overflow) */
 //	  public static long[] previousValue;
-	  private long previousValue;
+	  private static long previousValue;
 	
 	  /** {@code true} if the counter overflowed */
 	  private static boolean overflowed;
@@ -17,19 +17,20 @@ public class PerfEvent {
 	  /** A buffer passed to the native code when reading values, returns the tuple RAW_COUNT, TIME_ENABLED, TIME_RUNNING */
 //	  public static long[] readBuffer;
 	  
-	  private final long[] readBuffer = new long[3];
+	  //private final long[] readBuffer = new long[3];
 	  private static final int RAW_COUNT = 0;
 	  private static final int TIME_ENABLED = 1;
 	  private static final int TIME_RUNNING = 2;
 	  
 	  /** {@code true} if any data was scaled */
-	  public static boolean dataWasScaled = false;
+	  //public static boolean dataWasScaled = false;
 	  
 	  public PerfEvent(int index, String name) {
 		    this.index = index;
 		    this.name = name;
 	  }
 	  
+	  public PerfEvent() {}
 	  
 //	public static long[] getCurrentValue() {
 ////		VM.statistics.perfEventRead(index, readBuffer);
@@ -47,7 +48,9 @@ public class PerfEvent {
 //		return readBuffer;
 //	}
 	
-	public long getCurrentValue() {
+	public static long getCurrentValue(int index) {
+		long[] readBuffer = new long[3];
+		boolean dataWasScaled = false;
 		VM.statistics.perfEventRead(index, readBuffer);
 //		VM.statistics.perfEventRead(readBuffer);
 		if (readBuffer[RAW_COUNT] < 0 || readBuffer[TIME_ENABLED] < 0

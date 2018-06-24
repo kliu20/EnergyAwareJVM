@@ -49,13 +49,13 @@ extractBitField(uint64_t inField, uint64_t width, uint64_t offset)
 uint64_t read_msr(int fd, uint64_t which) {
 
 	uint64_t data = 0;
-	printf("reading msr \n");
+	//printf("reading msr \n");
 
 	if ( pread(fd, &data, sizeof data, which) != sizeof data ) {
 	 	 printf("pread error!\n");
 	}
 
-	 printf("error no %d \n", errno);
+	 //printf("error no %d \n", errno);
 	
 	return data;
 }

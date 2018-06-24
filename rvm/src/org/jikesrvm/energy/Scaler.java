@@ -29,19 +29,23 @@ public class Scaler implements ScalerOptions {
 	public static long[] perfEventCounters = new long[Scaler.perfCounters];
 	
 	public static PerfEvent[] perfEvents;
-	
+
+	public static String[] perfEventNames;
+
 	public static void initScaler() {
-		if(!isInitScaler) {
+		//if(!isInitScaler) {
 			int core;
 			if(Controller.options.ENABLE_COUNTER_PROFILING) {
 				perfEventInit();
+				//perfThreadInit();
+
 			}
 			SysCall.sysCall.FreqAvailable(freqs);
 			core = SysCall.sysCall.getCpuNum();
 			governor = new byte[core][20];
 //			SysCall.sysCall.sysStartCounters(cacheTLBEvents, cacheTLBEvents.length);
 			isInitScaler = true;
-		}
+		//}
 	}
 	
 	public static void openDVFSFiles() {
@@ -146,7 +150,7 @@ public class Scaler implements ScalerOptions {
 			      // no initialization needed
 			      return;
 		    }
-		    String[] perfEventNames = events.split(",");
+		    perfEventNames = events.split(",");
 		    
 		    /*
 		     * For dynamic scaling based on event counters, we collect profiling information
@@ -162,20 +166,28 @@ public class Scaler implements ScalerOptions {
 		    perfCounters = perfEventNames.length;
 //		    PerfEvent.readBuffer = new long[Scaler.perfCounters];
 //		    PerfEvent.previousValue = new long[Scaler.perfCounters];
-		    perfEvents = new PerfEvent[perfCounters];
-		    //Initialize structures for perf_event_open
-		    sysCall.sysPerfEventInit(perfCounters);
-		    for (int i = 0; i < perfCounters; i++) {
-		    	perfEvents[i] = new PerfEvent(i, perfEventNames[i]);
-		    	//Set up attributes and do perf_event_open for each event counter
-		      sysCall.sysPerfEventCreate(i, perfEventNames[i].concat("\0").getBytes());
-		    }
-		    
-		    //Enable perf event counters
-		    sysCall.sysPerfEventEnable();
-		    
+
+//		    perfEvents = new PerfEvent[perfCounters];
+//		    for (int i = 0; i < perfCounters; i++) {
+//		    	perfEvents[i] = new PerfEvent(i, perfEventNames[i]);
+//		    }
 
 		  }
+
+	  public static void perfThreadInit() {
+		    //Initialize structures for perf_event_open
+		    sysCall.sysPerfEventInit(perfCounters);
+
+		    for (int i = 0; i < perfCounters; i++) {
+		    	//Set up attributes and do perf_event_open for each event counter
+		  	sysCall.sysPerfEventCreate(i, perfEventNames[i].concat("\0").getBytes());
+		    }
+
+		    //Enable perf event counters
+		    sysCall.sysPerfEventEnable();
+	
+	  }
+
 	/**Read event counters as a group*/
 //	public static long[] perfCheck() {
 //	    //Get counter values with one read by group reading
@@ -186,7 +198,7 @@ public class Scaler implements ScalerOptions {
 	
 	  /**Read only one event counters*/
 	public static long perfCheck(int eventId) {
-		return perfEvents[eventId].getCurrentValue();
+		return PerfEvent.getCurrentValue(eventId);
 	}
 	
 	

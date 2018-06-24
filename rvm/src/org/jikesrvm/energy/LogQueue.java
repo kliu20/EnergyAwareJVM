@@ -146,3 +146,4 @@ public class LogQueue implements ProfilingTypes {
 	public static void dump(int sid) {
 	}
 }
+

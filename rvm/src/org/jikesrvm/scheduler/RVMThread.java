@@ -25,6 +25,7 @@ import org.jikesrvm.adaptive.controller.Controller;
 
 
 import org.jikesrvm.energy.RuntimeScaler;
+import org.jikesrvm.energy.*;
 
 import org.jikesrvm.VM;
 import org.jikesrvm.adaptive.OSRListener;
@@ -2828,7 +2829,10 @@ public final class RVMThread extends ThreadContext {
           throw t;
         }
       }
+      //kmahmou1-kenan-todo: Call the initialization of perf thread level details
+      Scaler.perfThreadInit();
       thread.run();
+      sysCall.sysPerfEventDisable();
     } catch (Throwable t) {
       if (traceAcct) {
         VM.sysWriteln("Thread ",getThreadSlot()," exiting with exception.");

@@ -17,6 +17,7 @@ import static org.jikesrvm.runtime.SysCall.sysCall;
 import org.vmmagic.pragma.NonMoving;
 import org.vmmagic.pragma.Uninterruptible;
 import org.vmmagic.pragma.UninterruptibleNoWarn;
+import org.jikesrvm.adaptive.controller.Controller;
 
 /**
  * The timer thread.  Although we are using purely native threading, threads
@@ -35,6 +36,8 @@ import org.vmmagic.pragma.UninterruptibleNoWarn;
 @NonMoving
 public class TimerThread extends SystemThread {
   private static final int verbose = 0;
+  //Kenan: TODO should have a function to get max frequency at the path of '/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq'
+  private static final float maxFreq = 2201000.0f;
   public TimerThread() {
     super("TimerThread");
   }
@@ -44,9 +47,12 @@ public class TimerThread extends SystemThread {
   public void run() {
     VM.disableYieldpoints();
     if (verbose >= 1) VM.sysWriteln("TimerThread run routine entered");
+    //Kenan: proportional interval based on the current frequency. 
+    //TODO: Pass in frequency by argument for experiment, later we may need to dynamically query the cpu frequency
+    //VM.interruptQuantum = VM.interruptQuantum * (maxFreq / Controller.options.FREQUENCY_TO_BE_PRINTED);
     try {
       for (;;) {
-        sysCall.sysNanoSleep(1000L * 1000L * VM.interruptQuantum);
+        sysCall.sysNanoSleep((long)(1000L * 1000L * VM.interruptQuantum));
 
         if (VM.BuildForAdaptiveSystem) {
           // grab the lock to prevent threads from getting GC'd while we are

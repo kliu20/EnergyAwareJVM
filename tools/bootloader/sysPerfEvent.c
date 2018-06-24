@@ -17,6 +17,8 @@
  * Performance counter support using the linux perf event system.
  */
 
+#define RVM_WITH_PERFEVENT
+
 #ifdef RVM_WITH_PERFEVENT
 #include <perfmon/pfmlib_perf_event.h>
 #include <err.h>
@@ -25,24 +27,45 @@
 #endif
 
 #ifndef RVM_WITH_PERFEVENT
+  EXTERNAL void sysInitPerf() {}
   EXTERNAL void sysPerfEventInit(int events) {}
   EXTERNAL void sysPerfEventCreate(int id, const char *eventName) {}
   EXTERNAL void sysPerfEventEnable() {}
   EXTERNAL void sysPerfEventDisable() {}
   EXTERNAL void sysPerfEventRead(int id, long long *values) {}
 #else
-  static int enabled = 0;
-  static int *perf_event_fds;
-  static struct perf_event_attr *perf_event_attrs;
+  int initialized = 0;
+  
+  static __thread int enabled = 0;
+  static __thread int *perf_event_fds;
+  static __thread struct perf_event_attr *perf_event_attrs;
+
+  EXTERNAL void sysInitPerf() {	
+    	if(initialized==0) {
+    		int ret = pfm_initialize();
+    		if (ret != PFM_SUCCESS) {
+			errx(1, "error in pfm_initialize: %s", pfm_strerror(ret));
+							           
+    		} else {
+			initialized = 1;	
+    		}
+    	}
+
+  }
 
   EXTERNAL void sysPerfEventInit(int numEvents)
   {
     int i;
     TRACE_PRINTF("%s: sysPerfEventInit\n", Me);
-    int ret = pfm_initialize();
-    if (ret != PFM_SUCCESS) {
-      errx(1, "error in pfm_initialize: %s", pfm_strerror(ret));
+    if(initialized==0) {
+	    int ret = pfm_initialize();
+	    
+	    if (ret != PFM_SUCCESS) {
+	      errx(1, "error in pfm_initialize: %s", pfm_strerror(ret));
+	    }
+	    initialized = 1;
     }
+	
 
     perf_event_fds = (int*)checkCalloc(numEvents, sizeof(int));
     if (!perf_event_fds) {

@@ -73,6 +73,7 @@ import org.vmmagic.unboxed.ObjectReference;
 import org.vmmagic.unboxed.Offset;
 import org.vmmagic.unboxed.Word;
 import org.jikesrvm.energy.LogQueue;
+import org.jikesrvm.energy.Service;
 
 
 /**
@@ -475,14 +476,20 @@ public class VM extends Properties {
       if (verboseBoot >= 1) VM.sysWriteln("Initializing adaptive system");
       //Kenan: Initialize hardware counter/energy based profiling structures
 //      if(Controller.options.EVENTCOUNTER != null && Controller.options.EVENTCOUNTER.length() > 0){
+	VM.sysWrite("perf initialization");
+	if(Controller.options.ENABLE_COUNTER_PROFILING) {
+		VM.sysWrite("perf initialization");
+		sysCall.sysInitPerf();
 		Scaler.initScaler();
-		EnergyCheckUtils.initJrapl();
-		Scaler.openDVFSFiles();
+	}
+		//Scaler.initScaler();
+	EnergyCheckUtils.initJrapl();
+	Scaler.openDVFSFiles();
 //	    ProfileStack.InitStack(EnergyCheckUtils.socketNum);
-		ProfileMap.initProfileMap();
-	    ProfileQueue.initShortMethod();
-	    DataPrinter.initPrintStream();
-	    LogQueue.InitStack(EnergyCheckUtils.socketNum);
+	ProfileMap.initProfileMap();
+    	ProfileQueue.initShortMethod();
+	DataPrinter.initPrintStream();
+	LogQueue.InitStack(EnergyCheckUtils.socketNum);
 //      }
       Controller.boot();
     }
@@ -2407,6 +2414,24 @@ public class VM extends Properties {
     handlePossibleRecursiveShutdown();
 
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);
+
+/*
+    for (int threadId = 0; threadId < LogQueue.hotMethodsProfLog[0].length; threadId++) {
+	    for (int methodId = 0; methodId < LogQueue.hotMethodsProfLog[0][threadId].length; methodId++) {
+		    for (int stackId = 0; stackId < LogQueue.hotMethodsProfLog[0][threadId][methodId].length; stackId++) {
+			double[] eventVal = new double[LogQueue.hotMethodsProfLog.length - 1];
+			for (int eventId = 0; eventId < LogQueue.hotMethodsProfLog.length - 1; eventId++) {
+				eventVal[eventId] = LogQueue.hotMethodsProfLog[eventId][threadId][methodId][stackId];
+			}
+			double wallClockTime = LogQueue.hotMethodsProfLog[LogQueue.hotMethodsProfLog.length - 1][threadId][methodId][stackId];
+			if (wallClockTime != 0) {
+				Service.printProfile(eventVal, methodId, wallClockTime);
+			}
+		    }
+	    }
+    }
+    
+	    */
     sysCall.sysExit(value);
     if (VM.VerifyAssertions) VM._assert(VM.NOT_REACHED);
   }

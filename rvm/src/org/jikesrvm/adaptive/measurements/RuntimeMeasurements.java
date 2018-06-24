@@ -169,7 +169,7 @@ public static void takeEventCounterSample(int whereFrom, Address yieldpointServi
 	    //After that, If the current method is considered
 	    //as hot method by its execution time in previous stage.
 	    // Get the cmid for that method's caller.
-		if (!ProfileQueue.isShortMethod(ypTakenInCMID) && ProfileQueue.longMethods[ypTakenInCMID]) {
+		if (!ProfileQueue.isSkippableMethod(ypTakenInCMID) && ProfileQueue.longMethods[ypTakenInCMID]) {
 //			VM.sysWriteln("Kenan: The method id is: " + ypTakenInCMID + " the future execution time is: " + ProfileQueue.hotMethodExeTime[ypTakenInCMID]);
 			Address ypTakenInCallerFP = Magic
 					.getCallerFramePointer(ypTakenInFP);

@@ -43,3 +43,8 @@ jikesrvm.iml
 /testing/tests/jni/out.*
 /testing/tests/SPECjbb2000/results
 /test-output/
+/kmahmou1/
+/kmahmou1_old_data/
+*.csv
+*.jar
+*.class

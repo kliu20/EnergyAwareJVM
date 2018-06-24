@@ -27,9 +27,9 @@ public class EnergyCheckUtils {
 		} catch (Exception e) { }
 
 		String lib_path = System.getProperty("java.library.path", System.getProperty("user.dir"));
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(lib_path);
+		//System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		//System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		//System.out.println(lib_path);
 		System.loadLibrary("CPUScaler");
 		wraparoundValue = ProfileInit();
 		//socketNum = GetSocketNum();
@@ -45,12 +45,12 @@ public class EnergyCheckUtils {
 
 	public static double[] getEnergyStats() {
 		//socketNum = GetSocketNum();
-		System.out.println("Tracing....");
-		System.out.println("[getEnergyStats] Begin ....");
+		//System.out.println("Tracing....");
+		//System.out.println("[getEnergyStats] Begin ....");
 		String EnergyInfo = EnergyStatCheck();
 		/*One Socket*/
-		String log = String.format("Calling getEnergyStats() .... Number of Sockets %d", socketNum);
-	        System.out.println(log);
+		//String log = String.format("Calling getEnergyStats() .... Number of Sockets %d", socketNum);
+	        //System.out.println(log);
 
 		if(socketNum == 1) {
 			double[] stats = new double[3];
@@ -94,9 +94,9 @@ public class EnergyCheckUtils {
 	}	
 
 	public static void main(String[] args) {
-		//String str = String.format("sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm -Xmx2500M -X:vm:errorsFatal=true -X:aos:enable_recompilation=true -X:aos:hot_method_time_min=50 -X:aos:hot_method_time_max=800 -X:aos:frequency_to_be_printed=%s -X:aos:event_counter=cache-misses -X:aos:enable_counter_profiling=false -X:aos:enable_energy_profiling=false -X:aos:profiler_file=threads.csv -X:aos:enable_scaling_by_counters=false -X:aos:enable_counter_printer=true -jar dacapo-2006-10-MR2.jar -s large eclipse -t %s", args[0], args[1]);
+		String str = String.format("sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm -Xmx2500M -X:vm:interruptQuantum=%s -X:vm:errorsFatal=true -X:aos:enable_recompilation=true -X:aos:hot_method_time_min=0.1 -X:aos:hot_method_time_max=1 -X:aos:frequency_to_be_printed=%s -X:aos:event_counter=cache-misses,cache-references -X:aos:enable_counter_profiling=true -X:aos:enable_energy_profiling=true -X:aos:profiler_file=threads.csv -X:aos:enable_scaling_by_counters=false -X:aos:enable_counter_printer=true -jar dacapo-2006-10-MR2.jar -s large bloat -t %s", args[2], args[0], args[1]);
 
-		String str = String.format("sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm -Xmx2500M -X:vm:interruptQuantum=%s -X:vm:errorsFatal=true -X:aos:enable_recompilation=true -X:aos:hot_method_time_min=50 -X:aos:hot_method_time_max=800 -X:aos:frequency_to_be_printed=%s -X:aos:event_counter=cache-misses -X:aos:enable_counter_profiling=false -X:aos:enable_energy_profiling=false -X:aos:profiler_file=threads.csv -X:aos:enable_scaling_by_counters=false -X:aos:enable_counter_printer=true -jar dacapo-9.12-bach.jar -s large sunflow -t %s", args[2], args[0], args[1]);
+		//String str = String.format("sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm -Xmx2500M -X:vm:interruptQuantum=%s -X:vm:errorsFatal=true -X:aos:enable_recompilation=true -X:aos:hot_method_time_min=50 -X:aos:hot_method_time_max=800 -X:aos:frequency_to_be_printed=%s -X:aos:event_counter=cache-misses -X:aos:enable_counter_profiling=false -X:aos:enable_energy_profiling=false -X:aos:profiler_file=threads.csv -X:aos:enable_scaling_by_counters=false -X:aos:enable_counter_printer=true -jar dacapo-9.12-bach.jar -s large sunflow -t %s", args[2], args[0], args[1]);
 		double[] preEner = getEnergyStats();
 		long pre = System.currentTimeMillis();
 		double preTime = pre / 1000;

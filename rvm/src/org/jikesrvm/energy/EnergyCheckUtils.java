@@ -46,8 +46,8 @@ public class EnergyCheckUtils {
 	@NoInline
 	@NoOptCompile
 	public static double[] getEnergyStats() {
+		Scaler.initScaler();
 		int socketNum = SysCall.sysCall.GetSocketNum();
-		VM.sysWriteln("socket number gets called in java, which is: " + socketNum);
 		//Three 60s is hardcoded size of dram/uncore gpu, cpu and package information.
 		final int enerInfoSize = socketNum * (60 + 60 + 60 + 4);
 		
@@ -150,4 +150,5 @@ public class EnergyCheckUtils {
 //		}
 //		ProfileDealloc();
 //	}
+
 }

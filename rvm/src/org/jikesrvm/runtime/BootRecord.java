@@ -400,6 +400,7 @@ public class BootRecord {
   public Address gcspySprintfIP;
 
   // perf event support
+  public Address sysInitPerfIP;
   public Address sysPerfEventInitIP;
   public Address sysPerfEventCreateIP;
   public Address sysPerfEventEnableIP;
