@@ -72,46 +72,44 @@ public class Service implements ProfilingTypes {
 		  ProfileQueue.insertToEventCounterQueue(cmid, Scaler.getPerfEnerCounterNum() - 1, 0);
 	  }
 	  
+	  public static void getProfileAttrs(Double[] profileAttrs) {
+		double perfCounter;
+		int eventId = 0;
+		//Loop unwinding
+		if (Controller.options.ENABLE_COUNTER_PROFILING) {
+			for (int i = 0; i < Scaler.perfCounters; i++) {
+				perfCounter = Scaler.perfCheck(i);
+				profileAttrs[eventId++] = perfCounter;
+				
+			}
+		}
+
+		if (Controller.options.ENABLE_ENERGY_PROFILING) {
+			
+			double[] energy = EnergyCheckUtils.getEnergyStats();
+			
+			for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
+				profileAttrs[eventId++] = energy[i];
+			}
+		}
+		
+	  }
+
 	  @Entrypoint
 	  public static void startProfile(int cmid) {
-		double perfCounter;
 		Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
-		int eventId = 0;
 		int threadId = (int)Thread.currentThread().getId();
-//		if (!ProfileMap.isNonskippableMethod(cmid)) {
-//			if (ProfileMap.isSkippableMethodMap(cmid)) {
-//				return;
-//			}
-//		}
 		// Check if the current method is not short method (long method) or it hasn't been calculated
 		Boolean isSkippable = ProfileQueue.isSkippableMethod(cmid);
+
 		if (isSkippable == null || isSkippable != null && !isSkippable) {
 		
-			// Measure hardware counters
 			double wallClockTime = System.currentTimeMillis();
 	
-			//If counter printer is enabled, the data would be stored as socket1: hardware counters
-			//+ energy consumption + socket 2: hardware counters + energy consumption + socket 3: ...
-			
 			String key = ProfileMap.createKey(threadId, cmid);
-			//Loop unwinding
-			if (Controller.options.ENABLE_COUNTER_PROFILING) {
-				for (int i = 0; i < Scaler.perfCounters; i++) {
-					perfCounter = Scaler.perfCheck(i);
-					profileAttrs[eventId++] = perfCounter;
-					
-				}
-			}
+			//Profiling 
+			getProfileAttrs(profileAttrs);
 	
-			if (Controller.options.ENABLE_ENERGY_PROFILING) {
-				
-				double[] energy = EnergyCheckUtils.getEnergyStats();
-				
-				for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-					profileAttrs[eventId++] = energy[i];
-				}
-			}
-		
 			/**Preserve for dynamic scaling*/ 
 	//		int counterIndex = 0;
 	//		double[] energy = EnergyCheckUtils.getEnergyStats();
@@ -134,11 +132,9 @@ public class Service implements ProfilingTypes {
 	//		}
 	
 			// ProfileStack.push(Scaler.getPerfEnerCounterNum() - 1, (int)threadId, cmid, wallClockTime);
-			 
-			profileAttrs[eventId] = wallClockTime;
-			
+			profileAttrs[profileAttrs.length - 1] = wallClockTime;
 			ProfileMap.put(key, profileAttrs);
-			
+			LogQueue.addStartLogQueue(threadId, cmid, profileAttrs);
 		}
 	}
 
@@ -151,36 +147,30 @@ public class Service implements ProfilingTypes {
 		double missRate = 0.0d;
 		int offset = 0;
 		/** Event values for the method */
-		double[] eventEnerValues = new double[Scaler.getPerfEnerCounterNum() - 1];
+		Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
 		int threadId = (int) Thread.currentThread().getId();
 
-		
 		// Check if the current method is not short method (long method) or it hasn't been calculated
 		Boolean isSkippable = ProfileQueue.isSkippableMethod(cmid);
 
-		
 		if (isSkippable == null || isSkippable != null && !isSkippable) {
 			
 			String key = ProfileMap.createKey(threadId, cmid);
-			
 			//If the event counter has not been profiled or the previous value is 0, drop this measurement.
 			if (ProfileMap.getValue(Scaler.getPerfEnerCounterNum() - 1, key) == 0) {
 				return;
 			}
-			
 			Double[] methodPreamble = ProfileMap.remove(key);
 			// Over recursive call threshold check. If it's null, that means the current method
-			// is invoked itself more than a certain threshold times. We only need care the information of the whole
+			// is invoked itself more than a certain threshold times. We only need profile the information of the whole
 			// recursive calls
 			if (methodPreamble == null) {
 				return;
 			}
 			double wallClockTime = System.currentTimeMillis();
-			
 			startWallClockTime = methodPreamble[Scaler.getPerfEnerCounterNum() - 1];
 			totalWallClockTime = wallClockTime - startWallClockTime;
 			// startWallClockTime = ProfileStack.pop(Scaler.getPerfEnerCounterNum() - 1, threadId, cmid);
-			
 			// Over recursive call threshold check. If it's a negative value, that means the current method
 			// is invoked itself more than a certain threshold times. We only need care the information of the whole
 			// recursive calls
@@ -190,10 +180,11 @@ public class Service implements ProfilingTypes {
 			double max = Controller.options.HOT_METHOD_TIME_MAX;
 
 			  //Calculate method's profiling information
-			  calculateProfile(eventEnerValues, methodPreamble, totalWallClockTime, cmid);
-	
+			//calculateProfile(profileAttrs, methodPreamble, cmid);
+			getProfileAttrs(profileAttrs);
+
 			if (isSkippable == null) {
-				if (totalWallClockTime < 30 || eventEnerValues[0] / eventEnerValues[1] < min || eventEnerValues[0] / eventEnerValues[1] >= max) {
+				if (totalWallClockTime < 30) {
 					ProfileQueue.setSkippableMethod(cmid);
 					return;
 				} else {
@@ -201,47 +192,49 @@ public class Service implements ProfilingTypes {
 				}
 			}
 	
-			
 			  /**Event counter printer object*/
 			  if(Controller.options.ENABLE_COUNTER_PRINTER && !titleIsPrinted) {
 				  //DataPrinter.printEventCounterTitle(Controller.options.ENABLE_COUNTER_PROFILING, Controller.options.ENABLE_ENERGY_PROFILING);
 				  titleIsPrinted = true;
 			  }
 			  
-			  for(int i = 1; i <= Scaler.getPerfEnerCounterNum() - 1; i++) {
-				  
-				  //If scaling by counters is enabled, we need calculate cache miss rate and TLB misses
-				  //Otherwise, just simply store the perf counters user set from command line.
-				  if(Controller.options.ENABLE_SCALING_BY_COUNTERS && i % Scaler.perfCounters == 0) {
-					  //Move to the next index for L3CACHEMISSRATE event
-					  ++offset;
-					  missRate = ((double)eventEnerValues[i + offset - Scaler.perfCounters] / (double)eventEnerValues[i + offset - Scaler.perfCounters + 1]);
-					  //get TLB misses
-					  tlbMisses = eventEnerValues[i + offset - Scaler.perfCounters + 2] + eventEnerValues[i + offset -Scaler.perfCounters + 3];
-					  LogQueue.add(i + offset - 1, threadId, cmid, missRate);
-					  //Move to the next index for TLBMISSES
-					  ++offset;
-					  LogQueue.add(i + offset - 1, threadId, cmid, tlbMisses);
-					  continue;
-				  }
-				  LogQueue.add(i + offset - 1, threadId, cmid, eventEnerValues[i - 1]);
-			  }
+			  //TODO: For enable_scaling_by_counters for future
+//			  for(int i = 1; i <= Scaler.getPerfEnerCounterNum() - 1; i++) {
+//				  
+//				  //If scaling by counters is enabled, we need calculate cache miss rate and TLB misses
+//				  //Otherwise, just simply store the perf counters user set from command line.
+//				  if(Controller.options.ENABLE_SCALING_BY_COUNTERS && i % Scaler.perfCounters == 0) {
+//					  //Move to the next index for L3CACHEMISSRATE event
+//					  ++offset;
+//					  missRate = ((double)profileAttrs[i + offset - Scaler.perfCounters] / (double)profileAttrs[i + offset - Scaler.perfCounters + 1]);
+//					  //get TLB misses
+//					  tlbMisses = profileAttrs[i + offset - Scaler.perfCounters + 2] + profileAttrs[i + offset -Scaler.perfCounters + 3];
+//					  LogQueue.addRatio(threadId, cmid, miss
+//					  LogQueue.add(i + offset - 1, threadId, cmid, missRate);
+//					  //Move to the next index for TLBMISSES
+//					  ++offset;
+//					  LogQueue.add(i + offset - 1, threadId, cmid, tlbMisses);
+//					  continue;
+//				  }
+//				  LogQueue.add(i + offset - 1, threadId, cmid, profileAttrs[i - 1]);
+//			  }
 			  
 			  //Last entry for wall clock time
 			  int wallClockTimeEntry = Scaler.getPerfEnerCounterNum() - 1;
-			  LogQueue.add(wallClockTimeEntry, threadId, cmid, eventEnerValues[wallClockTimeEntry]);
+			  profileAttrs[wallClockTimeEntry] = totalWallClockTime;
+			  LogQueue.addEndLogQueue(threadId, cmid, profileAttrs);
+
 			  //Print the profiling information based on event counters
-			  //printProfile(eventEnerValues, cmid, totalWallClockTime);
+			  //printProfile(profileAttrs, cmid, totalWallClockTime);
 		}
 		
 	}
 
-	public static void calculateProfile(double[] eventEnerValues, Double[] methodPreamble, double totalWallClockTime, int cmid) {
+	public static void calculateProfile(double[] profileAttrs, Double[] methodPreamble, int cmid) {
 		  if(!Controller.options.ENABLE_COUNTER_PRINTER) {
 			  //Only hardware counters are calculated.
 			  for (int i = 0; i < Scaler.getPerfEnerCounterNum() - 1; i++) {
-		//		  eventEnerValues[i] = Scaler.perfCheck(i) - ProfileStack.pop(i, threadId, cmid);
-				  eventEnerValues[i] = Scaler.perfCheck(i) - methodPreamble[i];
+				  profileAttrs[i] = Scaler.perfCheck(i) - methodPreamble[i];
 			  }
 			  return;
 		  }
@@ -251,8 +244,7 @@ public class Service implements ProfilingTypes {
 			  
 			  while (i < Scaler.perfCounters) {
 				  //Insert hardware counters in the first socket
-				  //eventEnerValues[i] = Scaler.perfCheck(counterIndex) - ProfileStack.pop(i, threadId, cmid);
-				  eventEnerValues[i] = Scaler.perfCheck(counterIndex) - methodPreamble[i];
+				  profileAttrs[i] = Scaler.perfCheck(counterIndex) - methodPreamble[i];
 				  counterIndex++;
 				  i++;
 			  }
@@ -262,30 +254,24 @@ public class Service implements ProfilingTypes {
 				  double[] energy = EnergyCheckUtils.getEnergyStats();
 				  
 				  while (i < Scaler.getPerfEnerCounterNum() - 1) {
-					  
 					  //Insert Energy consumptions of dram/uncore gpu, cpu and package.
-//					  for(int j = 0; j < EnergyCheckUtils.ENERGY_ENTRY_SIZE; j++) {
-						  //eventEnerValues[i] = energy[enerIndex] - ProfileStack.pop(i, threadId, cmid);
-						  eventEnerValues[i] = energy[enerIndex] - methodPreamble[i];
-						  i++;
-						  enerIndex++;
-//					  }
+					  profileAttrs[i] = energy[enerIndex] - methodPreamble[i];
+					  i++;
+					  enerIndex++;
 				  }
 			  }
 		  } else if(Controller.options.ENABLE_ENERGY_PROFILING) {
 			  //If counter printer is enabled, the data would be stored as socket1: hardware counters
-			  //+ energy consumption + socket 2: hardware counters + energy consumption + socket 3: ...
 			  double[] energy = EnergyCheckUtils.getEnergyStats();
 			  //Insert Energy consumptions of dram/uncore gpu, cpu and package.
 			  for(int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-				  //eventEnerValues[i] = energy[enerIndex] - ProfileStack.pop(i, threadId, cmid);
-				  eventEnerValues[i] = energy[i] - methodPreamble[i];
+				  profileAttrs[i] = energy[i] - methodPreamble[i];
 			  }
 		  }
 		  
 	}
 	
-	public static void printProfile(double[] eventEnerValues, int cmid, double totalWallClockTime) {
+	public static void printProfile(Double[] profileAttrs, int cmid, double totalWallClockTime) {
 		double missRate = 0.0d;
 		double missRateByTime = 0.0d;
 		double tlbMisses = 0.0d;
@@ -298,14 +284,14 @@ public class Service implements ProfilingTypes {
 					// TODO: Assume the first four counters are 'cache-misses'
 					// 'cache-references' 'dTLB-load-misses' 'iTLB-load-misses'.
 					// Too ugly.
-					missRate = eventEnerValues[0] / eventEnerValues[1];
-					missRateByTime = eventEnerValues[0] / totalWallClockTime;
-					tlbMisses = eventEnerValues[2] + eventEnerValues[3];
+					missRate = profileAttrs[0] / profileAttrs[1];
+					missRateByTime = profileAttrs[0] / totalWallClockTime;
+					tlbMisses = profileAttrs[2] + profileAttrs[3];
 					if (Controller.options.ENABLE_ENERGY_PROFILING) {
 						DataPrinter.printALl(cmid, clsNameList[cmid] + "."
-								+ methodNameList[cmid], totalWallClockTime,
+								+ methodNameList[cmid],
 								Controller.options.FREQUENCY_TO_BE_PRINTED,
-								eventEnerValues, missRate, missRateByTime,
+								profileAttrs, missRate, missRateByTime,
 								tlbMisses);
 					}
 				} else if (Controller.options.EVENTCOUNTER
@@ -314,40 +300,36 @@ public class Service implements ProfilingTypes {
 								.equals(Controller.options.BRANCH_MISS_RATE)) {
 					// TODO: Requires the sequence as
 					// "cache-misses,cache-references" in arguments. Too ugly.
-					missRate = eventEnerValues[0] / eventEnerValues[1];
-					missRateByTime = eventEnerValues[0] / totalWallClockTime;
+					missRate = profileAttrs[0] / profileAttrs[1];
+					missRateByTime = profileAttrs[0] / totalWallClockTime;
 
 					if (Controller.options.ENABLE_ENERGY_PROFILING) {
 						DataPrinter.printProfInfoTwo(cmid, clsNameList[cmid]
 								+ "." + methodNameList[cmid],
-								totalWallClockTime,
 								Controller.options.FREQUENCY_TO_BE_PRINTED,
-								eventEnerValues, missRate, missRateByTime);
+								profileAttrs, missRate, missRateByTime);
 					} else {
 						DataPrinter.printCounterInfo(cmid, clsNameList[cmid]
 								+ "." + methodNameList[cmid],
-								totalWallClockTime,
 								Controller.options.FREQUENCY_TO_BE_PRINTED,
-								eventEnerValues, missRate, missRateByTime);
+								profileAttrs, missRate, missRateByTime);
 					}
 
 				} else if (Controller.options.EVENTCOUNTER
 						.equals(Controller.options.TLB_MISSES)) {
-					tlbMisses = eventEnerValues[0] + eventEnerValues[1];
+					tlbMisses = profileAttrs[0] + profileAttrs[1];
 					tlbMissByTime = tlbMisses / totalWallClockTime;
 
 					if (Controller.options.ENABLE_ENERGY_PROFILING) {
 						DataPrinter.printProfInfoTwo(cmid, clsNameList[cmid]
 								+ "." + methodNameList[cmid],
-								totalWallClockTime,
 								Controller.options.FREQUENCY_TO_BE_PRINTED,
-								eventEnerValues, tlbMisses, tlbMissByTime);
+								profileAttrs, tlbMisses, tlbMissByTime);
 					} else {
 						DataPrinter.printCounterInfo(cmid, clsNameList[cmid]
 								+ "." + methodNameList[cmid],
-								totalWallClockTime,
 								Controller.options.FREQUENCY_TO_BE_PRINTED,
-								eventEnerValues, tlbMisses, tlbMissByTime);
+								profileAttrs, tlbMisses, tlbMissByTime);
 					}
 				} else if (Controller.options.EVENTCOUNTER
 						.equals(Controller.options.CONTEXT_SWITCHES)
@@ -358,33 +340,31 @@ public class Service implements ProfilingTypes {
 						|| Controller.options.EVENTCOUNTER
 								.equals(Controller.options.CPU_CLOCK)) {
 
-					countersByTime = eventEnerValues[0] / totalWallClockTime;
+					countersByTime = profileAttrs[0] / totalWallClockTime;
 
 					if (Controller.options.ENABLE_ENERGY_PROFILING) {
 						DataPrinter.printProfInfoOne(cmid, clsNameList[cmid]
 								+ "." + methodNameList[cmid],
-								totalWallClockTime,
 								Controller.options.FREQUENCY_TO_BE_PRINTED,
-								eventEnerValues, countersByTime);
+								profileAttrs, countersByTime);
 					} else {
 						DataPrinter.printCounterInfo(cmid, clsNameList[cmid]
 								+ "." + methodNameList[cmid],
-								totalWallClockTime,
 								Controller.options.FREQUENCY_TO_BE_PRINTED,
-								eventEnerValues, 0, countersByTime);
+								profileAttrs, 0, countersByTime);
 					}
 				}
 			} else if (!Controller.options.ENABLE_COUNTER_PROFILING
 					&& Controller.options.ENABLE_ENERGY_PROFILING) {
 				// Only time and energy measurement
 				DataPrinter.printEnerInfo(cmid, clsNameList[cmid] + "."
-						+ methodNameList[cmid], totalWallClockTime,
+						+ methodNameList[cmid],
 						Controller.options.FREQUENCY_TO_BE_PRINTED,
-						eventEnerValues);
+						profileAttrs);
 			}
 		}
 		// Last event is always wall clock time.
-		// LogQueue.add(Scaler.getTotalEventNum() - 1, threadId, cmid,
+	//	LogQueue.addLogQueue(threadId, cmid, profileAttrs);
 		// totalWallClockTime);
 	}
 

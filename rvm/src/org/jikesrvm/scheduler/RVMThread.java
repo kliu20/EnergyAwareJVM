@@ -4328,7 +4328,7 @@ public final class RVMThread extends ThreadContext {
 //			VM.sysWriteln("taken event counter sample method epilogue: " + ypTakenInCM.getMethod());
 //	}
 //      RuntimeMeasurements.takeEventCounterSample(whereFrom, yieldpointServiceMethodFP);
-      //If dynamic scaling is enabled
+      //Kenan: If dynamic scaling is enabled
       if(Controller.options.ENABLE_SCALING_BY_COUNTERS) {
     	  RuntimeScaler.dynamicScale(whereFrom, yieldpointServiceMethodFP);
       }

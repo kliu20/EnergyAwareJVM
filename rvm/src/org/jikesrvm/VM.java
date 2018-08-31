@@ -476,20 +476,19 @@ public class VM extends Properties {
       if (verboseBoot >= 1) VM.sysWriteln("Initializing adaptive system");
       //Kenan: Initialize hardware counter/energy based profiling structures
 //      if(Controller.options.EVENTCOUNTER != null && Controller.options.EVENTCOUNTER.length() > 0){
-	VM.sysWrite("perf initialization");
-	if(Controller.options.ENABLE_COUNTER_PROFILING) {
+	if(Controller.options.ENABLE_COUNTER_PROFILING || Controller.options.ENABLE_ENERGY_PROFILING) {
 		VM.sysWrite("perf initialization");
 		sysCall.sysInitPerf();
 		Scaler.initScaler();
-	}
 		//Scaler.initScaler();
-	EnergyCheckUtils.initJrapl();
-	Scaler.openDVFSFiles();
-//	    ProfileStack.InitStack(EnergyCheckUtils.socketNum);
-	ProfileMap.initProfileMap();
-    	ProfileQueue.initShortMethod();
-	DataPrinter.initPrintStream();
-	LogQueue.InitStack(EnergyCheckUtils.socketNum);
+		EnergyCheckUtils.initJrapl();
+		Scaler.openDVFSFiles();
+	//	    ProfileStack.InitStack(EnergyCheckUtils.socketNum);
+		ProfileMap.initProfileMap();
+		ProfileQueue.initSkippableMethod();
+		DataPrinter.initPrintStream();
+		LogQueue.initRawDataQueue(EnergyCheckUtils.socketNum);
+	}
 //      }
       Controller.boot();
     }

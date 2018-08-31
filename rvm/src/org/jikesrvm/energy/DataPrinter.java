@@ -159,12 +159,13 @@ public class DataPrinter extends EnergyCalc{
 		}
 	}
 	
-	public static void printValues(int cmid, String methodName, double wallClockTime, int frequency, double[] counterValue) {
+	public static void printValues(int cmid, String methodName, int frequency, Double[] counterValue) {
 		filePrinter.print(frequency + "," + Controller.options.HOT_METHOD_TIME_MIN + "," + Controller.options.HOT_METHOD_TIME_MAX + "," + cmid + "," + methodName + ",0"/*hash code column*/);
 		for(int i = 0; i < counterValue.length; i++) {
 			filePrinter.print("," + counterValue[i]);
 		}
-		filePrinter.print("," + counterValue[counterValue.length - 1] / (wallClockTime / 1000));
+		double wallClockTime = counterValue[counterValue.length - 1];
+		filePrinter.print("," + counterValue[counterValue.length - 2] / (wallClockTime / 1000));
 	}
 	
 	/**
@@ -172,9 +173,10 @@ public class DataPrinter extends EnergyCalc{
 	 * Print out event counters, cache miss rate, tlb misses
 	 * and wall clock time.
 	 */
-	public static void printALl(int cmid, String methodName, double wallClockTime, int frequency, double[] counterValue, double cacheMissRate, double cacheMissRateByTime, double tlbMisses) {
+	public static void printALl(int cmid, String methodName, int frequency, Double[] counterValue, double cacheMissRate, double cacheMissRateByTime, double tlbMisses) {
 		synchronized(filePrinter) {
-			printValues(cmid, methodName, wallClockTime, frequency, counterValue);
+			double wallClockTime = counterValue[counterValue.length - 1];
+			printValues(cmid, methodName, frequency, counterValue);
 			filePrinter.print("," + cacheMissRate + "," + cacheMissRateByTime + "," + tlbMisses + "," + wallClockTime);
 			filePrinter.println();
 			filePrinter.flush();
@@ -208,15 +210,15 @@ public class DataPrinter extends EnergyCalc{
 	 * Print out energy consumption, elased time and two hardware counter information
 	 * @param cmid
 	 * @param methodName
-	 * @param wallClockTime
 	 * @param frequency
 	 * @param counterValue
 	 * @param anotherCounter1
 	 * @param anotherCounter2
 	 */
-	public static void printProfInfoTwo(int cmid, String methodName, double wallClockTime, int frequency, double[] counterValue, double anotherCounter1, double anotherCounter2) {
+	public static void printProfInfoTwo(int cmid, String methodName, int frequency, Double[] counterValue, double anotherCounter1, double anotherCounter2) {
 		synchronized(filePrinter) {
-			printValues(cmid, methodName, wallClockTime, frequency, counterValue);
+			double wallClockTime = counterValue[counterValue.length - 1];
+			printValues(cmid, methodName, frequency, counterValue);
 			printExtra(anotherCounter1, anotherCounter2, wallClockTime);
 		}
 	}
@@ -225,14 +227,14 @@ public class DataPrinter extends EnergyCalc{
 	 * Print out energy consumption, elased time and one hardware counter information
 	 * @param cmid
 	 * @param methodName
-	 * @param wallClockTime
 	 * @param frequency
 	 * @param counterValue
 	 * @param anotherCounter
 	 */
-	public static void printProfInfoOne(int cmid, String methodName, double wallClockTime, int frequency, double[] counterValue, double anotherCounter) {
+	public static void printProfInfoOne(int cmid, String methodName, int frequency, Double[] counterValue, double anotherCounter) {
 		synchronized(filePrinter) {
-			printValues(cmid, methodName, wallClockTime, frequency, counterValue);
+			double wallClockTime = counterValue[counterValue.length - 1];
+			printValues(cmid, methodName, frequency, counterValue);
 			printExtra(0, anotherCounter, wallClockTime);
 		}
 	}
@@ -241,13 +243,13 @@ public class DataPrinter extends EnergyCalc{
 	 * Print energy and time information only
 	 * @param cmid
 	 * @param methodName
-	 * @param wallClockTime
 	 * @param frequency
 	 * @param counterValue
 	 */
-	public static void printEnerInfo(int cmid, String methodName, double wallClockTime, int frequency, double[] counterValue) {
+	public static void printEnerInfo(int cmid, String methodName, int frequency, Double[] counterValue) {
 		synchronized(filePrinter) {
-			printValues(cmid, methodName, wallClockTime, frequency, counterValue);
+			double wallClockTime = counterValue[counterValue.length - 1];
+			printValues(cmid, methodName, frequency, counterValue);
 			filePrinter.print("," + wallClockTime);
 			filePrinter.println();
 			filePrinter.flush();
@@ -257,11 +259,10 @@ public class DataPrinter extends EnergyCalc{
 	 * Print hardware counter and time information only
 	 * @param cmid
 	 * @param methodName
-	 * @param wallClockTime
 	 * @param frequency
 	 * @param counterValue
 	 */
-	public static void printCounterInfo(int cmid, String methodName, double wallClockTime, int frequency, double[] counterValue, double anotherCounter1, double anotherCounter2) {
+	public static void printCounterInfo(int cmid, String methodName, int frequency, Double[] counterValue, double anotherCounter1, double anotherCounter2) {
 		synchronized(filePrinter) {
 			//Print columns before counter values
 			filePrinter.print(frequency + "," + Controller.options.HOT_METHOD_TIME_MIN + "," + Controller.options.HOT_METHOD_TIME_MAX + "," + cmid + "," + methodName + ",0");
@@ -269,6 +270,7 @@ public class DataPrinter extends EnergyCalc{
 			for(int i = 0; i < counterValue.length; i++) {
 				filePrinter.print("," + counterValue[i]);
 			}
+			double wallClockTime = counterValue[counterValue.length - 1];
 			printExtra(anotherCounter1, anotherCounter2, wallClockTime);
 		}
 	}
@@ -277,7 +279,7 @@ public class DataPrinter extends EnergyCalc{
 	 * @param counterValue event counters and wall clock time
 	 * Print out event counters and wall clock time only.
 	 */
-	public void printEventCounterValues(String frequency, double[] counterValue) {
+	public void printEventCounterValues(String frequency, Double[] counterValue) {
 //		printValues(frequency, counterValue);
 //		VM.sysWrite("," + this.wallClockTime);
 //		VM.sysWriteln();

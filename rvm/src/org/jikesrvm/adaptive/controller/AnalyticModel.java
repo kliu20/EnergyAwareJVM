@@ -19,7 +19,7 @@ import org.jikesrvm.adaptive.recompilation.CompilerDNA;
 import org.jikesrvm.adaptive.util.AOSLogging;
 import org.jikesrvm.classloader.NormalMethod;
 import org.jikesrvm.compilers.common.CompiledMethod;
-import org.jikesrvm.energy.ProfileQueue;
+//import org.jikesrvm.energy.ProfileQueue;
 
 /**
  * This class encapsulates the analytic model used by the controller
@@ -82,9 +82,9 @@ abstract class AnalyticModel extends RecompilationStrategy {
    * @param hme
    */
   void considerHotMethodForEventCounter(CompiledMethod cmpMethod, HotMethodEvent hme, double futureTimeForMethod) {
-	  if(futureTimeForMethod > Controller.options.HOT_METHOD_TIME_MIN && futureTimeForMethod < Controller.options.HOT_METHOD_TIME_MAX) {
-		  ProfileQueue.insertToLongMethods(hme.getCMID());
-	  }
+//	  if(futureTimeForMethod > Controller.options.HOT_METHOD_TIME_MIN && futureTimeForMethod < Controller.options.HOT_METHOD_TIME_MAX) {
+//		  ProfileQueue.insertToLongMethods(hme.getCMID());
+//	  }
 //	  if(futureTimeForMethod >= 80) {
 //		  ProfileQueue.insertToHotMethodsByFrq(hme.getCMID());
 ////		  ProfileQueue.hotMethodExeTime[hme.getCMID()] = futureTimeForMethod;

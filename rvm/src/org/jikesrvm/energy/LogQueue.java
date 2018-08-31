@@ -1,149 +1,108 @@
 package org.jikesrvm.energy;
 
 import org.jikesrvm.VM;
+import java.util.LinkedList;
+import org.jikesrvm.adaptive.controller.Controller;
 
 /**
  * Almost the same as ProfileStack, This class must be used with thread safe way since 
  * its methods are not synchronzed.
  */
 public class LogQueue implements ProfilingTypes {
-	/**
-	 * For calculating profiling information
-	 * 1st dimension: eventId
-	 * 2nd dimension: threadId
-	 * 3rd dimension: methodId
-	 * 4th dimension: stackId
-	 */
-	public static double[][][][] hotMethodsProfLog;
-	/**
-	 * hotMethodsProfLog size for each profiling metric
-	 */
-	public static int [][][] logSize;
-	public static final int THREADSIZE = 50;
 	
-	public static int methodCount = 0;
-	
-	//Since hashcode could be large, create a large entry size at first time
-	public static int entrySize = 100;
-	
-	public static void InitStack(int socketNum) {
-		// hotMethodsProfLog stores count, wallclocktime, index, cpuTime, userTime, DramEnergy, CpuEnergy, PkgEnergy
-		if (hotMethodsProfLog == null){
-//			hotMethodsProfLog = new double[entrySize * socketNum][50];
-			hotMethodsProfLog = new double[Scaler.getPerfEnerCounterNum()][THREADSIZE][entrySize * socketNum][50];
-			logSize = new int[Scaler.getPerfEnerCounterNum()][THREADSIZE][entrySize * socketNum];
-//			VM.sysWriteln("logSize: " + logSize.length + " hotMethodProfLog: " + hotMethodsProfLog.length);
+	/**Record the log entry in start profiling stage*/
+	public static LinkedList<LogEntry> startLogQueue;
+	/**Record the log entry in end profiling stage*/
+	public static LinkedList<LogEntry> endLogQueue;
+	/**Record the post calculated log entry*/
+	public static LinkedList<LogEntry> logQueue;
+
+	public static void initRawDataQueue(int socketNum) {
+		if (startLogQueue == null) {
+			startLogQueue = new LinkedList();
+			endLogQueue = new LinkedList();
+		}
+	}
+
+	public static void initQueue(int socketNum) {
+		if (logQueue == null) {
+			logQueue = new LinkedList();
 		}
 	}
 	
 	/**
-	 * Once stack size of one methodId exceeds the stack boundary, increase the stack size for 
-	 * all threads and events of this method stack
-	 * @param methodId
+	 * Add the profiling value into startLogQueue
+	 * @param threadId the corresponding thread ID 
+	 * @param methodId the corresponding method ID
+	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	
-	public static void growLogSize(int eventId, int threadId, int methodId) {
-//		VM.sysWriteln("Kenan: ProfileStack length: " + ProfileStack.stack.length);
-		//Expand method list column size first
-		//Initialize varied stack size for the index only
-		double[] newLogQueue = new double[(int)(logSize[eventId][threadId][methodId] * 1.25)];
-		for(int j = 0; j < hotMethodsProfLog.length; j++) {
-			for(int k = 0; k < hotMethodsProfLog[0].length; k++) {
-				System.arraycopy(hotMethodsProfLog[j][k][methodId], 0, newLogQueue, 0, hotMethodsProfLog[j][k][methodId].length);
-				hotMethodsProfLog[j][k][methodId] = newLogQueue;
-			}
+	public static void addStartLogQueue(int threadId, int methodId, Double[] profileAttrs) {
+		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
+		startLogQueue.offer(entry);
+	}
+
+	/**
+	 * Add the profiling value into endLogQueue
+	 * @param threadId the corresponding thread ID 
+	 * @param methodId the corresponding method ID
+	 * @param profileAttrs    the profiling values which needs to be recorded 
+	 */
+	public static void addEndLogQueue(int threadId, int methodId, Double[] profileAttrs) {
+		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
+		endLogQueue.offer(entry);
+	}
+
+	/**
+	 * Add the profiling value into LogQueue
+	 * @param threadId the corresponding thread ID 
+	 * @param methodId the corresponding method ID
+	 * @param profileAttrs    the profiling values which needs to be recorded 
+	 */
+	public static void addLogQueue(int threadId, int methodId, Double[] profileAttrs) {
+		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
+		logQueue.offer(entry);
+	}
+
+
+	/**
+	 * Dump the profiling information with the data has been calculated
+	 */
+	public static void dumpLogQueue(String[] clsNameList, String[] methodNameList) {
+		for (LogEntry entry : logQueue) {
+			int timeEntry = entry.counters.length;
+			double totalWallClockTime = entry.counters[timeEntry];
+			double missRate = entry.counters[0] / entry.counters[1];
+			double missRateByTime = entry.counters[0] / totalWallClockTime;
+
+			DataPrinter.printProfInfoTwo(entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, missRate, missRateByTime);   
 		}
 	}
-	
+
 	/**
-	 * Grow size of threadId and methodId on queue.
-	 * @param eventId
-	 * @param threadId
-	 * @param methodId
+	 * Dump the profiling information with the data hasn't been calculated
 	 */
-	public static void growLogQueue(int eventId, int threadId, int methodId) {
-		double[][][][] newLogQueue;
-		//Expand method list column size first
-		if(methodId >= hotMethodsProfLog[eventId][threadId].length && threadId >= hotMethodsProfLog[eventId].length) {
-			newLogQueue = new double[Scaler.getPerfEnerCounterNum()][(int)(threadId * 1.25)][(int)(methodId * 1.25)][50];
-		} else if(methodId >= hotMethodsProfLog[eventId][threadId].length) {
-			newLogQueue = new double[Scaler.getPerfEnerCounterNum()][hotMethodsProfLog[eventId].length][(int)(methodId * 1.25)][50];
-		} else if( threadId >= hotMethodsProfLog[eventId].length) {
-			newLogQueue = new double[Scaler.getPerfEnerCounterNum()][(int)(threadId * 1.25)][hotMethodsProfLog[eventId][threadId].length][50];
-		} else {
-			return;
-		}
+	public static void dumpWithRawData(String[] clsNameList, String[] methodNameList) {
+		LogEntry startEntry= startLogQueue.poll();
 		
-		for(int j = 0; j < newLogQueue.length; j++) {
-			for(int k = 0; k < newLogQueue[eventId].length; k++) {
-				for (int i = 0; i < ProfileStack.methodIndex.length; i++) {
-					int stackSize = hotMethodsProfLog[j][k][ProfileStack.methodIndex[i]].length;
-					int newStackSize = newLogQueue[i][k][ProfileStack.methodIndex[i]].length;
-					//Reinitialize newLogQueue for the method that has been invoked more than 50 times
-					if(stackSize > newStackSize) {
-						double[] newSize = new double[stackSize];
-						newLogQueue[j][k][ProfileStack.methodIndex[i]] = newSize;
-					}
-					//Copy the methods that have been pushed on hotMethodsProfLog only
-					System.arraycopy(hotMethodsProfLog[j][k][ProfileStack.methodIndex[i]], 0, newLogQueue[j][k][ProfileStack.methodIndex[i]]
-							, 0, hotMethodsProfLog[j][k][ProfileStack.methodIndex[i]].length);
-					hotMethodsProfLog[j][k][ProfileStack.methodIndex[i]] = newLogQueue[j][k][ProfileStack.methodIndex[i]];
+		while (startEntry != null) {
+			int entryId = 0;
+			for (LogEntry endEntry : endLogQueue) {
+				entryId++;
+				if (startEntry.threadId == endEntry.threadId && 
+					startEntry.methodId == endEntry.methodId) {
+					int timeEntry = endEntry.counters.length;
+					double totalWallClockTime = endEntry.counters[timeEntry] - startEntry.counters[timeEntry];
+					double missRate = (endEntry.counters[0] - startEntry.counters[0]) / (endEntry.counters[1] - startEntry.counters[1]);
+					double missRateByTime = (endEntry.counters[0] - startEntry.counters[0]) / totalWallClockTime;
+
+
+					//DataPrinter.printProfInfoTwo(startEntry, clsNameList[startEntry.methodId] + "." + methodNameList[startEntry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, TODO: result array, missRate, missRateByTime);   
+
+					endLogQueue.remove(entryId);
+					break;
 				}
 			}
+			startEntry = startLogQueue.poll();
 		}
-		//FIXME: increase the size of stack later
-//		hotMethodsProfLog = newLogQueue;
-//		if(methodId >= hotMethodsProfLog[eventId][threadId].length) {
-//			int[][][] newLogSize = new int[Math.max(methodId + 1, (int)(methodId * 1.25))];
-//	
-//			// Note stackSize array start records from 0
-//			System.arraycopy(logSize, 0, newLogSize, 0, logSize.length);
-//			logSize = newLogSize;
-//			VM.sysWriteln("New size initialization for hotMethodsProfLog: " + hotMethodsProfLog.length 
-//					+ " New size for stackSize: " + logSize.length  
-//					+ " Size for ProfileStack.methodIndex: " + ProfileStack.methodIndex.length + " SID is: " + methodId);
-//		}
-	}
-	
-	public static boolean isEmpty(int eventId, int threadId, int methodId) {
-		return logSize[eventId][threadId][methodId] == 0 ? true : false;
-	}
-	
-	public static long getStackSize(int eventId, int threadId, int methodId){
-		return logSize[eventId][threadId][methodId];
-	}
-	
-	public static void add(int eventId, int threadId, int methodId, double value) {
-		/*Check boundary of hotMethodsProfLog*/
-		//Check the boundary of eventId, threadId and methodId
-		growLogQueue(eventId, threadId, methodId);
-//		VM.sysWriteln("hotMethod length;" + hotMethodsProfLog.length + " log size: " + logSize[methodId]);
-		//Check the boundary of stackSize for specified method (once one methodId
-		//is out of boundary, increase size for all threads and events of this method)
-		if (logSize[eventId][threadId][methodId] == hotMethodsProfLog[eventId][threadId][methodId].length - 1) {
-			growLogSize(eventId, threadId, methodId);
-		}
-		hotMethodsProfLog[eventId][threadId][methodId][logSize[eventId][threadId][methodId]++] = value;
-	}
-
-	public static double pop(int eventId, int threadId, int methodId){
-		//Epilogue may be sampled before prologue
-//		InitStack(EnergyCheckUtils.socketNum);
-		if(methodId < 0 || methodId >= hotMethodsProfLog.length)
-			VM.sysWriteln("hotMethodsProfLog overflow methodId: " + methodId);
-		if (logSize[eventId][threadId][methodId] <= 0){
-			VM.sysWriteln("pop fail: no element to pop");
-			return -1;
-		} else 
-//			VM.sysWriteln("pop value: " + hotMethodsProfLog[eventId][threadId][methodId][logSize[methodId] - 1]);
-		return hotMethodsProfLog[eventId][threadId][methodId][--logSize[eventId][threadId][methodId]];
-	}
-	
-	public static double peak(int eventId, int threadId, int methodId) {
-		return hotMethodsProfLog[eventId][threadId][methodId][logSize[eventId][threadId][methodId] - 1];
-	}
-	
-	public static void dump(int sid) {
 	}
 }
-
