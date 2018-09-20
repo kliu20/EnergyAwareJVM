@@ -36,8 +36,8 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static void addStartLogQueue(int threadId, int methodId, Double[] profileAttrs) {
-		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
+	public static void addStartLogQueue(int threadId, int methodId, int invocationCounter, Double[] profileAttrs) {
+		LogEntry entry = new LogEntry(threadId, methodId, invocationCounter, profileAttrs);
 		startLogQueue.offer(entry);
 	}
 
@@ -47,8 +47,8 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static void addEndLogQueue(int threadId, int methodId, Double[] profileAttrs) {
-		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
+	public static void addEndLogQueue(int threadId, int methodId, int invocationCounter, Double[] profileAttrs) {
+		LogEntry entry = new LogEntry(threadId, methodId, invocationCounter, profileAttrs);
 		endLogQueue.offer(entry);
 	}
 
@@ -96,13 +96,11 @@ public class LogQueue implements ProfilingTypes {
 			for (LogEntry endEntry : endLogQueue) {
 				entryId++;
 				if (startEntry.threadId == endEntry.threadId && 
-					startEntry.methodId == endEntry.methodId) {
+					startEntry.invocationCounter == endEntry.invocationCounter) {
 					int timeEntry = endEntry.counters.length - 1;
 					double totalWallClockTime = endEntry.counters[timeEntry] - startEntry.counters[timeEntry];
 					double missRate = (endEntry.counters[0] - startEntry.counters[0]) / (endEntry.counters[1] - startEntry.counters[1]);
 					double missRateByTime = (endEntry.counters[0] - startEntry.counters[0]) / totalWallClockTime;
-
-
 					//DataPrinter.printProfInfoTwo(startEntry, clsNameList[startEntry.methodId] + "." + methodNameList[startEntry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, TODO: result array, missRate, missRateByTime);   
 
 					endLogQueue.remove(entryId);

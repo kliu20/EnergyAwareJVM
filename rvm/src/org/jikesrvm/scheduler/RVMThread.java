@@ -174,6 +174,8 @@ public final class RVMThread extends ThreadContext {
   public int YPDisabledCountByGC = 0;
   /**Kenan: time slice expired times for energy/hardware counter profiling*/
   public int energyTimeSliceExpired = 0;
+  /**Kenan: Counter for method invocation*/
+  public int invocationCounter = 0;
 
   /*
    * debug and statistics
