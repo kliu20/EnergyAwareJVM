@@ -2395,6 +2395,9 @@ public class VM extends Properties {
       VM.sysWriteln("... END context of the call to VM.sysExit]");
     }
     if (runningVM) {
+      VM.disableGC();
+      LogQueue.dumpWithRawData(Service.clsNameList, Service.methodNameList);
+      VM.enableGC();
       Callbacks.notifyExit(value);
       VM.shutdown(value);
     } else {
@@ -2410,6 +2413,7 @@ public class VM extends Properties {
    */
   @Uninterruptible
   public static void shutdown(int value) {
+    //LogQueue.dumpWithRawData(Service.clsNameList, Service.methodNameList);
     handlePossibleRecursiveShutdown();
 
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);

@@ -3,6 +3,7 @@ package org.jikesrvm.energy;
 import java.util.List;
 
 import org.jikesrvm.VM;
+import org.jikesrvm.scheduler.RVMThread;
 import org.jikesrvm.adaptive.controller.Controller;
 import org.vmmagic.pragma.Entrypoint;
 
@@ -97,137 +98,150 @@ public class Service implements ProfilingTypes {
 
 	  @Entrypoint
 	  public static void startProfile(int cmid) {
-		Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
-		int threadId = (int)Thread.currentThread().getId();
-		// Check if the current method is not short method (long method) or it hasn't been calculated
-		Boolean isSkippable = ProfileQueue.isSkippableMethod(cmid);
 
-		if (isSkippable == null || isSkippable != null && !isSkippable) {
+		RVMThread thread = RVMThread.getCurrentThread();
+		//Using sampling based method to profile
+		if (thread.energyTimeSliceExpired != 0) {
+
+			thread.energyTimeSliceExpired = 0;
+
+			Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
+			int threadId = (int)Thread.currentThread().getId();
+			// Check if the current method is not short method (long method) or it hasn't been calculated
+			Boolean isSkippable = ProfileQueue.isSkippableMethod(cmid);
+
+			if (isSkippable == null || isSkippable != null && !isSkippable) {
+			
+				double wallClockTime = System.currentTimeMillis();
 		
-			double wallClockTime = System.currentTimeMillis();
-	
-			String key = ProfileMap.createKey(threadId, cmid);
-			//Profiling 
-			getProfileAttrs(profileAttrs);
-	
-			/**Preserve for dynamic scaling*/ 
-	//		int counterIndex = 0;
-	//		double[] energy = EnergyCheckUtils.getEnergyStats();
-	//		for (int i = 0; i < Scaler.getPerfEnerCounterNum() - 1; i++) {
-	//			if (i < Scaler.perfCounters) {
-	//				perfCounter = Scaler.perfCheck(counterIndex);
-	//				// Insert hardware counters in the first socket
-	//				// ProfileStack.push(i, (int)threadId, cmid, perfCounter);
-	//				ProfileMap.put(i, (int) threadId, cmid, perfCounter);
-	//				counterIndex++;
-	//			} else {
-	//				for (int j = 0; j < EnergyCheckUtils.ENERGY_ENTRY_SIZE; j++) {
-	//					// ProfileStack.push(i, (int)threadId, cmid,
-	//					// energy[enerIndex]);
-	//					ProfileMap.put(i, (int) threadId, cmid, energy[enerIndex]);
-	//					i++;
-	//					enerIndex++;
-	//				}
-	//			}
-	//		}
-	
-			// ProfileStack.push(Scaler.getPerfEnerCounterNum() - 1, (int)threadId, cmid, wallClockTime);
-			profileAttrs[profileAttrs.length - 1] = wallClockTime;
-			ProfileMap.put(key, profileAttrs);
-			LogQueue.addStartLogQueue(threadId, cmid, profileAttrs);
+				String key = ProfileMap.createKey(threadId, cmid);
+				//Profiling 
+				getProfileAttrs(profileAttrs);
+		
+				/**Preserve for dynamic scaling*/ 
+		//		int counterIndex = 0;
+		//		double[] energy = EnergyCheckUtils.getEnergyStats();
+		//		for (int i = 0; i < Scaler.getPerfEnerCounterNum() - 1; i++) {
+		//			if (i < Scaler.perfCounters) {
+		//				perfCounter = Scaler.perfCheck(counterIndex);
+		//				// Insert hardware counters in the first socket
+		//				// ProfileStack.push(i, (int)threadId, cmid, perfCounter);
+		//				ProfileMap.put(i, (int) threadId, cmid, perfCounter);
+		//				counterIndex++;
+		//			} else {
+		//				for (int j = 0; j < EnergyCheckUtils.ENERGY_ENTRY_SIZE; j++) {
+		//					// ProfileStack.push(i, (int)threadId, cmid,
+		//					// energy[enerIndex]);
+		//					ProfileMap.put(i, (int) threadId, cmid, energy[enerIndex]);
+		//					i++;
+		//					enerIndex++;
+		//				}
+		//			}
+		//		}
+		
+				// ProfileStack.push(Scaler.getPerfEnerCounterNum() - 1, (int)threadId, cmid, wallClockTime);
+				profileAttrs[profileAttrs.length - 1] = wallClockTime;
+				ProfileMap.put(key, profileAttrs);
+				LogQueue.addStartLogQueue(threadId, cmid, profileAttrs);
+			}
 		}
 	}
 
 	@Entrypoint
 	public static void endProfile(int cmid){
-		
-		double startWallClockTime = 0.0d;
-		double totalWallClockTime = 0.0d;
-		double tlbMisses = 0.0d;
-		double missRate = 0.0d;
-		int offset = 0;
-		/** Event values for the method */
-		Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
-		int threadId = (int) Thread.currentThread().getId();
+		RVMThread thread = RVMThread.getCurrentThread();
+		//Using sampling based method to profile
+		if (thread.energyTimeSliceExpired != 0) {
 
-		// Check if the current method is not short method (long method) or it hasn't been calculated
-		Boolean isSkippable = ProfileQueue.isSkippableMethod(cmid);
+			thread.energyTimeSliceExpired = 0;
 
-		if (isSkippable == null || isSkippable != null && !isSkippable) {
-			
-			String key = ProfileMap.createKey(threadId, cmid);
-			//If the event counter has not been profiled or the previous value is 0, drop this measurement.
-			if (ProfileMap.getValue(Scaler.getPerfEnerCounterNum() - 1, key) == 0) {
-				return;
-			}
-			Double[] methodPreamble = ProfileMap.remove(key);
-			// Over recursive call threshold check. If it's null, that means the current method
-			// is invoked itself more than a certain threshold times. We only need profile the information of the whole
-			// recursive calls
-			if (methodPreamble == null) {
-				return;
-			}
-			double wallClockTime = System.currentTimeMillis();
-			startWallClockTime = methodPreamble[Scaler.getPerfEnerCounterNum() - 1];
-			totalWallClockTime = wallClockTime - startWallClockTime;
-			// startWallClockTime = ProfileStack.pop(Scaler.getPerfEnerCounterNum() - 1, threadId, cmid);
-			// Over recursive call threshold check. If it's a negative value, that means the current method
-			// is invoked itself more than a certain threshold times. We only need care the information of the whole
-			// recursive calls
-	
-			// Get greater range since the method execution time varies a lot
-			double min = Controller.options.HOT_METHOD_TIME_MIN;
-			double max = Controller.options.HOT_METHOD_TIME_MAX;
+			double startWallClockTime = 0.0d;
+			double totalWallClockTime = 0.0d;
+			double tlbMisses = 0.0d;
+			double missRate = 0.0d;
+			int offset = 0;
+			/** Event values for the method */
+			Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
+			int threadId = (int) Thread.currentThread().getId();
 
-			  //Calculate method's profiling information
-			//calculateProfile(profileAttrs, methodPreamble, cmid);
-			getProfileAttrs(profileAttrs);
+			// Check if the current method is not short method (long method) or it hasn't been calculated
+			Boolean isSkippable = ProfileQueue.isSkippableMethod(cmid);
 
-			if (isSkippable == null) {
-				if (totalWallClockTime < 30) {
-					ProfileQueue.setSkippableMethod(cmid);
+			if (isSkippable == null || isSkippable != null && !isSkippable) {
+				
+				String key = ProfileMap.createKey(threadId, cmid);
+				//If the event counter has not been profiled or the previous value is 0, drop this measurement.
+				if (ProfileMap.getValue(Scaler.getPerfEnerCounterNum() - 1, key) == 0) {
 					return;
-				} else {
-					ProfileQueue.setNonskippableMethod(cmid);
 				}
-			}
-	
-			  /**Event counter printer object*/
-			  if(Controller.options.ENABLE_COUNTER_PRINTER && !titleIsPrinted) {
-				  //DataPrinter.printEventCounterTitle(Controller.options.ENABLE_COUNTER_PROFILING, Controller.options.ENABLE_ENERGY_PROFILING);
-				  titleIsPrinted = true;
-			  }
-			  
-			  //TODO: For enable_scaling_by_counters for future
-//			  for(int i = 1; i <= Scaler.getPerfEnerCounterNum() - 1; i++) {
-//				  
-//				  //If scaling by counters is enabled, we need calculate cache miss rate and TLB misses
-//				  //Otherwise, just simply store the perf counters user set from command line.
-//				  if(Controller.options.ENABLE_SCALING_BY_COUNTERS && i % Scaler.perfCounters == 0) {
-//					  //Move to the next index for L3CACHEMISSRATE event
-//					  ++offset;
-//					  missRate = ((double)profileAttrs[i + offset - Scaler.perfCounters] / (double)profileAttrs[i + offset - Scaler.perfCounters + 1]);
-//					  //get TLB misses
-//					  tlbMisses = profileAttrs[i + offset - Scaler.perfCounters + 2] + profileAttrs[i + offset -Scaler.perfCounters + 3];
-//					  LogQueue.addRatio(threadId, cmid, miss
-//					  LogQueue.add(i + offset - 1, threadId, cmid, missRate);
-//					  //Move to the next index for TLBMISSES
-//					  ++offset;
-//					  LogQueue.add(i + offset - 1, threadId, cmid, tlbMisses);
-//					  continue;
-//				  }
-//				  LogQueue.add(i + offset - 1, threadId, cmid, profileAttrs[i - 1]);
-//			  }
-			  
-			  //Last entry for wall clock time
-			  int wallClockTimeEntry = Scaler.getPerfEnerCounterNum() - 1;
-			  profileAttrs[wallClockTimeEntry] = totalWallClockTime;
-			  LogQueue.addEndLogQueue(threadId, cmid, profileAttrs);
-
-			  //Print the profiling information based on event counters
-			  //printProfile(profileAttrs, cmid, totalWallClockTime);
-		}
+				Double[] methodPreamble = ProfileMap.remove(key);
+				// Over recursive call threshold check. If it's null, that means the current method
+				// is invoked itself more than a certain threshold times. We only need profile the information of the whole
+				// recursive calls
+				if (methodPreamble == null) {
+					return;
+				}
+				double wallClockTime = System.currentTimeMillis();
+				startWallClockTime = methodPreamble[Scaler.getPerfEnerCounterNum() - 1];
+				totalWallClockTime = wallClockTime - startWallClockTime;
+				// startWallClockTime = ProfileStack.pop(Scaler.getPerfEnerCounterNum() - 1, threadId, cmid);
+				// Over recursive call threshold check. If it's a negative value, that means the current method
+				// is invoked itself more than a certain threshold times. We only need care the information of the whole
+				// recursive calls
 		
+				// Get greater range since the method execution time varies a lot
+				double min = Controller.options.HOT_METHOD_TIME_MIN;
+				double max = Controller.options.HOT_METHOD_TIME_MAX;
+
+				  //Calculate method's profiling information
+				//calculateProfile(profileAttrs, methodPreamble, cmid);
+				getProfileAttrs(profileAttrs);
+
+				if (isSkippable == null) {
+					if (totalWallClockTime < 40) {
+						ProfileQueue.setSkippableMethod(cmid);
+						return;
+					} else {
+						ProfileQueue.setNonskippableMethod(cmid);
+					}
+				}
+		
+				  /**Event counter printer object*/
+				  if(Controller.options.ENABLE_COUNTER_PRINTER && !titleIsPrinted) {
+					  //DataPrinter.printEventCounterTitle(Controller.options.ENABLE_COUNTER_PROFILING, Controller.options.ENABLE_ENERGY_PROFILING);
+					  titleIsPrinted = true;
+				  }
+				  
+				  //TODO: For enable_scaling_by_counters for future
+	//			  for(int i = 1; i <= Scaler.getPerfEnerCounterNum() - 1; i++) {
+	//				  
+	//				  //If scaling by counters is enabled, we need calculate cache miss rate and TLB misses
+	//				  //Otherwise, just simply store the perf counters user set from command line.
+	//				  if(Controller.options.ENABLE_SCALING_BY_COUNTERS && i % Scaler.perfCounters == 0) {
+	//					  //Move to the next index for L3CACHEMISSRATE event
+	//					  ++offset;
+	//					  missRate = ((double)profileAttrs[i + offset - Scaler.perfCounters] / (double)profileAttrs[i + offset - Scaler.perfCounters + 1]);
+	//					  //get TLB misses
+	//					  tlbMisses = profileAttrs[i + offset - Scaler.perfCounters + 2] + profileAttrs[i + offset -Scaler.perfCounters + 3];
+	//					  LogQueue.addRatio(threadId, cmid, miss
+	//					  LogQueue.add(i + offset - 1, threadId, cmid, missRate);
+	//					  //Move to the next index for TLBMISSES
+	//					  ++offset;
+	//					  LogQueue.add(i + offset - 1, threadId, cmid, tlbMisses);
+	//					  continue;
+	//				  }
+	//				  LogQueue.add(i + offset - 1, threadId, cmid, profileAttrs[i - 1]);
+	//			  }
+				  
+				  //Last entry for wall clock time
+				  int wallClockTimeEntry = Scaler.getPerfEnerCounterNum() - 1;
+				  profileAttrs[wallClockTimeEntry] = totalWallClockTime;
+				  LogQueue.addEndLogQueue(threadId, cmid, profileAttrs);
+
+				  //Print the profiling information based on event counters
+				  //printProfile(profileAttrs, cmid, totalWallClockTime);
+			}
+		}
 	}
 
 	public static void calculateProfile(double[] profileAttrs, Double[] methodPreamble, int cmid) {

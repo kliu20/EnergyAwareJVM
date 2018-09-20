@@ -82,15 +82,22 @@ public class LogQueue implements ProfilingTypes {
 	 * Dump the profiling information with the data hasn't been calculated
 	 */
 	public static void dumpWithRawData(String[] clsNameList, String[] methodNameList) {
-		LogEntry startEntry= startLogQueue.poll();
-		
-		while (startEntry != null) {
+		VM.sysWriteln("size of start LogQueue: " + startLogQueue.size());
+		VM.sysWriteln("size of end LogQueue: " + endLogQueue.size());
+
+		while (startLogQueue != null && !startLogQueue.isEmpty()) {
+
+			LogEntry startEntry = startLogQueue.removeFirst();
+
+			VM.sysWriteln(startLogQueue.size());
+
+			//LogEntry startEntry= startLogQueue.poll();
 			int entryId = 0;
 			for (LogEntry endEntry : endLogQueue) {
 				entryId++;
 				if (startEntry.threadId == endEntry.threadId && 
 					startEntry.methodId == endEntry.methodId) {
-					int timeEntry = endEntry.counters.length;
+					int timeEntry = endEntry.counters.length - 1;
 					double totalWallClockTime = endEntry.counters[timeEntry] - startEntry.counters[timeEntry];
 					double missRate = (endEntry.counters[0] - startEntry.counters[0]) / (endEntry.counters[1] - startEntry.counters[1]);
 					double missRateByTime = (endEntry.counters[0] - startEntry.counters[0]) / totalWallClockTime;
@@ -102,7 +109,6 @@ public class LogQueue implements ProfilingTypes {
 					break;
 				}
 			}
-			startEntry = startLogQueue.poll();
 		}
 	}
 }

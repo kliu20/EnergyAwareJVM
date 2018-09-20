@@ -65,6 +65,8 @@ public class TimerThread extends SystemThread {
             if (candidate != null && candidate.shouldBeSampled()) {
               candidate.timeSliceExpired++;
               candidate.takeYieldpoint = 1;
+	      //Kenan
+	      candidate.energyTimeSliceExpired++;
             }
           }
           RVMThread.acctLock.unlock();
