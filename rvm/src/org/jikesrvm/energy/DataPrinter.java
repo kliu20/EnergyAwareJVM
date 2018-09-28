@@ -164,8 +164,6 @@ public class DataPrinter extends EnergyCalc{
 		for(int i = 0; i < counterValue.length; i++) {
 			filePrinter.print("," + counterValue[i]);
 		}
-		double wallClockTime = counterValue[counterValue.length - 1];
-		filePrinter.print("," + counterValue[counterValue.length - 2] / (wallClockTime / 1000));
 	}
 	
 	/**

@@ -65,12 +65,7 @@ public class TimerThread extends SystemThread {
             if (candidate != null && candidate.shouldBeSampled()) {
               candidate.timeSliceExpired++;
               candidate.takeYieldpoint = 1;
-	      // Kenan: Two options here. Counter based or time based.
-	      // For the Counter based method. Each thread would get same
-	      // opportunity to be profiled. This is also the methodology 
-	      // JikesRVM uses.
-	      candidate.energyTimeSliceExpired = 4;
-	      candidate.invocationCounter = 0;
+	      candidate.energyTimeSliceExpired++;
             }
           }
           RVMThread.acctLock.unlock();

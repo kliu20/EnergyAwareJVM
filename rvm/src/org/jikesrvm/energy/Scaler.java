@@ -122,7 +122,7 @@ public class Scaler implements ScalerOptions {
 	}
 	
 	/**
-	 * @return number of perf counters plus elapse time
+	 * @return number of perf counters 
 	 */
 	public static int getPerfEnerCounterNum() {
 
@@ -131,9 +131,9 @@ public class Scaler implements ScalerOptions {
 			perfCounters = Controller.options.ENABLE_COUNTER_PROFILING ? perfCounters : 0;
 			energyCounters = Controller.options.ENABLE_ENERGY_PROFILING ? EnergyCheckUtils.ENERGY_ENTRY_SIZE : 0;
 			
-			return (perfCounters + energyCounters) * EnergyCheckUtils.socketNum + 1;
+			return (perfCounters + energyCounters) * EnergyCheckUtils.socketNum;
 		}
-		return perfCounters * EnergyCheckUtils.socketNum + 1;
+		return perfCounters * EnergyCheckUtils.socketNum;
 	}
 	
 	  public static void perfEventInit() {

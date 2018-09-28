@@ -487,7 +487,7 @@ public class VM extends Properties {
 		ProfileMap.initProfileMap();
 		ProfileQueue.initSkippableMethod();
 		DataPrinter.initPrintStream();
-		LogQueue.initRawDataQueue(EnergyCheckUtils.socketNum);
+		LogQueue.initQueue(EnergyCheckUtils.socketNum);
 	}
 //      }
       Controller.boot();
@@ -2396,7 +2396,7 @@ public class VM extends Properties {
     }
     if (runningVM) {
       VM.disableGC();
-      LogQueue.dumpWithRawData(Service.clsNameList, Service.methodNameList);
+      LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
       VM.enableGC();
       Callbacks.notifyExit(value);
       VM.shutdown(value);
