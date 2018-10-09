@@ -121,7 +121,8 @@ runJikesNoCounterHSQLDB() {
 #		#runJikesProfile 4 ${freq[$i]} ${events[6]} Energy -t 8
 #	done
 #done
-sudo /home/kmahmou1/jdk1.6.0_45/bin/java energy.Scaler 1 userspace
+#sudo /home/kmahmou1/jdk1.6.0_45/bin/java energy.Scaler 1 userspace
+sudo java energy.Scaler 1 userspace
 time runJikesProfile 4 ${freq[1]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
 	
 #sudo java energy.Scaler 8 userspace

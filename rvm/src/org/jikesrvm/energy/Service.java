@@ -70,16 +70,14 @@ public class Service implements ProfilingTypes {
 	 * Do profile
 	 * @param profileAttrs the collection that contains profile information 
 	 */
-	  public static void getProfileAttrs(Double[] profileAttrs, double wallClockTime) {
+	  public static void getProfileAttrs(Double[] profileAttrs, double energyTimeSliceExpired, double wallClockTime) {
 		double perfCounter;
 		int eventId = 0;
 		//Loop unwinding
 		if (Controller.options.ENABLE_COUNTER_PROFILING) {
 			for (int i = 0; i < Scaler.perfCounters; i++) {
 				perfCounter = Scaler.perfCheck(i);
-				//VM.sysWriteln(perfCounter);
-				profileAttrs[eventId++] = perfCounter / wallClockTime;
-				
+				profileAttrs[eventId++] = perfCounter / wallClockTime * energyTimeSliceExpired * VM.interruptQuantum; 
 			}
 		}
 
@@ -88,7 +86,7 @@ public class Service implements ProfilingTypes {
 			double[] energy = EnergyCheckUtils.getEnergyStats();
 			
 			for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-				profileAttrs[eventId++] = energy[i] / wallClockTime;
+				profileAttrs[eventId++] = energy[i] / wallClockTime * energyTimeSliceExpired * VM.interruptQuantum;
 			}
 		}
 		
@@ -101,13 +99,11 @@ public class Service implements ProfilingTypes {
 		//Using sampling based method to profile
 		if (thread.energyTimeSliceExpired != 0) {
 
-			thread.energyTimeSliceExpired = 0;
-
 			Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
 			int threadId = (int)Thread.currentThread().getId();
 			double wallClockTime = System.currentTimeMillis();
 			//Profiling 
-			getProfileAttrs(profileAttrs, wallClockTime / 1000.0);
+			getProfileAttrs(profileAttrs, thread.energyTimeSliceExpired, wallClockTime / 1000.0);
 	
 			/**Preserve for dynamic scaling*/ 
 	//		int counterIndex = 0;
@@ -132,6 +128,8 @@ public class Service implements ProfilingTypes {
 	
 			// ProfileStack.push(Scaler.getPerfEnerCounterNum() - 1, (int)threadId, cmid, wallClockTime);
 			LogQueue.addLogQueue(threadId, cmid, profileAttrs);
+
+			thread.energyTimeSliceExpired = 0;
 		}
 	}
 
@@ -140,8 +138,6 @@ public class Service implements ProfilingTypes {
 		RVMThread thread = RVMThread.getCurrentThread();
 		//Using sampling based method to profile
 		if (thread.energyTimeSliceExpired != 0) {
-
-			thread.energyTimeSliceExpired = 0;
 
 			double tlbMisses = 0.0d;
 			double missRate = 0.0d;
@@ -152,7 +148,7 @@ public class Service implements ProfilingTypes {
 			double wallClockTime = System.currentTimeMillis();
 			
 			//Do profile	
-			getProfileAttrs(profileAttrs, wallClockTime / 1000.0);
+			getProfileAttrs(profileAttrs, thread.energyTimeSliceExpired, wallClockTime / 1000.0);
 
 			  /**Event counter printer object*/
 //			  if(Controller.options.ENABLE_COUNTER_PRINTER && !titleIsPrinted) {
@@ -183,6 +179,8 @@ public class Service implements ProfilingTypes {
 			  
 			  //Last entry for wall clock time
 			  LogQueue.addLogQueue(threadId, cmid, profileAttrs);
+
+			thread.energyTimeSliceExpired = 0;
 		}
 	}
 }
