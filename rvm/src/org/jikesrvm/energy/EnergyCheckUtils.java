@@ -77,6 +77,9 @@ public class EnergyCheckUtils {
 			for(int i = 0; i < perSockEner.length; i++) {
 				String[] energy = perSockEner[i].split("#");
 				for(int j = 0; j < energy.length; j++) {
+//					if (stats[j] == 0) {
+//						VM.sysWriteln("stats " + j + "energy is 0");
+//					}
 					stats[j] += Double.parseDouble(energy[j]);
 				}
 			}

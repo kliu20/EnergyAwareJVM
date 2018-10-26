@@ -69,11 +69,12 @@ public class LogQueue implements ProfilingTypes {
 	 */
 	public static void dumpLogQueue(String[] clsNameList, String[] methodNameList) {
 		for (LogEntry entry : logQueue) {
+
 			//double missRate = entry.counters[0] / entry.counters[1];
 			//double missRateByTime = entry.counters[0] / totalWallClockTime;
-
 			DataPrinter.printProfInfoTwo(entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, 0, 0 /*missRate, missRateByTime*/);   
 		}
+		DataPrinter.filePrinter.flush();
 	}
 
 	/**

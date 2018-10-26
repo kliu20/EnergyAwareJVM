@@ -164,6 +164,7 @@ public class DataPrinter extends EnergyCalc{
 		for(int i = 0; i < counterValue.length; i++) {
 			filePrinter.print("," + counterValue[i]);
 		}
+		filePrinter.println();
 	}
 	
 	/**
@@ -214,11 +215,9 @@ public class DataPrinter extends EnergyCalc{
 	 * @param anotherCounter2
 	 */
 	public static void printProfInfoTwo(int cmid, String methodName, int frequency, Double[] counterValue, double anotherCounter1, double anotherCounter2) {
-		synchronized(filePrinter) {
-			double wallClockTime = counterValue[counterValue.length - 1];
-			printValues(cmid, methodName, frequency, counterValue);
-			printExtra(anotherCounter1, anotherCounter2, wallClockTime);
-		}
+		double wallClockTime = counterValue[counterValue.length - 1];
+		printValues(cmid, methodName, frequency, counterValue);
+		//printExtra(anotherCounter1, anotherCounter2, wallClockTime);
 	}
 	
 	/**
