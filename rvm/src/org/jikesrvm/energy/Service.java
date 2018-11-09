@@ -77,7 +77,7 @@ public class Service implements ProfilingTypes {
 		if (Controller.options.ENABLE_COUNTER_PROFILING) {
 			for (int i = 0; i < Scaler.perfCounters; i++) {
 				perfCounter = Scaler.perfCheck(i);
-				profileAttrs[eventId++] = perfCounter / wallClockTime * energyTimeSliceExpired * VM.interruptQuantum; 
+				profileAttrs[eventId++] = perfCounter / wallClockTime * energyTimeSliceExpired * VM.interruptQuantum / 2; 
 			}
 		}
 
@@ -86,7 +86,7 @@ public class Service implements ProfilingTypes {
 			double[] energy = EnergyCheckUtils.getEnergyStats();
 			
 			for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-				profileAttrs[eventId++] = energy[i] / wallClockTime * energyTimeSliceExpired * VM.interruptQuantum;
+				profileAttrs[eventId++] = energy[i] / wallClockTime * energyTimeSliceExpired * VM.interruptQuantum / 2;
 			}
 		}
 		

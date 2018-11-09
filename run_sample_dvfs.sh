@@ -33,12 +33,12 @@ runJikesProfile() {
 		#runJikesNoProfile ${freq[1]}  
 		#timeSlice=4
 		
-#for ((i=1;i<=6;i++))
-#do
-#	sudo java energy.Scaler $i userspace
-#	time runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
-#	#break
-#done
-sudo java energy.Scaler 6 userspace
-time runJikesProfile 4 ${freq[6]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+for ((i=1;i<=6;i++))
+do
+	sudo java energy.Scaler $i userspace
+	time runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+	#break
+done
+#sudo java energy.Scaler 6 userspace
+#time runJikesProfile 4 ${freq[6]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
 	

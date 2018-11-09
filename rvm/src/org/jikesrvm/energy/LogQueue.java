@@ -68,21 +68,24 @@ public class LogQueue implements ProfilingTypes {
 	 * Dump the profiling information with the data has been calculated
 	 */
 	public static void dumpLogQueue(String[] clsNameList, String[] methodNameList) {
-		for (LogEntry entry : logQueue) {
+		int count = 0;
+		//for (LogEntry entry : logQueue) {
+		for (int i = logQueue.size() - 1; i >= 0; i--) {
 
+			DataPrinter.filePrinter.println("entry size remains: " + (logQueue.size() - count++) + " index is: " + i);
+			//DataPrinter.filePrinter.println("entry size remains: " + (logQueue.size() - count++));
 			//double missRate = entry.counters[0] / entry.counters[1];
 			//double missRateByTime = entry.counters[0] / totalWallClockTime;
+			LogEntry entry = logQueue.get(i);
 			DataPrinter.printProfInfoTwo(entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, 0, 0 /*missRate, missRateByTime*/);   
+			DataPrinter.filePrinter.flush();
 		}
-		DataPrinter.filePrinter.flush();
 	}
 
 	/**
 	 * Dump the profiling information with the data hasn't been calculated
 	 */
 	public static void dumpWithRawData(String[] clsNameList, String[] methodNameList) {
-		VM.sysWriteln("size of start LogQueue: " + startLogQueue.size());
-		VM.sysWriteln("size of end LogQueue: " + endLogQueue.size());
 
 		while (startLogQueue != null && !startLogQueue.isEmpty()) {
 

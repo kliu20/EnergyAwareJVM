@@ -2395,9 +2395,9 @@ public class VM extends Properties {
       VM.sysWriteln("... END context of the call to VM.sysExit]");
     }
     if (runningVM) {
-//      VM.disableGC();
-//      LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
-//      VM.enableGC();
+      VM.disableGC();
+      LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
+      VM.enableGC();
       Callbacks.notifyExit(value);
       VM.shutdown(value);
     } else {
@@ -2418,7 +2418,7 @@ public class VM extends Properties {
 
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);
 
-	LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
+	//LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
 /*
     for (int threadId = 0; threadId < LogQueue.hotMethodsProfLog[0].length; threadId++) {
 	    for (int methodId = 0; methodId < LogQueue.hotMethodsProfLog[0][threadId].length; methodId++) {
@@ -2436,6 +2436,7 @@ public class VM extends Properties {
     }
     
 	    */
+    DataPrinter.filePrinter.println("Hit to sysExit!!!");
     sysCall.sysExit(value);
     if (VM.VerifyAssertions) VM._assert(VM.NOT_REACHED);
   }
