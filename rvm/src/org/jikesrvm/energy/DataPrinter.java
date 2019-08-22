@@ -166,7 +166,18 @@ public class DataPrinter extends EnergyCalc{
 		}
 		filePrinter.println();
 	}
-	
+
+	public static void printValues(int cmid, String methodName, int frequency, Double[] counterValue, long wallClockTime) {
+		filePrinter.print(frequency + "," + Controller.options.HOT_METHOD_TIME_MIN + "," + Controller.options.HOT_METHOD_TIME_MAX + "," + cmid + "," + methodName + ",0"/*hash code column*/);
+		for(int i = 0; i < counterValue.length; i++) {
+			filePrinter.print("," + counterValue[i]);
+		}
+		for(int i = 0; i < counterValue.length; i++) {
+			filePrinter.print("," + counterValue[i] / wallClockTime);
+		}
+		filePrinter.print("," + wallClockTime);
+		filePrinter.println();
+	}
 	/**
 	 * @param counterValue event counters and wall clock time
 	 * Print out event counters, cache miss rate, tlb misses
@@ -214,9 +225,10 @@ public class DataPrinter extends EnergyCalc{
 	 * @param anotherCounter1
 	 * @param anotherCounter2
 	 */
-	public static void printProfInfoTwo(int cmid, String methodName, int frequency, Double[] counterValue, double anotherCounter1, double anotherCounter2) {
-		double wallClockTime = counterValue[counterValue.length - 1];
-		printValues(cmid, methodName, frequency, counterValue);
+	public static void printProfInfoTwo(int threadId, int cmid, String methodName, int frequency, Double[] counterValue, long time,  double anotherCounter1, double anotherCounter2) {
+		//double wallClockTime = counterValue[counterValue.length - 1];
+		filePrinter.print(threadId + ",");
+		printValues(cmid, methodName, frequency, counterValue, time);
 		//printExtra(anotherCounter1, anotherCounter2, wallClockTime);
 	}
 	

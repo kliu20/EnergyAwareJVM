@@ -1,6 +1,7 @@
 package org.jikesrvm.energy;
 
 import java.util.List;
+import java.lang.ThreadLocal;
 
 import org.jikesrvm.VM;
 import org.jikesrvm.scheduler.RVMThread;
@@ -19,6 +20,8 @@ public class Service implements ProfilingTypes {
 	public static String[] clsNameList = new String[INIT_SIZE];
 	public static String[] methodNameList = new String[INIT_SIZE];
 	public static long[] methodCount = new long[INIT_SIZE];
+	public static double[][] prevProfile = new double[INIT_SIZE][10];
+	public static boolean prevProfileInit = false;
 	
 	/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
 	public static char [] info = {'i','o', '\n'};
@@ -70,14 +73,39 @@ public class Service implements ProfilingTypes {
 	 * Do profile
 	 * @param profileAttrs the collection that contains profile information 
 	 */
-	  public static void getProfileAttrs(Double[] profileAttrs, double energyTimeSliceExpired, double wallClockTime) {
-		double perfCounter;
+	  public static void getProfileAttrs(Double[] profileAttrs) {
+		double perfCounter = 0.0d;
 		int eventId = 0;
+		int threadId = (int)Thread.currentThread().getId();
 		//Loop unwinding
 		if (Controller.options.ENABLE_COUNTER_PROFILING) {
 			for (int i = 0; i < Scaler.perfCounters; i++) {
 				perfCounter = Scaler.perfCheck(i);
-				profileAttrs[eventId++] = perfCounter / wallClockTime * energyTimeSliceExpired * VM.interruptQuantum / 2; 
+				VM.sysWriteln("check: " + Scaler.perfCheck(i) + " perfCounter: " + perfCounter);
+				if (perfCounter < 0) {
+					DataPrinter.filePrinter.println("hardware counter is negative!");
+				}
+				if (!prevProfileInit) {
+					VM.sysWriteln("eventId is: " + eventId);
+					VM.sysWriteln("prevProfile lenth is: " + prevProfile.length + " " + prevProfile[0].length);
+					profileAttrs[eventId] = perfCounter;
+					prevProfile[threadId][eventId] = perfCounter;
+					prevProfileInit = true;
+					eventId++;
+				} else {
+					prevProfile[threadId][eventId] = perfCounter - prevProfile[threadId][eventId];
+					VM.sysWriteln("eventId is: " + eventId);
+					VM.sysWriteln("profileAttrs.length is: " + profileAttrs.length);
+					if (eventId >= profileAttrs.length || eventId < 0) {
+						VM.sysWriteln("eventId over the limit is: " + eventId + " profileAttrs.length: " + profileAttrs.length);
+					}
+					if (profileAttrs[eventId] < 0) {
+						DataPrinter.filePrinter.println("hardware difference value is negative!");
+						DataPrinter.filePrinter.println(perfCounter + " " + prevProfile[threadId][eventId] + " " + profileAttrs[eventId]);
+					}
+					prevProfile[threadId][eventId] = profileAttrs[eventId];
+					eventId++;
+				}
 			}
 		}
 
@@ -86,10 +114,26 @@ public class Service implements ProfilingTypes {
 			double[] energy = EnergyCheckUtils.getEnergyStats();
 			
 			for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-				profileAttrs[eventId++] = energy[i] / wallClockTime * energyTimeSliceExpired * VM.interruptQuantum / 2;
+				if (energy[i] < 0) {
+					DataPrinter.filePrinter.println("energy value is negative!");
+				}
+				if (!prevProfileInit) {
+					profileAttrs[eventId] = energy[i];
+					prevProfile[threadId][eventId] = energy[i];
+					prevProfileInit = true;
+					eventId++;
+				} else {
+	
+					profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
+					if (profileAttrs[eventId] < 0) {
+						DataPrinter.filePrinter.println("energy difference value is negative!");
+						DataPrinter.filePrinter.println(energy[i] + " " + prevProfile[threadId][eventId] + " " + profileAttrs[eventId]);
+					}
+					prevProfile[threadId][eventId] = profileAttrs[eventId];
+					eventId++;
+				}
 			}
 		}
-		
 	  }
 
 	  @Entrypoint
@@ -97,13 +141,13 @@ public class Service implements ProfilingTypes {
 
 		RVMThread thread = RVMThread.getCurrentThread();
 		//Using sampling based method to profile
-		if (thread.energyTimeSliceExpired != 0) {
+		if (thread.energyTimeSliceExpired % 2 != 0) {
 
 			Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
 			int threadId = (int)Thread.currentThread().getId();
 			double wallClockTime = System.currentTimeMillis();
 			//Profiling 
-			getProfileAttrs(profileAttrs, thread.energyTimeSliceExpired, wallClockTime / 1000.0);
+			getProfileAttrs(profileAttrs);
 	
 			/**Preserve for dynamic scaling*/ 
 	//		int counterIndex = 0;
@@ -127,7 +171,7 @@ public class Service implements ProfilingTypes {
 	//		}
 	
 			// ProfileStack.push(Scaler.getPerfEnerCounterNum() - 1, (int)threadId, cmid, wallClockTime);
-			LogQueue.addLogQueue(threadId, cmid, profileAttrs);
+			LogQueue.addLogQueue(threadId, cmid, profileAttrs, (long)(thread.energyTimeSliceExpired * VM.interruptQuantum));
 
 			thread.energyTimeSliceExpired = 0;
 		}
@@ -137,7 +181,7 @@ public class Service implements ProfilingTypes {
 	public static void endProfile(int cmid) {
 		RVMThread thread = RVMThread.getCurrentThread();
 		//Using sampling based method to profile
-		if (thread.energyTimeSliceExpired != 0) {
+		if (thread.energyTimeSliceExpired % 2 != 0) {
 
 			double tlbMisses = 0.0d;
 			double missRate = 0.0d;
@@ -148,7 +192,7 @@ public class Service implements ProfilingTypes {
 			double wallClockTime = System.currentTimeMillis();
 			
 			//Do profile	
-			getProfileAttrs(profileAttrs, thread.energyTimeSliceExpired, wallClockTime / 1000.0);
+			getProfileAttrs(profileAttrs);
 
 			  /**Event counter printer object*/
 //			  if(Controller.options.ENABLE_COUNTER_PRINTER && !titleIsPrinted) {
@@ -178,7 +222,7 @@ public class Service implements ProfilingTypes {
 //			  }
 			  
 			  //Last entry for wall clock time
-			  LogQueue.addLogQueue(threadId, cmid, profileAttrs);
+			  LogQueue.addLogQueue(threadId, cmid, profileAttrs, (long)(thread.energyTimeSliceExpired * VM.interruptQuantum));
 
 			thread.energyTimeSliceExpired = 0;
 		}

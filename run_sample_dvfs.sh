@@ -41,4 +41,3 @@ do
 done
 #sudo java energy.Scaler 6 userspace
 #time runJikesProfile 4 ${freq[6]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
-	

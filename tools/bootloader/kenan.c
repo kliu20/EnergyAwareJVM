@@ -20,7 +20,7 @@
 #define BROADWELL	     0xD4U
 #define BROADWELL2	     0x4FU
 
-extern char *ener_info;
+//extern char *ener_info;
 extern rapl_msr_unit rapl_unit;
 extern int *fd;
 extern double WRAPAROUND_VALUE;
@@ -316,7 +316,7 @@ initialize_energy_info(char gpu_buffer[num_pkg][60], char dram_buffer[num_pkg][6
 	double pp0[num_pkg];
 	double pp1[num_pkg];
 	double dram[num_pkg];
-	double result = 0.0;
+	uint64_t result = 0.0;
 	int info_size = 0;
 	int i = 0;
 	for (; i < num_pkg; i++) {
@@ -324,13 +324,21 @@ initialize_energy_info(char gpu_buffer[num_pkg][60], char dram_buffer[num_pkg][6
 		result = read_msr(fd[i], MSR_PKG_ENERGY_STATUS);	//First 32 bits so don't need shift bits.
 		package[i] = (double) result * rapl_unit.energy;
 
+//		if (result < 0.0) {
+//			printf("intermediate result energy: %f\n", result);
+//			//printf("package energy: %f\n", package[i]);
+//		}
+	
 		result = read_msr(fd[i], MSR_PP0_ENERGY_STATUS);
 		pp0[i] = (double) result * rapl_unit.energy;
 
-		//printf("package energy: %f\n", package[i]);
-
+	
 		sprintf(package_buffer[i], "%f", package[i]);
 		sprintf(cpu_buffer[i], "%f", pp0[i]);
+//		if (result < 0.0) {
+//			printf("intermediate result energy: %f\n", result);
+//			//printf("cpu_buffer energy: %f\n", pp0[i]);
+//		}
 		
 		//allocate space for string
 		//printf("%" PRIu32 "\n", cpu_model);
@@ -364,6 +372,7 @@ initialize_energy_info(char gpu_buffer[num_pkg][60], char dram_buffer[num_pkg][6
 
 
 				result = read_msr(fd[i],MSR_PP1_ENERGY_STATUS);
+
 				pp1[i] = (double) result *rapl_unit.energy;
 
 				sprintf(gpu_buffer[i], "%f", pp1[i]);
@@ -372,7 +381,7 @@ initialize_energy_info(char gpu_buffer[num_pkg][60], char dram_buffer[num_pkg][6
 				
 		}
 
-		ener_info = (char *) malloc(info_size);
+		//ener_info = (char *) malloc(info_size);
 	}
 }
 
@@ -392,7 +401,9 @@ EXTERNAL EnergyStatCheck(char *ener_info) {
 	int i;
 	int offset = 0;
 
+	//bzero(ener_info, 512);
 	initialize_energy_info(gpu_buffer, dram_buffer, cpu_buffer, package_buffer);
+	//printf("dram is %s, cpu is %s, package is %s\n", dram_buffer, cpu_buffer, package_buffer);
 
 	for(i = 0; i < num_pkg; i++) {
 		//allocate space for string
@@ -429,6 +440,7 @@ EXTERNAL EnergyStatCheck(char *ener_info) {
 				} else {
 					memcpy(ener_info + offset + dram_num + cpu_num + 2, &package_buffer[i], package_num + 1);
 				}
+				printf("ener_info is: %s\n", ener_info);
 				
 				break;	
 			case SANDYBRIDGE:
@@ -455,6 +467,7 @@ EXTERNAL EnergyStatCheck(char *ener_info) {
 					memcpy(ener_info + offset + gpu_num + cpu_num + 2, &package_buffer[i],
 							package_num + 1);
 				}
+				printf("ener_info is: %s\n", ener_info);
 				
 				break;
 			default:
@@ -470,7 +483,7 @@ EXTERNAL EnergyStatCheck(char *ener_info) {
 
 EXTERNAL void ProfileDealloc() {
 	free(fd);
-	free(ener_info);
+	//free(ener_info);
 	free(parameters);
 }
 

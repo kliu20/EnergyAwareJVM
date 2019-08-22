@@ -47,7 +47,7 @@ public class EnergyCheckUtils {
 	@NoOptCompile
 	public static double[] getEnergyStats() {
 		Scaler.initScaler();
-		int socketNum = SysCall.sysCall.GetSocketNum();
+		//int socketNum = SysCall.sysCall.GetSocketNum();
 		//Three 60s is hardcoded size of dram/uncore gpu, cpu and package information.
 		final int enerInfoSize = socketNum * (60 + 60 + 60 + 4);
 		
@@ -56,6 +56,7 @@ public class EnergyCheckUtils {
 		SysCall.sysCall.EnergyStatCheck(energyBuf);
 		
 		String energyInfo = StringUtilities.asciiBytesToString(energyBuf).trim();
+		VM.sysWriteln(energyInfo);
 		
 		/*One Socket*/
 		if(socketNum == 1) {
@@ -64,8 +65,12 @@ public class EnergyCheckUtils {
 			String[] energy = energyInfo.split("#");
 			//VM.sysWriteln("\n\n\n\n energyInfo:(" + energyInfo + ")\n\n\n\n");
 			stats[0] = Double.parseDouble(energy[0]);
+
 			stats[1] = Double.parseDouble(energy[1]);
 			stats[2] = Double.parseDouble(energy[2]);
+			if (stats[0] < 0 || stats[1] < 0 || stats[2] < 0) {
+				DataPrinter.filePrinter.println("energy value: " + energyInfo);
+			}
 			return stats;
 		
 		} else {

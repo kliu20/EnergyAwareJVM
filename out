@@ -1,0 +1,3691 @@
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc6b0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x68143acc jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6adaa0cc
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x68143acc
+edi (S1)      0x1
+ebp           0x6a137e7c
+esp (SP)      0x6bd8acc0
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010202
+fpregs        0xc6b04090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6bd8ad28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6adaa0cc
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x68143acc
+edi (S1)      0x1
+ebp           0x6bd57e8c
+esp (SP)      0x6bd57e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010202
+fpregs        0xc6b04090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd5b0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680d9c8c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6adfeb8c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x680d9c8c
+edi (S1)      (nil)
+ebp           0x6a09f10c
+esp (SP)      0x6b1cbcc0
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xd5b04090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6b1cbd28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+Eeax (T0)      (nil)
+ebx (ctrs)    0x6adfeb8c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x680d9c8c
+edi (S1)      (nil)
+ebp           0x6b198e8c
+esp (SP)      0x6b198e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+xeflags        0x00010206
+fpregs        0xd5b04090
+oldmask       0x00020000
+cr2           0xfffffffc
+cJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd470400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680f3acc jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eeip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6ae0c1ac
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x680f3acc
+edi (S1)      (nil)
+ebp           0x6a07906c
+esp (SP)      0x6b253cc0
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xd4704090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+pJikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6b253d28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6ae0c1ac
+ecx (S0)      (nil)
+tedx (T1)      0xfffffffc
+esi (TR)      0x680f3acc
+edi (S1)      (nil)
+ebp           0x6b220e8c
+iesp (SP)      0x6b220e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+ofs            (nil)
+ngs            0x63
+ss            0x2b
+trapno        0x0000000e
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd290400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680e874c jtocPtr:0x600802e0
+ JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+ieax (T0)      (nil)
+ebx (ctrs)    0x6ae1800c
+ecx (S0)      (nil)
+nedx (T1)      0xfffffdbc
+esi (TR)      0x680e874c
+ edi (S1)      (nil)
+ebp           0x69bfd10c
+terr           0x00000004
+heflags        0x00010206
+fpregs        0xd4704090
+roldmask       0x00020000
+esp (SP)      0x6b328cc0
+eJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc610400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x68143e4c jtocPtr:0x600802e0
+cr2           0xfffffffc
+aJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc7f0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681433cc jtocPtr:0x600802e0
+dJikesRVM: hardwareTrapHandler: trap context:
+ eip           0x64edf1cc
+eax (T0)      (nil)
+"ebx (ctrs)    0x6ae1a00c
+ecx (S0)      (nil)
+Tedx (T1)      0xfffffdbc
+esi (TR)      0x681433cc
+edi (S1)      (nil)
+hebp           0x69bee0bc
+esp (SP)      0x6bce6cc0
+cs            0x23
+ds            0x2b
+res            0x2b
+fs            (nil)
+JikesRVM: hardwareTrapHandler: trap context:
+ecs            0x23
+ds            0x2b
+aes            0x2b
+gs            0x63
+dss            0x2b
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcf70400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6812990c jtocPtr:0x600802e0
+-JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+2JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc9d0810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x68158acc jtocPtr:0x600802e0
+8JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+"eax (T0)      (nil)
+ebx (ctrs)    0x6ae2300c
+ecx (S0)      (nil)
+ edx (T1)      0xfffffdbc
+esi (TR)      0x68158acc
+edi (S1)      (nil)
+ebp           0x69ba810c
+esp (SP)      0x6c0a2cc0
+cs            0x23
+ds            0x2b
+es            0x2b
+eax (T0)      (nil)
+ebx (ctrs)    0x6ae1f00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x6812990c
+eip           0x64edf1cc
+Etrapno        0x0000000e
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd510400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680f374c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+xeip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6848000c
+ecx (S0)      (nil)
+cedx (T1)      0xfffffdbc
+esi (TR)      0x680f374c
+edi (S1)      (nil)
+eebp           0x69b880bc
+eax (T0)      (nil)
+ebx (ctrs)    0x6ae1c00c
+pecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x68143e4c
+edi (S1)      (nil)
+tebp           0x69bcb0bc
+err           0x00000004
+fs            (nil)
+igs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+ofs            (nil)
+eflags        0x00010206
+fpregs        0xc7f04090
+nesp (SP)      0x6b886cc0
+eflags        0x00010206
+fpregs        0xc9d08190
+edi (S1)      (nil)
+ gs            0x63
+ss            0x2b
+cs            0x23
+ioldmask       0x00020000
+ebp           0x69bde24c
+esp (SP)      0x6bddccc0
+ncs            0x23
+trapno        0x0000000e
+ds            0x2b
+ es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+ds            0x2b
+es            0x2b
+tfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+holdmask       0x00020000
+err           0x00000004
+reflags        0x00010206
+fpregs        0xd2904090
+esp (SP)      0x6b20fcc0
+ecs            0x23
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+acr2           0xfffffffc
+oldmask       0x00020000
+err           0x00000004
+deflags        0x00010206
+fpregs        0xc6104090
+cr2           0xfffffffc
+ JikesRVM: trap code is 0
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+"JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c0a2d28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+Teax (T0)      (nil)
+ebx (ctrs)    0x6ae2300c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x68158acc
+hedi (S1)      (nil)
+ebp           0x6c06fe8c
+esp (SP)      0x6c06fe7c
+cs            0x23
+cr2           0xfffffffc
+rds            0x2b
+es            0x2b
+fs            (nil)
+efpregs        0xcf704090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+aJikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6b886d28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+deax (T0)      (nil)
+ebx (ctrs)    0x6ae1f00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x6812990c
+-edi (S1)      (nil)
+ebp           0x6b853e8c
+esp (SP)      0x6b853e7c
+cs            0x23
+ds            0x2b
+4JikesRVM: trap info is fffffffc
+ds            0x2b
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+"gs            0x63
+es            0x2b
+fs            (nil)
+ gs            0x63
+es            0x2b
+fs            (nil)
+gs            0x63
+JikesRVM: set vmr_ip to 0x64edf1d1
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: set vmr_fp to 0x6bce6d28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6ae1a00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+ss            0x2b
+trapno        0x0000000e
+JikesRVM: set vmr_fp to 0x6b328d28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+ss            0x2b
+Etrapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xc9d08190
+oldmask       0x00020000
+esi (TR)      0x681433cc
+xedi (S1)      (nil)
+JikesRVM: trap code is 0
+cJikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+eJikesRVM: set vmr_fp to 0x6bddcd28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+peip           0x64ec3b60
+ebp           0x6bcb3e8c
+tesp (SP)      0x6bcb3e7c
+cr2           0xfffffffc
+ierr           0x00000004
+oeflags        0x00010206
+fpregs        0xd5104090
+noldmask       0x00020000
+cr2           0xfffffffc
+ ss            0x2b
+itrapno        0x0000000e
+err           0x00000004
+cs            0x23
+nds            0x2b
+es            0x2b
+ fs            (nil)
+gs            0x63
+tss            0x2b
+trapno        0x0000000e
+herr           0x00000004
+eflags        0x00010206
+rfpregs        0xc7f04090
+oldmask       0x00020000
+ecr2           0xfffffffc
+eax (T0)      (nil)
+aebx (ctrs)    0x6ae1800c
+ecx (S0)      (nil)
+dedx (T1)      0xfffffffc
+esi (TR)      0x680e874c
+edi (S1)      (nil)
+eflags        0x00010206
+ eax (T0)      (nil)
+ebx (ctrs)    0x6ae1c00c
+"ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+fpregs        0xcf704090
+Toldmask       0x00020000
+cr2           0xfffffffc
+hesi (TR)      0x68143e4c
+redi (S1)      (nil)
+ebp           0x6bda9e8c
+JikesRVM: trap code is 0
+eJikesRVM: trap info is fffffffc
+esp (SP)      0x6bda9e7c
+cs            0x23
+ads            0x2b
+es            0x2b
+dJikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6b20fd28
+-JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+fs            (nil)
+6ebp           0x6b2f5e8c
+esp (SP)      0x6b2f5e7c
+"cs            0x23
+eax (T0)      (nil)
+ ebx (ctrs)    0x6848000c
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+Eesi (TR)      0x680f374c
+gs            0x63
+ss            0x2b
+xtrapno        0x0000000e
+err           0x00000004
+err           0x00000004
+ceflags        0x00010206
+fpregs        0xc6104090
+eoldmask       0x00020000
+cr2           0xfffffffc
+pedi (S1)      (nil)
+ebp           0x6b1dce8c
+tesp (SP)      0x6b1dce7c
+cs            0x23
+ids            0x2b
+es            0x2b
+fs            (nil)
+ogs            0x63
+ss            0x2b
+ntrapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+ fpregs        0xd5104090
+oldmask       0x00020000
+cr2           0xfffffffc
+ieflags        0x00010206
+fpregs        0xd2904090
+oldmask       0x00020000
+ncr2           0xfffffffc
+ thread "Thread-37" java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc930810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6815874c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+ieip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x69ac03cc
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+eJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd6f0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680d958c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+reip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x699e324c
+aecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x680d958c
+edi (S1)      (nil)
+rebp           0x699574cc
+esp (SP)      0x6b143bcc
+esi (TR)      0x6815874c
+cedi (S1)      (nil)
+ebp           0x69b32a1c
+esp (SP)      0x6c042bcc
+hcs            0x23
+ds            0x2b
+es            0x2b
+yfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+.eflags        0x00010206
+fpregs        0xc9308190
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+jJikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c042c34
+JikesRVM: hardwareTrapHandler: trap context on exit:
+cs            0x23
+ads            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+veip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x69ac03cc
+ecx (S0)      (nil)
+aedx (T1)      0xfffffffc
+esi (TR)      0x6815874c
+trapno        0x0000000e
+:err           0x00000004
+eflags        0x00010206
+edi (S1)      (nil)
+5ebp           0x6c00fe8c
+fpregs        0xd6f04090
+oldmask       0x00020000
+5cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+9JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6b143c34
+JikesRVM: hardwareTrapHandler: trap context on exit:
+)eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x699e324c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+
+esi (TR)      0x680d958c
+edi (S1)      (nil)
+ebp           0x6b110e8c
+ esp (SP)      0x6b110e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+ gs            0x63
+ss            0x2b
+ trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+aesp (SP)      0x6c00fe7c
+tcs            0x23
+ds            0x2b
+fpregs        0xd6f04090
+ oldmask       0x00020000
+cr2           0xfffffffc
+es            0x2b
+ofs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+rfpregs        0xc9308190
+oldmask       0x00020000
+cr2           0xfffffffc
+g.sunflow.core.Scene.trJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcc50810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6816590c jtocPtr:0x600802e0
+aJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+cebx (ctrs)    0x69a9b8ec
+eecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x6816590c
+edi (S1)      (nil)
+ebp           0x69a531ac
+esp (SP)      0x6c1eacc0
+cs            0x23
+ds            0x2b
+(es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+Strapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xcc508190
+coldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+eJikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c1ead28
+JikesRVM: hardwareTrapHandler: trap context on exit:
+neip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x69a9b8ec
+ecx (S0)      (nil)
+eedx (T1)      0xfffffffc
+esi (TR)      0x6816590c
+edi (S1)      (nil)
+ebp           0x6c1b7e8c
+.esp (SP)      0x6c1b7e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+jfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+aerr           0x00000004
+eflags        0x00010206
+fpregs        0xcc508190
+oldmask       0x00020000
+vcr2           0xfffffffc
+a:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+Exception in thread "Thread-26" Exception in thread "Thread-14" java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+Exception in thread "Thread-29" Exception in thread "Thread-5" Exception in thread "Thread-9" java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+Exception in thread "Thread-2" Exception in thread "Thread-36" Exception in thread "Thread-41" java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.traceDiffusePhoton(LightServer.java:271)
+   at org.sunflow.core.ShadingState.traceDiffusePhoton(ShadingState.java:655)
+   at org.sunflow.core.shader.DiffuseShader.scatterPhoton(DiffuseShader.java:58)
+   at org.sunflow.core.LightServer.shadePhoton(LightServer.java:264)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:233)
+   at java.lang.Thread.run(Thread.java:745)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.traceDiffusePhoton(LightServer.java:271)
+   at org.sunflow.core.ShadingState.traceDiffusePhoton(ShadingState.java:655)
+   at org.sunflow.core.shader.DiffuseShader.scatterPhoton(DiffuseShader.java:58)
+   at org.sunflow.core.LightServer.shadePhoton(LightServer.java:264)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:233)
+   at java.lang.Thread.run(Thread.java:745)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer$1.run(LightServer.java:231)
+   at java.lang.Thread.run(Thread.java:745)
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc610810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6817fe4c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6af0e00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x6817fe4c
+edi (S1)      (nil)
+ebp           0x6c6440bc
+esp (SP)      0x6c97ca68
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xc6108190
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c97cad0
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6af0e00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x6817fe4c
+edi (S1)      (nil)
+ebp           0x6c949e8c
+esp (SP)      0x6c949e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xc6108190
+oldmask       0x00020000
+cr2           0xfffffffc
+Exception in thread "Thread-47" java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd6f0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6817f3cc jtocPtr:0x600802e0
+ JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6afdb00c
+ ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x6817f3cc
+ edi (S1)      (nil)
+ebp           0x6afe00bc
+aesp (SP)      0x6c886a68
+cs            0x23
+ds            0x2b
+es            0x2b
+tfs            (nil)
+gs            0x63
+ ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+ofpregs        0xd6f04090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+rJikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c886ad0
+gJikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6afdb00c
+.ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+jesi (TR)      0x6817f3cc
+edi (S1)      (nil)
+ebp           0x6c853e8c
+iesp (SP)      0x6c853e7c
+cs            0x23
+ds            0x2b
+kes            0x2b
+fs            (nil)
+egs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+sJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd0b0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681b8c8c jtocPtr:0x600802e0
+rJikesRVM: hardwareTrapHandler: trap context:
+veflags        0x00010206
+fpregs        0xd6f04090
+oldmask       0x00020000
+mcr2           0xfffffffc
+.eip           0x64edf1cc
+eax (T0)      (nil)
+eebx (ctrs)    0x6988b00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+nesi (TR)      0x681b8c8c
+edi (S1)      (nil)
+ebp           0x6988d0bc
+eesp (SP)      0x6ce26a68
+cs            0x23
+ds            0x2b
+res            0x2b
+fs            (nil)
+ggs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+yeflags        0x00010206
+fpregs        0xd0b04090
+oldmask       0x00020000
+cr2           0xfffffffc
+.JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+SJikesRVM: set vmr_fp to 0x6ce26ad0
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc6b0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681ad3cc jtocPtr:0x600802e0
+eJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+rJikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+vebx (ctrs)    0x6988b00c
+iecx (S0)      (nil)
+edx (T1)      0xfffffffc
+cesi (TR)      0x681b8c8c
+edi (S1)      (nil)
+ebp           0x6cdf3e8c
+eesp (SP)      0x6cdf3e7c
+cs            0x23
+ds            0x2b
+.es            0x2b
+fs            (nil)
+gs            0x63
+gss            0x2b
+trapno        0x0000000e
+eerr           0x00000004
+eflags        0x00010206
+tfpregs        0xd0b04090
+oldmask       0x00020000
+ebx (ctrs)    0x6c4c2fec
+Pecx (S0)      (nil)
+redx (T1)      0xfffffdbc
+oesi (TR)      0x681ad3cc
+edi (S1)      (nil)
+ebp           0x6c4c5bac
+esp (SP)      0x6cb838e4
+fcs            0x23
+ids            0x2b
+es            0x2b
+fs            (nil)
+lgs            0x63
+ss            0x2b
+ecr2           0xfffffffc
+Atrapno        0x0000000e
+err           0x00000004
+teflags        0x00010206
+fpregs        0xc6b04090
+oldmask       0x00020000
+tcr2           0xfffffffc
+JikesRVM: trap code is 0
+rJikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+sJikesRVM: set vmr_fp to 0x6cb8394c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+(eax (T0)      (nil)
+ebx (ctrs)    0x6c4c2fec
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+Sesi (TR)      0x681ad3cc
+edi (S1)      (nil)
+ebp           0x6cb50e8c
+eesp (SP)      0x6cb50e7c
+cs            0x23
+ds            0x2b
+res            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+vtrapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+ifpregs        0xc6b04090
+oldmask       0x00020000
+ccr2           0xfffffffc
+e.java:JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcbb0810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681bb74c jtocPtr:0x600802e0
+1JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a41d00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x681bb74c
+0edi (S1)      (nil)
+ebp           0x6a41f0bc
+esp (SP)      0x6cf3fa68
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+2ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xcbb08190
+)oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+
+JikesRVM: set vmr_fp to 0x6cf3fad0
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xca70400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681bb3cc jtocPtr:0x600802e0
+ JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a40d00c
+ ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x681bb3cc
+eax (T0)      (nil)
+ ebx (ctrs)    0x6a41d00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x681bb74c
+aedi (S1)      (nil)
+ebp           0x6cf0ce8c
+esp (SP)      0x6cf0ce7c
+cs            0x23
+edi (S1)      (nil)
+tebp           0x6a40f0bc
+esp (SP)      0x6cee8a68
+ cs            0x23
+ds            0x2b
+es            0x2b
+ofs            (nil)
+ds            0x2b
+es            0x2b
+fs            (nil)
+rgs            0x63
+ss            0x2b
+trapno        0x0000000e
+gerr           0x00000004
+eflags        0x00010206
+fpregs        0xcbb08190
+oldmask       0x00020000
+.cr2           0xfffffffc
+gs            0x63
+jJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd5b0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681ad04c jtocPtr:0x600802e0
+iJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+keax (T0)      (nil)
+ebx (ctrs)    0x6aeaab4c
+ecx (S0)      (nil)
+eedx (T1)      0xfffffdbc
+esi (TR)      0x681ad04c
+sedi (S1)      (nil)
+ebp           0x6aeab51c
+esp (SP)      0x6cb31890
+rcs            0x23
+ds            0x2b
+ves            0x2b
+ss            0x2b
+mtrapno        0x0000000e
+err           0x00000004
+.fs            (nil)
+gs            0x63
+ess            0x2b
+trapno        0x0000000e
+nerr           0x00000004
+eflags        0x00010206
+fpregs        0xd5b04090
+eoldmask       0x00020000
+rcr2           0xfffffffc
+JikesRVM: trap code is 0
+gJikesRVM: trap info is fffffffc
+yJikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6cb318f8
+.JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+Seax (T0)      (nil)
+ebx (ctrs)    0x6aeaab4c
+eecx (S0)      (nil)
+edx (T1)      0xfffffffc
+resi (TR)      0x681ad04c
+edi (S1)      (nil)
+vebp           0x6cafee8c
+esp (SP)      0x6cafee7c
+ics            0x23
+cds            0x2b
+es            0x2b
+fs            (nil)
+egs            0x63
+eflags        0x00010206
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc9d0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681a190c jtocPtr:0x600802e0
+.JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+fpregs        0xca704090
+sss            0x2b
+trapno        0x0000000e
+terr           0x00000004
+eflags        0x00010206
+afpregs        0xd5b04090
+oldmask       0x00020000
+eax (T0)      (nil)
+ebx (ctrs)    0x6af41fcc
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+roldmask       0x00020000
+cr2           0xfffffffc
+tJikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+PJikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6cee8ad0
+rJikesRVM: hardwareTrapHandler: trap context on exit:
+cr2           0xfffffffc
+oeip           0x64ec3b60
+eax (T0)      (nil)
+febx (ctrs)    0x6a40d00c
+ecx (S0)      (nil)
+iedx (T1)      0xfffffffc
+lesi (TR)      0x681bb3cc
+edi (S1)      (nil)
+eebp           0x6ceb5e8c
+esp (SP)      0x6ceb5e7c
+cs            0x23
+(ds            0x2b
+es            0x2b
+fs            (nil)
+Sgs            0x63
+ss            0x2b
+eJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcc50810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x68165c8c jtocPtr:0x600802e0
+rJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+veax (T0)      (nil)
+ebx (ctrs)    0x6c68100c
+ecx (S0)      (nil)
+iedx (T1)      0xfffffdbc
+esi (TR)      0x68165c8c
+edi (S1)      (nil)
+cebp           0x6c6fa0bc
+esp (SP)      0x6c374a68
+cs            0x23
+ds            0x2b
+ees            0x2b
+fs            (nil)
+.gs            0x63
+jss            0x2b
+trapno        0x0000000e
+aerr           0x00000004
+veflags        0x00010206
+fpregs        0xcc508190
+oldmask       0x00020000
+acr2           0xfffffffc
+:JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+1JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c374ad0
+5JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+0eax (T0)      (nil)
+ebx (ctrs)    0x6c68100c
+)ecx (S0)      (nil)
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcb10810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681ade4c jtocPtr:0x600802e0
+
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+ eax (T0)      (nil)
+ebx (ctrs)    0x6c6ca00c
+ ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+ esi (TR)      0x681ade4c
+edi (S1)      (nil)
+aJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc750400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681c758c jtocPtr:0x600802e0
+tJikesRVM: hardwareTrapHandler: trap context:
+esi (TR)      0x681a190c
+edi (S1)      (nil)
+ebp           0x6c64ab5c
+ esp (SP)      0x6ca84890
+perf initializationcheck: 105778 perfCounter: 105768.0
+eventId is: 0
+prevProfile lenth is: 500 10
+check: 370278 perfCounter: 370247.0
+eventId is: 1
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x68143acc
+it's in state = 4
+we have exception registers = 0x680f2ab4
+check: 21294 perfCounter: 20473.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 2751 perfCounter: 2717.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x680d9c8c
+it's in state = 1
+we have exception registers = 0x680cf8bc
+check: 2137 perfCounter: 2083.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 3002 perfCounter: 2943.0
+eventId is: 0
+check: 2316 perfCounter: 2272.0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x680f3acc
+it's in state = 1
+we have exception registers = 0x680cfa24
+check: 2406 perfCounter: 2366.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 3014 perfCounter: 2966.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 26271 perfCounter: 26223.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x68158acc
+it's in state = 1
+we have exception registers = 0x68162124
+delivering hardware exception
+we have a thread = 0x681433cc
+it's in state = 1
+we have exception registers = 0x680f294c
+delivering hardware exception
+we have a thread = 0x6812990c
+it's in state = 1
+we have exception registers = 0x680cffc4
+delivering hardware exception
+we have a thread = 0x68143e4c
+it's in state = 1
+we have exception registers = 0x680f2b68
+delivering hardware exception
+we have a thread = 0x680f374c
+it's in state = 1
+we have exception registers = 0x680cf970
+delivering hardware exception
+we have a thread = 0x680e874c
+it's in state = 1
+we have exception registers = 0x680cfc40
+check: 4020 perfCounter: 4020.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 8066 perfCounter: 8065.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x680d958c
+it's in state = 1
+we have exception registers = 0x680cf754
+delivering hardware exception
+we have a thread = 0x6815874c
+it's in state = 1
+we have exception registers = 0x68162070
+check: 5503 perfCounter: 5503.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x6816590c
+it's in state = 1
+we have exception registers = 0x681623f4
+check: 18538 perfCounter: 18470.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x6817fe4c
+it's in state = 1
+we have exception registers = 0x681628bc
+check: 21151 perfCounter: 21068.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 20254 perfCounter: 20193.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x6817f3cc
+it's in state = 1
+we have exception registers = 0x681626a0
+check: 32952 perfCounter: 32952.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x681b8c8c
+it's in state = 1
+we have exception registers = 0x68191220
+delivering hardware exception
+we have a thread = 0x681ad3cc
+it's in state = 1
+we have exception registers = 0x68162cf4
+check: 19909 perfCounter: 19856.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 19271 perfCounter: 19234.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 21406 perfCounter: 21406.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 18834 perfCounter: 18834.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x681bb74c
+it's in state = 1
+we have exception registers = 0x6819143c
+delivering hardware exception
+we have a thread = 0x681ad04c
+it's in state = 1
+we have exception registers = 0x68162c40
+check: 23774 perfCounter: 23716.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 19876 perfCounter: 19871.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 19282 perfCounter: 19213.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 17330 perfCounter: 17329.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 19245 perfCounter: 19245.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 19895 perfCountcs            0x23
+ods            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+rJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xce30820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680f390c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+gebp           0x6d0860bc
+esp (SP)      0x6cc86a68
+.cs            0x23
+ds            0x2b
+ses            0x2b
+fs            (nil)
+uJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcf70824c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680e820c jtocPtr:0x600802e0
+nedx (T1)      0xfffffffc
+fesi (TR)      0x68165c8c
+edi (S1)      (nil)
+lebp           0x6c341e8c
+oesp (SP)      0x6c341e7c
+eip           0x64edf1cc
+wtrapno        0x0000000e
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd3d0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681bbe4c jtocPtr:0x600802e0
+.JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+gs            0x63
+css            0x2b
+otrapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+rfpregs        0xcb108190
+eJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcf70400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681a120c jtocPtr:0x600802e0
+.JikesRVM: hardwareTrapHandler: trap context:
+Geip           0x64edf1cc
+eax (T0)      (nil)
+eebx (ctrs)    0x6c6b800c
+oecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+mesi (TR)      0x681a120c
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd150400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681c790c jtocPtr:0x600802e0
+eJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a6aa18c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x681c790c
+edi (S1)      (nil)
+ebp           0x6d0450bc
+esp (SP)      0x6d4f0a68
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+ebx (ctrs)    0x6a66416c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x680f390c
+edi (S1)      (nil)
+ebp           0x694e60bc
+esp (SP)      0x6b9a9a68
+cs            0x23
+ds            0x2b
+es            0x2b
+edi (S1)      (nil)
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd010820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680e890c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a6250cc
+ecx (S0)      (nil)
+eax (T0)      (nil)
+err           0x00000004
+eflags        0x00010206
+fpregs        0xca704090
+oldmask       0x00020000
+cr2           0xfffffffc
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xd1504090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6d4f0ad0
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6a6aa18c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+teax (T0)      (nil)
+ebx (ctrs)    0x6af2800c
+eflags        0x00010206
+rfs            (nil)
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc890810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681bb04c jtocPtr:0x600802e0
+yJikesRVM: hardwareTrapHandler: trap context:
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd470400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681a1c8c jtocPtr:0x600802e0
+.JikesRVM: hardwareTrapHandler: trap context:
+ebx (ctrs)    0x6982d32c
+iecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x681c758c
+esi (TR)      0x681c790c
+edi (S1)      (nil)
+nebp           0x6d4bde8c
+tesp (SP)      0x6d4bde7c
+cs            0x23
+ds            0x2b
+ees            0x2b
+fs            (nil)
+gs            0x63
+rgs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+ebp           0x6c6b00bc
+sesp (SP)      0x6c9d2a68
+ecs            0x23
+ds            0x2b
+ces            0x2b
+tfs            (nil)
+gs            0x63
+ss            0x2b
+(ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x681bbe4c
+Gedi (S1)      (nil)
+ebp           0x6af7e0bc
+ss            0x2b
+efpregs        0xce308290
+oldmask       0x00020000
+cr2           0xfffffffc
+eip           0x64edf1cc
+oeax (T0)      (nil)
+ebx (ctrs)    0x6a4569ec
+edx (T1)      0xfffffdbc
+cs            0x23
+mds            0x2b
+ees            0x2b
+trapno        0x0000000e
+terr           0x00000004
+reflags        0x00010206
+yfpregs        0xcf704090
+oldmask       0x00020000
+.cr2           0xfffffffc
+jJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd650400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681ad74c jtocPtr:0x600802e0
+aJikesRVM: hardwareTrapHandler: trap context:
+veip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6d01002c
+aecx (S0)      (nil)
+:edx (T1)      0xfffffdbc
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd330820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6812974c jtocPtr:0x600802e0
+8ebx (ctrs)    0x6a64508c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x680e820c
+9edi (S1)      (nil)
+esp (SP)      0x6cfeda68
+cs            0x23
+ds            0x2b
+)trapno        0x0000000e
+err           0x00000004
+JikesRVM: trap code is 0
+
+ecx (S0)      (nil)
+esi (TR)      0x680e890c
+edi (S1)      (nil)
+edi (S1)      (nil)
+ ebp           0x694c70bc
+esp (SP)      0x6d499a68
+cs            0x23
+ds            0x2b
+ esi (TR)      0x681ad74c
+edi (S1)      (nil)
+ ebp           0x6af850bc
+esp (SP)      0x6cbc78e4
+acs            0x23
+ds            0x2b
+tes            0x2b
+fs            (nil)
+ gs            0x63
+ss            0x2b
+eflags        0x00010206
+otrapno        0x0000000e
+JikesRVM: trap info is fffffffc
+rebp           0x6a7e30bc
+JikesRVM: set vmr_ip to 0x64edf1d1
+es            0x2b
+gfs            (nil)
+gs            0x63
+fpregs        0xc9d04090
+oldmask       0x00020000
+.cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+es            0x2b
+sfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+oldmask       0x00020000
+ucr2           0xfffffffc
+JikesRVM: trap code is 0
+fpregs        0xd1504090
+nedx (T1)      0xfffffdbc
+esi (TR)      0x681bb04c
+err           0x00000004
+feflags        0x00010206
+JikesRVM: set vmr_fp to 0x6c9d2ad0
+lJikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+oebx (ctrs)    0x6c6b800c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+wesi (TR)      0x681a120c
+edi (S1)      (nil)
+ebp           0x6c99fe8c
+esp (SP)      0x6c99fe7c
+.cs            0x23
+ds            0x2b
+es            0x2b
+cfs            (nil)
+gs            0x63
+ss            0x2b
+otrapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+rfpregs        0xcf704090
+oldmask       0x00020000
+cr2           0xfffffffc
+eesp (SP)      0x6bf24a68
+cs            0x23
+ds            0x2b
+es            0x2b
+.fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+Ifpregs        0xd6504090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: hardwareTrapHandler: trap context:
+neip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a5e104c
+ecx (S0)      (nil)
+sedx (T1)      0xfffffdbc
+esi (TR)      0x6812974c
+edi (S1)      (nil)
+ebp           0x6ad560bc
+esp (SP)      0x6c3b8a68
+tcs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+aJikesRVM: trap info is fffffffc
+oldmask       0x00020000
+ncr2           0xfffffffc
+eip           0x64edf1cc
+eflags        0x00010206
+cfpregs        0xd0108290
+oldmask       0x00020000
+ss            0x2b
+trapno        0x0000000e
+eerr           0x00000004
+eflags        0x00010206
+fpregs        0xc7504090
+oldmask       0x00020000
+cr2           0xfffffffc
+err           0x00000004
+.eflags        0x00010206
+fpregs        0xd3d04090
+oldmask       0x00020000
+cr2           0xfffffffc
+ss            0x2b
+itrapno        0x0000000e
+err           0x00000004
+JikesRVM: set vmr_ip to 0x64edf1d1
+nJikesRVM: set vmr_fp to 0x6cc86ad0
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+teax (T0)      (nil)
+ebx (ctrs)    0x6c6ca00c
+ecx (S0)      (nil)
+eedx (T1)      0xfffffffc
+esi (TR)      0x681ade4c
+edi (S1)      (nil)
+ebp           0x6cc53e8c
+resp (SP)      0x6cc53e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+sfs            (nil)
+gs            0x63
+ss            0x2b
+eJikesRVM: trap code is 0
+JikesRVM: trap code is 0
+edi (S1)      (nil)
+ceflags        0x00010206
+fpregs        0xd3308290
+oldmask       0x00020000
+cr2           0xfffffffc
+tJikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+(JikesRVM: set vmr_fp to 0x6cbc794c
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6ca848f8
+JikesRVM: hardwareTrapHandler: trap context on exit:
+Ieip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6af41fcc
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+ntrapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+sfpregs        0xcb108190
+oldmask       0x00020000
+cr2           0xfffffffc
+tJikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6cfedad0
+ebp           0x6a45856c
+aesp (SP)      0x6ce918e4
+cs            0x23
+ds            0x2b
+es            0x2b
+eax (T0)      (nil)
+JikesRVM: trap code is 0
+nJikesRVM: trap info is fffffffc
+ebp           0x6c6c90bc
+esp (SP)      0x6c0e6a68
+cfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+eesi (TR)      0x681a190c
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+.JikesRVM: set vmr_fp to 0x6b9a9ad0
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+cr2           0xfffffffc
+jJikesRVM: set vmr_ip to 0x64edf1d1
+cs            0x23
+JikesRVM: set vmr_fp to 0x6c3b8ad0
+aJikesRVM: hardwareTrapHandler: trap context on exit:
+err           0x00000004
+edi (S1)      (nil)
+vebp           0x6ca51e8c
+fs            (nil)
+gs            0x63
+ss            0x2b
+aeax (T0)      (nil)
+ebx (ctrs)    0x6a66416c
+ecx (S0)      (nil)
+ds            0x2b
+:JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+1eflags        0x00010206
+fpregs        0xcc508190
+oldmask       0x00020000
+cr2           0xfffffffc
+3ebx (ctrs)    0x6d00f00c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+trapno        0x0000000e
+5err           0x00000004
+eflags        0x00010206
+fpregs        0xc8908190
+oldmask       0x00020000
+cr2           0xfffffffc
+)JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6ce9194c
+
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6a4569ec
+ecx (S0)      (nil)
+ eip           0x64ec3b60
+ebx (ctrs)    0x6a5e104c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esp (SP)      0x6ca51e7c
+cs            0x23
+ds            0x2b
+ es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+ eflags        0x00010206
+fpregs        0xc9d04090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+aJikesRVM: trap info is fffffffc
+eax (T0)      (nil)
+JikesRVM: hardwareTrapHandler: trap context on exit:
+tesi (TR)      0x6812974c
+edi (S1)      (nil)
+ebp           0x6c385e8c
+JikesRVM: trap code is 0
+ JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6bf24ad0
+edx (T1)      0xfffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+oebx (ctrs)    0x6d01002c
+ecx (S0)      (nil)
+esi (TR)      0x681a1c8c
+esp (SP)      0x6c385e7c
+redx (T1)      0xfffffffc
+es            0x2b
+gfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+.err           0x00000004
+eflags        0x00010206
+edx (T1)      0xfffffffc
+sesi (TR)      0x681ad74c
+edi (S1)      (nil)
+ebp           0x6cb94e8c
+esp (SP)      0x6cb94e7c
+esi (TR)      0x680f390c
+uedi (S1)      (nil)
+ebp           0x6b976e8c
+esp (SP)      0x6b976e7c
+cs            0x23
+eip           0x64ec3b60
+neax (T0)      (nil)
+ebx (ctrs)    0x6af2800c
+edi (S1)      (nil)
+cs            0x23
+fds            0x2b
+esi (TR)      0x681bb04c
+edi (S1)      (nil)
+lebp           0x6ce5ee8c
+esp (SP)      0x6ce5ee7c
+cs            0x23
+ds            0x2b
+es            0x2b
+ofs            (nil)
+gs            0x63
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x681bbe4c
+wedi (S1)      (nil)
+ebp           0x6cfbae8c
+esp (SP)      0x6cfbae7c
+cs            0x23
+ds            0x2b
+es            0x2b
+.fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+cebx (ctrs)    0x6a6250cc
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x680e890c
+edi (S1)      (nil)
+oebp           0x6bef1e8c
+esp (SP)      0x6bef1e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+rfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+eerr           0x00000004
+eflags        0x00010206
+fpregs        0xd0108290
+oldmask       0x00020000
+err           0x00000004
+eflags        0x00010206
+JikesRVM: set vmr_fp to 0x6d499ad0
+JikesRVM: hardwareTrapHandler: trap context on exit:
+.eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6982d32c
+ecx (S0)      (nil)
+fpregs        0xcf7082d0
+Iss            0x2b
+cs            0x23
+ds            0x2b
+es            0x2b
+ncr2           0xfffffffc
+fpregs        0xd3d04090
+oldmask       0x00020000
+cr2           0xfffffffc
+sds            0x2b
+es            0x2b
+fs            (nil)
+oldmask       0x00020000
+ttrapno        0x0000000e
+ebp           0x6d07f0bc
+fs            (nil)
+aes            0x2b
+fs            (nil)
+ngs            0x63
+ss            0x2b
+trapno        0x0000000e
+ccr2           0xfffffffc
+err           0x00000004
+eflags        0x00010206
+efpregs        0xc8908190
+gs            0x63
+oldmask       0x00020000
+edx (T1)      0xfffffffc
+Lesi (TR)      0x681c758c
+err           0x00000004
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd290400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6817f74c jtocPtr:0x600802e0
+iesp (SP)      0x6cad6a68
+cs            0x23
+sgs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+tJikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+eflags        0x00010206
+fpregs        0xd6504090
+.oldmask       0x00020000
+cr2           0xfffffffc
+ds            0x2b
+ies            0x2b
+cr2           0xfffffffc
+nedi (S1)      (nil)
+ebp           0x6d466e8c
+esp (SP)      0x6d466e7c
+cs            0x23
+tds            0x2b
+es            0x2b
+fs            (nil)
+egs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+rfpregs        0xc7504090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+sJikesRVM: set vmr_fp to 0x6c0e6ad0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ess            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+cfpregs        0xd3308290
+oldmask       0x00020000
+cr2           0xfffffffc
+ebx (ctrs)    0x6a44e2ec
+tecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x6817f74c
+edi (S1)      (nil)
+fs            (nil)
+Peflags        0x00010206
+fpregs        0xce308290
+oldmask       0x00020000
+cr2           0xfffffffc
+rgs            0x63
+ss            0x2b
+trapno        0x0000000e
+ierr           0x00000004
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+mebx (ctrs)    0x6a64508c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x680e820c
+iedi (S1)      (nil)
+ebp           0x6c0b3e8c
+esp (SP)      0x6c0b3e7c
+cs            0x23
+tds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+iss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+vebp           0x6c71becc
+esp (SP)      0x6c8ca8e4
+cs            0x23
+ds            0x2b
+fpregs        0xd4704090
+eoldmask       0x00020000
+eflags        0x00010206
+fpregs        0xcf7082d0
+(oldmask       0x00020000
+cr2           0xfffffffc
+Icr2           0xfffffffc
+nJikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+sJikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6cad6ad0
+tJikesRVM: hardwareTrapHandler: trap context on exit:
+es            0x2b
+fs            (nil)
+gs            0x63
+ass            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+nfpregs        0xd2904090
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+cJikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c8ca94c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eeax (T0)      (nil)
+ebx (ctrs)    0x6a44e2ec
+ecx (S0)      (nil)
+eip           0x64ec3b60
+Leax (T0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x6817f74c
+edi (S1)      (nil)
+iebp           0x6c897e8c
+esp (SP)      0x6c897e7c
+cs            0x23
+ds            0x2b
+es            0x2b
+sfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+teflags        0x00010206
+fpregs        0xd2904090
+oldmask       0x00020000
+cr2           0xfffffffc
+ebx (ctrs)    0x6d00f00c
+.ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+jesi (TR)      0x681a1c8c
+edi (S1)      (nil)
+ebp           0x6caa3e8c
+esp (SP)      0x6caa3e7c
+acs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+verr           0x00000004
+eflags        0x00010206
+fpregs        0xd4704090
+oldmask       0x00020000
+acr2           0xfffffffc
+:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd3d0820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x68129e4c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+ eax (T0)      (nil)
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd010400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681b820c jtocPtr:0x600802e0
+ JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcd90820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680d9e4c jtocPtr:0x600802e0
+ebx (ctrs)    0x6a5cd0cc
+ ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+JikesRVM: hardwareTrapHandler: trap context:
+aeip           0x64edf1cc
+esi (TR)      0x68129e4c
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc7f0810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681a158c jtocPtr:0x600802e0
+tJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xc930810c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6817f04c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+eax (T0)      (nil)
+ebx (ctrs)    0x6a67736c
+ecx (S0)      (nil)
+ edi (S1)      (nil)
+ebp           0x6d1270bc
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd1f0820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680e8c8c jtocPtr:0x600802e0
+oJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd330400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681bbacc jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+reip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6c4e408c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+gesi (TR)      0x681bbacc
+edi (S1)      (nil)
+ebp           0x6d1300bc
+esp (SP)      0x6cf968e4
+cs            0x23
+.JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd0b0820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680e858c jtocPtr:0x600802e0
+sJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a61910c
+ecx (S0)      (nil)
+uJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd150820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6812904c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+nebx (ctrs)    0x6a60406c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x6812904c
+edi (S1)      (nil)
+fJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xced0820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680f3c8c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+lJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a31406c
+ecx (S0)      (nil)
+oedx (T1)      0xfffffdbc
+esi (TR)      0x681b820c
+edi (S1)      (nil)
+ebp           0x6d1280bc
+esp (SP)      0x6ccd88e4
+wcs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+JikesRVM: hardwareTrapHandler: trap context:
+.eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a5f11cc
+cecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x680e8c8c
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xcd90400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681adacc jtocPtr:0x600802e0
+oJikesRVM: hardwareTrapHandler: trap context:
+edx (T1)      0xfffffdbc
+resi (TR)      0x680d9e4c
+edi (S1)      (nil)
+ebp           0x6d1260bc
+esp (SP)      0x6b9658e4
+cs            0x23
+eds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+.trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xcd908290
+oldmask       0x00020000
+Scr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+cebp           0x6d13f0bc
+esp (SP)      0x6bae28e4
+cs            0x23
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd510400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x6817facc jtocPtr:0x600802e0
+eJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+neax (T0)      (nil)
+ebx (ctrs)    0x6d10b04c
+ecx (S0)      (nil)
+JikesRVM: hardwareTrapHandler: trap context:
+eeip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6d11a02c
+ebx (ctrs)    0x6d11602c
+.ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x6817f04c
+edi (S1)      (nil)
+ebp           0x6d1320bc
+esp (SP)      0x6c8428e4
+cs            0x23
+ds            0x2b
+tes            0x2b
+edx (T1)      0xfffffdbc
+esi (TR)      0x680e858c
+esp (SP)      0x6c3fc8e4
+rcs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ass            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+eax (T0)      (nil)
+cebx (ctrs)    0x6a65412c
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xced0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681b858c jtocPtr:0x600802e0
+JikesRVM: hardwareTrapHandler: trap context:
+eeip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6af2a06c
+ecx (S0)      (nil)
+gs            0x63
+(ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+edx (T1)      0xfffffdbc
+Secx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x681a158c
+edi (S1)      (nil)
+cebp           0x6d12d0bc
+ds            0x2b
+es            0x2b
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xce30400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680d974c jtocPtr:0x600802e0
+eJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a68d18c
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd1f0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681b890c jtocPtr:0x600802e0
+nJikesRVM: set vmr_fp to 0x6b96594c
+ds            0x2b
+fpregs        0xd3d08290
+eecx (S0)      (nil)
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xccf0400c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681c720c jtocPtr:0x600802e0
+.JikesRVM: hardwareTrapHandler: trap context:
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xccf0820c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x680d9acc jtocPtr:0x600802e0
+eflags        0x00010206
+jfpregs        0xd0104090
+oldmask       0x00020000
+cr2           0xfffffffc
+edi (S1)      (nil)
+aebp           0x6d12b0bc
+esp (SP)      0x6ca248e4
+vcs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+ags            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+:eflags        0x00010206
+fpregs        0xc7f08190
+oldmask       0x00020000
+cr2           0xfffffffc
+es            0x2b
+1fs            (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x680f3c8c
+edx (T1)      0xfffffdbc
+eip           0x64edf1cc
+9JikesRVM: hardwareTrapHandler: trap context:
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+9JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6ccd894c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+)eax (T0)      (nil)
+ebx (ctrs)    0x6a31406c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+
+esi (TR)      0x681b820c
+edi (S1)      (nil)
+ebp           0x6cca5e8c
+ JikesRVM: trap code is 0
+gs            0x63
+ss            0x2b
+ trapno        0x0000000e
+eax (T0)      (nil)
+ebx (ctrs)    0x6d10204c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+ eip           0x64edf1cc
+eax (T0)      (nil)
+ebx (ctrs)    0x6a69e28c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+afs            (nil)
+fs            (nil)
+gs            0x63
+edi (S1)      (nil)
+tebp           0x6d13a0bc
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+ eax (T0)      (nil)
+ebx (ctrs)    0x6a67736c
+JikesRVM: trap info is fffffffc
+oedi (S1)      (nil)
+ebp           0x6d12e0bc
+esp (SP)      0x6bc428e4
+cs            0x23
+ds            0x2b
+res            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+esi (TR)      0x681c720c
+gedi (S1)      (nil)
+ebp           0x6d1380bc
+esp (SP)      0x6ba9e8e4
+.cs            0x23
+ds            0x2b
+es            0x2b
+sfs            (nil)
+gs            0x63
+ss            0x2b
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x680d974c
+uedi (S1)      (nil)
+ebp           0x6d1340bc
+esp (SP)      0x6b8dd8e4
+cs            0x23
+esp (SP)      0x6c13d8e4
+ncs            0x23
+oldmask       0x00020000
+cr2           0xfffffffc
+ecx (S0)      (nil)
+JikesRVM: set vmr_ip to 0x64edf1d1
+fJikesRVM: set vmr_fp to 0x6ca2494c
+err           0x00000004
+eflags        0x00010206
+fpregs        0xd1508290
+lesi (TR)      0x6817facc
+edi (S1)      (nil)
+oebp           0x6d13b0bc
+esp (SP)      0x6c9388e4
+cs            0x23
+esp (SP)      0x6d4428e4
+wcs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+.ss            0x2b
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+ceflags        0x00010206
+fpregs        0xd3304090
+oldmask       0x00020000
+cr2           0xfffffffc
+oJikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6cf9694c
+rJikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6c4e408c
+ecx (S0)      (nil)
+eedx (T1)      0xfffffffc
+esi (TR)      0x681bbacc
+edi (S1)      (nil)
+ebp           0x6cf63e8c
+esp (SP)      0x6cf63e7c
+cs            0x23
+.ds            0x2b
+oldmask       0x00020000
+cr2           0xfffffffc
+trapno        0x0000000e
+Lerr           0x00000004
+ds            0x2b
+gs            0x63
+iss            0x2b
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+gds            0x2b
+esp (SP)      0x6cca5e7c
+cs            0x23
+ds            0x2b
+hes            0x2b
+esi (TR)      0x681b858c
+edi (S1)      (nil)
+JikesRVM: hardwareTrapHandler: trap context on exit:
+tes            0x2b
+fs            (nil)
+eip           0x64edf1cc
+Seax (T0)      (nil)
+ebx (ctrs)    0x6d10004c
+ecx (S0)      (nil)
+eedx (T1)      0xfffffdbc
+esi (TR)      0x681adacc
+edi (S1)      (nil)
+rebp           0x6d1420bc
+esp (SP)      0x6cc428e4
+trapno        0x0000000e
+ebx (ctrs)    0x6aebe08c
+verr           0x00000004
+ds            0x2b
+es            0x2b
+efs            (nil)
+gs            0x63
+ss            0x2b
+rebp           0x6d13c0bc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+.JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6bae294c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+gebx (ctrs)    0x6a60406c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x6812904c
+eedi (S1)      (nil)
+ebp           0x6baafe8c
+esp (SP)      0x6baafe7c
+cs            0x23
+ds            0x2b
+tes            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+es            0x2b
+Rfs            (nil)
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+aJikesRVM: set vmr_ip to 0x64edf1d1
+trapno        0x0000000e
+err           0x00000004
+eip           0x64ec3b60
+desp (SP)      0x6cd388e4
+esi (TR)      0x680d9acc
+edi (S1)      (nil)
+ebp           0x6986c15c
+iesp (SP)      0x6b9218e4
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+ags            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+neflags        0x00010206
+esi (TR)      0x681b890c
+edi (S1)      (nil)
+ebp           0x6d1310bc
+esp (SP)      0x6cd9d8e4
+ccs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ess            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xd1f04090
+(eflags        0x00010206
+eax (T0)      (nil)
+ebx (ctrs)    0x6d11a02c
+ecx (S0)      (nil)
+Lcs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+iss            0x2b
+es            0x2b
+gfs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+herr           0x00000004
+eflags        0x00010206
+fpregs        0xd5104090
+tfpregs        0xccf08290
+oldmask       0x00020000
+cr2           0xfffffffc
+SJikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6b92194c
+eJikesRVM: set vmr_fp to 0x6c3fc94c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+rebx (ctrs)    0x6a5cd0cc
+ecx (S0)      (nil)
+gs            0x63
+ss            0x2b
+vtrapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xd3304090
+oldmask       0x00020000
+ecr2           0xfffffffc
+trapno        0x0000000e
+rerr           0x00000004
+eflags        0x00010206
+fpregs        0xc9308190
+cs            0x23
+.trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+oldmask       0x00020000
+jcr2           0xfffffffc
+gs            0x63
+JikesRVM: trap code is 0
+aedx (T1)      0xfffffffc
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+vebx (ctrs)    0x6a69e28c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x680d9acc
+edx (T1)      0xfffffffc
+aesi (TR)      0x681a158c
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+:fpregs        0xccf04090
+fpregs        0xd1508290
+oldmask       0x00020000
+cr2           0xfffffffc
+ss            0x2b
+3trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xce304090
+oldmask       0x00020000
+1cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+3JikesRVM: set vmr_fp to 0x6b8dd94c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+fpregs        0xd0104090
+)oldmask       0x00020000
+cr2           0xfffffffc
+edi (S1)      (nil)
+eflags        0x00010206
+er: 19894.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 18713 perfCounter: 18645.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 17533 perfCounter: 17533.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 20046 perfCounter: 19978.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x681bb3cc
+it's in state = 1
+we have exception registers = 0x68191388
+check: 25486 perfCounter: 25485.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 21055 perfCounter: 20994.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 27497 perfCounter: 27365.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 22165 perfCounter: 22163.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x681a120c
+it's in state = 1
+we have exception registers = 0x68162970
+delivering hardware exception
+we have a thread = 0x681c790c
+it's in state = 1
+we have exception registers = 0x680cf754
+delivering hardware exception
+we have a thread = 0x681ade4c
+it's in state = 1
+we have exception registers = 0x68162f10
+delivering hardware exception
+we have a thread = 0x68165c8c
+it's in state = 1
+we have exception registers = 0x68162538
+delivering hardware exception
+we have a thread = 0x681a190c
+it's in state = 4
+we have exception registers = 0x68162ad8
+check: 29179 perfCounter: 29179.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x680e890c
+it's in state = 1
+we have exception registers = 0x680cfcf4
+delivering hardware exception
+we have a thread = 0x681bbe4c
+it's in state = 1
+we have exception registers = 0x681915a4
+delivering hardware exception
+we have a thread = 0x681ad74c
+it's in state = 1
+we have exception registers = 0x68162da8
+delivering hardware exception
+we have a thread = 0x681bb04c
+it's in state = 1
+we have exception registers = 0x681912d4
+delivering hardware exception
+we have a thread = 0x681c758c
+it's in state = 1
+we have exception registers = 0x6819170c
+delivering hardware exception
+we have a thread = 0x6812974c
+it's in state = 1
+we have exception registers = 0x680f2190
+delivering hardware exception
+we have a thread = 0x680f390c
+it's in state = 1
+we have exception registers = 0x680cfa24
+delivering hardware exception
+we have a thread = 0x680e820c
+it's in state = 1
+we have exception registers = 0x680cfb8c
+delivering hardware exception
+we have a thread = 0x6817f74c
+it's in state = 4
+we have exception registers = 0x68162754
+delivering hardware exception
+we have a thread = 0x681a1c8c
+it's in state = 1
+we have exception registers = 0x68162b8c
+check: 39219 perfCounter: 39217.0
+eventId is: 0
+check: 44587 perfCounter: 44586.0
+profileAttrs.length is: 5
+eventId is: 0
+check: 40235 perfCounter: 40169.0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+check: 31022 perfCounter: 31020.0
+check: 26790 perfCounter: 26776.0
+eventId is: 0
+check: 29551 perfCounter: 29477.0
+eventId is: 0
+eventId is: 0
+check: 28316 perfCounter: 28315.0
+eventId is: 0
+check: 30989 perfCounter: 30933.0
+check: 23426 perfCounter: 23425.0
+eventId is: 0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+check: 16727 perfCounter: 16726.0
+profileAttrs.length is: 5
+eventId is: 0
+check: 36951 perfCounter: 36896.0
+eventId is: 0
+check: 21901 perfCounter: 21901.0
+check: 24470 perfCounter: 24421.0
+check: 29923 perfCounter: 29855.0
+eventId is: 0
+check: 32391 perfCounter: 32340.0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+eventId is: 0
+check: 29276 perfCounter: 29199.0
+profileAttrs.length is: 5
+eventId is: 0
+eventId is: 0
+eventId is: 0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+check: 24479 perfCounter: 24432.0
+eventId is: 0
+profileAttrs.length is: 5
+delivering hardware exception
+we have a thread = 0x681bbacc
+it's in state = 1
+we have exception registers = 0x681914f0
+delivering hardware exception
+we have a thread = 0x6812904c
+it's in state = 1
+we have exception registers = 0x680cfe5c
+delivering hardware exception
+we have a thread = 0x6fpregs        0xced08290
+
+oldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6bc4294c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+ eip           0x64ec3b60
+eax (T0)      (nil)
+eflags        0x00010206
+ JikesRVM: trap info is fffffffc
+ JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c93894c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+aeip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6d10b04c
+edx (T1)      0xfffffffc
+tesi (TR)      0x68129e4c
+edi (S1)      (nil)
+ebp           0x6c3c9e8c
+esp (SP)      0x6c3c9e7c
+cs            0x23
+ ds            0x2b
+es            0x2b
+fs            (nil)
+oldmask       0x00020000
+ocr2           0xfffffffc
+ds            0x2b
+ebx (ctrs)    0x6a65412c
+res            0x2b
+fpregs        0xd1f08290
+gesi (TR)      0x680d9e4c
+oldmask       0x00020000
+cr2           0xfffffffc
+.ebx (ctrs)    0x6a68d18c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x680d974c
+sedi (S1)      (nil)
+ebp           0x6b8aae8c
+esp (SP)      0x6b8aae7c
+cs            0x23
+uds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+ntrapno        0x0000000e
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+fJikesRVM: set vmr_fp to 0x6c84294c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+oldmask       0x00020000
+ledi (S1)      (nil)
+ebp           0x6b932e8c
+esp (SP)      0x6b932e7c
+cs            0x23
+ods            0x2b
+ecx (S0)      (nil)
+wedx (T1)      0xfffffffc
+trapno        0x0000000e
+err           0x00000004
+gs            0x63
+.ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+err           0x00000004
+ceflags        0x00010206
+fpregs        0xce304090
+oldmask       0x00020000
+cr2           0xfffffffc
+ofs            (nil)
+gs            0x63
+eip           0x64ec3b60
+reax (T0)      (nil)
+ebx (ctrs)    0x6d11602c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x6817f04c
+eedi (S1)      (nil)
+ebp           0x6c80fe8c
+esp (SP)      0x6c80fe7c
+cs            0x23
+ds            0x2b
+.es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+Strapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xc9308190
+eflags        0x00010206
+cfpregs        0xced04090
+eflags        0x00010206
+fpregs        0xd3d08290
+eoldmask       0x00020000
+cr2           0xfffffffc
+ss            0x2b
+ntrapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+efpregs        0xcd904090
+es            0x2b
+fs            (nil)
+gs            0x63
+.ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+esi (TR)      0x6817facc
+gedi (S1)      (nil)
+oldmask       0x00020000
+cr2           0xfffffffc
+eoldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+fs            (nil)
+tgs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+Reflags        0x00010206
+fpregs        0xd0b08290
+oldmask       0x00020000
+aedi (S1)      (nil)
+fpregs        0xcd908290
+oldmask       0x00020000
+ebp           0x6c905e8c
+decx (S0)      (nil)
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6cd3894c
+iJikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6af2a06c
+aecx (S0)      (nil)
+edx (T1)      0xfffffffc
+cr2           0xfffffffc
+ebp           0x6c9f1e8c
+JikesRVM: trap code is 0
+ncr2           0xfffffffc
+esp (SP)      0x6c905e7c
+edx (T1)      0xfffffffc
+cesi (TR)      0x680f3c8c
+ebp           0x6b8eee8c
+esp (SP)      0x6b8eee7c
+cs            0x23
+eoldmask       0x00020000
+cr2           0xfffffffc
+JikesRVM: trap code is 0
+esp (SP)      0x6c9f1e7c
+(cs            0x23
+ds            0x2b
+JikesRVM: trap info is fffffffc
+SJikesRVM: trap code is 0
+edi (S1)      (nil)
+ebp           0x6bc0fe8c
+esp (SP)      0x6bc0fe7c
+cs            0x23
+ccr2           0xfffffffc
+JikesRVM: trap code is 0
+eJikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6c13d94c
+oldmask       0x00020000
+ncr2           0xfffffffc
+es            0x2b
+fs            (nil)
+gs            0x63
+ess            0x2b
+trapno        0x0000000e
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: trap info is fffffffc
+.JikesRVM: set vmr_fp to 0x6cc4294c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+jeax (T0)      (nil)
+ebx (ctrs)    0x6d10004c
+JikesRVM: trap info is fffffffc
+aJikesRVM: hardwareTrapHandler: trap context on exit:
+JikesRVM: trap code is 0
+cs            0x23
+verr           0x00000004
+eflags        0x00010206
+fpregs        0xc7f08190
+ds            0x2b
+aes            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+:err           0x00000004
+eflags        0x00010206
+fpregs        0xccf08290
+oldmask       0x00020000
+cr2           0xfffffffc
+1JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6ba9e94c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+5eip           0x64ec3b60
+eax (T0)      (nil)
+ebx (ctrs)    0x6a5f11cc
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+8esi (TR)      0x680e8c8c
+edi (S1)      (nil)
+ebp           0x6ba6be8c
+)esp (SP)      0x6ba6be7c
+cs            0x23
+ds            0x2b
+ds            0x2b
+es            0x2b
+esi (TR)      0x681b858c
+
+edi (S1)      (nil)
+eip           0x64ec3b60
+eax (T0)      (nil)
+ ebx (ctrs)    0x6a61910c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x680e858c
+edi (S1)      (nil)
+ ebp           0x6c10ae8c
+es            0x2b
+fs            (nil)
+ gs            0x63
+ecx (S0)      (nil)
+JikesRVM: trap info is fffffffc
+edx (T1)      0xfffffffc
+ads            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+tss            0x2b
+trapno        0x0000000e
+fs            (nil)
+ebp           0x6cd05e8c
+ esp (SP)      0x6cd05e7c
+JikesRVM: set vmr_ip to 0x64edf1d1
+JikesRVM: set vmr_fp to 0x6d44294c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+oeax (T0)      (nil)
+ebx (ctrs)    0x6d10204c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+resi (TR)      0x681c720c
+edi (S1)      (nil)
+ebp           0x6d40fe8c
+esp (SP)      0x6d40fe7c
+cs            0x23
+gds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+.ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xccf04090
+soldmask       0x00020000
+cr2           0xfffffffc
+oldmask       0x00020000
+ucr2           0xfffffffc
+esp (SP)      0x6c10ae7c
+cs            0x23
+nds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+gs            0x63
+fss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+lfpregs        0xced08290
+oldmask       0x00020000
+cr2           0xfffffffc
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+ofpregs        0xd0b08290
+oldmask       0x00020000
+cr2           0xfffffffc
+cs            0x23
+wds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+.trapno        0x0000000e
+err           0x00000004
+eflags        0x00010206
+fpregs        0xced04090
+oldmask       0x00020000
+ccr2           0xfffffffc
+esi (TR)      0x681adacc
+oedi (S1)      (nil)
+err           0x00000004
+eflags        0x00010206
+fpregs        0xd5104090
+rJikesRVM: set vmr_ip to 0x64edf1d1
+ebp           0x6cc0fe8c
+esp (SP)      0x6cc0fe7c
+eoldmask       0x00020000
+cr2           0xfffffffc
+.ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+reflags        0x00010206
+fpregs        0xd1f08290
+oldmask       0x00020000
+eJikesRVM: set vmr_fp to 0x6cd9d94c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+cs            0x23
+ncr2           0xfffffffc
+dds            0x2b
+es            0x2b
+fs            (nil)
+egs            0x63
+ss            0x2b
+trapno        0x0000000e
+rerr           0x00000004
+eflags        0x00010206
+fpregs        0xcd904090
+eoldmask       0x00020000
+cr2           0xfffffffc
+eip           0x64ec3b60
+reax (T0)      (nil)
+ebx (ctrs)    0x6aebe08c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+esi (TR)      0x681b890c
+edi (S1)      (nil)
+.ebp           0x6cd6ae8c
+esp (SP)      0x6cd6ae7c
+cs            0x23
+Bds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+uerr           0x00000004
+eflags        0x00010206
+fpregs        0xd1f04090
+oldmask       0x00020000
+cr2           0xfffffffc
+cketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+Exception in thread "Thread-44" Exception in thread "Thread-60" Exception in thread "Thread-53" Exception in thread "Thread-63" Exception in thread "Thread-52" Exception in thread "Thread-62" Exception in thread "Thread-48" Exception in thread "Thread-68" Exception in thread "Thread-56" Exception in thread "Thread-42" Exception in thread "Thread-50" Exception in thread "Thread-76" Exception in thread "Thread-65" Exception in thread "Thread-54" Exception in thread "Thread-61" Exception in thread "Thread-67" Exception in thread "Thread-80" Exception in thread "Thread-72" Exception in thread "Thread-74" Exception in thread "Thread-45" Exception in thread "Thread-51" Exception in thread "Thread-64" Exception in thread "Thread-78" Exception in thread "Thread-57" Exception in thread "Thread-69" Exception in thread "Thread-81" Exception in thread "Thread-43" Exception in thread "Thread-71" Exception in thread "Thread-70" Exception in thread "Thread-66" Exception in thread "Thread-49" Exception in thread "Thread-73" Exception in thread "Thread-75" Exception in thread "Thread-58" Exception in thread "Thread-46" Exception in thread "Thread-77" Exception in thread "Thread-55" Exception in thread "Thread-59" java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BuJikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd290824c - InsPtr:0x64edf1cc instFollowPtr:0x64edf1d1 threadPtr:0x681293cc jtocPtr:0x600802e0
+cJikesRVM: hardwareTrapHandler: trap context:
+eip           0x64edf1cc
+eax (T0)      (nil)
+kebx (ctrs)    0x6e27d26c
+ecx (S0)      (nil)
+edx (T1)      0xfffffdbc
+esi (TR)      0x681293cc
+eedi (S1)      (nil)
+ebp           0x6e27a29c
+esp (SP)      0x693e58c4
+cs            0x23
+tds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+Rss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eeflags        0x00010206
+fpregs        0xd29082d0
+oldmask       0x00020000
+cr2           0xfffffffc
+nJikesRVM: trap code is 0
+JikesRVM: trap info is fffffffc
+JikesRVM: set vmr_ip to 0x64edf1d1
+dJikesRVM: set vmr_fp to 0x693e592c
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3b60
+eeax (T0)      (nil)
+ebx (ctrs)    0x6e27d26c
+ecx (S0)      (nil)
+edx (T1)      0xfffffffc
+resi (TR)      0x681293cc
+edi (S1)      (nil)
+ebp           0x693b2e8c
+esp (SP)      0x693b2e7c
+ecs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+rgs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+.eflags        0x00010206
+fpregs        0xd29082d0
+oldmask       0x00020000
+cr2           0xfffffffc
+java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.LightSample.traceShadow(LightSample.java:47)
+   at org.sunflow.core.light.TriangleMeshLight$TriangleLight.getSamples(TriangleMeshLight.java:222)
+   at org.sunflow.core.LightServer.initLightSamples(LightServer.java:474)
+   at org.sunflow.core.ShadingState.initLightSamples(ShadingState.java:535)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:32)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.LightSample.traceShadow(LightSample.java:47)
+   at org.sunflow.core.light.TriangleMeshLight$TriangleLight.getSamples(TriangleMeshLight.java:222)
+   at org.sunflow.core.LightServer.initLightSamples(LightServer.java:474)
+   at org.sunflow.core.ShadingState.initLightSamples(ShadingState.java:535)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:32)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:335)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:313)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:333)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:333)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.startProfile(Service.java:150)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java:199)
+   at org.sunflow.core.Scene.traceShadow(Scene.java:203)
+   at org.sunflow.core.ShadingState.traceShadow(ShadingState.java:603)
+   at org.sunflow.core.gi.InstantGI.getIrradiance(InstantGI.java:91)
+   at org.sunflow.core.LightServer.getIrradiance(LightServer.java:469)
+   at org.sunflow.core.ShadingState.getIrradiance(ShadingState.java:677)
+   at org.sunflow.core.ShadingState.diffuse(ShadingState.java:756)
+   at org.sunflow.core.shader.DiffuseShader.getRadiance(DiffuseShader.java:34)
+   at org.sunflow.core.LightServer.getRadiance(LightServer.java:329)
+   at org.sunflow.core.Scene.getRadiance(Scene.java:158)
+   at org.sunflow.core.renderer.BucketRenderer.computeSubPixel(BucketRenderer.java:318)
+   at org.sunflow.core.renderer.BucketRenderer.refineSamples(BucketRenderer.java:331)
+   at org.sunflow.core.renderer.BucketRenderer.renderBucket(BucketRenderer.java:244)
+   at org.sunflow.core.renderer.BucketRenderer.access$300(BucketRenderer.java:24)
+   at org.sunflow.core.renderer.BucketRenderer$BucketThread.run(BucketRenderer.java:190)
+java.lang.NullPointerException
+   at java.lang.Double.doubleValue(Double.java:473)
+   at org.jikesrvm.energy.Service.getProfileAttrs(Service.java:102)
+   at org.jikesrvm.energy.Service.endProfile(Service.java:195)
+   at org.sunflow.core.Geometry.intersect(Geometry.java:89)
+   at org.sunflow.core.Instance.intersect(Instance.java:135)
+   at org.sunflow.core.InstanceList.intersectPrimitive(InstanceList.java:30)
+   at org.sunflow.core.accel.BoundingIntervalHierarchy.intersect(BoundingIntervalHierarchy.java:559)
+   at org.sunflow.core.Scene.trace(Scene.java

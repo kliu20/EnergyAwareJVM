@@ -1,7 +1,9 @@
 package org.jikesrvm.energy;
 
 import org.jikesrvm.VM;
+import java.util.List;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import org.jikesrvm.adaptive.controller.Controller;
 
 /**
@@ -15,7 +17,7 @@ public class LogQueue implements ProfilingTypes {
 	/**Record the log entry in end profiling stage*/
 	public static LinkedList<LogEntry> endLogQueue;
 	/**Record the post calculated log entry*/
-	public static LinkedList<LogEntry> logQueue;
+	public static List<LogEntry> logQueue;
 
 	public static void initRawDataQueue(int socketNum) {
 		if (startLogQueue == null) {
@@ -26,7 +28,7 @@ public class LogQueue implements ProfilingTypes {
 
 	public static void initQueue(int socketNum) {
 		if (logQueue == null) {
-			logQueue = new LinkedList();
+			logQueue = new ArrayList();
 		}
 	}
 	
@@ -36,7 +38,7 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static void addStartLogQueue(int threadId, int methodId, int invocationCounter, Double[] profileAttrs) {
+	public static synchronized void addStartLogQueue(int threadId, int methodId, int invocationCounter, Double[] profileAttrs) {
 		LogEntry entry = new LogEntry(threadId, methodId, invocationCounter, profileAttrs);
 		startLogQueue.offer(entry);
 	}
@@ -47,7 +49,7 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static void addEndLogQueue(int threadId, int methodId, int invocationCounter, Double[] profileAttrs) {
+	public static synchronized void addEndLogQueue(int threadId, int methodId, int invocationCounter, Double[] profileAttrs) {
 		LogEntry entry = new LogEntry(threadId, methodId, invocationCounter, profileAttrs);
 		endLogQueue.offer(entry);
 	}
@@ -58,9 +60,10 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static void addLogQueue(int threadId, int methodId, Double[] profileAttrs) {
-		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
-		logQueue.offer(entry);
+	public static synchronized void addLogQueue(int threadId, int methodId, Double[] profileAttrs, long time) {
+		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs, time);
+		logQueue.add(entry);
+
 	}
 
 
@@ -69,15 +72,25 @@ public class LogQueue implements ProfilingTypes {
 	 */
 	public static void dumpLogQueue(String[] clsNameList, String[] methodNameList) {
 		int count = 0;
-		//for (LogEntry entry : logQueue) {
-		for (int i = logQueue.size() - 1; i >= 0; i--) {
+		int i = 0;
+		for (LogEntry entry : logQueue) {
+		//for (int i = logQueue.size() - 1; i >= 0; i--) {
 
-			DataPrinter.filePrinter.println("entry size remains: " + (logQueue.size() - count++) + " index is: " + i);
+			//DataPrinter.filePrinter.println("entry size remains: " + (logQueue.size() - count++) + " index is: " + i);
 			//DataPrinter.filePrinter.println("entry size remains: " + (logQueue.size() - count++));
 			//double missRate = entry.counters[0] / entry.counters[1];
 			//double missRateByTime = entry.counters[0] / totalWallClockTime;
-			LogEntry entry = logQueue.get(i);
-			DataPrinter.printProfInfoTwo(entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, 0, 0 /*missRate, missRateByTime*/);   
+		//	LogEntry entry = logQueue.get(i);
+//			if (entry == null) {
+//				DataPrinter.filePrinter.println("Index: " + i + " is null");
+//				continue;
+//			}
+//			i++;
+			//DataPrinter.filePrinter.println(entry.threadId);
+			//DataPrinter.filePrinter.println(entry.counters[entry.counters.length - 1]);
+
+
+			DataPrinter.printProfInfoTwo(entry.threadId, entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, entry.time, 0, 0 /*missRate, missRateByTime*/);   
 			DataPrinter.filePrinter.flush();
 		}
 	}

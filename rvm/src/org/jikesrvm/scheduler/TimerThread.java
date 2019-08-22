@@ -52,7 +52,7 @@ public class TimerThread extends SystemThread {
     //VM.interruptQuantum = VM.interruptQuantum * (maxFreq / Controller.options.FREQUENCY_TO_BE_PRINTED);
     try {
       for (;;) {
-        sysCall.sysNanoSleep((long)(1000L * 1000L * VM.interruptQuantum / 2));
+        sysCall.sysNanoSleep((long)(1000L * 1000L * VM.interruptQuantum));
         if (VM.BuildForAdaptiveSystem) {
           // grab the lock to prevent threads from getting GC'd while we are
           // iterating (since this thread doesn't stop for GC)
@@ -62,11 +62,14 @@ public class TimerThread extends SystemThread {
           for (int i = 0; i < RVMThread.numThreads; ++i) {
             RVMThread candidate = RVMThread.threads[i];
             if (candidate != null && candidate.shouldBeSampled()) {
-	      candidate.energyTimeSliceExpired++;
-	      if (candidate.energyTimeSliceExpired % 2 == 0) {
-		      candidate.timeSliceExpired++;
-		      candidate.takeYieldpoint = 1;
-	      }
+
+	      candidate.timeSliceExpired++;
+	      candidate.takeYieldpoint = 1;
+
+	      //if (candidate.timeSliceExpired % 2 == 0) {
+	      		candidate.energyTimeSliceExpired++;
+
+	      //}
             }
           }
           RVMThread.acctLock.unlock();

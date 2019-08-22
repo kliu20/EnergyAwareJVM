@@ -488,6 +488,14 @@ public class VM extends Properties {
 		ProfileQueue.initSkippableMethod();
 		DataPrinter.initPrintStream();
 		LogQueue.initQueue(EnergyCheckUtils.socketNum);
+
+	    Runtime.getRuntime().addShutdownHook(new Thread() {
+		public void run() {
+			VM.sysWriteln("shutdown hook is invoked!!");
+			LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
+		}
+    });
+
 	}
 //      }
       Controller.boot();
@@ -2360,6 +2368,7 @@ public class VM extends Properties {
    */
   @NoInline
   public static void sysFail(String message, int number) {
+
     handlePossibleRecursiveCallToSysFail(message, number);
 
     // print a traceback and die
@@ -2381,6 +2390,9 @@ public class VM extends Properties {
   @NoInline
   @UninterruptibleNoWarn("We're never returning to the caller, so even though this code is preemptible it is safe to call from any context")
   public static void sysExit(int value) {
+
+	  VM.sysWriteln("logQueue size is : " + LogQueue.logQueue.size());
+    final Thread mainThread = Thread.currentThread();
     handlePossibleRecursiveCallToSysExit();
 
     if (VM.countThreadTransitions) {
@@ -2395,9 +2407,9 @@ public class VM extends Properties {
       VM.sysWriteln("... END context of the call to VM.sysExit]");
     }
     if (runningVM) {
-      VM.disableGC();
-      LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
-      VM.enableGC();
+//      VM.disableGC();
+//      LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
+//      VM.enableGC();
       Callbacks.notifyExit(value);
       VM.shutdown(value);
     } else {
@@ -2413,7 +2425,7 @@ public class VM extends Properties {
    */
   @Uninterruptible
   public static void shutdown(int value) {
-    //LogQueue.dumpWithRawData(Service.clsNameList, Service.methodNameList);
+
     handlePossibleRecursiveShutdown();
 
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);

@@ -18,6 +18,8 @@ echo "++++++++ Printing Java Version ++++++++++++"
 java -version
 echo "+++++++++++++ Printing Java Version"
 PATH=/home/kmahmou1/jdk1.6.0_45/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+echo "+++++++++++++java version after path set"
+java -version
 
 echo $PATH
 

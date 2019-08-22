@@ -2863,6 +2863,7 @@ public final class RVMThread extends ThreadContext {
   @SuppressWarnings({ "unused" })
   @Entrypoint
   private static void startoff() {
+ 
     bindIfRequested();
 
     RVMThread currentThread = getCurrentThread();
