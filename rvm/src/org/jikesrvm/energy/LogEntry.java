@@ -3,11 +3,11 @@ class LogEntry {
 	public int threadId;
 	public int methodId;
 	public int invocationCounter;
-	public Double[] counters;
+	public double[] counters;
 	public int[] ratio;
 	public long time;
 
-	public LogEntry(int threadId, int methodId, int invocationCounter, Double[] counters, long time) {
+	public LogEntry(int threadId, int methodId, int invocationCounter, double[] counters, long time) {
 		this.threadId = threadId;
 		this.methodId = methodId;
 		this.invocationCounter = invocationCounter;
@@ -15,14 +15,14 @@ class LogEntry {
 		this.time = time;
 	}
 
-	public LogEntry(int threadId, int methodId, int invocationCounter, Double[] counters) {
+	public LogEntry(int threadId, int methodId, int invocationCounter, double[] counters) {
 		this.threadId = threadId;
 		this.methodId = methodId;
 		this.invocationCounter = invocationCounter;
 		this.counters = counters;	
 		this.time = time;
 	}
-	public LogEntry(int threadId, int methodId, Double[] counters, long time) {
+	public LogEntry(int threadId, int methodId, double[] counters, long time) {
 		this.threadId = threadId;
 		this.methodId = methodId;
 		this.counters = counters;	

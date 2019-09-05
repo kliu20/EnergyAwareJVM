@@ -73,7 +73,7 @@ public class Service implements ProfilingTypes {
 	 * Do profile
 	 * @param profileAttrs the collection that contains profile information 
 	 */
-	  public static void getProfileAttrs(Double[] profileAttrs) {
+	  public static void getProfileAttrs(double[] profileAttrs) {
 		double perfCounter = 0.0d;
 		int eventId = 0;
 		int threadId = (int)Thread.currentThread().getId();
@@ -81,28 +81,17 @@ public class Service implements ProfilingTypes {
 		if (Controller.options.ENABLE_COUNTER_PROFILING) {
 			for (int i = 0; i < Scaler.perfCounters; i++) {
 				perfCounter = Scaler.perfCheck(i);
-				VM.sysWriteln("check: " + Scaler.perfCheck(i) + " perfCounter: " + perfCounter);
-				if (perfCounter < 0) {
-					DataPrinter.filePrinter.println("hardware counter is negative!");
-				}
+
 				if (!prevProfileInit) {
-					VM.sysWriteln("eventId is: " + eventId);
-					VM.sysWriteln("prevProfile lenth is: " + prevProfile.length + " " + prevProfile[0].length);
 					profileAttrs[eventId] = perfCounter;
+					
+
 					prevProfile[threadId][eventId] = perfCounter;
 					prevProfileInit = true;
 					eventId++;
 				} else {
 					prevProfile[threadId][eventId] = perfCounter - prevProfile[threadId][eventId];
-					VM.sysWriteln("eventId is: " + eventId);
-					VM.sysWriteln("profileAttrs.length is: " + profileAttrs.length);
-					if (eventId >= profileAttrs.length || eventId < 0) {
-						VM.sysWriteln("eventId over the limit is: " + eventId + " profileAttrs.length: " + profileAttrs.length);
-					}
-					if (profileAttrs[eventId] < 0) {
-						DataPrinter.filePrinter.println("hardware difference value is negative!");
-						DataPrinter.filePrinter.println(perfCounter + " " + prevProfile[threadId][eventId] + " " + profileAttrs[eventId]);
-					}
+
 					prevProfile[threadId][eventId] = profileAttrs[eventId];
 					eventId++;
 				}
@@ -114,9 +103,7 @@ public class Service implements ProfilingTypes {
 			double[] energy = EnergyCheckUtils.getEnergyStats();
 			
 			for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-				if (energy[i] < 0) {
-					DataPrinter.filePrinter.println("energy value is negative!");
-				}
+
 				if (!prevProfileInit) {
 					profileAttrs[eventId] = energy[i];
 					prevProfile[threadId][eventId] = energy[i];
@@ -125,10 +112,7 @@ public class Service implements ProfilingTypes {
 				} else {
 	
 					profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
-					if (profileAttrs[eventId] < 0) {
-						DataPrinter.filePrinter.println("energy difference value is negative!");
-						DataPrinter.filePrinter.println(energy[i] + " " + prevProfile[threadId][eventId] + " " + profileAttrs[eventId]);
-					}
+					
 					prevProfile[threadId][eventId] = profileAttrs[eventId];
 					eventId++;
 				}
@@ -143,7 +127,7 @@ public class Service implements ProfilingTypes {
 		//Using sampling based method to profile
 		if (thread.energyTimeSliceExpired % 2 != 0) {
 
-			Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
+			double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
 			int threadId = (int)Thread.currentThread().getId();
 			double wallClockTime = System.currentTimeMillis();
 			//Profiling 
@@ -187,7 +171,7 @@ public class Service implements ProfilingTypes {
 			double missRate = 0.0d;
 			int offset = 0;
 			/** Event values for the method */
-			Double[] profileAttrs = new Double[Scaler.getPerfEnerCounterNum()];
+			double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
 			int threadId = (int) Thread.currentThread().getId();
 			double wallClockTime = System.currentTimeMillis();
 			

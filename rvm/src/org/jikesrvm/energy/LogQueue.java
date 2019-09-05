@@ -38,7 +38,7 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static synchronized void addStartLogQueue(int threadId, int methodId, int invocationCounter, Double[] profileAttrs) {
+	public static synchronized void addStartLogQueue(int threadId, int methodId, int invocationCounter, double[] profileAttrs) {
 		LogEntry entry = new LogEntry(threadId, methodId, invocationCounter, profileAttrs);
 		startLogQueue.offer(entry);
 	}
@@ -49,7 +49,7 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static synchronized void addEndLogQueue(int threadId, int methodId, int invocationCounter, Double[] profileAttrs) {
+	public static synchronized void addEndLogQueue(int threadId, int methodId, int invocationCounter, double[] profileAttrs) {
 		LogEntry entry = new LogEntry(threadId, methodId, invocationCounter, profileAttrs);
 		endLogQueue.offer(entry);
 	}
@@ -60,7 +60,7 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static synchronized void addLogQueue(int threadId, int methodId, Double[] profileAttrs, long time) {
+	public static synchronized void addLogQueue(int threadId, int methodId, double[] profileAttrs, long time) {
 		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs, time);
 		logQueue.add(entry);
 

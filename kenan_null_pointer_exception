@@ -1,0 +1,706 @@
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+perf initializationcheck: 177942 perfCounter: 177941.0
+check: 177972 perfCounter: 177971.0
+check: 179278 perfCounter: 179276.0
+eventId is: 0
+eventId is: 0
+eventId is: 0
+check: 181478 perfCounter: 181463.0
+check: 172296 perfCounter: 172292.0
+eventId is: 0
+eventId is: 0
+check: 176151 perfCounter: 176146.0
+check: 168254 perfCounter: 168248.0
+prevProfile lenth is: 500 10
+prevProfile lenth is: 500 10
+prevProfile lenth is: 500 10
+check: 168297 perfCounter: 168277.0
+eventId is: 0
+check: 171861 perfCounter: 171860.0
+eventId is: 0
+check: 170579 perfCounter: 170562.0
+check: 167629 perfCounter: 167627.0
+prevProfile lenth is: 500 10
+check: 396420 perfCounter: 396412.0
+prevProfile lenth is: 500 10
+eventId is: 0
+check: 163235 perfCounter: 163225.0
+check: 169316 perfCounter: 169315.0
+prevProfile lenth is: 500 10
+eventId is: 0
+eventId is: 0
+check: 180822 perfCounter: 180821.0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+check: 383709 perfCounter: 383690.0
+prevProfile lenth is: 500 10
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+eventId is: 1
+check: 370548 perfCounter: 370545.0
+eventId is: 0
+eventId is: 1
+check: 171889 perfCounter: 171883.0
+check: 429200 perfCounter: 429187.0
+eventId is: 1
+check: 397334 perfCounter: 397324.0
+profileAttrs.length is: 5
+eventId is: 1
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+check: 380853 perfCounter: 380844.0
+check: 176933 perfCounter: 176922.0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :1
+profileAttrs.length is: 5
+eventId is: 0
+check: 24647 perfCounter: 24644.0
+check: 405387 perfCounter: 405375.0
+eventId is: 0
+[OMG] profile attributes for event is null :1
+[OMG] profile attributes for event is null :1
+[OMG] profile attributes for event is null :0
+eventId is: 0
+eventId is: 1
+check: 176400 perfCounter: 176400.0
+[OMG] profile attributes for event is null :1
+eventId is: 1
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+eventId is: 1
+eventId is: 0
+check: 174216 perfCounter: 174216.0
+eventId is: 0
+eventId is: 0
+eventId is: 0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :1
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :1
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :1
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+check: 180158 perfCounter: 180138.0
+eventId is: 0
+check: 178458 perfCounter: 178457.0
+profileAttrs.length is: 5
+eventId is: 0
+check: 173121 perfCounter: 173117.0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+check: 187402 perfCounter: 187398.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 168287 perfCounter: 168202.0
+eventId is: 0
+eventId is: 0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+check: 185457 perfCounter: 185456.0
+check: 181346 perfCounter: 181345.0
+eventId is: 0
+check: 191233 perfCounter: 191233.0
+eventId is: 0
+check: 177504 perfCounter: 177499.0
+check: 192665 perfCounter: 192665.0
+eventId is: 0
+check: 189421 perfCounter: 189420.0
+profileAttrs.length is: 5
+eventId is: 0
+check: 177785 perfCounter: 177782.0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+check: 177331 perfCounter: 177331.0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+check: 173867 perfCounter: 173867.0
+profileAttrs.length is: 5
+eventId is: 0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+check: 177792 perfCounter: 177789.0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+check: 180314 perfCounter: 180312.0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+check: 161734 perfCounter: 161662.0
+check: 182971 perfCounter: 182832.0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+check: 189627 perfCounter: 189565.0
+profileAttrs.length is: 5
+check: 163758 perfCounter: 163699.0
+check: 185812 perfCounter: 185804.0
+eventId is: 0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+eventId is: 0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+eventId is: 0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+eventId is: 0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+delivering hardware exception
+we have a thread = 0x681c258c
+it's in state = 1
+we have exception registers = 0x6819170c
+delivering hardware exception
+we have a thread = 0x681ce04c
+it's in state = 1
+we have exception registers = 0x68191928
+delivering hardware exception
+we have a thread = 0x681e374c
+it's in state = 1
+we have exception registers = 0x6818a124
+delivering hardware exception
+we have a thread = 0x681453cc
+it's in state = 1
+we have exception registers = 0x681656a0
+delivering hardware exception
+we have a thread = 0x681cee4c
+it's in state = 1
+we have exception registers = 0x68191bf8
+delivering hardware exception
+we have a thread = 0x681e33cc
+it's in state = 1
+we have exception registers = 0x6818a070
+delivering hardware exception
+we have a thread = 0x681b7acc
+it's in state = 1
+we have exception registers = 0x681914f0
+delivering hardware exception
+we have a thread = 0x68168c8c
+it's in state = 1
+we have exception registers = 0x68165538
+delivering hardware exception
+we have a thread = 0x681c2c8c
+it's in state = 1
+we have exception registers = 0x68191874
+delivering hardware exception
+we have a thread = 0x681a504c
+it's in state = 1
+we have exception registers = 0x68165c40
+delivering hardware exception
+we have a thread = 0x681b120c
+it's in state = 1
+we have exception registers = 0x68165fc4
+delivering hardware exception
+we have a thread = 0x681b73cc
+it's in state = 1
+we have exception registers = 0x68191388
+delivering hardware exception
+we have a thread = 0x6819a20c
+it's in state = 1
+we have exception registers = 0x68165970
+delivering hardware exception
+we have a thread = 0x681d920c
+it's in state = 1
+we have exception registers = 0x68191cac
+delivering hardware exception
+we have a thread = 0x681c290c
+it's in state = 1
+we have exception registers = 0x681917c0
+delivering hardware exception
+we have a thread = 0x6819a90c
+it's in state = 1
+we have exception registers = 0x68165ad8
+delivering hardware exception
+we have a thread = 0x681a53cc
+it's in state = 1
+we have exception registers = 0x68165cf4
+delivering hardware exception
+we have a thread = 0x681b704c
+it's in state = 1
+we have exception registers = 0x681912d4
+delivering hardware exception
+we have a thread = 0x681a5acc
+it's in state = 1
+we have exception registers = 0x68165e5c
+delivering hardware exception
+we have a thread = 0x6814504c
+it's in state = 1
+we have exception registers = 0x681655ec
+delivering hardware exception
+we have a thread = 0x681b1c8c
+it's in state = 1
+we have exception registers = 0x68191220
+delivering hardware exception
+we have a thread = 0x681ce74c
+it's in state = 1
+we have exception registers = 0x68191a90
+delivering hardware exception
+we have a thread = 0x681ceacc
+it's in state = 1
+we have exception registers = 0x68191b44
+delivering hardware exception
+we have a thread = 0x681c220c
+it's in state = 1
+we have exception registers = 0x68191658
+delivering hardware exception
+we have a thread = 0x6814574c
+it's in state = 1
+we have exception registers = 0x68165754
+delivering hardware exception
+we have a thread = 0x681e304c
+it's in state = 1
+we have exception registers = 0x68191f7c
+delivering hardware exception
+we have a thread = 0x681d9c8c
+it's in state = 1
+we have exception registers = 0x68191ec8
+delivering hardware exception
+we have a thread = 0x681d990c
+it's in state = 1
+we have exception registers = 0x68191e14
+delivering hardware exception
+we have a thread = 0x68145e4c
+it's in state = 1
+we have exception registers = 0x681658bc
+delivering hardware exception
+we have a thread = 0x681a574c
+it's in state = 1
+we have exception registers = 0x68165da8
+delivering hardware exception
+we have a thread = 0x681b774c
+it's in state = 1
+we have exception registers = 0x6819143c
+delivering hardware exception
+we have a thread = 0x681b190c
+it's in state = 1
+we have exception registers = 0x6819116c
+delivering hardware exception
+we have a thread = 0x681ce3cc
+it's in state = 1
+we have exception registers = 0x681919dc
+delivering hardware exception
+we have a thread = 0x681d958c
+it's in state = 1
+we have exception registers = 0x68191d60
+delivering hardware exception
+we have a thread = 0x68145acc
+it's in state = 1
+we have exception registers = 0x68165808
+delivering hardware exception
+we have a thread = 0x6819a58c
+it's in state = 1
+we have exception registers = 0x68165a24
+delivering hardware exception
+we have a thread = 0x6819ac8c
+it's in state = 1
+we have exception registers = 0x68165b8c
+delivering hardware exception
+we have a thread = 0x681b158c
+it's in state = 1
+we have exception registers = 0x681910b8
+delivering hardware exception
+we have a thread = 0x681b7e4c
+it's in state = 1
+we have exception registers = 0x681915a4
+delivering hardware exception
+we have a thread = 0x681a5e4c
+it's in state = 1
+we have exception registers = 0x68165f10
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+perf initializationcheck: 189155 perfCounter: 189155.0
+check: 209873 perfCounter: 209870.0
+check: 180 perfCounter: 177.0
+eventId is: 0
+eventId is: 0
+eventId is: 0
+prevProfile lenth is: 500 10
+prevProfile lenth is: 500 10
+prevProfile lenth is: 500 10
+check: 174929 perfCounter: 174890.0
+check: 206001 perfCounter: 205994.0
+check: 159455 perfCounter: 159426.0
+eventId is: 0
+eventId is: 0
+eventId is: 0
+profileAttrs.length is: 5
+check: 164066 perfCounter: 164064.0
+profileAttrs.length is: 5
+check: 466948 perfCounter: 466926.0
+check: 616316 perfCounter: 616294.0
+eventId is: 1
+eventId is: 1
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+eventId is: 0
+[OMG] profile attributes for event is null :1
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+check: 4539 perfCounter: 4522.0
+check: 159499 perfCounter: 159450.0
+eventId is: 1
+eventId is: 0
+check: 211177 perfCounter: 211106.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 160371 perfCounter: 160237.0
+eventId is: 0
+check: 163733 perfCounter: 163733.0
+check: 151153 perfCounter: 151153.0
+eventId is: 0
+eventId is: 0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+check: 171011 perfCounter: 170892.0
+profileAttrs.length is: 5
+eventId is: 0
+check: 166955 perfCounter: 166900.0
+eventId is: 0
+check: 156516 perfCounter: 156478.0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+profileAttrs.length is: 5
+check: 161886 perfCounter: 161885.0
+check: 172466 perfCounter: 172463.0
+eventId is: 0
+eventId is: 0
+check: 169782 perfCounter: 169779.0
+eventId is: 0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+check: 191499 perfCounter: 191488.0
+check: 163762 perfCounter: 163659.0
+eventId is: 0
+eventId is: 0
+check: 177341 perfCounter: 177309.0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+[OMG] profile attributes for event is null :1
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+check: 174446 perfCounter: 174279.0
+check: 157133 perfCounter: 156992.0
+eventId is: 0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+check: 197237 perfCounter: 197229.0
+profileAttrs.length is: 5
+check: 175134 perfCounter: 175116.0
+eventId is: 0
+profileAttrs.length is: 5
+eventId is: 0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+check: 161998 perfCounter: 161997.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 177031 perfCounter: 176975.0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+check: 181402 perfCounter: 181401.0
+eventId is: 0
+check: 171834 perfCounter: 171832.0
+profileAttrs.length is: 5
+eventId is: 0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+check: 188742 perfCounter: 188667.0
+eventId is: 0
+check: 156949 perfCounter: 156844.0
+eventId is: 0
+profileAttrs.length is: 5
+check: 285758 perfCounter: 285747.0
+check: 175056 perfCounter: 175056.0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+check: 187637 perfCounter: 187475.0
+eventId is: 0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+check: 187597 perfCounter: 187524.0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+eventId is: 0
+check: 152257 perfCounter: 152210.0
+eventId is: 0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :1
+[OMG] profile attributes for event is null :0
+check: 161456 perfCounter: 161451.0
+[OMG] profile attributes for event is null :0
+eventId is: 0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+check: 157589 perfCounter: 157570.0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+eventId is: 0
+check: 168474 perfCounter: 168401.0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+eventId is: 0
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+[OMG] profile attributes for event is null :0
+delivering hardware exception
+we have a thread = 0x681853cc
+it's in state = 1
+we have exception registers = 0x681646a0
+delivering hardware exception
+we have a thread = 0x6818574c
+it's in state = 1
+we have exception registers = 0x68164754
+delivering hardware exception
+we have a thread = 0x6818504c
+it's in state = 1
+we have exception registers = 0x681645ec
+check: 2135 perfCounter: 2097.0
+eventId is: 0
+profileAttrs.length is: 5
+[OMG] profile attributes for event is null :0
+delivering hardware exception
+we have a thread = 0x6819820c
+it's in state = 1
+we have exception registers = 0x68164970
+delivering hardware exception
+we have a thread = 0x680d974c
+it's in state = 1
+we have exception registers = 0x680cf808
+delivering hardware exception
+we have a thread = 0x681bcc8c
+it's in state = 1
+we have exception registers = 0x68189898
+delivering hardware exception
+we have a thread = 0x681d258c
+it's in state = 1
+we have exception registers = 0x68189d84
+delivering hardware exception
+we have a thread = 0x6819858c
+it's in state = 1
+we have exception registers = 0x68164a24
+delivering hardware exception
+we have a thread = 0x681b204c
+it's in state = 1
+we have exception registers = 0x681892f8
+delivering hardware exception
+we have a thread = 0x681ad20c
+it's in state = 1
+we have exception registers = 0x68164fc4
+delivering hardware exception
+we have a thread = 0x68185e4c
+it's in state = 1
+we have exception registers = 0x681648bc
+delivering hardware exception
+we have a thread = 0x681b274c
+it's in state = 1
+we have exception registers = 0x68189460
+delivering hardware exception
+we have a thread = 0x681c774c
+it's in state = 1
+we have exception registers = 0x68189ab4
+delivering hardware exception
+we have a thread = 0x680d9acc
+it's in state = 1
+we have exception registers = 0x680cf8bc
+delivering hardware exception
+we have a thread = 0x681a2acc
+it's in state = 1
+we have exception registers = 0x68164e5c
+delivering hardware exception
+we have a thread = 0x681ad58c
+it's in state = 1
+we have exception registers = 0x681890dc
+delivering hardware exception
+we have a thread = 0x681b23cc
+it's in state = 1
+we have exception registers = 0x681893ac
+delivering hardware exception
+we have a thread = 0x680d9e4c
+it's in state = 1
+we have exception registers = 0x680cf970
+delivering hardware exception
+we have a thread = 0x681a23cc
+it's in state = 1
+we have exception registers = 0x68164cf4
+delivering hardware exception
+we have a thread = 0x68185acc
+it's in state = 1
+we have exception registers = 0x68164808
+delivering hardware exception
+we have a thread = 0x681c7e4c
+it's in state = 1
+we have exception registers = 0x68189c1c
+delivering hardware exception
+we have a thread = 0x681ad90c
+it's in state = 1
+we have exception registers = 0x68189190
+delivering hardware exception
+we have a thread = 0x681a2e4c
+it's in state = 1
+we have exception registers = 0x68164f10
+delivering hardware exception
+we have a thread = 0x681b2acc
+it's in state = 1
+we have exception registers = 0x68189514
+delivering hardware exception
+we have a thread = 0x681a274c
+it's in state = 1
+we have exception registers = 0x68164da8
+delivering hardware exception
+we have a thread = 0x681a204c
+it's in state = 1
+we have exception registers = 0x68164c40
+delivering hardware exception
+we have a thread = 0x6819890c
+it's in state = 1
+we have exception registers = 0x68164ad8
+delivering hardware exception
+we have a thread = 0x68198c8c
+it's in state = 1
+we have exception registers = 0x68164b8c
+delivering hardware exception
+we have a thread = 0x681b2e4c
+it's in state = 1
+we have exception registers = 0x681895c8
+delivering hardware exception
+we have a thread = 0x681bc58c
+it's in state = 1
+we have exception registers = 0x68189730
+delivering hardware exception
+we have a thread = 0x681d220c
+it's in state = 1
+we have exception registers = 0x68189cd0
+delivering hardware exception
+we have a thread = 0x681c73cc
+it's in state = 1
+we have exception registers = 0x68189a00
+delivering hardware exception
+we have a thread = 0x681bc90c
+it's in state = 1
+we have exception registers = 0x681897e4
+delivering hardware exception
+we have a thread = 0x681c704c
+it's in state = 1
+we have exception registers = 0x6818994c
+delivering hardware exception
+we have a thread = 0x681d290c
+it's in state = 1
+we have exception registers = 0x68189e38
+delivering hardware exception
+we have a thread = 0x68167c8c
+it's in state = 1
+we have exception registers = 0x68164538
+delivering hardware exception
+we have a thread = 0x681bc20c
+it's in state = 1
+we have exception registers = 0x6818967c
+delivering hardware exception
+we have a thread = 0x681d2c8c
+it's in state = 4
+we have exception registers = 0x680cf754
+delivering hardware exception
+we have a thread = 0x681c7acc
+it's in state = 1
+we have exception registers = 0x68189b68
+delivering hardware exception
+we have a thread = 0x681adc8c
+it's in state = 1
+we have exception registers = 0x68189244
+shutdown hook is invoked!!
+logQueue size is : 0
