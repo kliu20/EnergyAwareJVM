@@ -440,7 +440,6 @@ EXTERNAL EnergyStatCheck(char *ener_info) {
 				} else {
 					memcpy(ener_info + offset + dram_num + cpu_num + 2, &package_buffer[i], package_num + 1);
 				}
-				printf("ener_info is: %s\n", ener_info);
 				
 				break;	
 			case SANDYBRIDGE:
@@ -467,7 +466,6 @@ EXTERNAL EnergyStatCheck(char *ener_info) {
 					memcpy(ener_info + offset + gpu_num + cpu_num + 2, &package_buffer[i],
 							package_num + 1);
 				}
-				printf("ener_info is: %s\n", ener_info);
 				
 				break;
 			default:

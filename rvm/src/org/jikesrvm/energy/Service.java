@@ -21,7 +21,7 @@ public class Service implements ProfilingTypes {
 	public static String[] methodNameList = new String[INIT_SIZE];
 	public static long[] methodCount = new long[INIT_SIZE];
 	public static double[][] prevProfile = new double[INIT_SIZE][10];
-	public static boolean prevProfileInit = false;
+	public static boolean[] prevProfileInit = new boolean[INIT_SIZE];
 	
 	/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
 	public static char [] info = {'i','o', '\n'};
@@ -82,15 +82,15 @@ public class Service implements ProfilingTypes {
 			for (int i = 0; i < Scaler.perfCounters; i++) {
 				perfCounter = Scaler.perfCheck(i);
 
-				if (!prevProfileInit) {
+				if (!prevProfileInit[threadId]) {
 					profileAttrs[eventId] = perfCounter;
 					
 
 					prevProfile[threadId][eventId] = perfCounter;
-					prevProfileInit = true;
+					prevProfileInit[threadId] = true;
 					eventId++;
 				} else {
-					prevProfile[threadId][eventId] = perfCounter - prevProfile[threadId][eventId];
+					profileAttrs[eventId] = perfCounter - prevProfile[threadId][eventId];
 
 					prevProfile[threadId][eventId] = profileAttrs[eventId];
 					eventId++;
@@ -104,10 +104,10 @@ public class Service implements ProfilingTypes {
 			
 			for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
 
-				if (!prevProfileInit) {
+				if (!prevProfileInit[threadId]) {
 					profileAttrs[eventId] = energy[i];
 					prevProfile[threadId][eventId] = energy[i];
-					prevProfileInit = true;
+					prevProfileInit[threadId] = true;
 					eventId++;
 				} else {
 	
