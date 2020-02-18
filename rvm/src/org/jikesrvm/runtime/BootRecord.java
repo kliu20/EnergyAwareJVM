@@ -430,4 +430,10 @@ public class BootRecord {
     public Address checkFrequencyIP;
     public Address openDVFSFilesIP;
     public Address closeDVFSFilesIP;
+    
+    //Log Queue Methods
+    public Address init_log_queueIP;
+    public Address print_logsIP;
+    public Address register_thread_statIP;
+    public Address add_log_entryIP;
 }

@@ -2810,6 +2810,9 @@ public final class RVMThread extends ThreadContext {
     return jniEnv != null && jniEnv.hasNativeStackFrame();
   }
 
+  
+  public static Object thread_stats_synch = new Object();
+
   /*
    * Starting and ending threads
    */
@@ -2837,8 +2840,9 @@ public final class RVMThread extends ThreadContext {
       thread.run();
       sysCall.sysPerfEventDisable();
       Scaler.perfThreadClose();
-      //TODO::Kenan-Khaled-LogQueue-log_queue
-      //TODO::SysCall.register_thread_stats();
+      synchronized(thread_stats_synch) {
+      	sysCall.register_thread_stat();
+      }
     } catch (Throwable t) {
       Scaler.perfThreadClose();
       if (traceAcct) {

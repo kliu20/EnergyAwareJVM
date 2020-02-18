@@ -526,6 +526,18 @@ public abstract class SysCall {
 
 	   @SysCallTemplate
 	   public abstract void closeDVFSFiles();
+
+	   @SysCallTemplate
+	   public abstract void init_log_queue(int pre_allocation, int num_attrs);
+
+	   @SysCallTemplate
+	   public abstract void register_thread_stat();
+
+	   @SysCallTemplate
+	   public abstract void print_logs();
+
+	   @SysCallTemplate
+	   public abstract void add_log_entry(double attrs,long cmdid,long timestamp);
 	
 
 

@@ -147,6 +147,12 @@ EXTERNAL void SetPowerLimit (int);
 EXTERNAL int GetSocketNum();
 EXTERNAL int ProfileInit();
 
+/** Adding LogQueue related definitions **/
+EXTERNAL void register_thread_stat();
+EXTERNAL void init_log_queue(int,int);
+EXTERNAL void print_logs();
+EXTERNAL void add_log_entry(double*,long int,long long);
+
 // sysAlignmentCheck
 extern volatile int numEnableAlignCheckingCalls;
 EXTERNAL void sysEnableAlignmentChecking();

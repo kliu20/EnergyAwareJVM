@@ -1971,7 +1971,8 @@ const char *rvm_target_configuration = "${target.file}";
     
      <CreateLibrary outdir="${build.base}" dllname="jvm" srcdir="${bl.dir}">
       <ObjectFiles>
-        <arg value="${build.base}/${target.obj-prefix}jvm${target.obj-ext}"/>
+	<arg value="${build.base}/${target.obj-prefix}log_queue${target.obj-ext}"/>
+	<arg value="${build.base}/${target.obj-prefix}jvm${target.obj-ext}"/>
         <arg value="${build.base}/${target.obj-prefix}sysAlignmentCheck${target.obj-ext}"/>
         <arg value="${build.base}/${target.obj-prefix}sysConsole${target.obj-ext}"/>
         <arg value="${build.base}/${target.obj-prefix}sysGCSpy${target.obj-ext}"/>
@@ -1988,7 +1989,6 @@ const char *rvm_target_configuration = "${target.file}";
         <arg value="${build.base}/${target.obj-prefix}sysTime${target.obj-ext}"/>
         <arg value="${build.base}/${target.obj-prefix}sysVarArgs${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}kenan${target.obj-ext}"/>
-	<arg value="${build.base}/${target.obj-prefix}log_queue${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}msr${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}dvfs${target.obj-ext}"/>
 	

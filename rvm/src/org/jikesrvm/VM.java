@@ -474,7 +474,7 @@ public class VM extends Properties {
 
     //TODO::Kenan::Khaled::LogQueue::log_queue
     //Link Create a System Call for LogQueue
-    //SysCall.init_log_queue();
+    sysCall.init_log_queue(500,5);
 
     if (VM.BuildForAdaptiveSystem) {
       if (verboseBoot >= 1) VM.sysWriteln("Initializing adaptive system");
@@ -2430,7 +2430,7 @@ public class VM extends Properties {
   @Uninterruptible
   public static void shutdown(int value) {
     //TODO::Kenan::Khaled::LogQueue::log_queue
-    //SysCall.print_logs();
+    sysCall.print_logs();
     handlePossibleRecursiveShutdown();
 
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);
