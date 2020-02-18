@@ -146,6 +146,8 @@ public abstract class SysCall {
   @SysCallTemplate
   public abstract void sysPerfEventDisable();
   @SysCallTemplate
+  public abstract void sysCloseFd(int id);
+  @SysCallTemplate
   public abstract int sysPerfEventRead(int id, long[] values);
 
   // files

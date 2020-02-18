@@ -36,6 +36,15 @@ class Scaler {
 		for (int i = 0; i < a.length; i++) {
 			System.out.println(a[i]);
 		}
+		
+		int opt = Integer.parseInt(option);
+		if(opt < 1 || opt > 12) {
+			System.out.println("Invalid Option");
+			System.exit(0);
+		}
+		
+		scale(a[opt-1]);
+		/*
 		if(Integer.parseInt(option) == 1) {
 			scale(a[0]);
 		} else if(Integer.parseInt(option) == 2) {
@@ -48,7 +57,7 @@ class Scaler {
 			scale(a[9]);
 		} else if(Integer.parseInt(option) == 6) {
 		       scale(a[11]);
-		}	       
+		}*/	       
 			
 	}
 

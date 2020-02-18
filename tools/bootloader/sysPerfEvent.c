@@ -39,6 +39,7 @@
   static __thread int enabled = 0;
   static __thread int *perf_event_fds;
   static __thread struct perf_event_attr *perf_event_attrs;
+  static __thread int len=0;
 
   EXTERNAL void sysInitPerf() {	
     	if(initialized==0) {
@@ -117,6 +118,13 @@
       }
     }
   }
+
+  EXTERNAL void sysCloseFd(int id)
+  {
+	  close(perf_event_fds[id]);
+  }
+
+
 
   EXTERNAL void sysPerfEventRead(int id, long long *values)
   {

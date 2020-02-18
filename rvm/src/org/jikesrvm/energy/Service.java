@@ -20,8 +20,8 @@ public class Service implements ProfilingTypes {
 	public static String[] clsNameList = new String[INIT_SIZE];
 	public static String[] methodNameList = new String[INIT_SIZE];
 	public static long[] methodCount = new long[INIT_SIZE];
-	public static double[][] prevProfile = new double[INIT_SIZE][10];
-	public static boolean[] prevProfileInit = new boolean[INIT_SIZE];
+	public static double[][] prevProfile = new double[INIT_SIZE*5][10];
+	public static boolean[] prevProfileInit = new boolean[INIT_SIZE*5];
 	
 	/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
 	public static char [] info = {'i','o', '\n'};
@@ -77,43 +77,46 @@ public class Service implements ProfilingTypes {
 		double perfCounter = 0.0d;
 		int eventId = 0;
 		int threadId = (int)Thread.currentThread().getId();
+		double startTime = 0.0d;
 		//Loop unwinding
-		if (Controller.options.ENABLE_COUNTER_PROFILING) {
-			for (int i = 0; i < Scaler.perfCounters; i++) {
-				perfCounter = Scaler.perfCheck(i);
+		if (!prevProfileInit[threadId]) {
+			prevProfileInit[threadId] = true;
+			if (Controller.options.ENABLE_COUNTER_PROFILING) {
+				for (int i = 0; i < Scaler.perfCounters; i++) {
 
-				if (!prevProfileInit[threadId]) {
-					profileAttrs[eventId] = perfCounter;
-					
-
-					prevProfile[threadId][eventId] = perfCounter;
-					prevProfileInit[threadId] = true;
-					eventId++;
-				} else {
-					profileAttrs[eventId] = perfCounter - prevProfile[threadId][eventId];
-
-					prevProfile[threadId][eventId] = profileAttrs[eventId];
+					prevProfile[threadId][eventId] = Scaler.perfCheck(i);
 					eventId++;
 				}
 			}
-		}
+			if (Controller.options.ENABLE_ENERGY_PROFILING) {
 
-		if (Controller.options.ENABLE_ENERGY_PROFILING) {
-			
-			double[] energy = EnergyCheckUtils.getEnergyStats();
-			
-			for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
+				double[] energy = EnergyCheckUtils.getEnergyStats();
 
-				if (!prevProfileInit[threadId]) {
-					profileAttrs[eventId] = energy[i];
+				for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
 					prevProfile[threadId][eventId] = energy[i];
-					prevProfileInit[threadId] = true;
 					eventId++;
-				} else {
-	
+				}
+			}
+		} else {
+			if (Controller.options.ENABLE_COUNTER_PROFILING) {
+				for (int i = 0; i < Scaler.perfCounters; i++) {
+
+					perfCounter = Scaler.perfCheck(i);
+
+					profileAttrs[eventId] = perfCounter - prevProfile[threadId][eventId];
+					prevProfile[threadId][eventId] = perfCounter;
+					eventId++;
+				}
+			}
+
+			if (Controller.options.ENABLE_ENERGY_PROFILING) {
+				
+				double[] energy = EnergyCheckUtils.getEnergyStats();
+				
+				for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
+
 					profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
-					
-					prevProfile[threadId][eventId] = profileAttrs[eventId];
+					prevProfile[threadId][eventId] = energy[i];
 					eventId++;
 				}
 			}
@@ -129,7 +132,6 @@ public class Service implements ProfilingTypes {
 
 			double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
 			int threadId = (int)Thread.currentThread().getId();
-			double wallClockTime = System.currentTimeMillis();
 			//Profiling 
 			getProfileAttrs(profileAttrs);
 	
@@ -155,8 +157,10 @@ public class Service implements ProfilingTypes {
 	//		}
 	
 			// ProfileStack.push(Scaler.getPerfEnerCounterNum() - 1, (int)threadId, cmid, wallClockTime);
-			LogQueue.addLogQueue(threadId, cmid, profileAttrs, (long)(thread.energyTimeSliceExpired * VM.interruptQuantum));
-
+			
+			//LogQueue.addLogQueue(threadId, cmid, profileAttrs, (long)(thread.energyTimeSliceExpired * VM.interruptQuantum), System.currentTimeMillis());
+			//TODO::Kenan::Khaled::LogQueue::log_queue
+			//SysCall.add_log(cmid,profileAttr,ts);
 			thread.energyTimeSliceExpired = 0;
 		}
 	}
@@ -173,7 +177,6 @@ public class Service implements ProfilingTypes {
 			/** Event values for the method */
 			double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
 			int threadId = (int) Thread.currentThread().getId();
-			double wallClockTime = System.currentTimeMillis();
 			
 			//Do profile	
 			getProfileAttrs(profileAttrs);
@@ -206,7 +209,7 @@ public class Service implements ProfilingTypes {
 //			  }
 			  
 			  //Last entry for wall clock time
-			  LogQueue.addLogQueue(threadId, cmid, profileAttrs, (long)(thread.energyTimeSliceExpired * VM.interruptQuantum));
+			  LogQueue.addLogQueue(threadId, cmid, profileAttrs, (long)(thread.energyTimeSliceExpired * VM.interruptQuantum), System.currentTimeMillis());
 
 			thread.energyTimeSliceExpired = 0;
 		}

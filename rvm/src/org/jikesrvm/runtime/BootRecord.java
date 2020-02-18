@@ -405,6 +405,7 @@ public class BootRecord {
   public Address sysPerfEventCreateIP;
   public Address sysPerfEventEnableIP;
   public Address sysPerfEventDisableIP;
+  public Address sysCloseFdIP;
   public Address sysPerfEventReadIP;
 
 

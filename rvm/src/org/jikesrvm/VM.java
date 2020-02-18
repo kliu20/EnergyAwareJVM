@@ -472,6 +472,10 @@ public class VM extends Properties {
 
     if (VM.verboseClassLoading || verboseBoot >= 1) VM.sysWriteln("[VM booted]");
 
+    //TODO::Kenan::Khaled::LogQueue::log_queue
+    //Link Create a System Call for LogQueue
+    //SysCall.init_log_queue();
+
     if (VM.BuildForAdaptiveSystem) {
       if (verboseBoot >= 1) VM.sysWriteln("Initializing adaptive system");
       //Kenan: Initialize hardware counter/energy based profiling structures
@@ -2425,7 +2429,8 @@ public class VM extends Properties {
    */
   @Uninterruptible
   public static void shutdown(int value) {
-
+    //TODO::Kenan::Khaled::LogQueue::log_queue
+    //SysCall.print_logs();
     handlePossibleRecursiveShutdown();
 
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);
@@ -2448,7 +2453,7 @@ public class VM extends Properties {
     }
     
 	    */
-    DataPrinter.filePrinter.println("Hit to sysExit!!!");
+    //DataPrinter.filePrinter.println("Hit to sysExit!!!");
     sysCall.sysExit(value);
     if (VM.VerifyAssertions) VM._assert(VM.NOT_REACHED);
   }

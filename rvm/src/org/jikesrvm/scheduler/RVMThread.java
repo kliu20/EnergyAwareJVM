@@ -2836,7 +2836,11 @@ public final class RVMThread extends ThreadContext {
       Scaler.perfThreadInit();
       thread.run();
       sysCall.sysPerfEventDisable();
+      Scaler.perfThreadClose();
+      //TODO::Kenan-Khaled-LogQueue-log_queue
+      //TODO::SysCall.register_thread_stats();
     } catch (Throwable t) {
+      Scaler.perfThreadClose();
       if (traceAcct) {
         VM.sysWriteln("Thread ",getThreadSlot()," exiting with exception.");
       }

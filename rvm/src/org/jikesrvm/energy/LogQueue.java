@@ -17,7 +17,7 @@ public class LogQueue implements ProfilingTypes {
 	/**Record the log entry in end profiling stage*/
 	public static LinkedList<LogEntry> endLogQueue;
 	/**Record the post calculated log entry*/
-	public static List<LogEntry> logQueue;
+	public static LinkedList<LogEntry> logQueue;
 
 	public static void initRawDataQueue(int socketNum) {
 		if (startLogQueue == null) {
@@ -28,7 +28,7 @@ public class LogQueue implements ProfilingTypes {
 
 	public static void initQueue(int socketNum) {
 		if (logQueue == null) {
-			logQueue = new ArrayList();
+			logQueue = new LinkedList();
 		}
 	}
 	
@@ -60,9 +60,9 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static synchronized void addLogQueue(int threadId, int methodId, double[] profileAttrs, long time) {
-		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs, time);
-		logQueue.add(entry);
+	public static void addLogQueue(int threadId, int methodId, double[] profileAttrs, long time, double hotMethodStartTime) {
+		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs, time, hotMethodStartTime);
+		logQueue.offer(entry);
 
 	}
 
@@ -90,7 +90,7 @@ public class LogQueue implements ProfilingTypes {
 			//DataPrinter.filePrinter.println(entry.counters[entry.counters.length - 1]);
 
 
-			DataPrinter.printProfInfoTwo(entry.threadId, entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, entry.time, 0, 0 /*missRate, missRateByTime*/);   
+			DataPrinter.printProfInfoTwo(entry.threadId, entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, entry.time, entry.hotMethodStartTime);   
 			DataPrinter.filePrinter.flush();
 		}
 	}

@@ -188,6 +188,17 @@ public class Scaler implements ScalerOptions {
 	
 	  }
 
+	  public static void perfThreadClose() {
+
+		    sysCall.sysPerfEventDisable();
+
+		    for (int i = 0; i < perfCounters; i++) {
+		    	//Set up attributes and do perf_event_open for each event counter
+		  	sysCall.sysCloseFd(i);
+		    }
+
+	  }
+
 	/**Read event counters as a group*/
 //	public static long[] perfCheck() {
 //	    //Get counter values with one read by group reading

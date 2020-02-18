@@ -1,4 +1,5 @@
 <!--
+
  ~  This file is part of the Jikes RVM project (http://jikesrvm.org).
  ~
  ~  This file is licensed to You under the Eclipse Public License (EPL);
@@ -1959,7 +1960,9 @@ const char *rvm_target_configuration = "${target.file}";
     <CompileCtoObj cfile="${bl.dir}/kenan.c"
 		                          objfile="${build.base}/${target.obj-prefix}kenan${target.obj-ext}"
 					  cargs="${rvm.c.args}"/>
-     
+    <CompileCtoObj cfile="${bl.dir}/log_queue.c"
+		                          objfile="${build.base}/${target.obj-prefix}log_queue${target.obj-ext}"
+					  cargs="${rvm.c.args}"/>
 
 	
 
@@ -1985,6 +1988,7 @@ const char *rvm_target_configuration = "${target.file}";
         <arg value="${build.base}/${target.obj-prefix}sysTime${target.obj-ext}"/>
         <arg value="${build.base}/${target.obj-prefix}sysVarArgs${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}kenan${target.obj-ext}"/>
+	<arg value="${build.base}/${target.obj-prefix}log_queue${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}msr${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}dvfs${target.obj-ext}"/>
 	
@@ -2043,6 +2047,7 @@ const char *rvm_target_configuration = "${target.file}";
         <arg value="${build.base}/${target.obj-prefix}sysTime${target.obj-ext}"/>
         <arg value="${build.base}/${target.obj-prefix}sysVarArgs${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}kenan${target.obj-ext}"/>
+	<arg value="${build.base}/${target.obj-prefix}log_queue${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}msr${target.obj-ext}"/>
 	<arg value="${build.base}/${target.obj-prefix}dvfs${target.obj-ext}"/>
 	</ObjectFiles>
