@@ -1,0 +1,12 @@
+java version "11.0.2" 2019-01-15 LTS
+Java(TM) SE Runtime Environment 18.9 (build 11.0.2+9-LTS)
+Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-LTS, mixed mode)
+java version "1.6.0_45"
+Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
+
+BUILD FAILED
+/home/kmahmou1/jikes/jikesrvm/build.xml:1965: The following error occurred while executing this line:
+/home/kmahmou1/jikes/jikesrvm/build.xml:1186: exec returned: 1
+
+Total time: 2 minutes 42 seconds
