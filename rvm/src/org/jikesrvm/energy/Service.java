@@ -7,6 +7,7 @@ import org.jikesrvm.VM;
 import org.jikesrvm.scheduler.RVMThread;
 import org.jikesrvm.adaptive.controller.Controller;
 import org.vmmagic.pragma.Entrypoint;
+import org.jikesrvm.runtime.SysCall;
 
 public class Service implements ProfilingTypes {
 	public static final long THREASHOLD = 500;
@@ -134,33 +135,7 @@ public class Service implements ProfilingTypes {
 			int threadId = (int)Thread.currentThread().getId();
 			//Profiling 
 			getProfileAttrs(profileAttrs);
-	
-			/**Preserve for dynamic scaling*/ 
-	//		int counterIndex = 0;
-	//		double[] energy = EnergyCheckUtils.getEnergyStats();
-	//		for (int i = 0; i < Scaler.getPerfEnerCounterNum() - 1; i++) {
-	//			if (i < Scaler.perfCounters) {
-	//				perfCounter = Scaler.perfCheck(counterIndex);
-	//				// Insert hardware counters in the first socket
-	//				// ProfileStack.push(i, (int)threadId, cmid, perfCounter);
-	//				ProfileMap.put(i, (int) threadId, cmid, perfCounter);
-	//				counterIndex++;
-	//			} else {
-	//				for (int j = 0; j < EnergyCheckUtils.ENERGY_ENTRY_SIZE; j++) {
-	//					// ProfileStack.push(i, (int)threadId, cmid,
-	//					// energy[enerIndex]);
-	//					ProfileMap.put(i, (int) threadId, cmid, energy[enerIndex]);
-	//					i++;
-	//					enerIndex++;
-	//				}
-	//			}
-	//		}
-	
-			// ProfileStack.push(Scaler.getPerfEnerCounterNum() - 1, (int)threadId, cmid, wallClockTime);
-			
-			//LogQueue.addLogQueue(threadId, cmid, profileAttrs, (long)(thread.energyTimeSliceExpired * VM.interruptQuantum), System.currentTimeMillis());
-			//TODO::Kenan::Khaled::LogQueue::log_queue
-			//SysCall.add_log(cmid,profileAttr,ts);
+			SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis());
 			thread.energyTimeSliceExpired = 0;
 		}
 	}
@@ -180,36 +155,7 @@ public class Service implements ProfilingTypes {
 			
 			//Do profile	
 			getProfileAttrs(profileAttrs);
-
-			  /**Event counter printer object*/
-//			  if(Controller.options.ENABLE_COUNTER_PRINTER && !titleIsPrinted) {
-//				  //DataPrinter.printEventCounterTitle(Controller.options.ENABLE_COUNTER_PROFILING, Controller.options.ENABLE_ENERGY_PROFILING);
-//				  titleIsPrinted = true;
-//			  }
-			  
-			  //TODO: For enable_scaling_by_counters for future
-//			  for(int i = 1; i <= Scaler.getPerfEnerCounterNum() - 1; i++) {
-//				  
-//				  //If scaling by counters is enabled, we need calculate cache miss rate and TLB misses
-//				  //Otherwise, just simply store the perf counters user set from command line.
-//				  if(Controller.options.ENABLE_SCALING_BY_COUNTERS && i % Scaler.perfCounters == 0) {
-//					  //Move to the next index for L3CACHEMISSRATE event
-//					  ++offset;
-//					  missRate = ((double)profileAttrs[i + offset - Scaler.perfCounters] / (double)profileAttrs[i + offset - Scaler.perfCounters + 1]);
-//					  //get TLB misses
-//					  tlbMisses = profileAttrs[i + offset - Scaler.perfCounters + 2] + profileAttrs[i + offset -Scaler.perfCounters + 3];
-//					  LogQueue.addRatio(threadId, cmid, miss
-//					  LogQueue.add(i + offset - 1, threadId, cmid, missRate);
-//					  //Move to the next index for TLBMISSES
-//					  ++offset;
-//					  LogQueue.add(i + offset - 1, threadId, cmid, tlbMisses);
-//					  continue;
-//				  }
-//				  LogQueue.add(i + offset - 1, threadId, cmid, profileAttrs[i - 1]);
-//			  }
-			  
-			  //Last entry for wall clock time
-			  LogQueue.addLogQueue(threadId, cmid, profileAttrs, (long)(thread.energyTimeSliceExpired * VM.interruptQuantum), System.currentTimeMillis());
+			SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis());
 
 			thread.energyTimeSliceExpired = 0;
 		}
