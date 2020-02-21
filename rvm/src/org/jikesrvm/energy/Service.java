@@ -46,28 +46,7 @@ public class Service implements ProfilingTypes {
 	}
 
 	public static int addMethodEntry(String cls, String name){
-		
-		//Check boundaries of arrays
-		if (methodCount.length - 1 == currentPos){
-			int len = methodCount.length;
-			String[] newClsNameList = new String[len * 2];
-			String[] newMethodNameList = new String[len * 2];
-			long[] newMethodCount = new long[len * 2];
-			if (VM.VerifyAssertions)
-				VM._assert(clsNameList.length - 1 == currentPos && methodNameList.length - 1== currentPos && methodCount.length - 1== currentPos, "Service error");
-			
-			System.arraycopy(clsNameList,0,newClsNameList,0,len);
-			System.arraycopy(methodNameList,0,newMethodNameList,0,len);
-			System.arraycopy(methodCount,0,newMethodCount,0,len);
-			clsNameList = newClsNameList;
-			methodNameList = newMethodNameList;
-			methodCount = newMethodCount;
-		}
-		methodNameList[currentPos] = name;
-		clsNameList[currentPos] = cls;
-		methodCount[currentPos] = 0;
-		currentPos++;
-		return currentPos - 1;
+		return SysCall.sysCall.add_method_entry(name.getBytes(),cls.getBytes());		
 	}
 
 	/**

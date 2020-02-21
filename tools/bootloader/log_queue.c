@@ -5,6 +5,51 @@
 #include <stdlib.h>
 #include "sys.h"
 #include <time.h>
+
+#define MAX_NAME_LEN 256
+#define METHOD_ENTRY_PREALLOC 512
+
+
+typedef struct method_entry {
+	char names[METHOD_ENTRY_PREALLOC][MAX_NAME_LEN];
+	char classes[METHOD_ENTRY_PREALLOC][MAX_NAME_LEN];
+	int num_entries;
+	struct method_entry* next;
+
+} method_entry;
+
+
+struct method_entry *current_method_entry;
+struct method_entry *head_method_entry;
+int method_counter =0;
+
+method_entry* allocate_method_entry() {
+	method_entry *temp = malloc(sizeof(struct method_entry));
+	temp->next=0;
+	temp->num_entries=0;
+	return temp;
+}
+
+void assign_method_entry(char* m, char* c) {
+	int log_indx=current_method_entry->num_entries;
+	strcpy(&current_method_entry->names[log_indx],m);
+	strcpy(&current_method_entry->classes[log_indx],c);
+	current_method_entry->num_entries++;
+}
+
+int add_method_entry(char* method_name, char* cls) {
+	printf("Adding method entry \n");
+	if(current_method_entry->num_entries == METHOD_ENTRY_PREALLOC) {
+		current_method_entry->next = allocate_method_entry();
+		current_method_entry = current_method_entry->next;
+	}
+
+	printf("No need for allocation \n");
+	assign_method_entry(method_name,cls);
+	return method_counter++;
+}
+
+
 #define MAX_THREADS 1000
 
 	pid_t get_tid() {
@@ -128,11 +173,12 @@ extern void print_logs() {
 }
 
 extern void init_log_queue(int p_pre_allocation, int profile_attrs) {
-    num_profile_attrs = profile_attrs;
-    pre_allocation = p_pre_allocation;
-    thread_stats_g = malloc(sizeof(void*)*MAX_THREADS);
-    check_malloc(thread_stats_g,"Allocationg Thread Pointers");
-
+	current_method_entry = allocate_method_entry();
+	head_method_entry = current_method_entry;
+	num_profile_attrs = profile_attrs;
+	pre_allocation = p_pre_allocation;
+	thread_stats_g = malloc(sizeof(void*)*MAX_THREADS);
+	check_malloc(thread_stats_g,"Allocationg Thread Pointers");
 }
 
 

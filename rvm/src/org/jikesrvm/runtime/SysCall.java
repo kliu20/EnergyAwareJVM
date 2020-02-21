@@ -538,6 +538,8 @@ public abstract class SysCall {
 
 	   @SysCallTemplate
 	   public abstract void add_log_entry(double[] attrs,long cmdid,long timestamp);
+	   @SysCallTemplate
+	   public abstract int add_method_entry(byte[] m, byte[] c);
 	
 
 

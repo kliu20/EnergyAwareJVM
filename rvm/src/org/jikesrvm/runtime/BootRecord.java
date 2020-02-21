@@ -436,4 +436,5 @@ public class BootRecord {
     public Address print_logsIP;
     public Address register_thread_statIP;
     public Address add_log_entryIP;
+    public Address add_method_entryIP;
 }

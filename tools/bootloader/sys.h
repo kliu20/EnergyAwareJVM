@@ -152,6 +152,7 @@ EXTERNAL void register_thread_stat();
 EXTERNAL void init_log_queue(int,int);
 EXTERNAL void print_logs();
 EXTERNAL void add_log_entry(double*,long int,long long);
+EXTERNAL int add_method_entry(char*,char*);
 
 // sysAlignmentCheck
 extern volatile int numEnableAlignCheckingCalls;
