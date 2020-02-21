@@ -22,11 +22,12 @@ typedef struct method_entry {
 struct method_entry *current_method_entry;
 struct method_entry *head_method_entry;
 int method_counter =0;
-
+FILE *log_file;
 method_entry* allocate_method_entry() {
 	method_entry *temp = malloc(sizeof(struct method_entry));
-	temp->next=0;
 	temp->num_entries=0;
+	memset(temp->names,'\0',sizeof(temp->names));
+	memset(temp->classes,'\0',sizeof(temp->classes));
 	return temp;
 }
 
@@ -37,14 +38,27 @@ void assign_method_entry(char* m, char* c) {
 	current_method_entry->num_entries++;
 }
 
+
+void print_method_name(int mid) {
+    int search_index=0;
+    method_entry *m_entry = head_method_entry;
+    int entry_order = mid / METHOD_ENTRY_PREALLOC;
+    
+    while(search_index<entry_order) {
+    	m_entry = m_entry->next;
+	search_index++;
+    }
+
+    int entry_index = mid % METHOD_ENTRY_PREALLOC;
+    fprintf(log_file,"%s.%s,",m_entry->classes[entry_index],m_entry->names[entry_index]);
+}
+
 int add_method_entry(char* method_name, char* cls) {
-	printf("Adding method entry \n");
 	if(current_method_entry->num_entries == METHOD_ENTRY_PREALLOC) {
 		current_method_entry->next = allocate_method_entry();
 		current_method_entry = current_method_entry->next;
 	}
 
-	printf("No need for allocation \n");
 	assign_method_entry(method_name,cls);
 	return method_counter++;
 }
@@ -150,21 +164,23 @@ int add_method_entry(char* method_name, char* cls) {
 
 extern void print_logs() {
     printf("[print_counters_g] .... Number of threads is %d \n", number_of_threads);
+    log_file=fopen("kenan.csv","a");
     char* stats_log="";
     for(int thread_idx=0;thread_idx<number_of_threads;thread_idx++) {
         thread_stats* thread_stat = thread_stats_g[thread_idx];
         while(thread_stat) {
             int log_indx = 0;
             for(log_indx=0;log_indx < thread_stat->log_num;log_indx++) {
-                printf("%llu,",thread_stat->timestamps[log_indx]);
-                printf("%d,",thread_stat->tid);
-                printf("%ld,", thread_stat->cmdids[log_indx]);
+                fprintf(log_file,"%llu,",thread_stat->timestamps[log_indx]);
+                print_method_name(thread_stat->cmdids[log_indx]);
+		fprintf(log_file,"%d,",thread_stat->tid);
+                fprintf(log_file,"%ld,", thread_stat->cmdids[log_indx]);
                 int profile_indx = log_indx*num_profile_attrs;
                 for(int profile_attr = 0; profile_attr < num_profile_attrs; profile_attr++) {
                     int profile_attr_indx =  profile_indx + profile_attr;
-                    printf("%f,",thread_stat->profile_attrs[profile_attr_indx]);
+                    fprintf(log_file,"%f,",thread_stat->profile_attrs[profile_attr_indx]);
                 }
-                printf("\n");
+                fprintf(log_file,"%s","\n");
             }
             thread_stat = thread_stat->next;
         }

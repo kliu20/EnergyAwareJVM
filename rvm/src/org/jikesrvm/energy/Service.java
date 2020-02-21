@@ -46,6 +46,8 @@ public class Service implements ProfilingTypes {
 	}
 
 	public static int addMethodEntry(String cls, String name){
+		name=name+"\0";
+		cls=cls+"\0";
 		return SysCall.sysCall.add_method_entry(name.getBytes(),cls.getBytes());		
 	}
 
