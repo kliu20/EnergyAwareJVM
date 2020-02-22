@@ -50,6 +50,12 @@ runJikesNoCounterHSQLDB() {
 
 }
 
+
+if [ -f kenan.csv ];
+then
+	rm kenan.csv
+fi
+
 timeSlice=$((${timeSlice}))		
 ###
 for((i=1;i<=12;i++))

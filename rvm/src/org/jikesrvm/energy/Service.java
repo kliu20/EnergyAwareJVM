@@ -116,7 +116,8 @@ public class Service implements ProfilingTypes {
 			int threadId = (int)Thread.currentThread().getId();
 			//Profiling 
 			getProfileAttrs(profileAttrs);
-			SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis());
+			long freq = Controller.options.FREQUENCY_TO_BE_PRINTED; 
+			SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis(),freq);
 			thread.energyTimeSliceExpired = 0;
 		}
 	}
@@ -136,7 +137,8 @@ public class Service implements ProfilingTypes {
 			
 			//Do profile	
 			getProfileAttrs(profileAttrs);
-			SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis());
+			long freq = Controller.options.FREQUENCY_TO_BE_PRINTED;
+			SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis(),freq);
 
 			thread.energyTimeSliceExpired = 0;
 		}

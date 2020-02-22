@@ -85,8 +85,9 @@ int add_method_entry(char* method_name, char* cls) {
 	}
 
 	typedef struct thread_stats {
-	    unsigned long long* timestamps;
+	    long long* timestamps;
 	    long int* cmdids;
+	    long* frequencies;
 	    double *profile_attrs;
 	    long log_num;
 	    struct thread_stats *next;
@@ -106,6 +107,8 @@ int add_method_entry(char* method_name, char* cls) {
 	    check_malloc(lstats->cmdids,"Allocating CMDIDS");
 	    lstats->profile_attrs=malloc(sizeof(double)*pre_allocation*num_profile_attrs);
 	    check_malloc(lstats->profile_attrs,"Allocating Profile Attributes");
+	    lstats->frequencies=malloc(sizeof(long)*pre_allocation);
+	    check_malloc(lstats->frequencies,"Allocating frequencies");
 	    lstats->next=0;
 	    lstats->log_num=0;
 	    return lstats;
@@ -125,16 +128,15 @@ int add_method_entry(char* method_name, char* cls) {
 	    number_of_threads++;
 	}
 
-	void assign_log_entry(double* attrs, long int cmdid, long long timestamp) {
+	void assign_log_entry(double* attrs, long int cmdid,long timestamp,long freq) {
 	    //printf("[assign_log_entry] Assigning \n ");
-	    long            ms; // Milliseconds
-    	    time_t          s;  // Seconds
     	    struct timespec spec;
-	    s  = spec.tv_sec;
-	    ms = round(spec.tv_nsec / 1.0e6); // Convert nanoseconds to milliseconds
-	    unsigned long long ts = s*1000 + ms;
-	    current->timestamps[current->log_num]=ts;
+	    clock_gettime(CLOCK_MONOTONIC,&spec);
+	    long long ts = spec.tv_sec*1000000000 + spec.tv_nsec;
+	    //current->timestamps[current->log_num]=ts;
+	    current->timestamps[current->log_num]=timestamp;
 	    current->cmdids[current->log_num]=cmdid;
+	    current->frequencies[current->log_num]=freq;
 	    int profile_start_indx = current->log_num*num_profile_attrs;
 	    for(int attr_indx=0; attr_indx < num_profile_attrs;attr_indx++) {
 		current->profile_attrs[profile_start_indx+attr_indx]=attrs[attr_indx];
@@ -149,7 +151,7 @@ int add_method_entry(char* method_name, char* cls) {
 
 
 	//This method needs to be called from Jikes
-	extern void add_log_entry(double* attrs, long int cmdid, long long timestamp) {
+	extern void add_log_entry(double* attrs, long int cmdid,long timestamp,long freq) {
 	    
 	    //printf("[add_log_entry] .... \n");
 	    //printf("Current Log Num %d \n",current->log_num);
@@ -159,7 +161,7 @@ int add_method_entry(char* method_name, char* cls) {
 		current->next=allocate_thread_stats();
 		current = current->next;
 	    }
-	    assign_log_entry(attrs,cmdid,timestamp);
+	    assign_log_entry(attrs,cmdid,timestamp,freq);
 }
 
 extern void print_logs() {
@@ -171,7 +173,8 @@ extern void print_logs() {
         while(thread_stat) {
             int log_indx = 0;
             for(log_indx=0;log_indx < thread_stat->log_num;log_indx++) {
-                fprintf(log_file,"%llu,",thread_stat->timestamps[log_indx]);
+                fprintf(log_file,"%ld,",thread_stat->frequencies[log_indx]);	
+		fprintf(log_file,"%ld,",thread_stat->timestamps[log_indx]);
                 print_method_name(thread_stat->cmdids[log_indx]);
 		fprintf(log_file,"%d,",thread_stat->tid);
                 fprintf(log_file,"%ld,", thread_stat->cmdids[log_indx]);
@@ -192,7 +195,7 @@ extern void init_log_queue(int p_pre_allocation, int profile_attrs) {
 	current_method_entry = allocate_method_entry();
 	head_method_entry = current_method_entry;
 	num_profile_attrs = profile_attrs;
-	pre_allocation = p_pre_allocation;
+	pre_allocation = p_pre_allocation*1000;
 	thread_stats_g = malloc(sizeof(void*)*MAX_THREADS);
 	check_malloc(thread_stats_g,"Allocationg Thread Pointers");
 }
