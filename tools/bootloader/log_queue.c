@@ -6,8 +6,8 @@
 #include "sys.h"
 #include <time.h>
 
-#define MAX_NAME_LEN 256
-#define METHOD_ENTRY_PREALLOC 512
+#define MAX_NAME_LEN 64
+#define METHOD_ENTRY_PREALLOC 64
 
 
 typedef struct method_entry {
@@ -36,6 +36,7 @@ void assign_method_entry(char* m, char* c) {
 	strcpy(&current_method_entry->names[log_indx],m);
 	strcpy(&current_method_entry->classes[log_indx],c);
 	current_method_entry->num_entries++;
+	//printf("number of method entry is: %d\n", current_method_entry->num_entries);
 }
 
 
@@ -74,7 +75,7 @@ int add_method_entry(char* method_name, char* cls) {
 
 	int number_of_threads;
 	int num_profile_attrs;
-	int pre_allocation=500;
+	int pre_allocation=64;
 
 
 	void check_malloc(void *address, char* message) {
@@ -85,11 +86,11 @@ int add_method_entry(char* method_name, char* cls) {
 	}
 
 	typedef struct thread_stats {
-	    long long* timestamps;
-	    long int* cmdids;
-	    long* frequencies;
+	    long * timestamps;
+	    int* cmdids;
+	    int* frequencies;
 	    double *profile_attrs;
-	    long log_num;
+	    int log_num;
 	    struct thread_stats *next;
 	    int tid;
 	} thread_stats;
@@ -101,13 +102,13 @@ int add_method_entry(char* method_name, char* cls) {
 	extern thread_stats *allocate_thread_stats() {
 	    thread_stats* lstats  = malloc(sizeof(thread_stats));
 	    check_malloc(lstats,"Allocating stats object failed");
-	    lstats->timestamps=malloc(sizeof(long long) * pre_allocation);
+	    lstats->timestamps=malloc(sizeof(long long) * METHOD_ENTRY_PREALLOC);
 	    check_malloc(lstats->timestamps, "Allocating Timestamps");
-	    lstats->cmdids=malloc(sizeof(long int)*pre_allocation);
+	    lstats->cmdids=malloc(sizeof(long int)*METHOD_ENTRY_PREALLOC);
 	    check_malloc(lstats->cmdids,"Allocating CMDIDS");
-	    lstats->profile_attrs=malloc(sizeof(double)*pre_allocation*num_profile_attrs);
+	    lstats->profile_attrs=malloc(sizeof(double)*METHOD_ENTRY_PREALLOC*num_profile_attrs);
 	    check_malloc(lstats->profile_attrs,"Allocating Profile Attributes");
-	    lstats->frequencies=malloc(sizeof(long)*pre_allocation);
+	    lstats->frequencies=malloc(sizeof(long)*METHOD_ENTRY_PREALLOC);
 	    check_malloc(lstats->frequencies,"Allocating frequencies");
 	    lstats->next=0;
 	    lstats->log_num=0;
@@ -128,7 +129,7 @@ int add_method_entry(char* method_name, char* cls) {
 	    number_of_threads++;
 	}
 
-	void assign_log_entry(double* attrs, long int cmdid,long timestamp,long freq) {
+	void assign_log_entry(double* attrs, int cmdid,long timestamp,int freq) {
 	    //printf("[assign_log_entry] Assigning \n ");
     	    struct timespec spec;
 	    clock_gettime(CLOCK_MONOTONIC,&spec);
@@ -145,19 +146,19 @@ int add_method_entry(char* method_name, char* cls) {
 	    current->tid = get_tid();
 	    //current->tid = -1;
 	    current->log_num++;
-	    //printf("[assign_log_entry] Assigned \n");
+	    //printf("thread id: %d, number of log entries: %d has been assigned \n", current->tid, current->log_num);
 	    //stats->log_num++;
 	}
 
 
 	//This method needs to be called from Jikes
-	extern void add_log_entry(double* attrs, long int cmdid,long timestamp,long freq) {
+	extern void add_log_entry(double* attrs,  int cmdid,long timestamp,int freq) {
 	    
 	    //printf("[add_log_entry] .... \n");
 	    //printf("Current Log Num %d \n",current->log_num);
 	    
-	    if(current->log_num==pre_allocation) {
-		//printf("[add_log_entry] pre_allocation exceeded. allocating new memoery \n");
+	    if(current->log_num==METHOD_ENTRY_PREALLOC) {
+		//printf("[add_log_entry] METHOD_ENTRY_PREALLOC exceeded. allocating new memoery \n");
 		current->next=allocate_thread_stats();
 		current = current->next;
 	    }
@@ -195,7 +196,7 @@ extern void init_log_queue(int p_pre_allocation, int profile_attrs) {
 	current_method_entry = allocate_method_entry();
 	head_method_entry = current_method_entry;
 	num_profile_attrs = profile_attrs;
-	pre_allocation = p_pre_allocation*1000;
+	pre_allocation = p_pre_allocation;
 	thread_stats_g = malloc(sizeof(void*)*MAX_THREADS);
 	check_malloc(thread_stats_g,"Allocationg Thread Pointers");
 }

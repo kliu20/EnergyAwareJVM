@@ -82,6 +82,12 @@ import org.jikesrvm.energy.Service;
 @Uninterruptible
 public class VM extends Properties {
 
+  
+  public static void print_hello() {
+      sysWriteln("Hello from JikesRVM");		
+  }
+	
+	
   /**
    * For assertion checking things that should never happen.
    */
@@ -2422,6 +2428,11 @@ public class VM extends Properties {
     if (VM.VerifyAssertions) VM._assert(VM.NOT_REACHED);
   }
 
+
+  public static void end_iteration() {
+  	sysCall.end_iteration();
+  }
+
   /**
    * Shut down the virtual machine.
    * Should only be called if the VM is running.
@@ -2430,7 +2441,7 @@ public class VM extends Properties {
   @Uninterruptible
   public static void shutdown(int value) {
     //TODO::Kenan::Khaled::LogQueue::log_queue
-    sysCall.print_logs();
+    //sysCall.print_logs();
     handlePossibleRecursiveShutdown();
 
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);
