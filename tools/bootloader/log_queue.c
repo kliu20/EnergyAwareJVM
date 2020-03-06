@@ -141,8 +141,8 @@ int add_method_entry(char* method_name, char* cls) {
 
 	void assign_log_entry(double* attrs, int cmdid,long timestamp,int freq) {
 	    //printf("[assign_log_entry] Assigning \n ");
-    	    struct timespec spec;
-	    clock_gettime(CLOCK_MONOTONIC,&spec);
+    	    //struct timespec spec;
+	    //clock_gettime(CLOCK_MONOTONIC,&spec);
 	    //long long ts = spec.tv_sec*1000000000 + spec.tv_nsec;
 	    //current->timestamps[current->log_num]=ts;
 	    current->timestamps[current->log_num]=timestamp;
@@ -168,21 +168,27 @@ int add_method_entry(char* method_name, char* cls) {
 	    //printf("Current Log Num %d \n",current->log_num);
 	    
 	    if(current->log_num==METHOD_ENTRY_PREALLOC) {
-		//printf("[add_log_entry] METHOD_ENTRY_PREALLOC exceeded. allocating new memoery \n");
-		current->next=allocate_thread_stats();
-		current = current->next;
+		printf("[add_log_entry] METHOD_ENTRY_PREALLOC exceeded. allocating new memoery \n");
+		if(current->next==0) {
+			current->next=allocate_thread_stats();
+		}
+
+	    	current = current->next;
 	    }
+	    
 	    assign_log_entry(attrs,cmdid,timestamp,freq);
 }
 
 extern void print_logs() {
-    printf("[print_counters_g] .... Number of threads is %d \n", number_of_threads);
+    printf("[print_logs] .... Number of threads is %d \n", number_of_threads);
     log_file=fopen("kenan.csv","a");
     char* stats_log="";
     for(int thread_idx=0;thread_idx<number_of_threads;thread_idx++) {
         thread_stats* thread_stat = thread_stats_g[thread_idx];
         while(thread_stat) {
-            int log_indx = 0;
+            printf("[print_logs] Print a thread_stat item \n");
+	    int log_indx = 0;
+	    printf("[print_logs] Print number of logs %d \n",thread_stat->log_num);
             for(log_indx=0;log_indx < thread_stat->log_num;log_indx++) {
                 fprintf(log_file,"%d,",thread_stat->frequencies[log_indx]);
 		fprintf(log_file,"%ld,",thread_stat->timestamps[log_indx]);
@@ -203,6 +209,7 @@ extern void print_logs() {
 }
 
 extern void init_log_queue(int p_pre_allocation, int profile_attrs) {
+	setbuf(stdout, NULL);
 	current_method_entry = allocate_method_entry();
 	head_method_entry = current_method_entry;
 	num_profile_attrs = profile_attrs;
@@ -222,14 +229,13 @@ extern void init_log_queue(int p_pre_allocation, int profile_attrs) {
 extern void end_iteration() {
 	    print_logs();
 	    for(int thread_idx=0;thread_idx<number_of_threads;thread_idx++) {
-        thread_stats *thread_stat = thread_stats_g[thread_idx];
-        while(thread_stat) {
-            thread_stat->log_num=0;
-            thread_stat = thread_stat->next;
-        }
-    }
-
-    number_of_threads=0;
+        	thread_stats *thread_stat = thread_stats_g[thread_idx];
+		while(thread_stat) {
+            		thread_stat->log_num=0;
+            		thread_stat = thread_stat->next;
+        	}
+    	    }
+    	number_of_threads=0;
 }
 
 

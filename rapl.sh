@@ -62,6 +62,7 @@ for((i=1;i<=12;i++))
 do
 	sudo java energy.Scaler $i userspace
 	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+	mv iteration_times iteration_times_$i
 done
 ###	
 sleep 10 

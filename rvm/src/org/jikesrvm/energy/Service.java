@@ -113,9 +113,6 @@ public class Service implements ProfilingTypes {
 
 	  @Entrypoint
 	  public static void startProfile(int cmid) {
-		if (!profileEnable) {
-			return;
-		}
 		RVMThread thread = RVMThread.getCurrentThread();
 		//Using sampling based method to profile
 		if (thread.energyTimeSliceExpired % 2 != 0) {
@@ -132,9 +129,6 @@ public class Service implements ProfilingTypes {
 
 	@Entrypoint
 	public static void endProfile(int cmid) {
-		if (!profileEnable) {
-			return;
-		}
 		RVMThread thread = RVMThread.getCurrentThread();
 		//Using sampling based method to profile
 		if (thread.energyTimeSliceExpired % 2 != 0) {
