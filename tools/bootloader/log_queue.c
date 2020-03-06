@@ -7,12 +7,12 @@
 #include <time.h>
 
 #define MAX_NAME_LEN 64
-#define METHOD_ENTRY_PREALLOC 64
+#define METHOD_ENTRY_PREALLOC 128
 
 
 typedef struct method_entry {
-	char names[METHOD_ENTRY_PREALLOC][MAX_NAME_LEN];
-	char classes[METHOD_ENTRY_PREALLOC][MAX_NAME_LEN];
+	char names[METHOD_ENTRY_PREALLOC][35];
+	char classes[METHOD_ENTRY_PREALLOC][55];
 	int num_entries;
 	struct method_entry* next;
 
@@ -22,6 +22,9 @@ typedef struct method_entry {
 struct method_entry *current_method_entry;
 struct method_entry *head_method_entry;
 int method_counter =0;
+int allocation_indx = 0;
+
+
 FILE *log_file;
 method_entry* allocate_method_entry() {
 	method_entry *temp = malloc(sizeof(struct method_entry));
@@ -123,17 +126,24 @@ int add_method_entry(char* method_name, char* cls) {
 	 * to initialize its data strcutures and register pointers to its data structure
 	 */
 	extern void register_thread_stat() {
-	    stats =  allocate_thread_stats();
+	    //Check if log space is already allocated.
+        if(thread_stats_g[number_of_threads]!=0) {
+            stats=thread_stats_g[number_of_threads];
+        } else {
+            stats =  allocate_thread_stats();
+            thread_stats_g[number_of_threads]=stats;
+        }
+
 	    current = stats;
-	    thread_stats_g[number_of_threads]=stats;
 	    number_of_threads++;
+
 	}
 
 	void assign_log_entry(double* attrs, int cmdid,long timestamp,int freq) {
 	    //printf("[assign_log_entry] Assigning \n ");
     	    struct timespec spec;
 	    clock_gettime(CLOCK_MONOTONIC,&spec);
-	    long long ts = spec.tv_sec*1000000000 + spec.tv_nsec;
+	    //long long ts = spec.tv_sec*1000000000 + spec.tv_nsec;
 	    //current->timestamps[current->log_num]=ts;
 	    current->timestamps[current->log_num]=timestamp;
 	    current->cmdids[current->log_num]=cmdid;
@@ -174,11 +184,11 @@ extern void print_logs() {
         while(thread_stat) {
             int log_indx = 0;
             for(log_indx=0;log_indx < thread_stat->log_num;log_indx++) {
-                fprintf(log_file,"%ld,",thread_stat->frequencies[log_indx]);	
+                fprintf(log_file,"%d,",thread_stat->frequencies[log_indx]);
 		fprintf(log_file,"%ld,",thread_stat->timestamps[log_indx]);
                 print_method_name(thread_stat->cmdids[log_indx]);
 		fprintf(log_file,"%d,",thread_stat->tid);
-                fprintf(log_file,"%ld,", thread_stat->cmdids[log_indx]);
+                fprintf(log_file,"%d,", thread_stat->cmdids[log_indx]);
                 int profile_indx = log_indx*num_profile_attrs;
                 for(int profile_attr = 0; profile_attr < num_profile_attrs; profile_attr++) {
                     int profile_attr_indx =  profile_indx + profile_attr;
@@ -198,8 +208,30 @@ extern void init_log_queue(int p_pre_allocation, int profile_attrs) {
 	num_profile_attrs = profile_attrs;
 	pre_allocation = p_pre_allocation;
 	thread_stats_g = malloc(sizeof(void*)*MAX_THREADS);
+
+	//initialize pointers to value of zero. At startup, they will have random values according to whatever was in memory.
+	for(int th_indx = 0; th_indx < MAX_THREADS; th_indx++) {
+        thread_stats_g[th_indx] = 0;
+	}
+
 	check_malloc(thread_stats_g,"Allocationg Thread Pointers");
 }
+
+
+//Mark all allocated data in previous iterations as usable
+extern void end_iteration() {
+	    print_logs();
+	    for(int thread_idx=0;thread_idx<number_of_threads;thread_idx++) {
+        thread_stats *thread_stat = thread_stats_g[thread_idx];
+        while(thread_stat) {
+            thread_stat->log_num=0;
+            thread_stat = thread_stat->next;
+        }
+    }
+
+    number_of_threads=0;
+}
+
 
 
 /*int main() {
