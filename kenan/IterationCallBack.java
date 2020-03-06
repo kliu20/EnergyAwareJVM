@@ -22,6 +22,7 @@ public void stop(boolean w) {
 	//if(CURRENT_ITERATION==5) {
 		try {
 			Class cls = Class.forName("org.jikesrvm.VM");
+			System.out.println("Calling end iteration");
 			Method m = cls.getDeclaredMethod("end_iteration", null);
 			Object o = m.invoke(null, null);
 		} catch(Exception exc) {
