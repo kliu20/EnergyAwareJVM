@@ -29,12 +29,13 @@ runJikesNoCounterProfile() {
 }
 
 runJikesNoEnergyProfile() {
-		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm "-Xmx2500M" "-X:vm:errorsFatal=true" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=${hotMin[1]}" "-X:aos:hot_method_time_max=${hotMax[${1}]}" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=true" "-X:aos:enable_energy_profiling=false" "-X:aos:profiler_file=${4}_${6}threads.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-jar" "dacapo-9.12-bach.jar" "-s" "large" "sunflow" ${5} ${6}
+		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm "-Xmx2500M" "-X:vm:errorsFatal=true" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=${hotMin[1]}" "-X:aos:hot_method_time_max=${hotMax[${1}]}" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=true" "-X:aos:enable_energy_profiling=false" "-X:aos:profiler_file=${4}_${6}threads.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-jar" "dacapo-9.12-bach.jar" "-s" "large" "sunflow" ${5} ${6} 
 
 }
 runJikesProfile() {
-		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:vm:errorsFatal=true" "-X:vm:interruptQuantum=${4}" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=0.1" "-X:aos:hot_method_time_max=1" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=true" "-X:aos:enable_energy_profiling=true" "-X:aos:profiler_file=doubleSampleWindow_1ms.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-jar" "dacapo-9.12-bach.jar" "-s" "large" "sunflow" 
+		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=0.1" "-X:aos:hot_method_time_max=1" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=true" "-X:aos:enable_energy_profiling=true" "-X:aos:profiler_file=doubleSampleWindow_1ms.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-cp" "dacapo-9.12-bach.jar:." "Harness" "-s" "large" "sunflow" "-n" "10" "--callback" "kenan.IterationCallBack"
 }
+
 runJikesNoEnergyProfileGraphchi() {
 		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx2500M" "-X:vm:errorsFatal=true" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=${hotMin[${1}]}" "-X:aos:hot_method_time_max=${hotMax[${1}]}" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=true" "-X:aos:enable_energy_profiling=false" "-X:aos:profiler_file=${4}_${6}threads.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-cp" "graphchi-java-0.2.2.jar" "edu.cmu.graphchi.apps.Pagerank" "facebook/414.edges" "20" "edgelist"
 
@@ -49,7 +50,14 @@ runJikesNoCounterHSQLDB() {
 
 }
 
+
+if [ -f kenan.csv ];
+then
+	rm kenan.csv
+fi
+
+i=0
 timeSlice=$((${timeSlice}))		
-sudo java energy.Scaler 0 ondemand
-time runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[$j]} Energy -t 8 
-sleep 10 
+java energy.Scaler 1 userspace
+runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+mv iteration_times iteration_times_$i

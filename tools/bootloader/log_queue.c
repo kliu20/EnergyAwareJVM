@@ -89,7 +89,7 @@ int add_method_entry(char* method_name, char* cls) {
 	}
 
 	typedef struct thread_stats {
-	    long * timestamps;
+	    long long* timestamps;
 	    int* cmdids;
 	    int* frequencies;
 	    double *profile_attrs;
@@ -139,7 +139,7 @@ int add_method_entry(char* method_name, char* cls) {
 
 	}
 
-	void assign_log_entry(double* attrs, int cmdid,long timestamp,int freq) {
+	void assign_log_entry(double* attrs, int cmdid,long long timestamp,int freq) {
 	    //printf("[assign_log_entry] Assigning \n ");
     	    //struct timespec spec;
 	    //clock_gettime(CLOCK_MONOTONIC,&spec);
@@ -162,13 +162,13 @@ int add_method_entry(char* method_name, char* cls) {
 
 
 	//This method needs to be called from Jikes
-	extern void add_log_entry(double* attrs,  int cmdid,long timestamp,int freq) {
+	extern void add_log_entry(double* attrs,  int cmdid,long long timestamp,int freq) {
 	    
 	    //printf("[add_log_entry] .... \n");
 	    //printf("Current Log Num %d \n",current->log_num);
 	    
 	    if(current->log_num==METHOD_ENTRY_PREALLOC) {
-		printf("[add_log_entry] METHOD_ENTRY_PREALLOC exceeded. allocating new memoery \n");
+		//printf("[add_log_entry] METHOD_ENTRY_PREALLOC exceeded. allocating new memoery \n");
 		if(current->next==0) {
 			current->next=allocate_thread_stats();
 		}
@@ -191,7 +191,7 @@ extern void print_logs() {
 	    printf("[print_logs] Print number of logs %d \n",thread_stat->log_num);
             for(log_indx=0;log_indx < thread_stat->log_num;log_indx++) {
                 fprintf(log_file,"%d,",thread_stat->frequencies[log_indx]);
-		fprintf(log_file,"%ld,",thread_stat->timestamps[log_indx]);
+		fprintf(log_file,"%lli,",thread_stat->timestamps[log_indx]);
                 print_method_name(thread_stat->cmdids[log_indx]);
 		fprintf(log_file,"%d,",thread_stat->tid);
                 fprintf(log_file,"%d,", thread_stat->cmdids[log_indx]);
