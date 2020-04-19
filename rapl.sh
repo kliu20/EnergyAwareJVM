@@ -10,7 +10,7 @@ hotMax=('0' '100' '150' '200' '250' '300' '350' '400' '1000000')
 threads=('2' '4' '8')
 eventNum=8
 freqScaling=1
-
+kkfreq="0"
 #cache-misses,cache-references
 
 runJikesNoProfileWhole() {
@@ -33,7 +33,7 @@ runJikesNoEnergyProfile() {
 
 }
 runJikesProfile() {
-		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=0.1" "-X:aos:hot_method_time_max=1" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=true" "-X:aos:enable_energy_profiling=true" "-X:aos:profiler_file=doubleSampleWindow_1ms.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-cp" "dacapo-9.12-bach.jar:." "Harness" "-s" "large" "sunflow" "-n" "10" "--callback" "kenan.IterationCallBack"
+		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=0.1" "-X:aos:hot_method_time_max=1" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=false" "-X:aos:enable_energy_profiling=true" "-X:aos:profiler_file=doubleSampleWindow_1ms.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-cp" "dacapo-9.12-bach.jar:." "Harness" "-s" "large" "sunflow" "-n" "10" "--callback" "kenan.IterationCallBack" &> freq_${kkfreq}
 }
 
 runJikesNoEnergyProfileGraphchi() {
@@ -53,16 +53,19 @@ runJikesNoCounterHSQLDB() {
 
 if [ -f kenan.csv ];
 then
-	rm kenan.csv
+	sudo rm kenan.csv
 fi
 
 timeSlice=$((${timeSlice}))		
-###
-for((i=1;i<=12;i++))
-do
-	sudo java energy.Scaler $i userspace
-	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
-	mv iteration_times iteration_times_$i
-done
-###	
+#
+#for((i=1;i<=12;i++))
+#do
+       i=1
+       kkfreq="$i"
+       sudo java energy.Scaler $i userspace
+       runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+       sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
+       sudo mv iteration_times counter_based_sampling_iteration_times_$i
+#done
+##	
 sleep 10 

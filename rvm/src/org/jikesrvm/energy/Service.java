@@ -21,8 +21,8 @@ public class Service implements ProfilingTypes {
 	public static String[] clsNameList = new String[INIT_SIZE];
 	public static String[] methodNameList = new String[INIT_SIZE];
 	public static long[] methodCount = new long[INIT_SIZE];
-	public static double[][] prevProfile = new double[INIT_SIZE*5][10];
-	public static boolean[] prevProfileInit = new boolean[INIT_SIZE*5];
+	public static double[][] prevProfile = new double[INIT_SIZE*2][3];
+	public static boolean[] prevProfileInit = new boolean[INIT_SIZE*2];
 	public static boolean profileEnable = false;
 		
 		/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
@@ -111,41 +111,43 @@ public class Service implements ProfilingTypes {
 		  	profileEnable = true;
 	 	 }
 
-	  @Entrypoint
-	  public static void startProfile(int cmid) {
-		RVMThread thread = RVMThread.getCurrentThread();
-		//Using sampling based method to profile
-		if (thread.energyTimeSliceExpired % 2 != 0) {
-
-			double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
-			int threadId = (int)Thread.currentThread().getId();
-			//Profiling 
-			getProfileAttrs(profileAttrs);
-			int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED; 
-			SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis(),freq);
-			thread.energyTimeSliceExpired = 0;
-		}
+	@Entrypoint
+	public static void startProfile(int cmid) {
+		profile(cmid);
 	}
 
 	@Entrypoint
 	public static void endProfile(int cmid) {
+		profile(cmid);
+	}
+
+	public static void profile(int cmid) {
 		RVMThread thread = RVMThread.getCurrentThread();
 		//Using sampling based method to profile
-		if (thread.energyTimeSliceExpired % 2 != 0) {
+		if (thread.energyTimeSliceExpired >= 2) {
 
-			double tlbMisses = 0.0d;
-			double missRate = 0.0d;
-			int offset = 0;
-			/** Event values for the method */
-			double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
-			int threadId = (int) Thread.currentThread().getId();
-			
-			//Do profile	
-			getProfileAttrs(profileAttrs);
-			int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
-			SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis(),freq);
+			thread.skippedInvocations--;
 
-			thread.energyTimeSliceExpired = 0;
+			if (thread.skippedInvocations == 0) {	
+
+				/** Event values for the method */
+				double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
+				int threadId = (int) Thread.currentThread().getId();
+				
+				//Do profile	
+				getProfileAttrs(profileAttrs);
+				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
+				SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis(),freq);
+				
+				thread.skippedInvocations = RVMThread.STRIDE;
+				thread.samplesThisTimerInterrupt--;
+
+				if (thread.samplesThisTimerInterrupt == 0) {
+					thread.samplesThisTimerInterrupt = RVMThread.SAMPLES;
+					thread.energyTimeSliceExpired = 0;
+				}
+			}
 		}
+
 	}
 }

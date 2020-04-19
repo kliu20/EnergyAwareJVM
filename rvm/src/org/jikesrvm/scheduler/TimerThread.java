@@ -66,10 +66,8 @@ public class TimerThread extends SystemThread {
 	      candidate.timeSliceExpired++;
 	      candidate.takeYieldpoint = 1;
 
-	      //if (candidate.timeSliceExpired % 2 == 0) {
-	      		candidate.energyTimeSliceExpired++;
+	     candidate.energyTimeSliceExpired++;
 
-	      //}
             }
           }
           RVMThread.acctLock.unlock();
