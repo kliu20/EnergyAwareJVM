@@ -86,7 +86,11 @@ public class VM extends Properties {
   public static void print_hello() {
       sysWriteln("Hello from JikesRVM");		
   }
-	
+
+
+  public static long get_startup_ts() {
+	return Service.start_ts;
+  }  
 	
   /**
    * For assertion checking things that should never happen.

@@ -9,59 +9,66 @@
 
 #define MAX_NAME_LEN 64
 #define METHOD_ENTRY_PREALLOC 128
-
-typedef struct method_entry {
-	char names[METHOD_ENTRY_PREALLOC][35];
-	char classes[METHOD_ENTRY_PREALLOC][55];
+#define MAX_METHOD_NUM 2000
+/*typedef struct method_entry {
+	char names[METHOD_ENTRY_PREALLOC][200];
+	//char classes[METHOD_ENTRY_PREALLOC][70];
 	int num_entries;
 	struct method_entry* next;
 
 } method_entry;
+*/
 
 
-struct method_entry *current_method_entry;
-struct method_entry *head_method_entry;
+//struct method_entry *current_method_entry;
+//struct method_entry *head_method_entry;
+
+
 int method_counter =0;
 int allocation_indx = 0;
+int current_iteration=1;
 FILE *log_file;
-method_entry* allocate_method_entry() {
+
+char names[MAX_METHOD_NUM][250];
+
+
+/*method_entry* allocate_method_entry() {
 	method_entry *temp = malloc(sizeof(struct method_entry));
 	temp->num_entries=0;
 	memset(temp->names,'\0',sizeof(temp->names));
 	memset(temp->classes,'\0',sizeof(temp->classes));
 	return temp;
-}
+}*/
 
 void assign_method_entry(char* m, char* c) {
-	int log_indx=current_method_entry->num_entries;
-	strcpy(&current_method_entry->names[log_indx],m);
-	strcpy(&current_method_entry->classes[log_indx],c);
-	current_method_entry->num_entries++;
+	//int log_indx=current_method_entry->num_entries;
+	strcpy(&names[method_counter],m);
+	//strcpy(&current_method_entry->classes[log_indx],c);
+	//current_method_entry->num_entries++;
 	//printf("number of method entry is: %d\n", current_method_entry->num_entries);
 }
 
 
 void print_method_name(int mid) {
-    int search_index=0;
-    method_entry *m_entry = head_method_entry;
-    int entry_order = mid / METHOD_ENTRY_PREALLOC;
+    //int search_index=0;
+    //method_entry *m_entry = head_method_entry;
+    //int entry_order = mid / METHOD_ENTRY_PREALLOC;
     
-    while(search_index<entry_order) {
-    	m_entry = m_entry->next;
-	search_index++;
-    }
+    //while(search_index<entry_order) {
+    //	m_entry = m_entry->next;
+    //	search_index++;
+    //}
 
-    int entry_index = mid % METHOD_ENTRY_PREALLOC;
-    fprintf(log_file,"%s.%s,",m_entry->classes[entry_index],m_entry->names[entry_index]);
+    //int entry_index = mid % METHOD_ENTRY_PREALLOC;
+    fprintf(log_file,"%s,",names[mid]);
 }
 
 int add_method_entry(char* method_name, char* cls) {
-	register_thread_stat();
 	
-	if(current_method_entry->num_entries == METHOD_ENTRY_PREALLOC) {
+	/*if(current_method_entry->num_entries == METHOD_ENTRY_PREALLOC) {
 		current_method_entry->next = allocate_method_entry();
 		current_method_entry = current_method_entry->next;
-	}
+	}*/
 
 	assign_method_entry(method_name,cls);
 	return method_counter++;
@@ -91,7 +98,7 @@ int add_method_entry(char* method_name, char* cls) {
 	typedef struct thread_stats {
 	    int* timestamps;
 	    int* cmdids;
-	    float *profile_attrs;
+	    double *profile_attrs;
 	    int log_num;
 	    struct thread_stats *next;
 	    int tid;
@@ -108,7 +115,7 @@ int add_method_entry(char* method_name, char* cls) {
 	    check_malloc(lstats->timestamps, "Allocating Timestamps");
 	    lstats->cmdids=malloc(sizeof(int)*METHOD_ENTRY_PREALLOC);
 	    check_malloc(lstats->cmdids,"Allocating CMDIDS");
-	    lstats->profile_attrs=malloc(sizeof(float)*METHOD_ENTRY_PREALLOC*num_profile_attrs);
+	    lstats->profile_attrs=malloc(sizeof(double)*METHOD_ENTRY_PREALLOC*num_profile_attrs);
 	    check_malloc(lstats->profile_attrs,"Allocating Profile Attributes");
 	    //lstats->frequencies=malloc(sizeof(long)*METHOD_ENTRY_PREALLOC);
 	    //check_malloc(lstats->frequencies,"Allocating frequencies");
@@ -125,7 +132,7 @@ int add_method_entry(char* method_name, char* cls) {
 	 * to initialize its data strcutures and register pointers to its data structure
 	 */
 	extern void register_thread_stat() {
-	    stats =  allocate_thread_stats();	    
+	    stats =  allocate_thread_stats();
 	    thread_stats_g[number_of_threads]=stats;
 	    current = stats;
 	    number_of_threads++;
@@ -147,10 +154,9 @@ int add_method_entry(char* method_name, char* cls) {
 	    	printf("Never ever done that \n");
 	    }*/
 	    
-	    current->timestamps[current->log_num]=0;
-	    
+	    current->timestamps[current->log_num]=(int) timestamp;
 	    //printf("Step 1 \n");
-	    current->cmdids[current->log_num]=0;
+	    current->cmdids[current->log_num]=cmdid;
 	    //current->frequencies[current->log_num]=freq;
 	    int profile_start_indx = current->log_num*num_profile_attrs;
 	    //printf("Step 2 \n");
@@ -172,15 +178,24 @@ int add_method_entry(char* method_name, char* cls) {
 	    
 	    //printf("[add_log_entry] .... \n");
 	    //printf("Current Log Num %d \n",current->log_num);
-	    
+	    //printf("\n [adding log_entry] %d \n", current_iteration);
+	    if(stats->log_num == -1) {
+		current = stats;
+		current->log_num=0;
+		thread_stats *nu = allocate_thread_stats();
+		current->cmdids = nu->cmdids;
+		current->timestamps = nu->timestamps;
+		current->profile_attrs = nu->profile_attrs;
+	    }
+
 	    if(current->log_num==METHOD_ENTRY_PREALLOC) {
 		current->next=allocate_thread_stats();
 	    	current = current->next;
 	    }
 	   
 	    //printf("add_log_entry: alocated"); 
-	    assign_log_entry(attrs,cmdid,timestamp,freq);
-	    //printf("add_log_entry: assigned");
+	   assign_log_entry(attrs,cmdid,timestamp,freq);
+	   //printf("add_log_entry: assigned %d ", current->log_num);
 }
 
 extern void print_logs() {
@@ -195,6 +210,8 @@ extern void print_logs() {
 	    //printf("[print_logs] Print number of logs %d \n",thread_stat->log_num);
             for(log_indx=0;log_indx < thread_stat->log_num;log_indx++) {
                 //fprintf(log_file,"%d,",thread_stat->frequencies[log_indx]);
+		//printf("\n current_iteration %d \n", current_iteration);
+        	fprintf(log_file,"%d,",current_iteration);
 		fprintf(log_file,"%d,",thread_stat->timestamps[log_indx]);
                 print_method_name(thread_stat->cmdids[log_indx]);
 		fprintf(log_file,"%d,",thread_stat->tid);
@@ -215,8 +232,8 @@ extern void print_logs() {
 
 extern void init_log_queue(int p_pre_allocation, int profile_attrs) {
 	setbuf(stdout, NULL);
-	current_method_entry = allocate_method_entry();
-	head_method_entry = current_method_entry;
+	//current_method_entry = allocate_method_entry();
+	//head_method_entry = current_method_entry;
 	num_profile_attrs = profile_attrs;
 	pre_allocation = p_pre_allocation;
 	thread_stats_g = malloc(sizeof(void*)*MAX_THREADS);
@@ -229,31 +246,48 @@ extern void init_log_queue(int p_pre_allocation, int profile_attrs) {
 	check_malloc(thread_stats_g,"Allocationg Thread Pointers");
 }
 
+void ffree(void* ptr) {
+	if(ptr) free(ptr);
+}
+
+void reset_ptrs(thread_stats *st) {
+	st->cmdids=0;
+	st->profile_attrs=0;
+	st->timestamps=0;
+}
+
 
 //Mark all allocated data in previous iterations as usable
 extern void end_iteration() {
 	    print_logs();
+	    printf("\n Current Iteration %d \n", current_iteration);
+	    current_iteration++;
 	    //Free allocated resources in previous iteration
 	    for(int thread_idx=0;thread_idx<number_of_threads;thread_idx++) {
         	thread_stats *head = thread_stats_g[thread_idx];
 		thread_stats *thread_stat = 0;
+
 		if(head) {
-		    thread_stat = head->next;
+		    ffree(head->timestamps);
+    		    thread_stat = head->next;
+		    ffree(head->profile_attrs); 
+		    ffree(head->cmdids);
 		    head->next = 0;
-		    head->log_num=0;
+		    head->log_num=-1;
+		    reset_ptrs(head);
 		}
 
 		while(thread_stat) {
             		thread_stat->log_num=0;
-			free(thread_stat->profile_attrs);
-			free(thread_stat->cmdids);
-			free(thread_stat->timestamps);
+			ffree(thread_stat->profile_attrs);
+			ffree(thread_stat->cmdids);
+			ffree(thread_stat->timestamps);
 			thread_stats* temp = thread_stat;
             		thread_stat = thread_stat->next;
-			free(temp);
+			reset_ptrs(temp);			
+			ffree(temp);
         	}
 	    }
-    	number_of_threads=0;
 }
 
 

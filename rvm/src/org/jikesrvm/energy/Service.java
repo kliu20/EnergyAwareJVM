@@ -24,7 +24,8 @@ public class Service implements ProfilingTypes {
 	public static double[][] prevProfile = new double[INIT_SIZE*2][3];
 	public static boolean[] prevProfileInit = new boolean[INIT_SIZE*2];
 	public static boolean profileEnable = false;
-		
+	public static long start_ts = System.currentTimeMillis(); 
+
 		/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
 		public static char [] info = {'i','o', '\n'};
 
@@ -47,9 +48,11 @@ public class Service implements ProfilingTypes {
 		}
 
 		public static int addMethodEntry(String cls, String name){
-			name=name+"\0";
-			cls=cls+"\0";
-			return SysCall.sysCall.add_method_entry(name.getBytes(),cls.getBytes());		
+			//name=name+"\0";
+			//cls=cls+"\0";
+			String fullName = cls+"$$$$$"+name;
+			fullName+="\0";
+			return SysCall.sysCall.add_method_entry(fullName.getBytes(),"".getBytes());	
 		}
 
 		/**
@@ -137,7 +140,7 @@ public class Service implements ProfilingTypes {
 				//Do profile	
 				getProfileAttrs(profileAttrs);
 				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
-				SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis(),freq);
+				SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
 				
 				thread.skippedInvocations = RVMThread.STRIDE;
 				thread.samplesThisTimerInterrupt--;
