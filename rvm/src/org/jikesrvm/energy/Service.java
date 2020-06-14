@@ -47,7 +47,8 @@ public class Service implements ProfilingTypes {
 		return hash;
 		}
 
-		public static int addMethodEntry(String cls, String name){
+
+		public synchronized static int addMethodEntry(String cls, String name){
 			//name=name+"\0";
 			//cls=cls+"\0";
 			String fullName = cls+"$$$$$"+name;
