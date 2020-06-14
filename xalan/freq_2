@@ -1,0 +1,54 @@
+Attempting to unmask SIGQUIT...SUCCESS
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 8381 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 7454 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 7280 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 7101 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 7162 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 7094 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+used = 271879 pgs = boot 0 pgs + immortal 0 pgs + meta 3 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 271890 pgs = boot 0 pgs + immortal 0 pgs + meta 13 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 271889 pgs = boot 0 pgs + immortal 0 pgs + meta 12 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 271887 pgs = boot 0 pgs + immortal 0 pgs + meta 10 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 271882 pgs = boot 0 pgs + immortal 0 pgs + meta 5 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 271884 pgs = boot 0 pgs + immortal 0 pgs + meta 7 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 271879 pgs = boot 0 pgs + immortal 0 pgs + meta 3 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 1062.08 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 602.21 Mb + sanity 0.00 Mb + non-moving 1.68 Mb + sm-code 2.31 Mb + lg-code 0.35 Mb + ms 455.44 Mb
+used = 271888 pgs = boot 0 pgs + immortal 0 pgs + meta 11 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 1062.08 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 602.21 Mb + sanity 0.00 Mb + non-moving 1.68 Mb + sm-code 2.31 Mb + lg-code 0.35 Mb + ms 455.44 Mb
+used = 271883 pgs = boot 0 pgs + immortal 0 pgs + meta 7 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+used = 1062.08 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 602.21 Mb + sanity 0.00 Mb + non-moving 1.68 Mb + sm-code 2.31 Mb + lg-code 0.35 Mb + ms 455.44 Mb
+Died in GC:
+used = 1062.08 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 602.21 Mb + sanity 0.00 Mb + non-moving 1.68 Mb + sm-code 2.31 Mb + lg-code 0.35 Mb + ms 455.44 Mb
+used = 1062.08 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 602.21 Mb + sanity 0.00 Mb + non-moving 1.68 Mb + sm-code 2.31 Mb + lg-code 0.35 Mb + ms 455.44 Mb
+used = 271894 pgs = boot 0 pgs + immortal 0 pgs + meta 17 pgs + los 154166 pgs + sanity 0 pgs + non-moving 432 pgs + sm-code 593 pgs + lg-code 91 pgs + ms 116595 pgs
+Physical allocation failed when polling not allowed!
+used = 1062.08 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 602.21 Mb + sanity 0.00 Mb + non-moving 1.68 Mb + sm-code 2.31 Mb + lg-code 0.35 Mb + ms 455.44 Mb
+Thread 16: VM.sysFail(): We're in a (likely) recursive call to VM.sysFail(), 5 deep
+   sysFail was called with the message: Physical allocation failed when polling not allowed!
+used = 1062.08 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 602.21 Mb + sanity 0.00 Mb + non-moving 1.68 Mb + sm-code 2.31 Mb + lg-code 0.35 Mb + ms 455.44 Mb
+VM.dieAbruptlyRecursiveSystemTrouble(): Dying abruptly; we're stuckk in a re

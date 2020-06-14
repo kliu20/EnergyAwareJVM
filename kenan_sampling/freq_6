@@ -1,0 +1,54 @@
+Attempting to unmask SIGQUIT...SUCCESS
+perf initializationUsing scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 81 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+[print_logs] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0

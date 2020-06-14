@@ -1,0 +1,1 @@
+/home/kmahmou1/jdk1.6.0_45/bin/java -classpath dacapo-2006-10-MR2.jar:. -jar dacapo-2006-10-MR2.jar -c kenan.OIterationCallBack -n 5 xalan

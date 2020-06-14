@@ -1,0 +1,628 @@
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b04478
+calloc returned something that is in RVM address space: 0x65b04488
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104478
+calloc returned something that is in RVM address space: 0x65104488
+malloc returned something that is in RVM address space: 0x62800470
+calloc returned something that is in RVM address space: 0x62804478
+calloc returned something that is in RVM address space: 0x62804488
+malloc returned something that is in RVM address space: 0x62804590
+malloc returned something that is in RVM address space: 0x65104590
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x62808598
+calloc returned something that is in RVM address space: 0x628085a8
+calloc returned something that is in RVM address space: 0x65108598
+calloc returned something that is in RVM address space: 0x651085a8
+calloc returned something that is in RVM address space: 0x65b08598
+calloc returned something that is in RVM address space: 0x65b085a8
+malloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b045a0
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x651045a0
+malloc returned something that is in RVM address space: 0x62804590
+calloc returned something that is in RVM address space: 0x62800470
+calloc returned something that is in RVM address space: 0x62800480
+perf initialization**** malloc failed Allocating frequenciesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x65b00470
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65b04478
+calloc returned something that is in RVM address space: 0x65b04488
+calloc returned something that is in RVM address space: 0x65104478
+calloc returned something that is in RVM address space: 0x65104488
+malloc returned something that is in RVM address space: 0x64f00470
+calloc returned something that is in RVM address space: 0x64f04478
+calloc returned something that is in RVM address space: 0x64f04488
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004478
+calloc returned something that is in RVM address space: 0x65004488
+malloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x65008598
+calloc returned something that is in RVM address space: 0x650085a8
+malloc returned something that is in RVM address space: 0x64f04590
+calloc returned something that is in RVM address space: 0x64f08598
+calloc returned something that is in RVM address space: 0x64f085a8
+malloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x65108598
+calloc returned something that is in RVM address space: 0x651085a8
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b08598
+calloc returned something that is in RVM address space: 0x65b085a8
+malloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b045a0
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x650045a0
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x651045a0
+malloc returned something that is in RVM address space: 0x64f04590
+calloc returned something that is in RVM address space: 0x64f00470
+calloc returned something that is in RVM address space: 0x64f00480
+perf initialization**** malloc failed Allocating frequenciesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x67600470
+calloc returned something that is in RVM address space: 0x67604478
+calloc returned something that is in RVM address space: 0x67604488
+malloc returned something that is in RVM address space: 0x62a00470
+calloc returned something that is in RVM address space: 0x62a04478
+calloc returned something that is in RVM address space: 0x62a04488
+malloc returned something that is in RVM address space: 0x62a04590
+calloc returned something that is in RVM address space: 0x62a08598
+calloc returned something that is in RVM address space: 0x62a085a8
+malloc returned something that is in RVM address space: 0x67604590
+calloc returned something that is in RVM address space: 0x67608598
+calloc returned something that is in RVM address space: 0x676085a8
+malloc returned something that is in RVM address space: 0x67604590
+calloc returned something that is in RVM address space: 0x67600470
+calloc returned something that is in RVM address space: 0x67600480
+malloc returned something that is in RVM address space: 0x62a00470
+calloc returned something that is in RVM address space: 0x62a04590
+calloc returned something that is in RVM address space: 0x62a045a0
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x65b00470
+malloc returned something that is in RVM address space: 0x67300470
+malloc returned something that is in RVM address space: 0x67100470
+calloc returned something that is in RVM address space: 0x67304478
+calloc returned something that is in RVM address space: 0x67304488
+calloc returned something that is in RVM address space: 0x67104478
+calloc returned something that is in RVM address space: 0x67104488
+malloc returned something that is in RVM address space: 0x67200470
+calloc returned something that is in RVM address space: 0x65b04478
+calloc returned something that is in RVM address space: 0x65b04488
+calloc returned something that is in RVM address space: 0x67204478
+calloc returned something that is in RVM address space: 0x67204488
+malloc returned something that is in RVM address space: 0x67204590
+calloc returned something that is in RVM address space: 0x67208598
+calloc returned something that is in RVM address space: 0x672085a8
+malloc returned something that is in RVM address space: 0x67104590
+calloc returned something that is in RVM address space: 0x67108598
+calloc returned something that is in RVM address space: 0x671085a8
+malloc returned something that is in RVM address space: 0x67304590
+calloc returned something that is in RVM address space: 0x67308598
+calloc returned something that is in RVM address space: 0x673085a8
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b08598
+calloc returned something that is in RVM address space: 0x65b085a8
+malloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b045a0
+malloc returned something that is in RVM address space: 0x67100470
+calloc returned something that is in RVM address space: 0x67104590
+calloc returned something that is in RVM address space: 0x671045a0
+malloc returned something that is in RVM address space: 0x67204590
+malloc returned something that is in RVM address space: 0x67304590
+calloc returned something that is in RVM address space: 0x67200470
+calloc returned something that is in RVM address space: 0x67200480
+calloc returned something that is in RVM address space: 0x67300470
+calloc returned something that is in RVM address space: 0x67300480
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b04478
+calloc returned something that is in RVM address space: 0x65b04488
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104478
+calloc returned something that is in RVM address space: 0x65104488
+malloc returned something that is in RVM address space: 0x62200470
+calloc returned something that is in RVM address space: 0x62204478
+calloc returned something that is in RVM address space: 0x62204488
+malloc returned something that is in RVM address space: 0x62204590
+calloc returned something that is in RVM address space: 0x62208598
+calloc returned something that is in RVM address space: 0x622085a8
+malloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x65108598
+calloc returned something that is in RVM address space: 0x651085a8
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b08598
+calloc returned something that is in RVM address space: 0x65b085a8
+malloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b045a0
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x651045a0
+malloc returned something that is in RVM address space: 0x62204590
+calloc returned something that is in RVM address space: 0x62200470
+calloc returned something that is in RVM address space: 0x62200480
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x67500470
+malloc returned something that is in RVM address space: 0x65200470
+calloc returned something that is in RVM address space: 0x67504478
+calloc returned something that is in RVM address space: 0x67504488
+calloc returned something that is in RVM address space: 0x65204478
+calloc returned something that is in RVM address space: 0x65204488
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004478
+calloc returned something that is in RVM address space: 0x65004488
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104478
+calloc returned something that is in RVM address space: 0x65104488
+malloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x65108598
+calloc returned something that is in RVM address space: 0x651085a8
+malloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x65008598
+calloc returned something that is in RVM address space: 0x650085a8
+malloc returned something that is in RVM address space: 0x65204590
+calloc returned something that is in RVM address space: 0x65208598
+calloc returned something that is in RVM address space: 0x652085a8
+malloc returned something that is in RVM address space: 0x67504590
+calloc returned something that is in RVM address space: 0x67508598
+calloc returned something that is in RVM address space: 0x675085a8
+malloc returned something that is in RVM address space: 0x67500470
+calloc returned something that is in RVM address space: 0x67504590
+calloc returned something that is in RVM address space: 0x675045a0
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x651045a0
+malloc returned something that is in RVM address space: 0x65200470
+calloc returned something that is in RVM address space: 0x65204590
+calloc returned something that is in RVM address space: 0x652045a0
+malloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65000480
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b04478
+calloc returned something that is in RVM address space: 0x65b04488
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104478
+calloc returned something that is in RVM address space: 0x65104488
+malloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x65108598
+calloc returned something that is in RVM address space: 0x651085a8
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b08598
+calloc returned something that is in RVM address space: 0x65b085a8
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x651045a0
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b00480
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x65b00470
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65b04478
+calloc returned something that is in RVM address space: 0x65b04488
+calloc returned something that is in RVM address space: 0x65104478
+calloc returned something that is in RVM address space: 0x65104488
+malloc returned something that is in RVM address space: 0x64f00470
+calloc returned something that is in RVM address space: 0x64f04478
+calloc returned something that is in RVM address space: 0x64f04488
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004478
+calloc returned something that is in RVM address space: 0x65004488
+malloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x65008598
+calloc returned something that is in RVM address space: 0x650085a8
+malloc returned something that is in RVM address space: 0x64f04590
+calloc returned something that is in RVM address space: 0x64f08598
+calloc returned something that is in RVM address space: 0x64f085a8
+malloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x65108598
+calloc returned something that is in RVM address space: 0x651085a8
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b08598
+calloc returned something that is in RVM address space: 0x65b085a8
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x650045a0
+malloc returned something that is in RVM address space: 0x65100470
+malloc returned something that is in RVM address space: 0x64f04590
+calloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x651045a0
+calloc returned something that is in RVM address space: 0x64f00470
+calloc returned something that is in RVM address space: 0x64f00480
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b00480
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x67300470
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x67304478
+calloc returned something that is in RVM address space: 0x67304488
+calloc returned something that is in RVM address space: 0x65004478
+calloc returned something that is in RVM address space: 0x65004488
+malloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x65008598
+calloc returned something that is in RVM address space: 0x650085a8
+malloc returned something that is in RVM address space: 0x67304590
+calloc returned something that is in RVM address space: 0x67308598
+calloc returned something that is in RVM address space: 0x673085a8
+malloc returned something that is in RVM address space: 0x67304590
+calloc returned something that is in RVM address space: 0x67300470
+calloc returned something that is in RVM address space: 0x67300480
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x650045a0
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x67500470
+calloc returned something that is in RVM address space: 0x67504478
+calloc returned something that is in RVM address space: 0x67504488
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004478
+calloc returned something that is in RVM address space: 0x65004488
+malloc returned something that is in RVM address space: 0x62600470
+calloc returned something that is in RVM address space: 0x62604478
+calloc returned something that is in RVM address space: 0x62604488
+malloc returned something that is in RVM address space: 0x62604590
+malloc returned something that is in RVM address space: 0x65004590
+malloc returned something that is in RVM address space: 0x67504590
+calloc returned something that is in RVM address space: 0x62608598
+calloc returned something that is in RVM address space: 0x626085a8
+calloc returned something that is in RVM address space: 0x65008598
+calloc returned something that is in RVM address space: 0x650085a8
+calloc returned something that is in RVM address space: 0x67508598
+calloc returned something that is in RVM address space: 0x675085a8
+malloc returned something that is in RVM address space: 0x67504590
+calloc returned something that is in RVM address space: 0x67500470
+calloc returned something that is in RVM address space: 0x67500480
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x650045a0
+malloc returned something that is in RVM address space: 0x62604590
+calloc returned something that is in RVM address space: 0x62600470
+calloc returned something that is in RVM address space: 0x62600480
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x67600470
+calloc returned something that is in RVM address space: 0x67604478
+calloc returned something that is in RVM address space: 0x67604488
+malloc returned something that is in RVM address space: 0x65200470
+calloc returned something that is in RVM address space: 0x65204478
+calloc returned something that is in RVM address space: 0x65204488
+malloc returned something that is in RVM address space: 0x62800470
+calloc returned something that is in RVM address space: 0x62804478
+calloc returned something that is in RVM address space: 0x62804488
+malloc returned something that is in RVM address space: 0x62804590
+calloc returned something that is in RVM address space: 0x62808598
+calloc returned something that is in RVM address space: 0x628085a8
+malloc returned something that is in RVM address space: 0x65204590
+calloc returned something that is in RVM address space: 0x65208598
+calloc returned something that is in RVM address space: 0x652085a8
+malloc returned something that is in RVM address space: 0x67604590
+calloc returned something that is in RVM address space: 0x67608598
+calloc returned something that is in RVM address space: 0x676085a8
+malloc returned something that is in RVM address space: 0x65200488
+malloc returned something that is in RVM address space: 0x62804590
+malloc returned something that is in RVM address space: 0x676086b0
+malloc returned something that is in RVM address space: 0x628046a0
+malloc returned something that is in RVM address space: 0x676087c0
+malloc returned something that is in RVM address space: 0x65200598
+malloc returned something that is in RVM address space: 0x676086b0
+malloc returned something that is in RVM address space: 0x65200488
+malloc returned something that is in RVM address space: 0x62804590
+malloc returned something that is in RVM address space: 0x67600470
+calloc returned something that is in RVM address space: 0x676086b0
+calloc returned something that is in RVM address space: 0x67604590
+malloc returned something that is in RVM address space: 0x65204590
+malloc returned something that is in RVM address space: 0x62800470
+calloc returned something that is in RVM address space: 0x65200470
+calloc returned something that is in RVM address space: 0x65200688
+calloc returned something that is in RVM address space: 0x62804590
+calloc returned something that is in RVM address space: 0x62804790
+perf initialization**** malloc failed Allocating Profile AttributesPrinting java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+malloc returned something that is in RVM address space: 0x65b00470
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65b04478
+calloc returned something that is in RVM address space: 0x65b04488
+calloc returned something that is in RVM address space: 0x65104478
+calloc returned something that is in RVM address space: 0x65104488
+malloc returned something that is in RVM address space: 0x64f00470
+calloc returned something that is in RVM address space: 0x64f04478
+calloc returned something that is in RVM address space: 0x64f04488
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004478
+calloc returned something that is in RVM address space: 0x65004488
+malloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x65008598
+calloc returned something that is in RVM address space: 0x650085a8
+malloc returned something that is in RVM address space: 0x64f04590
+calloc returned something that is in RVM address space: 0x64f08598
+calloc returned something that is in RVM address space: 0x64f085a8
+malloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x65108598
+calloc returned something that is in RVM address space: 0x651085a8
+malloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b08598
+calloc returned something that is in RVM address space: 0x65b085a8
+malloc returned something that is in RVM address space: 0x65b00470
+calloc returned something that is in RVM address space: 0x65b04590
+calloc returned something that is in RVM address space: 0x65b045a0
+malloc returned something that is in RVM address space: 0x65100470
+calloc returned something that is in RVM address space: 0x65104590
+calloc returned something that is in RVM address space: 0x651045a0
+malloc returned something that is in RVM address space: 0x64f04590
+calloc returned something that is in RVM address space: 0x64f00470
+calloc returned something that is in RVM address space: 0x64f00480
+malloc returned something that is in RVM address space: 0x65000470
+calloc returned something that is in RVM address space: 0x65004590
+calloc returned something that is in RVM address space: 0x650045a0
+perf initialization**** malloc failed Allocating Profile Attributes

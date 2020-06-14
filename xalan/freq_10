@@ -1,0 +1,72 @@
+Attempting to unmask SIGQUIT...SUCCESS
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13453 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 11848 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 11791 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 11642 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 12462 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 11430 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 11539 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 11665 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+used = 269266 pgs = boot 0 pgs + immortal 0 pgs + meta 2 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 269272 pgs = boot 0 pgs + immortal 0 pgs + meta 7 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 1051.88 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 597.55 Mb + sanity 0.00 Mb + non-moving 1.76 Mb + sm-code 2.34 Mb + lg-code 0.46 Mb + ms 449.67 Mb
+used = 269269 pgs = boot 0 pgs + immortal 0 pgs + meta 4 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 269279 pgs = boot 0 pgs + immortal 0 pgs + meta 14 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 1051.88 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 597.55 Mb + sanity 0.00 Mb + non-moving 1.76 Mb + sm-code 2.34 Mb + lg-code 0.46 Mb + ms 449.67 Mb
+used = 269267 pgs = boot 0 pgs + immortal 0 pgs + meta 2 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+Thread 23: VM.sysFail(): We're in a (likely) recursive call to VM.sysFail(), 2 deep
+   sysFail was called with the message: Physical allocation failed when polling not allowed!
+Died in GC:
+used = 269278 pgs = boot 0 pgs + immortal 0 pgs + meta 13 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+Physical allocation failed when polling not allowed!
+Thread #23
+used = 1051.88 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 597.55 Mb + sanity 0.00 Mb + non-moving 1.76 Mb + sm-code 2.34 Mb + lg-code 0.46 Mb + ms 449.67 Mb
+-- Stack --
+(0x68e92c30 21358)used = 269281 pgs = boot 0 pgs + immortal 0 pgs + meta 16 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 269274 pgs = boot 0 pgs + immortal 0 pgs + meta 9 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 1051.88 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 597.55 Mb + sanity 0.00 Mb + non-moving 1.76 Mb + sm-code 2.34 Mb + lg-code 0.46 Mb + ms 449.67 Mb
+used = 269275 pgs = boot 0 pgs + immortal 0 pgs + meta 10 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 269282 pgs = boot 0 pgs + immortal 0 pgs + meta 17 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 1051.88 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 597.55 Mb + sanity 0.00 Mb + non-moving 1.76 Mb + sm-code 2.34 Mb + lg-code 0.46 Mb + ms 449.67 Mb
+   at [0x68e92c30, 0x6487ded0] used = 269277 pgs = boot 0 pgs + immortal 0 pgs + meta 12 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+Lorg/jikesrvm/VM; sysFail(Ljava/lang/String;)V at line 2362 at bytecode index 27 at machine code offset 0x000000ca
+(0x68e92c70 1120)used = 269270 pgs = boot 0 pgs + immortal 0 pgs + meta 5 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+used = 269276 pgs = boot 0 pgs + immortal 0 pgs + meta 11 pgs + los 152975 pgs + sanity 0 pgs + non-moving 453 pgs + sm-code 601 pgs + lg-code 120 pgs + ms 115116 pgs
+   at [0x68e92c70, 0x647eca15] used = 1051.88 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 597.55 Mb + sanity 0.00 Mb + non-moving 1.76 Mb + sm-code 2.34 Mb + lg-code 0.46 Mb + ms 449.67 Mb
+Lorg/jikesrvm/mm/mmtk/Assert; fail(Ljava/lang/String;)V at line 43 at bytecode index 7 at machine code offset 0x000001d0
+used = 1051.88 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 597.55 Mb + sanity 0.00 Mb + non-moving 1.76 Mb + sm-code 2.34 Mb + lg-code 0.46 Mb + ms 449.67 Mb
+   at [0x68e92c70, 0x647eca15] used = 1051.88 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 597.55 Mb + sanity 0.00 Mb + non-moving 1.76 Mb + sm-code 2.34 Mb + lg-code 0.46 Mb + ms 449.67 Mb
+Lorg/mmtk/policy/Spacee; acquire(I)Lorg/vmmagic/unboxed/Addre
