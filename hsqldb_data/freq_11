@@ -1,7 +1,7 @@
 Attempting to unmask SIGQUIT...SUCCESS
 perf initializationOIteration Callback started
 Invovation Successfull
-1591679354874
+1591893213466
 ===== DaCapo hsqldb starting warmup =====
 *********************************************************
 * PseudoJDBCBench v1.1                                  *
@@ -44,7 +44,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 9346 msec =====
+===== DaCapo hsqldb completed warmup in 8633 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -91,7 +91,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4612 msec =====
+===== DaCapo hsqldb completed warmup in 5622 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -138,7 +138,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4654 msec =====
+===== DaCapo hsqldb completed warmup in 4956 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -185,7 +185,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4851 msec =====
+===== DaCapo hsqldb completed warmup in 4928 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -232,7 +232,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4719 msec =====
+===== DaCapo hsqldb completed warmup in 4931 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -279,7 +279,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4627 msec =====
+===== DaCapo hsqldb completed warmup in 4973 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -326,7 +326,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4680 msec =====
+===== DaCapo hsqldb completed warmup in 4986 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -373,7 +373,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4715 msec =====
+===== DaCapo hsqldb completed warmup in 4961 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -420,7 +420,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4679 msec =====
+===== DaCapo hsqldb completed warmup in 4905 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -467,7 +467,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 4682 msec =====
+===== DaCapo hsqldb completed warmup in 4968 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -514,6 +514,6 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb PASSED in 4713 msec =====
+===== DaCapo hsqldb PASSED in 4797 msec =====
 shutdown hook is invoked!!
 logQueue size is : 0
