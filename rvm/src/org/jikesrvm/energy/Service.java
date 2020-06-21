@@ -16,7 +16,7 @@ public class Service implements ProfilingTypes {
 	public static boolean isSamplingInit = false;
 	public native static int scale(int freq);
 	public native static int[] freqAvailable();
-	public static final int INIT_SIZE = 500;
+	public static final int INIT_SIZE = 1000;
 	public static boolean titleIsPrinted = false;
 	public static String[] clsNameList = new String[INIT_SIZE];
 	public static String[] methodNameList = new String[INIT_SIZE];

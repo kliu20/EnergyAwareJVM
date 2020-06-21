@@ -7,12 +7,12 @@ if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
 	callbackClass="kenan.OIterationCallBack"
-	iters="11"
+	iters="21"
 else
 
 	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
-	iters="10"
+	iters="20"
 fi	
 
 #callbackClass="kenan.IterationCallBack"
