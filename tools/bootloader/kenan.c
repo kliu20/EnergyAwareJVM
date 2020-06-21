@@ -580,13 +580,14 @@ EXTERNAL int Scale(int name) {
 	const char *cur_freq = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq";
 	const char *scal_freq = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq";
 	const int freq = name;
+	const int core_id = sched_getcpu();
 
-	check_write_gov(num_core, usrSpace);
+	check_write_gov(core_id, usrSpace);
 
 	//free memory
 	//free (string);
 		//Write frequency
-	write_freq_all_cores(num_core, cur_freq, scal_freq, freq);
+	write_freq_coreId(core_id, cur_freq, scal_freq, freq);
 
     return 1;
 }
