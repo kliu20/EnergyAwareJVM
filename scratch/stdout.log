@@ -15,12 +15,3 @@ In transaction mode
 	400000	 records inserted
 	480000	 records inserted
 	560000	 records inserted
-	640000	 records inserted
-done.
-
-* Starting Benchmark Run *
-
-* Benchmark Report *
-* Featuring <direct queries> <auto-commit> 
---------------------
-0 / 800 failed to complete.

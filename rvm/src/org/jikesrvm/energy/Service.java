@@ -101,14 +101,12 @@ public class Service implements ProfilingTypes {
 					double[] energy = EnergyCheckUtils.getEnergyStats();
 					
 					for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-						profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
-						if(profileAttrs[eventId] < 0) {
+						VM.sysWriteln("energy-"+i+":"+energy[i]+"-Previous-"+prevProfile[threadId][eventId]);
 						
-							VM.sysWriteln("Oh my Goooooooood .... Minus Value Detected");
-							String both = prevProfile[threadId][eventId] + "-" + energy[i];
-							VM.sysWriteln(both);
 
-						}
+						profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
+						//String reading = "Reading:"+energy[i];
+						//VM.sysWriteln(reading);
 						prevProfile[threadId][eventId] = energy[i];
 
 						eventId++;
