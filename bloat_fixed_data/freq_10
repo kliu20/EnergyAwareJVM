@@ -1,0 +1,79 @@
+Attempting to unmask SIGQUIT...SUCCESS
+perf initializationOIteration Callback started
+Invovation Successfull
+1593741585419
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 11754 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 1 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 9455 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 2 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 8425 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 3 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 8510 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 4 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 7820 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 5 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 7935 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 6 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 7569 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 7 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 7499 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 8 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 7464 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 9 
+===== DaCapo bloat starting warmup =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat completed warmup in 7671 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 10 
+===== DaCapo bloat starting =====
+Optimized with: EDU.purdue.cs.bloat.optimize.Main -only EDU.purdue.cs.bloat.trans -pre -dce -diva -prop -stack-alloc -peel-loops all -f EDU.purdue.cs.bloat.trans.CompactArrayInitializer ./scratch/optimizedcode
+===== DaCapo bloat PASSED in 7553 msec =====
+shutdown hook is invoked!!
+logQueue size is : 0

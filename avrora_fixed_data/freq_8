@@ -1,0 +1,53 @@
+Attempting to unmask SIGQUIT...SUCCESS
+perf initialization===== DaCapo 9.12 avrora starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 1 
+===== DaCapo 9.12 avrora starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 2 
+===== DaCapo 9.12 avrora starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 3 
+===== DaCapo 9.12 avrora starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 4 
+===== DaCapo 9.12 avrora starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 5 
+===== DaCapo 9.12 avrora starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 6 
+===== DaCapo 9.12 avrora starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 7 
+===== DaCapo 9.12 avrora starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 8 
+===== DaCapo 9.12 avrora starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 9 
+===== DaCapo 9.12 avrora starting =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 10 
+shutdown hook is invoked!!
+logQueue size is : 0

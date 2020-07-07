@@ -101,9 +101,6 @@ public class Service implements ProfilingTypes {
 					double[] energy = EnergyCheckUtils.getEnergyStats();
 					
 					for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-						VM.sysWriteln("energy-"+i+":"+energy[i]+"-Previous-"+prevProfile[threadId][eventId]);
-						
-
 						profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
 						//String reading = "Reading:"+energy[i];
 						//VM.sysWriteln(reading);

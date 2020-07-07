@@ -1,0 +1,4 @@
+Attempting to unmask SIGQUIT...SUCCESS
+perf initializationUnknown benchmark: old
+shutdown hook is invoked!!
+logQueue size is : 0

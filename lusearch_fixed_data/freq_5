@@ -1,0 +1,214 @@
+Attempting to unmask SIGQUIT...SUCCESS
+perf initializationUsing scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,64]
+===== DaCapo 9.12 lusearch starting warmup 1 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 1 
+===== DaCapo 9.12 lusearch starting warmup 2 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 2 
+===== DaCapo 9.12 lusearch starting warmup 3 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 3 
+===== DaCapo 9.12 lusearch starting warmup 4 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 4 
+===== DaCapo 9.12 lusearch starting warmup 5 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 5 
+===== DaCapo 9.12 lusearch starting warmup 6 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 6 
+===== DaCapo 9.12 lusearch starting warmup 7 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 7 
+===== DaCapo 9.12 lusearch starting warmup 8 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 8 
+===== DaCapo 9.12 lusearch starting warmup 9 =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 9 
+===== DaCapo 9.12 lusearch starting =====
+4 query batches completed
+8 query batches completed
+12 query batches completed
+16 query batches completed
+20 query batches completed
+24 query batches completed
+28 query batches completed
+32 query batches completed
+36 query batches completed
+40 query batches completed
+44 query batches completed
+48 query batches completed
+52 query batches completed
+56 query batches completed
+60 query batches completed
+64 query batches completed
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 10 
+shutdown hook is invoked!!
+logQueue size is : 0
