@@ -102,10 +102,7 @@ public class Service implements ProfilingTypes {
 					
 					for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
 						profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
-						//String reading = "Reading:"+energy[i];
-						//VM.sysWriteln(reading);
 						prevProfile[threadId][eventId] = energy[i];
-
 						eventId++;
 					}
 				}
