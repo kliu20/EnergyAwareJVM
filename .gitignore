@@ -27,7 +27,9 @@ jikesrvm.iml
 /generated/
 /results/
 /target/
-
+/*data*/
+freq*
+counter_based*
 # Other stuff
 /MMTk/bin
 /MMTk/doc/cheatsheet/cheatsheet.blg
@@ -42,9 +44,6 @@ jikesrvm.iml
 /testing/tests/jni/cp
 /testing/tests/jni/out.*
 /testing/tests/SPECjbb2000/results
-/*data*/
-/*fixed/
-/*data/
 /test-output/
 /kmahmou1/
 /kmahmou1_old_data/
