@@ -22,7 +22,6 @@ public class Service implements ProfilingTypes {
 	public static String[] methodNameList = new String[INIT_SIZE];
 	public static long[] methodCount = new long[INIT_SIZE];
 	public static double[][] prevProfile = new double[INIT_SIZE*2][3];
-	public static boolean[] prevProfileInit = new boolean[INIT_SIZE*2];
 	public static boolean profileEnable = false;
 	public static long start_ts = System.currentTimeMillis(); 
 
@@ -66,12 +65,9 @@ public class Service implements ProfilingTypes {
 			int threadId = (int)Thread.currentThread().getId();
 			double startTime = 0.0d;
 			//Loop unwinding
-			if (!prevProfileInit[threadId] || profilePoint == ServiceConstants.STARTPROFILE) {
+			if (prevProfile[threadId][0] == 0 || profilePoint == ServiceConstants.STARTPROFILE) {
 				// If this thread is profiled at the first time, record the profile value.
 				// No matter if the it's the startProfile or endProfile.
-				if (!prevProfileInit[threadId]) {
-					prevProfileInit[threadId] = true;
-				}
 				if (Controller.options.ENABLE_COUNTER_PROFILING) {
 					for (int i = 0; i < Scaler.perfCounters; i++) {
 
