@@ -60,14 +60,18 @@ public class Service implements ProfilingTypes {
 		 * Do profile
 		 * @param profileAttrs the collection that contains profile information 
 		 */
-		  public static void getProfileAttrs(double[] profileAttrs) {
+		  public static void getProfileAttrs(double[] profileAttrs, String profilePoint) {
 			double perfCounter = 0.0d;
 			int eventId = 0;
 			int threadId = (int)Thread.currentThread().getId();
 			double startTime = 0.0d;
 			//Loop unwinding
-			if (!prevProfileInit[threadId]) {
-				prevProfileInit[threadId] = true;
+			if (!prevProfileInit[threadId] || profilePoint == ServiceConstants.STARTPROFILE) {
+				// If this thread is profiled at the first time, record the profile value.
+				// No matter if the it's the startProfile or endProfile.
+				if (!prevProfileInit[threadId]) {
+					prevProfileInit[threadId] = true;
+				}
 				if (Controller.options.ENABLE_COUNTER_PROFILING) {
 					for (int i = 0; i < Scaler.perfCounters; i++) {
 
@@ -84,7 +88,9 @@ public class Service implements ProfilingTypes {
 						eventId++;
 					}
 				}
-			} else {
+			} else if (profilePoint == ServiceConstants.ENDPROFILE) {
+				// If it's the endProfile point, then calculate the profile value.
+				
 				if (Controller.options.ENABLE_COUNTER_PROFILING) {
 					for (int i = 0; i < Scaler.perfCounters; i++) {
 
@@ -116,15 +122,15 @@ public class Service implements ProfilingTypes {
 
 	@Entrypoint
 	public static void startProfile(int cmid) {
-		profile(cmid);
+		profile(cmid, ServiceConstants.STARTPROFILE);
 	}
 
 	@Entrypoint
 	public static void endProfile(int cmid) {
-		profile(cmid);
+		profile(cmid, ServiceConstants.ENDPROFILE);
 	}
 
-	public static void profile(int cmid) {
+	public static void profile(int cmid, String profilePoint) {
 		RVMThread thread = RVMThread.getCurrentThread();
 		//Using sampling based method to profile
 		if (thread.energyTimeSliceExpired >= 2) {
@@ -132,13 +138,12 @@ public class Service implements ProfilingTypes {
 			thread.skippedInvocations--;
 
 			if (thread.skippedInvocations == 0) {	
-
 				/** Event values for the method */
 				double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
 				int threadId = (int) Thread.currentThread().getId();
 				
 				//Do profile	
-				getProfileAttrs(profileAttrs);
+				getProfileAttrs(profileAttrs, profilePoint);
 				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
 				SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
 				

@@ -7,12 +7,9 @@ import matplotlib.colors as mcolors
 import matplotlib.gridspec as gridspec
 import seaborn as sns
 import numpy as np
-
 from matplotlib.pyplot import figure
 
 from os import walk
-
-from matplotlib.ticker import FormatStrFormatter
 
 top_df_path=""
 
@@ -50,21 +47,18 @@ totalFreq = []
 i = 0
 #Pick top N methods in terms of aggregated energy consumption
 TOPN = 5
-###
-dir=""
-bname=""
 
 dataFrame = pd.DataFrame()
-experiment="kenan_sampling"
+experiment="experiment_Feb_5_2020"
 
 frequency_iteration_times = []
-frequency_values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+undev = freq=[0,2201000,2200000,2100000,2000000,1900000,1800000,1700000,1600000,1500000,1400000,1300000,1200000]
 def read_iteration_times():
-	for frequency in range(0,13):
-		iteration_file = open("%s/counter_based_sampling_iteration_times_%d" %(dir,frequency))
+	frequency_iteration_times.append([])
+	for frequency in range(1,13):
+		iteration_file = open("%s/iteration_times%d" %(experiment,frequency))
 		lines = iteration_file.readlines()
 		iteration_times = []
-
 		for line in lines:
 			line_fields = line.split(",")
 			start = int(line_fields[0])
@@ -73,19 +67,6 @@ def read_iteration_times():
 
 		frequency_iteration_times.append(iteration_times)
 
-	##Print iteration times
-	findex = 0
-	for fdata in frequency_iteration_times:
-		inter_number = 1
-		for iter_data in fdata:
-			startt = int(iter_data[0])
-			endt = int(iter_data[1])
-			print("%d,%d,%d ms" %(findex,inter_number,(endt-startt)))
-			inter_number = inter_number + 1
-		findex = findex+1
-
-
-	#print(frequency_iteration_times)
 
 
 
@@ -127,171 +108,64 @@ def readFirstMethodNameRawData(fileName):
 #		return fileLine.split(",")[4]f`
 	return 'org.sunflow.core.renderer.BucketRenderer.renderBucket'
 
-
-freq_val=[0, 2201000, 2200000, 2100000, 2000000, 1900000, 1800000, 1700000, 1600000, 1500000, 1400000, 1300000, 1200000]
-def verify(df):
-	df = df[df["Frequency"]==1600000]
-	df = df[df["MethodName"]=="org.sunflow.accel.NullAccelerator.intersect"]
-	df = df["iteration"].unique()
-	print(df)
-
 ## Dataframe will have three columns (MethodName, Frequency, Package)
-def drawAllIters(df_p,startups):
-	### Just adding a step to verify
-	##Only ondemand frequency
-	print("[drawAllIters]")
-	print("Number of all records %d" %(df_p.shape[0]))
-	ftext = open("%s/figures.tex" %(dir), "w")
-	for freq in frequency_values:
-		df = df_p[df_p["Frequency"]==freq]
-		print("Number of records for Frequency %d %d" %(freq,df.shape[0]))
-		if 1==1:
-			df["MethodName"] = df["MethodName"].str.strip()
-			methods = df["MethodName"].unique()
-
-			startup_info = startups[startups["Frequency"]==freq]
-			df = df.groupby(["MethodName", "iteration"]).agg({"Package": "sum"})
-			df = df.reset_index()
-			plt_indx = 0
-
-			for mname in methods:
-				f, axes = plt.subplots(1, 1)
-				startup_method_info = startup_info[startup_info["MethodName"] == mname]
-				percentage = startup_method_info["percentage"].iloc[0]
-				iter = startup_method_info["iteration_method_startup"].iloc[0]
-				axes.yaxis.set_major_formatter(FormatStrFormatter('%d J'))
-				method_f = df[df["MethodName"]==mname]
-				method_f.plot(x="iteration", y="Package", kind="bar", ax=axes)
-				axes.set_title("Method: %s" % (mname))
-				axes.set_xlabel("Iteration - Picked at %f - Iter %d" % (percentage, iter + 1))
-				#xlabel = plt_indx+1
-				#f.subplots_adjust(hspace=.65)
-				file="%s/bar_%s_by_method_by_iter_freq_%s_%s_%d.png" % (dir,col,mname,bname,freq)
-				latex_file = "bar_%s_by_method_by_iter_freq_%s_%s_%d.png" % (col, mname,bname, freq)
-				caption="Method Energy Consumption for Frequency %d - %s" %(freq_val[freq],bname)
-				latex_fig="""
-				\\begin{figure}[H]
-				\centering
-				\includegraphics[width=0.5\\textwidth]{figures/%s}
-				\caption{%s}				
-				\end{figure}				
-				""" %(latex_file,caption)
-				file = file.replace("$","SS");
-				f.savefig(file)
-				latex_fig=latex_fig.replace("$","SS");
-				ftext.write(latex_fig)
-
-			#f.subplots_adjust(hspace=.65)
-			#f.savefig("%s/bar_%s_by_method_by_iter_freq_%d.png" % (dir, col, freq))
-	ftext.close()
-
-def drawAllIters_no_startup(df_p):
-	### Just adding a step to verify
-	##Only ondemand frequency
-	for freq in frequency_values:
-		df = df_p[df_p["Frequency"] == freq]
-		print("Number of records for Frequency %d %d" % (freq, df.shape[0]))
-		filtered_frames = []
-		iteration_times = frequency_iteration_times[frequency_values.index(freq)]
-
-		df["iteration"] = -1
-		iter_no = 1
-		df["MethodName"] = df["MethodName"].str.strip()
-		methods = df["MethodName"].unique()
-		f, axes = plt.subplots(len(methods), 1, figsize=(15, 80))
-		startup_info = startups[startups["Frequency"] == freq]
-		# print(startup_info)
-		for iteration_time in iteration_times:
-			df_iteration = df[df["MethodStartupTime"] >= iteration_time[0]]
-			df_iteration = df_iteration[df_iteration["MethodStartupTime"] <= iteration_time[1]]
-			df_iteration["iteration"] = iter_no
-			iter_no = iter_no + 1
-			filtered_frames.append(df_iteration)
-
-		df = pd.concat(filtered_frames)
-		df = df.groupby(["MethodName", "iteration"]).agg({"Package": "sum"})
-		df = df.reset_index()
-		plt_indx = 0
-
-		for mname in methods:
-			startup_method_info = startup_info[startup_info["MethodName"] == mname]
-			percentage = startup_method_info["percentage"].iloc[0]
-			iter = startup_method_info["iteration_method_startup"].iloc[0]
-			axes[plt_indx].yaxis.set_major_formatter(FormatStrFormatter('%d J'))
-			method_f = df[df["MethodName"] == mname]
-			method_f.plot(x="iteration", y="Package", kind="bar", ax=axes[plt_indx])
-			axes[plt_indx].set_title("Method: %s" % (mname))
-			axes[plt_indx].set_xlabel("Iteration - Picked at %f - Iter %d" % (percentage, iter + 1))
-			plt_indx = plt_indx + 1
-
-		f.subplots_adjust(hspace=.65)
-		f.savefig("%s/bar_%s_by_method_by_iter_freq_%d.png" % (dir, col, freq))
-
 def regroupByMethods(df):
 	df["MethodName"] = df["MethodName"].str.strip()
 	methods = df["MethodName"].str.strip().unique()
 	f, axes = plt.subplots(len(methods), 1, figsize=(15, 80))
 	plt_indx = 0
 	df["MethodStartupTime"] = df["MethodStartupTime"].astype(int)
-	ftext = open("%s/bymethod_%s.tex" % (dir,bname), "w")
-	#ftext.writable("\\section{%s}" %(bname));
+	#df["MethodStartupTime"] = 1000
+	#df["MethodStartupTime"] = df["MethodStartupTime"] % 1000000000
 
+
+
+	#secondary_y=True
+	width = 0.5  # width of a bar
+	fig = plt.gcf()
+	idx=0
 	for mname in methods:
-			caption = "Method Consumption across Frequencues - %s" % (mname)
-			latex_file = "bymethod_%s_%s.png" % (bname, mname)
-			latex_fig = """
-				\\begin{figure}[H]
-				\centering
-				\includegraphics[width=0.5\\textwidth]{figures/%s}
-				\caption{%s}		
-				\end{figure}				
-				""" % (latex_file, caption)
-			dff = df[df["MethodName"].str.strip() == mname.strip()]
-			dff = dff.groupby(["MethodName","Frequency"]).agg({"Package":"sum","MethodStartupTime":"min"})
-			dff = dff.reset_index()
-			dff["Package"]=dff["Package"]/5.0
-			df_std = dff.std()
-			f, axes = plt.subplots(1, 1)
-			#avg = dff["Package"].mean()
-			#dev = dff["Package"] -  avg
-			#dev = dev.abs()
-			dff.plot(x="Frequency", y="Package", kind="bar", ax=axes, yerr=df_std["Package"],title="%s-%s"%(bname,mname))
-			#dff_m = dff[dff["Package"]<0]
-			#if(dff_m.shape[0]<0):
-			#	print("energy no good")
-			#	print(mname)
-			#	print(dff_m)
-			#	quit()
-			#dff.plot(x="Frequency", y="Package", kind="bar", ax=axes,title="%s-%s"%(bname,mname))
-			print("Printing new figure ...")
-			ftext.write(latex_fig)
-			f.savefig("%s/methods/bymethod_%s_%s.png" %(dir,bname,mname))
+		dff = df[df["MethodName"].str.strip()==mname.strip()]
+		mx = dff["MethodStartupTime"].min()
+		dff["MethodStartupTime"] = dff["MethodStartupTime"] - mx
+		dff["MethodStartupTime"] = dff["MethodStartupTime"] /100
+		print(dff)
+		dff = dff.fillna(0)
+		#f_dataframe["MethodName"] = f_dataframe["MethodName"].str[16:]
+		axx = axes[plt_indx]
 
-def regroupByMethods_hot_hist(df):
-	df["MethodName"] = df["MethodName"].str.strip()
-	methods = df["MethodName"].str.strip().unique()
-	f, axes = plt.subplots(len(methods), 1, figsize=(15, 80))
-	df["MethodStartupTime"] = df["MethodStartupTime"].astype(int)
-	ftext = open("%s/bymethod_hist_%s.tex" % (dir, bname), "w")
-	# ftext.writable("\\section{%s}" %(bname));
+		avail=['1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '2.0', '2.2']
+		#for av in avail:
+			#dfff = dff[dff["Frequency"]==av]
+			#if dfff.shape[0]==0:
+				#dff = dff.append([{"MethodName":dff,"Frequency":av,"MethodStartupTime":100,"Package":0}])
 
-	for mname in methods:
-		caption = "Method StartupTime Histogram - %s" % (mname)
-		latex_file = "bymethod_%s_%s.png" % (bname, mname)
-		latex_fig = """
-					\\begin{figure}[H]
-					\centering
-					\includegraphics[width=0.5\\textwidth]{figures/%s}
-					\caption{%s}		
-					\end{figure}				
-					""" % (latex_file, caption)
-		dff = df[df["MethodName"].str.strip() == mname.strip()]
-		dff = dff.groupby(["MethodName", "Frequency"]).agg({"Package": "sum", "MethodStartupTime": "min"})
-		dff = dff.reset_index()
-		f, axes = plt.subplots(1, 1)
-		dff.plot(x="Frequency", y="Package", kind="bar", ax=axes,title="%s-%s" % (bname, mname))
-		ftext.write(latex_fig)
-		f.savefig("%s/methods/startuptime_hist_%s_%s.png" % (dir, bname, mname))
+
+
+
+		#https://stackoverflow.com/questions/42734109/two-or-more-graphs-in-one-plot-with-different-x-axis-and-y-axis-scales-in-pyth
+		#axx.plot(dff["Frequency"], dff["MethodStartupTime"])
+		#axx.bar(dff["Frequency"], dff["Package"])
+		dff.plot(x="Frequency", y="Package", kind="bar", ax=axx,secondary_y=True)
+		box = axx.get_position()
+		#axx.set_position([box.x0 * 0.7, box.y0 + box.height * 0.1, box.width * 0.75, box.height * 0.9])
+		#xticks = axx.get_xticks()
+		ax2 = axx.twiny()
+		##ax2.set_xticks(xticks)
+		#ax2 = fig.add_subplot(1,1,1, label="",frame_on=False)
+		#ax2 = fig.add_subplot(1,1,1, label="")
+		#plt.xticks(rotation=0)
+		ax2.plot("Frequency", "MethodStartupTime",data=dff,color="red")
+		#dff.plot(x="Frequency", y="MethodStartupTime",ax=axx)
+		axes[plt_indx].set_title("Method: %s" %(mname))
+		plt_indx = plt_indx + 1
+		#print(dff)
+		#plt.xlim([-width, 10-width])
+
+	#plt.xticks(np.arange(10), ('1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '2', '2.2'))
+	f.subplots_adjust(hspace=.65)
+	f.savefig("bar_%s_by_method.png" %(col))
+
 
 
 def genBarGraph(dataFrame, col):
@@ -339,7 +213,7 @@ def genBarGraph(dataFrame, col):
 	f.savefig("bar_%s_by.png" %(col))
 	print(dataFrame)
 	#quit()
-	#regroupByMethods(dataFrame)
+	regroupByMethods(dataFrame)
 
 
 	#print(dataFrame)
@@ -378,10 +252,8 @@ def commandProcess(argv):
 	global col
 	global meanPath
 	global top_df_path
-	global dir
-	global bname
 	try:
-		opts, args = getopt.getopt(argv, "hi:t:c:m:d:b:", ["dir=","inputDir=", "figureType", "column="])
+		opts, args = getopt.getopt(argv, "hi:t:c:m:", ["inputDir=", "figureType", "column="])
 	except getopt.GetoptError:
 		print('genFig.py -t <Figure Type> -i <Input directory> -t <heatmap/linegraph>')
 		sys.exit(2)
@@ -391,16 +263,12 @@ def commandProcess(argv):
 			sys.exit()
 		elif opt in ("-i", "--inputDir"):
 			inputDir = arg
-		elif opt in ("-d", "--dir"):
-			dir = arg
 		elif opt in ("-m", "--topMDir"):
 			top_df_path = arg
 		elif opt in ("-t", "--figureType"):
 			figType = arg
 		elif opt in ("-c", "--column"):
 			col = arg
-		elif opt in ("-b","--benchmark"):
-			bname = arg
 
 
 def createYLegend(minVal, maxVal, interval):
@@ -827,154 +695,6 @@ def export_top(dataFrame):
 	pickTopMethodsAbs(dataFrame, TOPN, col)
 
 
-def rank_all_method(df,iter):
-	filtered_frames=[]
-
-	for freq in frequency_values:
-		freq_index = frequency_values.index(freq)
-		iteration_ts = frequency_iteration_times[freq_index]
-		##The startup time of sixth iteration
-		start_time = iteration_ts[iter][0]
-		f_dataframe = df[df["Frequency"]==freq]
-		f_dataframe = f_dataframe[f_dataframe["TS"] >= start_time]
-		f_dataframe = f_dataframe.groupby(["MethodName", "Frequency"]).agg({"Package": "sum"})
-		filtered_frames.append(f_dataframe)
-
-	final_df = pd.concat(filtered_frames)
-	final_df = final_df.reset_index()
-	final_df["Package"] = final_df["Package"]/5
-	print("Ranking done")
-	final_df.to_csv("%s/ranking.csv" %(dir))
-
-
-
-
-
-##after_iters : Is a 1-indexed number
-## First iteration, pass 1
-## Second iteration, pass 2 ...etc
-## Default criterion if the package
-def extract_top(df,n_methods,after_iters):
-	criterion="Package"
-	dff = df[df["Frequency"]==0]
-	dff = dff[dff["iteration"] >= after_iters]
-	print("[extract_top] Number of records in last iterations in on demand frequency : %d" %(dff.shape[0]))
-	dff = dff.groupby(['MethodName'])[criterion].sum()
-	methodDf = dff.nlargest(n_methods).reset_index()
-	return methodDf
-
-
-def calculate_method_startups(df):
-	method_startups = df.groupby(["MethodName","Frequency"]).agg({"Package": "sum","MethodStartupTime":"min","iteration":"min"})
-	method_startups["iteration_method_startup"]=-1
-	method_startups["percentage"]=-1
-	method_startups["startup_abs"] = -1
-	method_startups["iter_start"] = -1
-	method_startups["iter_end"]= -1
-	method_startups = method_startups.reset_index()
-
-
-
-	for indx in range(method_startups.shape[0]):
-		startup = method_startups["MethodStartupTime"].iloc[indx]
-		iter = method_startups["iteration"].iloc[indx]
-		freq 	= method_startups["Frequency"].iloc[indx]
-		lst_indx = frequency_values.index(freq)
-		iteration_times = frequency_iteration_times[lst_indx]
-		method_startups["iteration_method_startup"].iloc[indx] = iter
-		rng = iteration_times[iter-1];
-		iteration_duration = rng[1] - rng[0]
-		method_startup_relative = rng[1] - startup
-		#print(startup)
-		percent = method_startup_relative / iteration_duration
-		percent = 1 - percent
-		method_startup_abs = percent + iter - 1
-		method_startups["percentage"].iloc[indx] = percent
-		method_startups["iter_start"].iloc[indx] = rng[0]
-		method_startups["iter_end"].iloc[indx] = rng[1]
-		method_startups["startup_abs"].iloc[indx] = method_startup_abs
-
-
-
-
-	method_startups = method_startups.reset_index()
-	method_startups.to_csv("%s/top_method_startups.csv" %(dir))
-
-	methods = df["MethodName"].str.strip().unique()
-	f, axes = plt.subplots(len(methods), 1, figsize=(15, 80))
-	ftext = open("%s/startup_hist_%s.tex" % (dir, bname), "w")
-
-	for mname in methods:
-		caption = "Method Startup Histogram Across Iterations - %s" % (mname)
-		latex_file = "startup_hist_%s_%s.png" % (bname, mname)
-		latex_fig = """
-					\\begin{figure}[H]
-					\centering
-					\includegraphics[width=0.5\\textwidth]{figures/%s}
-					\caption{%s}		
-					\end{figure}				
-					""" % (latex_file, caption)
-		dff = method_startups[method_startups["MethodName"].str.strip() == mname.strip()]
-		dff = dff.reset_index()
-		f, axes = plt.subplots(1, 1)
-		dff.plot(y="startup_abs", x="Frequency", kind="bar", ax=axes,title="%s-%s" % (bname, mname))
-		ftext.write(latex_fig)
-		f.savefig("%s/methods/startup_hist_%s_%s.png" % (dir, bname, mname))
-
-	return method_startups
-
-def draw_by_frequency_digram(df,iter):
-	ftext = open("%s/figures_freq.tex" % (dir), "w")
-
-	for freq in frequency_values:
-		latex_file = "%d_%s.png" % (freq,bname)
-		caption = "Method Consumption by Frequency - %d - %s" % (freq_val[freq],bname)
-		latex_fig = """
-		\\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.5\\textwidth]{figures/%s}
-		\caption{%s}		
-		\end{figure}				
-		""" % (latex_file, caption)
-
-		f, axes = plt.subplots(1)
-		f_dataframe = df[df["Frequency"]==freq]
-		freq_index = frequency_values.index(freq)
-		iteration_ts = frequency_iteration_times[freq_index]
-		start_time = iteration_ts[iter][0]
-		f_dataframe = f_dataframe[f_dataframe["TS"]>=start_time]
-		f_dataframe = f_dataframe.groupby(["MethodName","Frequency"]).agg({"Package": "sum","MethodStartupTime":"min"})
-		f_dataframe = f_dataframe.reset_index()
-		f_dataframe["Package"] = f_dataframe["Package"] / 5
-		print(f_dataframe["MethodName"])
-		f_dataframe["MethodName"] = f_dataframe["MethodName"].str[16:]
-		f_dataframe.plot(x="MethodName",y="Package",kind="bar",ax=axes)
-		axes.tick_params(axis="y",labelrotation=65)
-		axes.tick_params(axis="x", labelrotation=25)
-		axes.set_title("Frequency %d" %(freq_val[freq]))
-		ftext.write(latex_fig)
-		f.savefig("%s/%d_%s.png" %(dir,freq,bname),bbox_inches="tight")
-
-	ftext.close()
-
-
-def trace(df):
-	##Tracing org.sunflow.core.accel.NullAccelerator.intersect in Frequency
-	mname="org.sunflow.core.accel.NullAccelerator.intersect"
-	freq=1
-	df_freq = df[df["Frequency"]==freq]
-	df_freq = df_freq[df_freq["MethodName"]==mname]
-
-	findex = frequency_values.index(freq)
-	iteration_times = frequency_iteration_times[findex]
-
-	print("Number of all samples for method %s is %d" %(mname,df_freq.shape[0]))
-	df_freq_1st = df_freq[df_freq["iteration"]>=3]
-	print("Number of all samples for method %s is %d after first iteration" % (mname, df_freq_1st.shape[0]))
-
-
-
-
 def bar_top_ondemand(dataFrame):
 	global filePath
 	global numGroup
@@ -985,42 +705,69 @@ def bar_top_ondemand(dataFrame):
 	global top_df_path
 	# Formatting
 
+
+
+	top_df = pd.read_csv(top_df_path)
+	print(dataFrame['Frequency'].unique())
 	read_iteration_times()
-	dataFrame["iteration"] = dataFrame["iteration"].astype(int)
-	dataFrame["Frequency"] = dataFrame["Frequency"].astype(int)
-	dataFrame["MethodStartupTime"] = dataFrame["MethodStartupTime"].astype(int)
-	dataFrame["TS"] = dataFrame["MethodStartupTime"]
-	dataFrame["MethodName"]=dataFrame["MethodName"].str.replace("$$$$$",".",regex=False)
-	#dataFrame["Frequency"] = dataFrame["Frequency"].str.strip()
-	#dataFrame["iteration"] = dataFrame["iteration"].str.strip()
+	dataFrame["FreqOrg"] = dataFrame['Frequency']
+	dataFrame['Frequency'] = dataFrame[['Frequency']].values / 1000000.0
+	dataFrame = dataFrame.round({'Frequency': 1})
+	samples_no=dataFrame.shape[0]
+	method_startups = dataFrame.groupby(["MethodName","Frequency"]).agg({"MethodStartupTime":"min","FreqOrg":"max"})
+	method_startups = method_startups.groupby(["Frequency"]).agg({"MethodStartupTime": "max","FreqOrg":"max"})
+	hot_filtration = []
+	for indx in range(method_startups.shape[0]):
+		startup = method_startups["MethodStartupTime"].iloc[indx]
+		org_freq = method_startups["FreqOrg"].iloc[indx]
+		lst_indx = undev.index(org_freq)
+		iteration_times = frequency_iteration_times[lst_indx]
+		for rng in iteration_times:
+			if(startup >= rng[0] and startup < rng[1]):
+				method_startups["MethodStartupTime"].iloc[indx] = int(rng[1])
 
-	df_no_good = dataFrame[dataFrame["Package"]<0]
-	if(df_no_good.shape[0]>0):
-		print(bname)
-		print(df_no_good.shape[0])
-		print("No Gooood!")
-		print(df_no_good["Package"])
-		print(df_no_good["Frequency"])
-		print(df_no_good["MethodStartupTime"])
-		print("+++++++++++++++++++++++++++")
+	method_startups = method_startups.reset_index()
+	methd_names = top_df["MethodName"]
+	filtered_frames=[]
 
-	#quit()
-	#print(dataFrame["iteration"].unique())
-	#trace(dataFrame)
-	#quit()
-	dataFrame = dataFrame[dataFrame["Package"] > 0]
-	top_df = extract_top(dataFrame,5,5)
-	dataFrame_topn = dataFrame[dataFrame["MethodName"].isin(top_df["MethodName"])]
-	print("Number for records for top 5 methods across all iterations %d" %(dataFrame_topn.shape[0]))
-	method_startups = calculate_method_startups(dataFrame_topn)
-	rank_all_method(dataFrame,5)
-	drawAllIters(dataFrame_topn, method_startups)
-	#draw_by_frequency_digram(dataFrame_topn,5)
-	#print(dataFrame_topn)
-	dfg = dataFrame_topn.groupby(["MethodName","Frequency","iteration"]).agg({"Package":"sum","junk":"count"})
-	dfg.to_csv("%s/method_count.csv" %(dir))
-	regroupByMethods(dataFrame_topn)
+	for mname in methd_names:
+		for freq in frequencies:
+			filtered = dataFrame[dataFrame['MethodName'] == mname]
+			filtered = filtered[filtered['Frequency'] == freq]
+			last_ts = method_startups[method_startups["Frequency"]==freq]
+			if(last_ts.shape[0]>0):
+				filtered = filtered[filtered['MethodStartupTime'] > last_ts["MethodStartupTime"].iloc[0]]
+				filtered_frames.append(filtered)
 
+
+
+	dataFrame = pd.concat(filtered_frames, axis=0)
+	dataFrame = dataFrame.groupby(["MethodName", "Frequency"]).agg({"Package": "sum", "MethodStartupTime": "min"})
+
+
+	f, axes = plt.subplots(11, 1,figsize=(15,80))
+	plt.tight_layout()
+	axes = axes.flatten()
+	dataFrame =  dataFrame.reset_index()
+	plt_indx = 0
+	print(dataFrame)
+	for freq in undev:
+		f_dataframe = dataFrame[dataFrame["Frequency"]==freq]
+
+		if f_dataframe.shape[0]==0:
+			continue
+
+		f_dataframe["MethodName"] = f_dataframe["MethodName"].str[16:]
+		f_dataframe.plot(x="MethodName",y="Package",kind="bar",ax=axes[plt_indx])
+		axes[plt_indx].tick_params(labelrotation=20)
+		axes[plt_indx].set_title("Frequency %f" %(freq))
+		plt_indx = plt_indx + 1
+
+
+	#f.subplots_adjust(wspace=.5)
+	f.subplots_adjust(hspace=.65)
+	f.savefig("bar_%s_by.png" %(col))
+	regroupByMethods(dataFrame)
 
 
 def main(argv):

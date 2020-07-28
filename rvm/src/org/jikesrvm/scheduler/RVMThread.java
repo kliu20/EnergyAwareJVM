@@ -155,8 +155,8 @@ public final class RVMThread extends ThreadContext {
 
 
   //Kenan
-  public final static int STRIDE = 20;
-  public final static int SAMPLES = 2;
+  public final static int STRIDE = 10;
+  public final static int SAMPLES = 4;
   public final static int entrySize = 256;
   public int methodYPDisabledCount = 0;
   //Index for YPDisabledMethodID
