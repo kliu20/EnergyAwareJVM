@@ -59,13 +59,14 @@ public class Service implements ProfilingTypes {
 		 * Do profile
 		 * @param profileAttrs the collection that contains profile information 
 		 */
-		  public static void getProfileAttrs(double[] profileAttrs, String profilePoint) {
+		  private static void getProfileAttrs(double[] profileAttrs, String profilePoint, RVMThread thread) {
 			double perfCounter = 0.0d;
 			int eventId = 0;
 			int threadId = (int)Thread.currentThread().getId();
 			double startTime = 0.0d;
 			//Loop unwinding
-			if (prevProfile[threadId][0] == 0 || profilePoint == ServiceConstants.STARTPROFILE) {
+
+			if (thread.isFirstSampleInBurst || prevProfile[threadId][0] == 0 || profilePoint == ServiceConstants.STARTPROFILE) {
 				// If this thread is profiled at the first time, record the profile value.
 				// No matter if the it's the startProfile or endProfile.
 				if (Controller.options.ENABLE_COUNTER_PROFILING) {
@@ -84,6 +85,8 @@ public class Service implements ProfilingTypes {
 						eventId++;
 					}
 				}
+
+				thread.isFirstSampleInBurst = false;
 			} else if (profilePoint == ServiceConstants.ENDPROFILE) {
 				// If it's the endProfile point, then calculate the profile value.
 				
@@ -139,7 +142,7 @@ public class Service implements ProfilingTypes {
 				int threadId = (int) Thread.currentThread().getId();
 				
 				//Do profile	
-				getProfileAttrs(profileAttrs, profilePoint);
+				getProfileAttrs(profileAttrs, profilePoint, thread);
 				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
 				SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
 				
@@ -149,6 +152,7 @@ public class Service implements ProfilingTypes {
 				if (thread.samplesThisTimerInterrupt == 0) {
 					thread.samplesThisTimerInterrupt = RVMThread.SAMPLES;
 					thread.energyTimeSliceExpired = 0;
+					thread.isFirstSampleInBurst = true;
 				}
 			}
 		}

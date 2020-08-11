@@ -182,7 +182,8 @@ public final class RVMThread extends ThreadContext {
   public int skippedInvocations = STRIDE;
   /**Kenan: Counter for method invocation*/
   public int invocationCounter = 0;
-
+  /**Kenan: IS the first sample in the burst*/
+  public boolean isFirstSampleInBurst = true;
   /*
    * debug and statistics
    */
