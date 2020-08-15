@@ -154,6 +154,7 @@ EXTERNAL void print_logs();
 EXTERNAL void add_log_entry(double*,int,long long,int);
 EXTERNAL int add_method_entry(char*,char*);
 EXTERNAL void end_iteration();
+EXTERNAL int quota_expired(int cmid);
 
 // sysAlignmentCheck
 extern volatile int numEnableAlignCheckingCalls;

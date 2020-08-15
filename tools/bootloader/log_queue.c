@@ -48,6 +48,23 @@ void assign_method_entry(char* m, char* c) {
 	//printf("number of method entry is: %d\n", current_method_entry->num_entries);
 }
 
+__thread int* invocation_counts;
+__thread int* samples;
+
+#define QUOTA 50
+
+int quota_expired(int cmid) {
+	//invocation_counts[cmid]++;
+	//if(samples[cmid]>=QUOTA) {
+	//	return 1;
+	//} else {		
+	//	return 0;
+	//}
+	void* mem = malloc(sizeof(int)*10);
+	free(mem);
+	return 0;
+
+}
 
 void print_method_name(int mid) {
     //int search_index=0;
@@ -121,6 +138,8 @@ int add_method_entry(char* method_name, char* cls) {
 	    //check_malloc(lstats->frequencies,"Allocating frequencies");
 	    lstats->next=0;
 	    lstats->log_num=0;
+	    //samples = malloc(sizeof(int)*1000);
+	    //invocation_counts = malloc(sizeof(int)*1000);
 	    return lstats;
 	}
 
@@ -179,7 +198,8 @@ int add_method_entry(char* method_name, char* cls) {
 	    //printf("[add_log_entry] .... \n");
 	    //printf("Current Log Num %d \n",current->log_num);
 	    //printf("\n [adding log_entry] %d \n", current_iteration);
-	    if(stats->log_num == -1) {
+	   //samples[cmdid]++; 
+	   if(stats->log_num == -1) {
 		current = stats;
 		current->log_num=0;
 		thread_stats *nu = allocate_thread_stats();

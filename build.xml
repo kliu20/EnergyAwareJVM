@@ -2509,6 +2509,8 @@ target.jni-suffix=${target.jni-suffix}
   <!-- **************************************************************************** -->
 
   <target name="compile-for-apidocs" depends="prepare-source,prepare-config-source,choose-classlib">
+	
+    <echo message="Target Arch: ${target.arch}"/>
     <condition property="toexclude" value="ppc" else="ia32">
       <equals arg1="${target.arch}" arg2="ia32"/>
     </condition>

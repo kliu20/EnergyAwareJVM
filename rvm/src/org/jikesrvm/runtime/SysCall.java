@@ -544,6 +544,8 @@ public abstract class SysCall {
 	   @SysCallTemplate
    	   public abstract void end_iteration();	   
 
+	   @SysCallTemplate
+   	   public abstract int quota_expired(int cmid); 
 
 }
 

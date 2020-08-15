@@ -184,6 +184,9 @@ public final class RVMThread extends ThreadContext {
   public int invocationCounter = 0;
   /**Kenan: IS the first sample in the burst*/
   public boolean isFirstSampleInBurst = true;
+
+
+
   /*
    * debug and statistics
    */
