@@ -144,7 +144,10 @@ public class Service implements ProfilingTypes {
 
 		//Using sampling based method to profile
 		//
-		SysCall.sysCall.quota_expired(0);
+		//SysCall.sysCall.quota_expired(0);
+		
+		
+		EnergyCheckUtils.getEnergyStats();
 		if(1==1) return;
 		if (thread.energyTimeSliceExpired >= 2) {
 
