@@ -33,7 +33,7 @@ public class Scaler implements ScalerOptions {
 	public static String[] perfEventNames;
 
 	public static void initScaler() {
-		//if(!isInitScaler) {
+		if(!isInitScaler) {
 			int core;
 			if(Controller.options.ENABLE_COUNTER_PROFILING) {
 				perfEventInit();
@@ -45,7 +45,7 @@ public class Scaler implements ScalerOptions {
 			governor = new byte[core][20];
 //			SysCall.sysCall.sysStartCounters(cacheTLBEvents, cacheTLBEvents.length);
 			isInitScaler = true;
-		//}
+		}
 	}
 	
 	public static void openDVFSFiles() {

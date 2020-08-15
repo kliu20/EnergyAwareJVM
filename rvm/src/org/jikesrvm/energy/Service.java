@@ -108,11 +108,10 @@ public class Service implements ProfilingTypes {
 					
 					for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
 						profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
-						if(energy[i]>0) {
-
+						//if(profileAttrs[eventId]>0) {
 
 						prevProfile[threadId][eventId] = energy[i];
-						}
+						//}
 						eventId++;
 					}
 				}
@@ -145,10 +144,8 @@ public class Service implements ProfilingTypes {
 		//Using sampling based method to profile
 		//
 		//SysCall.sysCall.quota_expired(0);
-		
-		
-		EnergyCheckUtils.getEnergyStats();
-		if(1==1) return;
+		//EnergyCheckUtils.getEnergyStats();
+		//if(1==1) return;
 		if (thread.energyTimeSliceExpired >= 2) {
 
 			thread.skippedInvocations--;
@@ -159,21 +156,20 @@ public class Service implements ProfilingTypes {
 				int threadId = (int) Thread.currentThread().getId();
 				
 				//Do profile	
-				//getProfileAttrs(profileAttrs, profilePoint, thread);
+				getProfileAttrs(profileAttrs, profilePoint, thread);
 				int ll = profileAttrs.length;
 				boolean discard_sample = profileAttrs[ll-1]<=0;
-				discard_sample=false;
+				//discard_sample=false;
 
 				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
 				if(!discard_sample) {
-
-				SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
+					SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
 				}
 
 				thread.skippedInvocations = RVMThread.STRIDE;
-				if(!discard_sample) {
+				//if(!discard_sample) {
 					thread.samplesThisTimerInterrupt--;
-				}
+				//}
 
 				if (thread.samplesThisTimerInterrupt == 0) {
 					thread.samplesThisTimerInterrupt = RVMThread.SAMPLES;
