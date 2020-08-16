@@ -872,27 +872,27 @@ def calculate_method_startups(df):
 	method_startups["iter_start"] = -1
 	method_startups["iter_end"]= -1
 	method_startups = method_startups.reset_index()
-
-
-
+        
 	for indx in range(method_startups.shape[0]):
-		startup = method_startups["MethodStartupTime"].iloc[indx]
-		iter = method_startups["iteration"].iloc[indx]
-		freq 	= method_startups["Frequency"].iloc[indx]
-		lst_indx = frequency_values.index(freq)
-		iteration_times = frequency_iteration_times[lst_indx]
-		method_startups["iteration_method_startup"].iloc[indx] = iter
-		rng = iteration_times[iter-1];
-		iteration_duration = rng[1] - rng[0]
-		method_startup_relative = rng[1] - startup
-		#print(startup)
-		percent = method_startup_relative / iteration_duration
-		percent = 1 - percent
-		method_startup_abs = percent + iter - 1
-		method_startups["percentage"].iloc[indx] = percent
-		method_startups["iter_start"].iloc[indx] = rng[0]
-		method_startups["iter_end"].iloc[indx] = rng[1]
-		method_startups["startup_abs"].iloc[indx] = method_startup_abs
+            mname = method_startups["MethodName"].iloc[indx]
+            startup = method_startups["MethodStartupTime"].iloc[indx]
+            iter = method_startups["iteration"].iloc[indx]
+            freq= method_startups["Frequency"].iloc[indx]
+            print("%s startp-time is %d at iter %d in frequency %d" %(mname, startup,iter,freq))
+            lst_indx = frequency_values.index(freq)
+            iteration_times = frequency_iteration_times[lst_indx]
+            method_startups["iteration_method_startup"].iloc[indx] = iter
+            rng = iteration_times[iter-1];
+            iteration_duration = rng[1] - rng[0]
+            print("iter %d start-end is %d-%d" %(iter,rng[0],rng[1]))
+            method_startup_relative = rng[1] - startup
+            percent = method_startup_relative / iteration_duration
+            percent = 1 - percent
+            method_startup_abs = percent + iter - 1
+            method_startups["percentage"].iloc[indx] = percent
+            method_startups["iter_start"].iloc[indx] = rng[0]
+            method_startups["iter_end"].iloc[indx] = rng[1]
+            method_startups["startup_abs"].iloc[indx] = method_startup_abs
 
 
 

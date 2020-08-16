@@ -82,7 +82,33 @@ import org.jikesrvm.energy.Service;
 @Uninterruptible
 public class VM extends Properties {
 
+ 
+  public static String KENAN_SAMPLES ="8";
+  public static String KENAN_FREQ="2";
   
+ 
+  //Very important Note: I intentionally used String here for KENAN_FREQ and KENAN_SAMPLES
+  //parseInt at this stage will casuse a lot of unexpected troubled.
+  public static void parseKenanArg(String value, String arg) {
+	sysWriteln("[VM.parseKenanArg] Parsing Kenan Arguments ... Stay tuned!");
+        String targ=arg.trim();
+	sysWriteln(value);
+	sysWriteln(targ);
+        
+	String arg_name  = targ.split("=")[0];
+	String arg_value = targ.split("=")[1];
+	
+	if(arg_name.startsWith("samples")) {
+		KENAN_SAMPLES=arg_value;
+	}
+
+	if(arg_name.startsWith("frequency")) {
+		KENAN_FREQ = arg_value;
+	}
+
+  }
+
+
   public static void print_hello() {
       sysWriteln("Hello from JikesRVM");		
   }
