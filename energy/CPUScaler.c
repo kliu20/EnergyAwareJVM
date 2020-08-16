@@ -433,7 +433,7 @@ JNIEXPORT jstring JNICALL Java_EnergyCheckUtils_EnergyStatCheck(JNIEnv *env,
 		}
 	}
 
-	ener_string = (*env)->NewStringUTF(env, ener_info);
+	ener_string = (*env)->NewStringUTF(env, ener_info);	
 	free(ener_info);
 	return ener_string;
 

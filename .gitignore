@@ -27,9 +27,7 @@ jikesrvm.iml
 /generated/
 /results/
 /target/
-/*data*/
-freq*
-counter_based*
+
 # Other stuff
 /MMTk/bin
 /MMTk/doc/cheatsheet/cheatsheet.blg

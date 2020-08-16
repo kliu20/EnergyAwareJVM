@@ -26,7 +26,7 @@ public class Service implements ProfilingTypes {
 	public static boolean profileEnable = false;
 	public static long start_ts = System.currentTimeMillis();
 	
-	public static int FREQ = Integer.parseInt(VM.KENAN_FREQ); 
+	public static int FREQ = 0; 
 
 
 		/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
@@ -156,7 +156,14 @@ public class Service implements ProfilingTypes {
 		//SysCall.sysCall.quota_expired(0);
 		//EnergyCheckUtils.getEnergyStats();
 		//if(1==1) return;
-		if (thread.energyTimeSliceExpired <= FREQ) {
+		if(FREQ==0) {
+			VM.sysWriteln("First Params Read");
+			FREQ = Integer.parseInt(VM.KENAN_FREQ);
+		        RVMThread.SAMPLES = Integer.parseInt(VM.KENAN_SAMPLES);
+			VM.sysWriteln(FREQ);
+			VM.sysWriteln(RVMThread.SAMPLES);	
+		}
+		if (thread.energyTimeSliceExpired >= FREQ) {
 
 			thread.skippedInvocations--;
 
