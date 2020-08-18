@@ -63,6 +63,9 @@ do
 	if [ $itercount = $expected ]
 	then
 		repeat="false"
+	else
+		rm -r scratch
+		killall JikesRVM
 	fi
 done
 

@@ -105,7 +105,7 @@ do
        		java energy.Scaler $i userspace
        		runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
 
-		itercount=$(wc -l iteration_times)       		
+		itercount=$(wc -l iteration_times)
 		itercount=$(echo $itercount | cut -d' ' -f 1)
 		echo "iter count is $itercount"
 		echo "expected is $expected"
@@ -115,9 +115,10 @@ do
          	    mv iteration_times counter_based_sampling_iteration_times_$i
 		    echo "Success Setting repeat to false"
 		    repeat="false"
+		else
+		    echo "Exception. We are repeating everything"
+		    rm -r scratch
+		    killall JikesRVM
 		fi
 	done
-
-	#mv kenan.csv counter_based_sampling_kenan.${i}.csv
-       	#mv iteration_times counter_based_sampling_iteration_times_$i
 done
