@@ -4,7 +4,10 @@ pbench=$1
 ptype=$2
 iters="$3"
 samples="$4"
+samplesorg="$4"
 frequency="$5"
+expected=$iters
+
 
 if [ "$ptype" == "old" ];
 then
@@ -14,6 +17,7 @@ else
 
 	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
+	expected=$((expected+1))
 fi	
 
 #callbackClass="kenan.IterationCallBack"
@@ -52,7 +56,7 @@ runJikesNoEnergyProfile() {
 
 }
 runJikesProfile() {
-		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=0.1" "-X:aos:hot_method_time_max=1" "-X:kenan:frequency=$frequency" "-X:samples=$samples"  "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=false" "-X:aos:enable_energy_profiling=true" "-X:aos:profiler_file=doubleSampleWindow_1ms.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-cp" "$dacapoJar:." "Harness" "-s" "$size" "-n" "${iters}" "-c" "$callbackClass"  "$bench" &> freq_${kkfreq}
+		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=0.1" "-X:aos:hot_method_time_max=1" "-X:kenan:frequency=$frequency" "-X:kenan:samples=$samples"  "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=false" "-X:aos:enable_energy_profiling=true" "-X:aos:profiler_file=doubleSampleWindow_1ms.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-cp" "$dacapoJar:." "Harness" "-s" "$size" "-n" "${iters}" "-c" "$callbackClass"  "$bench" &> freq_${kkfreq}
 }
 
 
@@ -87,11 +91,28 @@ for((i=1;i<=12;i++))
 do
        #i=11
        kkfreq="$i"
-       sudo java energy.Scaler $i userspace
-       #Hi Kenan, I also tried 4 instead of 8 below runJikesProfile 8
-       runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
-       sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
-       sudo mv iteration_times counter_based_sampling_iteration_times_$i
+       if [ "$i" -gt "7" ]
+       then
+		samples=$(($samplesorg/2))
+       fi
+
+       repeat="true"	
+       while [ $repeat = "true" ]
+       do
+       		echo "Frequency $i, Samples $samples, SampleFreq $frequency"
+       		sudo java energy.Scaler $i userspace
+       		runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
+
+		itercount=$(wc -l iteration_times)       		
+		
+		if [ $itercount = $expected ]
+		then
+		    repeat="false"
+		fi
+	done
+
+	sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
+       	sudo mv iteration_times counter_based_sampling_iteration_times_$i
 done
 ##	
 sleep 10 

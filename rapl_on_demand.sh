@@ -6,6 +6,7 @@ ptype=$2
 iters="$3"
 samples="$4"
 frequency="$5"
+expected=$iters
 
 if [ "$ptype" == "old" ];
 then
@@ -15,6 +16,7 @@ else
 
 	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
+	expected=$((expected+1))
 fi	
 
 #callbackClass="kenan.IterationCallBack"
@@ -47,7 +49,19 @@ fi
 kkfreq=0
 i=0
 timeSlice=$((${timeSlice}))		
-sudo java energy.Scaler 1 ondemand
-runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+
+repeat="false"
+while [ $repeat = "true" ]
+do
+	sudo java energy.Scaler 1 ondemand
+	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+
+	itercount=$(wc -l iteration_times)
+	if [ $itercount = $expected ]
+	then
+		repeat="false"
+	fi
+done
+
 sudo mv iteration_times counter_based_sampling_iteration_times_$i
 sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
