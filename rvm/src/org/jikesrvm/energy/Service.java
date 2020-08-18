@@ -25,9 +25,6 @@ public class Service implements ProfilingTypes {
 	public static double[][] prevProfile = new double[INIT_SIZE*2][3];
 	public static boolean profileEnable = false;
 	public static long start_ts = System.currentTimeMillis();
-	
-	public static int FREQ = 0; 
-
 
 		/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
 		public static char [] info = {'i','o', '\n'};
@@ -111,10 +108,11 @@ public class Service implements ProfilingTypes {
 					
 					for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
 						profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
-						//if(profileAttrs[eventId]>0) {
+						if(energy[i]>0) {
+
 
 						prevProfile[threadId][eventId] = energy[i];
-						//}
+						}
 						eventId++;
 					}
 				}
@@ -126,6 +124,16 @@ public class Service implements ProfilingTypes {
 		  	profileEnable = true;
 	 	 }
 
+	public static void init_service() {
+		RVMThread.FREQ = Integer.parseInt(VM.KENAN_FREQ); 
+		RVMThread.SAMPLES = Integer.parseInt(VM.KENAN_SAMPLES);
+		VM.sysWriteln("[Service Constructor Invoked as Expected] ... ");
+		VM.sysWriteln("Samples");
+		VM.sysWriteln(RVMThread.SAMPLES);
+		VM.sysWriteln("Freq");
+		VM.sysWriteln(RVMThread.FREQ);
+	}
+
 	@Entrypoint
 	public static void startProfile(int cmid) {
 		profile(cmid, ServiceConstants.STARTPROFILE);
@@ -134,13 +142,6 @@ public class Service implements ProfilingTypes {
 	@Entrypoint
 	public static void endProfile(int cmid) {
 		profile(cmid, ServiceConstants.ENDPROFILE);
-	}
-
-	static {
-
-		VM.sysWriteln("Service Class Initializing");
-		VM.sysWriteln(FREQ);
-		VM.sysWriteln(RVMThread.SAMPLES);
 	}
 
 	//400 or 300
@@ -154,20 +155,12 @@ public class Service implements ProfilingTypes {
 		//Using sampling based method to profile
 		//
 		//SysCall.sysCall.quota_expired(0);
-		//EnergyCheckUtils.getEnergyStats();
-		//if(1==1) return;
-		if(FREQ==0) {
-			VM.sysWriteln("First Params Read");
-			FREQ = Integer.parseInt(VM.KENAN_FREQ);
-		        RVMThread.SAMPLES = Integer.parseInt(VM.KENAN_SAMPLES);
-			VM.sysWriteln(FREQ);
-			VM.sysWriteln(RVMThread.SAMPLES);	
-		}
-		if (thread.energyTimeSliceExpired >= FREQ) {
-
+		/*if(RVMThread.FREQ==0) {
+			init_service();
+		}*/
+		if (thread.energyTimeSliceExpired >= RVMThread.FREQ) {
 			thread.skippedInvocations--;
-
-			if (thread.skippedInvocations == 0) {	
+			if (thread.skippedInvocations == 0) {
 				/** Event values for the method */
 				double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
 				int threadId = (int) Thread.currentThread().getId();
@@ -176,15 +169,15 @@ public class Service implements ProfilingTypes {
 				getProfileAttrs(profileAttrs, profilePoint, thread);
 				int ll = profileAttrs.length;
 				boolean discard_sample = profileAttrs[ll-1]<=0;
-				//discard_sample=false;
 
 				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
 				if(!discard_sample) {
-					SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
+
+				SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
 				}
 
 				thread.skippedInvocations = RVMThread.STRIDE;
-					thread.samplesThisTimerInterrupt--;
+				thread.samplesThisTimerInterrupt--;
 
 				if (thread.samplesThisTimerInterrupt == 0) {
 					thread.samplesThisTimerInterrupt = RVMThread.SAMPLES;

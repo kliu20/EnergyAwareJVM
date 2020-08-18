@@ -82,7 +82,6 @@ import org.jikesrvm.energy.Service;
 @Uninterruptible
 public class VM extends Properties {
 
- 
   public static String KENAN_SAMPLES ="8";
   public static String KENAN_FREQ="2";
   
@@ -105,10 +104,9 @@ public class VM extends Properties {
 	if(arg_name.startsWith("frequency")) {
 		KENAN_FREQ = arg_value;
 	}
-
   }
 
-
+  
   public static void print_hello() {
       sysWriteln("Hello from JikesRVM");		
   }
@@ -597,6 +595,7 @@ public class VM extends Properties {
     mainThread = new MainThread(applicationArguments);
 
     // Schedule "main" thread for execution.
+    org.jikesrvm.energy.Service.init_service();
     if (verboseBoot >= 1) VM.sysWriteln("Starting main thread");
     mainThread.start();
 
