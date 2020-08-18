@@ -18,7 +18,7 @@ public class OIterationCallBack extends Callback {
     }
   }
 
-  public static  int MAX_ITERATIONS = 21;
+  public static  int MAX_ITERATIONS = 100;
   public static  int CURRENT_ITERATION = 1;
   public static  long[] START_ITER_TS = new long[MAX_ITERATIONS];
   public static  long[] STOP_ITER_TS = new long[MAX_ITERATIONS];

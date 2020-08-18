@@ -8,7 +8,7 @@ import java.lang.reflect.*;
 public class IterationCallBack extends Callback {
 
 
-public static  int MAX_ITERATIONS = 20;
+public static  int MAX_ITERATIONS = 100;
 public static  int CURRENT_ITERATION = 1;
 public static  long[] START_ITER_TS = new long[MAX_ITERATIONS];
 public static  long[] STOP_ITER_TS = new long[MAX_ITERATIONS];

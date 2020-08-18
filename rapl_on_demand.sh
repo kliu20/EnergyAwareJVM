@@ -8,6 +8,7 @@ samples="$4"
 frequency="$5"
 expected=$iters
 
+		
 if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
@@ -16,10 +17,11 @@ else
 
 	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
-	expected=$((expected+1))
+	expected=$((iters+1))
 fi	
 
 #callbackClass="kenan.IterationCallBack"
+echo "Number of expected lines in iteration_times is $expected"
 bench="$pbench"
 size="default"
 
@@ -50,13 +52,14 @@ kkfreq=0
 i=0
 timeSlice=$((${timeSlice}))		
 
-repeat="false"
+repeat="true"
 while [ $repeat = "true" ]
 do
 	sudo java energy.Scaler 1 ondemand
 	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
 
 	itercount=$(wc -l iteration_times)
+	itercount=$(echo $itercount | cut -d' ' -f 1)
 	if [ $itercount = $expected ]
 	then
 		repeat="false"

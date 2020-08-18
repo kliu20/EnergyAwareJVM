@@ -8,6 +8,7 @@ samplesorg="$4"
 frequency="$5"
 expected=$iters
 
+echo "$1-$2-$3-$4-$5"
 
 if [ "$ptype" == "old" ];
 then
@@ -17,7 +18,7 @@ else
 
 	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
-	expected=$((expected+1))
+	expected=$((iters+1))
 fi	
 
 #callbackClass="kenan.IterationCallBack"
@@ -87,6 +88,7 @@ fi
 
 timeSlice=$((${timeSlice}))		
 #
+echo "Number of expected lines in iteration_times is $expected"
 for((i=1;i<=12;i++))
 do
        #i=11
@@ -100,19 +102,22 @@ do
        while [ $repeat = "true" ]
        do
        		echo "Frequency $i, Samples $samples, SampleFreq $frequency"
-       		sudo java energy.Scaler $i userspace
+       		java energy.Scaler $i userspace
        		runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
 
 		itercount=$(wc -l iteration_times)       		
-		
-		if [ $itercount = $expected ]
+		itercount=$(echo $itercount | cut -d' ' -f 1)
+		echo "iter count is $itercount"
+		echo "expected is $expected"
+		if [ "$itercount" = "$expected" ]
 		then
+		    mv kenan.csv counter_based_sampling_kenan.${i}.csv
+         	    mv iteration_times counter_based_sampling_iteration_times_$i
+		    echo "Success Setting repeat to false"
 		    repeat="false"
 		fi
 	done
 
-	sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
-       	sudo mv iteration_times counter_based_sampling_iteration_times_$i
+	#mv kenan.csv counter_based_sampling_kenan.${i}.csv
+       	#mv iteration_times counter_based_sampling_iteration_times_$i
 done
-##	
-sleep 10 
