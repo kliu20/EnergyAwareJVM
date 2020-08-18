@@ -64,6 +64,13 @@ do
 	then
 		repeat="false"
 	else
+		mem=$(grep malloc freq_$1)
+		if [ $mem = "" ]
+		then
+			echo "No Malloc"
+		else
+			samples=$((samples/2))			
+		fi
 		rm -r scratch
 		killall JikesRVM
 	fi

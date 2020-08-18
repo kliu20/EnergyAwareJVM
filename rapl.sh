@@ -117,6 +117,14 @@ do
 		    repeat="false"
 		else
 		    echo "Exception. We are repeating everything"
+		    mem=$(grep malloc freq_$1)
+		    if [ $mem = "" ]
+		    then
+			echo "No Malloc"
+		    else
+			samples=$((samples/2))			
+		    fi
+			
 		    rm -r scratch
 		    killall JikesRVM
 		fi
