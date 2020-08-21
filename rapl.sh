@@ -8,7 +8,7 @@ samplesorg="$4"
 frequency="$5"
 expected=$iters
 
-echo "$1-$2-$3-$4-$5"
+
 
 if [ "$ptype" == "old" ];
 then
@@ -18,7 +18,7 @@ else
 
 	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
-	expected=$((iters+1))
+	expected=$((expected+1))
 fi	
 
 #callbackClass="kenan.IterationCallBack"
@@ -88,7 +88,6 @@ fi
 
 timeSlice=$((${timeSlice}))		
 #
-echo "Number of expected lines in iteration_times is $expected"
 for((i=1;i<=12;i++))
 do
        #i=11
@@ -102,31 +101,17 @@ do
        while [ $repeat = "true" ]
        do
        		echo "Frequency $i, Samples $samples, SampleFreq $frequency"
-       		java energy.Scaler $i userspace
+       		sudo java energy.Scaler $i userspace
        		runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
-
-		itercount=$(wc -l iteration_times)
-		itercount=$(echo $itercount | cut -d' ' -f 1)
-		echo "iter count is $itercount"
-		echo "expected is $expected"
-		if [ "$itercount" = "$expected" ]
+       		sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
+       		sudo mv iteration_times counter_based_sampling_iteration_times_$i
+		itercount=$(wc -l counter_based_sampling_iteration_times_$i)
+		if [ $itercount = $expected ]
 		then
-		    mv kenan.csv counter_based_sampling_kenan.${i}.csv
-         	    mv iteration_times counter_based_sampling_iteration_times_$i
-		    echo "Success Setting repeat to false"
 		    repeat="false"
-		else
-		    echo "Exception. We are repeating everything"
-		    mem=$(grep malloc freq_$1)
-		    if [ $mem = "" ]
-		    then
-			echo "No Malloc"
-		    else
-			samples=$((samples/2))			
-		    fi
-			
-		    rm -r scratch
-		    killall JikesRVM
 		fi
 	done
+
 done
+##	
+sleep 10 
