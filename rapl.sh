@@ -14,11 +14,11 @@ if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
 	callbackClass="kenan.OIterationCallBack"
+	expected=$((iters-1))
 else
 
 	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
-	expected=$((expected+1))
 fi	
 
 #callbackClass="kenan.IterationCallBack"
@@ -81,6 +81,7 @@ runJikesNoCounterHSQLDB() {
 }
 
 
+echo "$1-$2-$3-$4-$5"
 if [ -f kenan.csv ];
 then
 	sudo rm kenan.csv
@@ -98,17 +99,33 @@ do
        fi
 
        repeat="true"	
-       while [ $repeat = "true" ]
+       while [ "$repeat" = "true" ]
        do
-       		echo "Frequency $i, Samples $samples, SampleFreq $frequency"
+		killall java
+	        echo "Frequency $i, Samples $samples, SampleFreq $frequency"
        		sudo java energy.Scaler $i userspace
        		runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
        		sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
        		sudo mv iteration_times counter_based_sampling_iteration_times_$i
+		echo "Iter count: $itercount, expected: $expected"
 		itercount=$(wc -l counter_based_sampling_iteration_times_$i)
-		if [ $itercount = $expected ]
+		itercount=$(echo $itercount | cut -d' ' -f 1)
+		if [ "$itercount" = "$expected" ]
 		then
 		    repeat="false"
+		else
+		    
+			mem=$(grep malloc freq_$i)
+			if [ "$mem" = "" ]
+			then
+				echo "No Malloc"
+			else
+				samples=$((samples/2))			
+			fi
+			rm -r scratch
+			
+			killall JikesRVM
+			killall java
 		fi
 	done
 

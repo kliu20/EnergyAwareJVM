@@ -13,11 +13,11 @@ if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
 	callbackClass="kenan.OIterationCallBack"
+	expected=$((iters-1))
 else
 
 	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
-	expected=$((iters+1))
 fi	
 
 #callbackClass="kenan.IterationCallBack"
@@ -53,7 +53,7 @@ i=0
 timeSlice=$((${timeSlice}))		
 
 repeat="true"
-while [ $repeat = "true" ]
+while [ "$repeat" = "true" ]
 do
 	sudo java energy.Scaler 1 ondemand
 	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
@@ -73,6 +73,7 @@ do
 		fi
 		rm -r scratch
 		killall JikesRVM
+		killall java
 	fi
 done
 
