@@ -8,8 +8,6 @@ samplesorg="$4"
 frequency="$5"
 expected=$iters
 
-
-
 if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
