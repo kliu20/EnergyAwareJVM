@@ -18,7 +18,7 @@ public class OIterationCallBack extends Callback {
     }
   }
 
-  public static  int MAX_ITERATIONS = 21;
+  public static  int MAX_ITERATIONS = 100;
   public static  int CURRENT_ITERATION = 1;
   public static  long[] START_ITER_TS = new long[MAX_ITERATIONS];
   public static  long[] STOP_ITER_TS = new long[MAX_ITERATIONS];
@@ -48,10 +48,19 @@ public class OIterationCallBack extends Callback {
     try {
       FileWriter fileWriter = new FileWriter("iteration_times");
       PrintWriter printWriter = new PrintWriter(fileWriter);
-      for(int i=1; i<= CURRENT_ITERATION;i++) {
+      long execution_time=0;
+      FileWriter  execWriter  = new FileWriter("execution_time");
+      PrintWriter execPrinter = new PrintWriter(execWriter);
+      for(int i=1; i<= CURRENT_ITERATION-1;i++) {
         printWriter.printf("%d,%d \n",START_ITER_TS[i-1] -jvm_start,STOP_ITER_TS[i-1] - jvm_start);
+
+	long iter_time = STOP_ITER_TS[i-1] - START_ITER_TS[i-1];
+	execution_time+= iter_time;
       }
-      printWriter.close();
+
+      printWriter.close();	
+      execPrinter.printf("%d",execution_time);
+      execWriter.close();
 
     } catch(Exception exception) {
       System.out.println(exception.getMessage());
