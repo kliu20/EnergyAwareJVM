@@ -33,9 +33,14 @@ public class Entrypoints {
 	//Kenan: Entrypoints for hot method measurement
 	public static final NormalMethod startProfile =
 			getMethod(org.jikesrvm.energy.Service.class, "startProfile", "(I)V");
+	public static final NormalMethod endProfile =
+			getMethod(org.jikesrvm.energy.Service.class, "endProfile", "(I)V");
+	public static final NormalMethod changeUserSpaceFreq =
+			getMethod(org.jikesrvm.energy.Service.class, "changeUserSpaceFreq", "(I)V");
+	public static final NormalMethod changeOnDemandFreq =
+			getMethod(org.jikesrvm.energy.Service.class, "changeOnDemandFreq", "(I)V");
 
-		public static final NormalMethod endProfile =
-				getMethod(org.jikesrvm.energy.Service.class, "endProfile", "(I)V");
+
 
 //		public static final NormalMethod ioArgSampling =
 //				getMethod(org.jikesrvm.energy.Service.class, "ioArgSampling", "(Ljava/lang/Object;)V");
