@@ -71,6 +71,12 @@ do
 		else
 			samples=$((samples/2))			
 		fi
+
+		if [ "$samples" = "0" ]
+		then
+			repeat="false"
+		fi
+
 		rm -r scratch
 		killall JikesRVM
 		killall java

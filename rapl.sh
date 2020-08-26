@@ -99,7 +99,8 @@ do
        repeat="true"	
        while [ "$repeat" = "true" ]
        do
-		killall java
+		
+	        killall java
 	        echo "Frequency $i, Samples $samples, SampleFreq $frequency"
        		sudo java energy.Scaler $i userspace
        		runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
@@ -121,6 +122,10 @@ do
 				samples=$((samples/2))			
 			fi
 			rm -r scratch
+			if [ "$samples" = "0" ]
+			then
+				repeat="false"
+			fi
 			
 			killall JikesRVM
 			killall java
