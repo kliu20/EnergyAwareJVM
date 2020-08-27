@@ -113,15 +113,12 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		  public static double calculateEnergy(double end, double start) {
 			double delta = 0;
 			delta = end - start;
+
 			if(delta < 0) {
 				//If the value is set to be 0 during the measurement, it would be negative
-				VM.sysWriteln("Calculate energy consumption is negative: " + delta + " end is: " + end + " start is: " + start);
 				delta += (double)EnergyCheckUtils.wraparoundValue;
 			}
-			if (delta > 10000) {
-				VM.sysWriteln("Calculate energy consumption is too big: " + delta + " end is: " + end + " start is: " + start);
-			}
-			VM.sysWriteln("Calculate energy consumption: " + delta + " end is: " + end + " start is: " + start);
+
 			return delta;
 		  }
 

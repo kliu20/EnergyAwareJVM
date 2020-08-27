@@ -1,0 +1,11 @@
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted

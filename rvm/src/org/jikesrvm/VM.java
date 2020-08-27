@@ -484,7 +484,7 @@ public class VM extends Properties {
 
     //TODO::Kenan::Khaled::LogQueue::log_queue
     //Link Create a System Call for LogQueue
-    sysCall.init_log_queue(500,5);
+    sysCall.init_log_queue(500,3);
 
     if (VM.BuildForAdaptiveSystem) {
       if (verboseBoot >= 1) VM.sysWriteln("Initializing adaptive system");

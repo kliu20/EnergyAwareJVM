@@ -88,11 +88,11 @@ public class Instrumentation {
 			Instruction changeOnDemandFreqInst = null;
 			Instruction startProfInst = null;
 			Instruction endProfInst = null;
-			NormalMethod changeUserSpaceFreqMtd = Entrypoints.changeUserSpaceFreq;
-			NormalMethod changeOnDemandFreqMtd = Entrypoints.changeOnDemandFreq;
+
 			NormalMethod startProfileMtd = Entrypoints.startProfile;
 			NormalMethod endProfileMtd = Entrypoints.endProfile;
-
+			NormalMethod changeUserSpaceFreqMtd = Entrypoints.changeUserSpaceFreq;
+			NormalMethod changeOnDemandFreqMtd = Entrypoints.changeOnDemandFreq;
 			StringConstantOperand clsName = new StringConstantOperand(
 				cls.toString(), Offset.fromIntSignExtend(cls
 				.getDescriptor().getStringLiteralOffset()));
@@ -110,7 +110,7 @@ public class Instrumentation {
 				changeUserSpaceFreqInst = Call
 						.create1(CALL, null,
 								IRTools.AC(changeUserSpaceFreqMtd.getOffset()),
-								MethodOperand.STATIC(changeUserSpaceFreqMtd), clsName,
+								MethodOperand.STATIC(changeUserSpaceFreqMtd),
 								new IntConstantOperand((int)Controller.options.FREQUENCY_TO_BE_PRINTED));
 
 				changeUserSpaceFreqInst.position = ir.firstInstructionInCodeOrder().position;
