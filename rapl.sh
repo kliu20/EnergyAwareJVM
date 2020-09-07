@@ -96,6 +96,12 @@ do
 		samples=$(($samplesorg/2))
        fi
 
+       if [ "$samples" = "0" ]
+       then
+       		samples="1"
+       fi
+       
+
        repeat="true"	
        while [ "$repeat" = "true" ]
        do
