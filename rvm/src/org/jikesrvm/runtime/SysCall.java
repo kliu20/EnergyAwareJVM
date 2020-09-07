@@ -146,6 +146,8 @@ public abstract class SysCall {
   @SysCallTemplate
   public abstract void sysPerfEventDisable();
   @SysCallTemplate
+  public abstract void sysCloseFd(int id);
+  @SysCallTemplate
   public abstract int sysPerfEventRead(int id, long[] values);
 
   // files
@@ -524,8 +526,26 @@ public abstract class SysCall {
 
 	   @SysCallTemplate
 	   public abstract void closeDVFSFiles();
-	
 
+	   @SysCallTemplate
+	   public abstract void init_log_queue(int pre_allocation, int num_attrs);
+
+	   @SysCallTemplate
+	   public abstract void register_thread_stat();
+
+	   @SysCallTemplate
+	   public abstract void print_logs();
+
+	   @SysCallTemplate
+	   public abstract void add_log_entry(double[] attrs,int cmdid,long timestamp,int freq);
+	   @SysCallTemplate
+	   public abstract int add_method_entry(byte[] m, byte[] c);
+	   
+	   @SysCallTemplate
+   	   public abstract void end_iteration();	   
+
+	   @SysCallTemplate
+   	   public abstract int quota_expired(int cmid); 
 
 }
 

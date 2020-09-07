@@ -1,0 +1,68 @@
+Attempting to unmask SIGQUIT...SUCCESS
+perf initializationOIteration Callback started
+Invovation Successfull
+1591893213466
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 1501 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 1 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 1270 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 2 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 1273 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 3 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 1232 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 4 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 1449 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 5 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 1061 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 6 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 1024 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 7 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 998 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 8 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 963 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 9 
+===== DaCapo fop starting warmup =====
+===== DaCapo fop completed warmup in 886 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 10 
+===== DaCapo fop starting =====
+===== DaCapo fop PASSED in 913 msec =====
+shutdown hook is invoked!!
+logQueue size is : 0

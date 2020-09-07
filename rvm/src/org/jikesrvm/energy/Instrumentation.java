@@ -81,12 +81,7 @@ public class Instrumentation {
 			if (method.methodID == -1){
 				
 				method.methodID = Service.addMethodEntry(cls.toString(), method.getName().toString());
-//				VM.sysWriteln("***************if method id is -1***************");
-//				VM.sysWriteln("class name: " + cls.toString() + " method name: " + method.getName().toString() + " method id " + method.methodID);
-			} else {
-//				VM.sysWriteln("***************if method id is not -1***************");
-//				VM.sysWriteln("class name: " + cls.toString() + "method name: " + method.getName().toString() + " method id " + method.methodID);
-			}
+			} 
 			NormalMethod startProfileMtd = Entrypoints.startProfile;
 			NormalMethod endProfileMtd = Entrypoints.endProfile;
 

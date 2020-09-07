@@ -18,10 +18,12 @@ echo "++++++++ Printing Java Version ++++++++++++"
 java -version
 echo "+++++++++++++ Printing Java Version"
 PATH=/home/kmahmou1/jdk1.6.0_45/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+echo "+++++++++++++java version after path set"
+java -version
 
 echo $PATH
 
-ant -Dconfig.include.aos=true -Dconfig.runtime.compiler=opt -Dconfig.bootimage.compiler=opt -Dconfig.assertions=none -Dconfig.include.perfevent=true
+ant -Dconfig.include.aos=true -Dconfig.default-heapsize.maximum=5000 -Dconfig.runtime.compiler=opt -Dconfig.bootimage.compiler=opt -Dconfig.assertions=none -Dconfig.include.perfevent=true
 #ant -Dconfig.bootimage.compiler=opt -Dconfig.assertions=none 
 
 #to build eclipse

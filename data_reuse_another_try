@@ -1,0 +1,876 @@
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 8 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 9 =====
+Iteration Stopping
+Calling end iteration
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Iteration Stopping
+Calling end iteration
+perf initialization[print_counters_g] .... Number of threads is 81 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+[print_counters_g] .... Number of threads is 80 
+shutdown hook is invoked!!
+logQueue size is : 0

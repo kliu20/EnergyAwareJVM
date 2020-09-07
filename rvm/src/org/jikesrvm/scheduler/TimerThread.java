@@ -53,7 +53,6 @@ public class TimerThread extends SystemThread {
     try {
       for (;;) {
         sysCall.sysNanoSleep((long)(1000L * 1000L * VM.interruptQuantum));
-
         if (VM.BuildForAdaptiveSystem) {
           // grab the lock to prevent threads from getting GC'd while we are
           // iterating (since this thread doesn't stop for GC)
@@ -63,13 +62,16 @@ public class TimerThread extends SystemThread {
           for (int i = 0; i < RVMThread.numThreads; ++i) {
             RVMThread candidate = RVMThread.threads[i];
             if (candidate != null && candidate.shouldBeSampled()) {
-              candidate.timeSliceExpired++;
-              candidate.takeYieldpoint = 1;
+
+	      candidate.timeSliceExpired++;
+	      candidate.takeYieldpoint = 1;
+
+	     candidate.energyTimeSliceExpired++;
+
             }
           }
           RVMThread.acctLock.unlock();
         }
-
         RVMThread.checkDebugRequest();
       }
     } catch (Throwable e) {

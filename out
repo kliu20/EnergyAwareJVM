@@ -1,0 +1,1326 @@
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Digest validation failed for stdout.log, expecting 0xda39a3ee5e6b4b0d3255bfef95601890afd80709 found 0x<File not found>
+Digest validation failed for stderr.log, expecting 0xda39a3ee5e6b4b0d3255bfef95601890afd80709 found 0x<File not found>
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Validation FAILED for sunflow large
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Digest validation failed for stdout.log, expecting 0xda39a3ee5e6b4b0d3255bfef95601890afd80709 found 0x<File not found>
+Digest validation failed for stderr.log, expecting 0xda39a3ee5e6b4b0d3255bfef95601890afd80709 found 0x<File not found>
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+Validation FAILED for sunflow large
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+JikesRVM: Failing instruction starting at f76fca01 wasn't in RVM address space
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xda90400c - InsPtr:0xf76fca01 instFollowPtr:0xffffffff threadPtr:0x680d920c jtocPtr:0x600802f0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0xf76fca01
+eax (T0)      (nil)
+ebx (ctrs)    0xf770c000
+ecx (S0)      0x1
+edx (T1)      (nil)
+esi (TR)      0x680d920c
+edi (S1)      0x7a4e40c0
+ebp           0x692d1860
+esp (SP)      0x692d1848
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010246
+fpregs        0xda904090
+oldmask       0x00020000
+cr2           0x00000000
+JikesRVM: unexpected hardware trap outside of RVM address space - 0xf76fca01 0x680d920c
+fault address (nil)
+eip           0xf76fca01
+eax (T0)      (nil)
+ebx (ctrs)    0xf770c000
+ecx (S0)      0x1
+edx (T1)      (nil)
+esi (TR)      0x680d920c
+edi (S1)      0x7a4e40c0
+ebp           0x692d1860
+esp (SP)      0x692d1848
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010246
+fpregs        0xda904090
+oldmask       0x00020000
+cr2           0x00000000
+attempting to dump proc map ...
+perf initialization5659c000-565a0000 r-xp 00000000 08:02 96352688                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/JikesRVM
+565a0000-565a1000 r--p 00003000 08:02 96352688                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/JikesRVM
+565a1000-565a2000 rw-p 00004000 08:02 96352688                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/JikesRVM
+571de000-57221000 rw-p 00000000 00:00 0                                  [heap]
+60000000-62147000 rwxp 00000000 08:02 96337943                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/RVM.data.image
+64000000-64ee2000 rwxp 00000000 08:02 96337953                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/RVM.code.image
+67000000-67059000 r--p 00000000 08:02 96337929                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/RVM.rmap.image
+68000000-68400000 rwxp 00000000 00:00 0 
+68400000-b0000000 rwxp 00000000 00:00 0 
+bff00000-bffd3000 rw-p 00000000 00:00 0 
+bffd3000-c0000000 ---p 00000000 00:00 0 
+c00f4000-c00f5000 ---p 00000000 00:00 0 
+c00f5000-c08f5000 rw-p 00000000 00:00 0 
+c08f5000-c08f6000 ---p 00000000 00:00 0 
+c08f6000-c10f6000 rw-p 00000000 00:00 0 
+c10f6000-c10f7000 ---p 00000000 00:00 0 
+c10f7000-c18f7000 rw-p 00000000 00:00 0 
+c38fb000-c38fc000 ---p 00000000 00:00 0 
+c38fc000-c40fc000 rw-p 00000000 00:00 0 
+c6100000-c6125000 rw-p 00000000 00:00 0 
+c6125000-c6200000 ---p 00000000 00:00 0 
+c6b00000-c6b25000 rw-p 00000000 00:00 0 
+c6b25000-c6c00000 ---p 00000000 00:00 0 
+c7500000-c7525000 rw-p 00000000 00:00 0 
+c7525000-c7600000 ---p 00000000 00:00 0 
+c7f00000-c7f25000 rw-p 00000000 00:00 0 
+c7f25000-c8000000 ---p 00000000 00:00 0 
+c8900000-c8925000 rw-p 00000000 00:00 0 
+c8925000-c8a00000 ---p 00000000 00:00 0 
+c9300000-c9325000 rw-p 00000000 00:00 0 
+c9325000-c9400000 ---p 00000000 00:00 0 
+c9d00000-c9d25000 rw-p 00000000 00:00 0 
+c9d25000-c9e00000 ---p 00000000 00:00 0 
+ca700000-ca725000 rw-p 00000000 00:00 0 
+ca725000-ca800000 ---p 00000000 00:00 0 
+cb100000-cb125000 rw-p 00000000 00:00 0 
+cb125000-cb200000 ---p 00000000 00:00 0 
+cbb00000-cbb25000 rw-p 00000000 00:00 0 
+cbb25000-cbc00000 ---p 00000000 00:00 0 
+cc500000-cc525000 rw-p 00000000 00:00 0 
+cc525000-cc600000 ---p 00000000 00:00 0 
+ccf00000-ccf25000 rw-p 00000000 00:00 0 
+ccf25000-cd000000 ---p 00000000 00:00 0 
+cd900000-cd925000 rw-p 00000000 00:00 0 
+cd925000-cda00000 ---p 00000000 00:00 0 
+ce300000-ce325000 rw-p 00000000 00:00 0 
+ce325000-ce400000 ---p 00000000 00:00 0 
+ce4ff000-ce500000 ---p 00000000 00:00 0 
+ce500000-ced00000 rw-p 00000000 00:00 0 
+ced00000-ced25000 rw-p 00000000 00:00 0 
+ced25000-cee00000 ---p 00000000 00:00 0 
+ceeff000-cef00000 ---p 00000000 00:00 0 
+cef00000-cf700000 rw-p 00000000 00:00 0 
+cf700000-cf725000 rw-p 00000000 00:00 0 
+cf725000-cf800000 ---p 00000000 00:00 0 
+cf8ff000-cf900000 ---p 00000000 00:00 0 
+cf900000-d0100000 rw-p 00000000 00:00 0 
+d0100000-d0125000 rw-p 00000000 00:00 0 
+d0125000-d0200000 ---p 00000000 00:00 0 
+d02ff000-d0300000 ---p 00000000 00:00 0 
+d0300000-d0b00000 rw-p 00000000 00:00 0 
+d0b00000-d0b25000 rw-p 00000000 00:00 0 
+d0b25000-d0c00000 ---p 00000000 00:00 0 
+d0cff000-d0d00000 ---p 00000000 00:00 0 
+d0d00000-d1500000 rw-p 00000000 00:00 0 
+d1500000-d1525000 rw-p 00000000 00:00 0 
+d1525000-d1600000 ---p 00000000 00:00 0 
+d16ff000-d1700000 ---p 00000000 00:00 0 
+d1700000-d1f00000 rw-p 00000000 00:00 0 
+d1f00000-d1f25000 rw-p 00000000 00:00 0 
+d1f25000-d2000000 ---p 00000000 00:00 0 
+d20ff000-d2100000 ---p 00000000 00:00 0 
+d2100000-d2900000 rw-p 00000000 00:00 0 
+d2900000-d2925000 rw-p 00000000 00:00 0 
+d2925000-d2a00000 ---p 00000000 00:00 0 
+d2aff000-d2b00000 ---p 00000000 00:00 0 
+d2b00000-d3300000 rw-p 00000000 00:00 0 
+d3300000-d3325000 rw-p 00000000 00:00 0 
+d3325000-d3400000 ---p 00000000 00:00 0 
+d34ff000-d3500000 ---p 00000000 00:00 0 
+d3500000-d3d00000 rw-p 00000000 00:00 0 
+d3d00000-d3d25000 rw-p 00000000 00:00 0 
+d3d25000-d3e00000 ---p 00000000 00:00 0 
+d3eff000-d3f00000 ---p 00000000 00:00 0 
+d3f00000-d4700000 rw-p 00000000 00:00 0 
+d4700000-d4725000 rw-p 00000000 00:00 0 
+d4725000-d4800000 ---p 00000000 00:00 0 
+d48ff000-d4900000 ---p 00000000 00:00 0 
+d4900000-d5100000 rw-p 00000000 00:00 0 
+d5100000-d5125000 rw-p 00000000 00:00 0 
+d5125000-d5200000 ---p 00000000 00:00 0 
+d52ff000-d5300000 ---p 00000000 00:00 0 
+d5300000-d5b00000 rw-p 00000000 00:00 0 
+d5b00000-d5b25000 rw-p 00000000 00:00 0 
+d5b25000-d5c00000 ---p 00000000 00:00 0 
+d5cff000-d5d00000 ---p 00000000 00:00 0 
+d5d00000-d6500000 rw-p 00000000 00:00 0 
+d6500000-d6525000 rw-p 00000000 00:00 0 
+d6525000-d6600000 ---p 00000000 00:00 0 
+d66ff000-d6700000 ---p 00000000 00:00 0 
+d6700000-d6f00000 rw-p 00000000 00:00 0 
+d6f00000-d6f25000 rw-p 00000000 00:00 0 
+d6f25000-d7000000 ---p 00000000 00:00 0 
+d70fe000-d70ff000 ---p 00000000 00:00 0 
+d70ff000-d78ff000 rw-p 00000000 00:00 0 
+d78ff000-d7900000 ---p 00000000 00:00 0 
+d7900000-d8100000 rw-p 00000000 00:00 0 
+d8100000-d8125000 rw-p 00000000 00:00 0 
+d8125000-d8200000 ---p 00000000 00:00 0 
+d8200000-d8225000 rw-p 00000000 00:00 0 
+d8225000-d8300000 ---p 00000000 00:00 0 
+d8300000-d8325000 rw-p 00000000 00:00 0 
+d8325000-d8400000 ---p 00000000 00:00 0 
+d84ff000-d8500000 ---p 00000000 00:00 0 
+d8500000-d8d00000 rw-p 00000000 00:00 0 
+d8d00000-d8d25000 rw-p 00000000 00:00 0 
+d8d25000-d8e00000 ---p 00000000 00:00 0 
+d8f00000-d8f25000 rw-p 00000000 00:00 0 
+d8f25000-d9000000 ---p 00000000 00:00 0 
+d90fd000-d90fe000 ---p 00000000 00:00 0 
+d90fe000-d98fe000 rw-p 00000000 00:00 0 
+d98fe000-d98ff000 ---p 00000000 00:00 0 
+d98ff000-da0ff000 rw-p 00000000 00:00 0 
+da0ff000-da100000 ---p 00000000 00:00 0 
+da100000-da900000 rw-p 00000000 00:00 0 
+da900000-daa00000 rw-p 00000000 00:00 0 
+daaff000-dab00000 ---p 00000000 00:00 0 
+dab00000-db300000 rw-p 00000000 00:00 0 
+db300000-db325000 rw-p 00000000 00:00 0 
+db325000-db400000 ---p 00000000 00:00 0 
+db4ff000-db500000 ---p 00000000 00:00 0 
+db500000-dbd00000 rw-p 00000000 00:00 0 
+dbd00000-dbd25000 rw-p 00000000 00:00 0 
+dbd25000-dbe00000 ---p 00000000 00:00 0 
+dbeff000-dbf00000 ---p 00000000 00:00 0 
+dbf00000-dc700000 rw-p 00000000 00:00 0 
+dc700000-dc725000 rw-p 00000000 00:00 0 
+dc725000-dc800000 ---p 00000000 00:00 0 
+dc8ff000-dc900000 ---p 00000000 00:00 0 
+dc900000-dd100000 rw-p 00000000 00:00 0 
+dd100000-dd125000 rw-p 00000000 00:00 0 
+dd125000-dd200000 ---p 00000000 00:00 0 
+dd2ff000-dd300000 ---p 00000000 00:00 0 
+dd300000-ddb00000 rw-p 00000000 00:00 0 
+ddb00000-ddb25000 rw-p 00000000 00:00 0 
+ddb25000-ddc00000 ---p 00000000 00:00 0 
+ddcff000-ddd00000 ---p 00000000 00:00 0 
+ddd00000-de500000 rw-p 00000000 00:00 0 
+de500000-de525000 rw-p 00000000 00:00 0 
+de525000-de600000 ---p 00000000 00:00 0 
+de6ff000-de700000 ---p 00000000 00:00 0 
+de700000-def00000 rw-p 00000000 00:00 0 
+def00000-def25000 rw-p 00000000 00:00 0 
+def25000-df000000 ---p 00000000 00:00 0 
+df0ff000-df100000 ---p 00000000 00:00 0 
+df100000-df900000 rw-p 00000000 00:00 0 
+df900000-df925000 rw-p 00000000 00:00 0 
+df925000-dfa00000 ---p 00000000 00:00 0 
+dfaff000-dfb00000 ---p 00000000 00:00 0 
+dfb00000-e0300000 rw-p 00000000 00:00 0 
+e0300000-e0325000 rw-p 00000000 00:00 0 
+e0325000-e0400000 ---p 00000000 00:00 0 
+e04ff000-e0500000 ---p 00000000 00:00 0 
+e0500000-e0d00000 rw-p 00000000 00:00 0 
+e0d00000-e0d25000 rw-p 00000000 00:00 0 
+e0d25000-e0e00000 ---p 00000000 00:00 0 
+e0eff000-e0f00000 ---p 00000000 00:00 0 
+e0f00000-e1700000 rw-p 00000000 00:00 0 
+e1700000-e1725000 rw-p 00000000 00:00 0 
+e1725000-e1800000 ---p 00000000 00:00 0 
+e18ff000-e1900000 ---p 00000000 00:00 0 
+e1900000-e2100000 rw-p 00000000 00:00 0 
+e2100000-e2125000 rw-p 00000000 00:00 0 
+e2125000-e2200000 ---p 00000000 00:00 0 
+e22ff000-e2300000 ---p 00000000 00:00 0 
+e2300000-e2b00000 rw-p 00000000 00:00 0 
+e2b00000-e2b25000 rw-p 00000000 00:00 0 
+e2b25000-e2c00000 ---p 00000000 00:00 0 
+e2cff000-e2d00000 ---p 00000000 00:00 0 
+e2d00000-e3500000 rw-p 00000000 00:00 0 
+e3500000-e3525000 rw-p 00000000 00:00 0 
+e3525000-e3600000 ---p 00000000 00:00 0 
+e36ff000-e3700000 ---p 00000000 00:00 0 
+e3700000-e3f00000 rw-p 00000000 00:00 0 
+e3f00000-e3f25000 rw-p 00000000 00:00 0 
+e3f25000-e4000000 ---p 00000000 00:00 0 
+e40ff000-e4100000 ---p 00000000 00:00 0 
+e4100000-e4900000 rw-p 00000000 00:00 0 
+e4900000-e4925000 rw-p 00000000 00:00 0 
+e4925000-e4a00000 ---p 00000000 00:00 0 
+e4aff000-e4b00000 ---p 00000000 00:00 0 
+e4b00000-e5300000 rw-p 00000000 00:00 0 
+e5300000-e5325000 rw-p 00000000 00:00 0 
+e5325000-e5400000 ---p 00000000 00:00 0 
+e54ff000-e5500000 ---p 00000000 00:00 0 
+e5500000-e5d00000 rw-p 00000000 00:00 0 
+e5d00000-e5d25000 rw-p 00000000 00:00 0 
+e5d25000-e5e00000 ---p 00000000 00:00 0 
+e5eff000-e5f00000 ---p 00000000 00:00 0 
+e5f00000-e6700000 rw-p 00000000 00:00 0 
+e6700000-e6725000 rw-p 00000000 00:00 0 
+e6725000-e6800000 ---p 00000000 00:00 0 
+e68ff000-e6900000 ---p 00000000 00:00 0 
+e6900000-e7100000 rw-p 00000000 00:00 0 
+e7100000-e7125000 rw-p 00000000 00:00 0 
+e7125000-e7200000 ---p 00000000 00:00 0 
+e72ff000-e7300000 ---p 00000000 00:00 0 
+e7300000-e7b00000 rw-p 00000000 00:00 0 
+e7b00000-e7b25000 rw-p 00000000 00:00 0 
+e7b25000-e7c00000 ---p 00000000 00:00 0 
+e7cff000-e7d00000 ---p 00000000 00:00 0 
+e7d00000-e8500000 rw-p 00000000 00:00 0 
+e8500000-e8525000 rw-p 00000000 00:00 0 
+e8525000-e8600000 ---p 00000000 00:00 0 
+e86ff000-e8700000 ---p 00000000 00:00 0 
+e8700000-e8f00000 rw-p 00000000 00:00 0 
+e8f00000-e8f25000 rw-p 00000000 00:00 0 
+e8f25000-e9000000 ---p 00000000 00:00 0 
+e90ff000-e9100000 ---p 00000000 00:00 0 
+e9100000-e9900000 rw-p 00000000 00:00 0 
+e9900000-e9925000 rw-p 00000000 00:00 0 
+e9925000-e9a00000 ---p 00000000 00:00 0 
+e9aff000-e9b00000 ---p 00000000 00:00 0 
+e9b00000-ea300000 rw-p 00000000 00:00 0 
+ea300000-ea325000 rw-p 00000000 00:00 0 
+ea325000-ea400000 ---p 00000000 00:00 0 
+ea4ff000-ea500000 ---p 00000000 00:00 0 
+ea500000-ead00000 rw-p 00000000 00:00 0 
+ead00000-ead25000 rw-p 00000000 00:00 0 
+ead25000-eae00000 ---p 00000000 00:00 0 
+eaeff000-eaf00000 ---p 00000000 00:00 0 
+eaf00000-eb700000 rw-p 00000000 00:00 0 
+eb700000-eb725000 rw-p 00000000 00:00 0 
+eb725000-eb800000 ---p 00000000 00:00 0 
+eb8ff000-eb900000 ---p 00000000 00:00 0 
+eb900000-ec100000 rw-p 00000000 00:00 0 
+ec100000-ec125000 rw-p 00000000 00:00 0 
+ec125000-ec200000 ---p 00000000 00:00 0 
+ec2ff000-ec300000 ---p 00000000 00:00 0 
+ec300000-ecb00000 rw-p 00000000 00:00 0 
+ecb00000-ecb25000 rw-p 00000000 00:00 0 
+ecb25000-ecc00000 ---p 00000000 00:00 0 
+eccff000-ecd00000 ---p 00000000 00:00 0 
+ecd00000-ed500000 rw-p 00000000 00:00 0 
+ed500000-ed525000 rw-p 00000000 00:00 0 
+ed525000-ed600000 ---p 00000000 00:00 0 
+ed6ff000-ed700000 ---p 00000000 00:00 0 
+ed700000-edf00000 rw-p 00000000 00:00 0 
+edf00000-edf25000 rw-p 00000000 00:00 0 
+edf25000-ee000000 ---p 00000000 00:00 0 
+ee0ff000-ee100000 ---p 00000000 00:00 0 
+ee100000-ee900000 rw-p 00000000 00:00 0 
+ee900000-ee925000 rw-p 00000000 00:00 0 
+ee925000-eea00000 ---p 00000000 00:00 0 
+eeaff000-eeb00000 ---p 00000000 00:00 0 
+eeb00000-ef300000 rw-p 00000000 00:00 0 
+ef300000-ef325000 rw-p 00000000 00:00 0 
+ef325000-ef400000 ---p 00000000 00:00 0 
+ef4ff000-ef500000 ---p 00000000 00:00 0 
+ef500000-efd00000 rw-p 00000000 00:00 0 
+efd00000-efd25000 rw-p 00000000 00:00 0 
+efd25000-efe00000 ---p 00000000 00:00 0 
+efeff000-eff00000 ---p 00000000 00:00 0 
+eff00000-f0700000 rw-p 00000000 00:00 0 
+f0700000-f0725000 rw-p 00000000 00:00 0 
+f0725000-f0800000 ---p 00000000 00:00 0 
+f08ff000-f0900000 ---p 00000000 00:00 0 
+f0900000-f1100000 rw-p 00000000 00:00 0 
+f1100000-f1125000 rw-p 00000000 00:00 0 
+f1125000-f1200000 ---p 00000000 00:00 0 
+f12ff000-f1300000 ---p 00000000 00:00 0 
+f1300000-f1b00000 rw-p 00000000 00:00 0 
+f1b00000-f1b25000 rw-p 00000000 00:00 0 
+f1b25000-f1c00000 ---p 00000000 00:00 0 
+f1cff000-f1d00000 ---p 00000000 00:00 0 
+f1d00000-f2500000 rw-p 00000000 00:00 0 
+f2500000-f2525000 rw-p 00000000 00:00 0 
+f2525000-f2600000 ---p 00000000 00:00 0 
+f26ff000-f2700000 ---p 00000000 00:00 0 
+f2700000-f2f00000 rw-p 00000000 00:00 0 
+f2f00000-f2f25000 rw-p 00000000 00:00 0 
+f2f25000-f3000000 ---p 00000000 00:00 0 
+f30ff000-f3100000 ---p 00000000 00:00 0 
+f3100000-f3900000 rw-p 00000000 00:00 0 
+f3900000-f3925000 rw-p 00000000 00:00 0 
+f3925000-f3a00000 ---p 00000000 00:00 0 
+f3aff000-f3b00000 ---p 00000000 00:00 0 
+f3b00000-f4300000 rw-p 00000000 00:00 0 
+f4300000-f4325000 rw-p 00000000 00:00 0 
+f4325000-f4400000 ---p 00000000 00:00 0 
+f44ff000-f4500000 ---p 00000000 00:00 0 
+f4500000-f4d00000 rw-p 00000000 00:00 0 
+f4d00000-f4d25000 rw-p 00000000 00:00 0 
+f4d25000-f4e00000 ---p 00000000 00:00 0 
+f4eff000-f4f00000 ---p 00000000 00:00 0 
+f4f00000-f5700000 rw-p 00000000 00:00 0 
+f5700000-f5725000 rw-p 00000000 00:00 0 
+f5725000-f5800000 ---p 00000000 00:00 0 
+f58ff000-f5900000 ---p 00000000 00:00 0 
+f5900000-f6100000 rw-p 00000000 00:00 0 
+f6100000-f6125000 rw-p 00000000 00:00 0 
+f6125000-f6200000 ---p 00000000 00:00 0 
+f62ff000-f6300000 ---p 00000000 00:00 0 
+f6300000-f6b00000 rw-p 00000000 00:00 0 
+f6b00000-f6b25000 rw-p 00000000 00:00 0 
+f6b25000-f6c00000 ---p 00000000 00:00 0 
+f6c10000-f6c2c000 r-xp 00000000 08:02 161484027                          /usr/lib32/libgcc_s.so.1
+f6c2c000-f6c2d000 r--p 0001b000 08:02 161484027                          /usr/lib32/libgcc_s.so.1
+f6c2d000-f6c2e000 rw-p 0001c000 08:02 161484027                          /usr/lib32/libgcc_s.so.1
+f6c42000-f6c64000 rw-p 00000000 00:00 0 
+f6c64000-f6c73000 r-xp 00000000 08:02 96337928                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavanio.so
+f6c73000-f6c74000 r--p 0000e000 08:02 96337928                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavanio.so
+f6c74000-f6c75000 rw-p 0000f000 08:02 96337928                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavanio.so
+f6c75000-f6c76000 rw-p 00000000 00:00 0 
+f6c76000-f6c8f000 r-xp 00000000 08:02 96337941                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavalang.so
+f6c8f000-f6c90000 r--p 00018000 08:02 96337941                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavalang.so
+f6c90000-f6c91000 rw-p 00019000 08:02 96337941                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavalang.so
+f6c91000-f6c92000 rw-p 00000000 00:00 0 
+f6c92000-f6c93000 ---p 00000000 00:00 0 
+f6c93000-f7495000 rw-p 00000000 00:00 0 
+f7495000-f749c000 r-xp 00000000 08:02 42467350                           /lib32/librt-2.24.so
+f749c000-f749d000 r--p 00006000 08:02 42467350                           /lib32/librt-2.24.so
+f749d000-f749e000 rw-p 00007000 08:02 42467350                           /lib32/librt-2.24.so
+f749e000-f74a9000 r-xp 00000000 08:02 96345885                           /home/kmahmou1/jikes/jikesrvm/libpfm.so.4
+f74a9000-f74aa000 ---p 0000b000 08:02 96345885                           /home/kmahmou1/jikes/jikesrvm/libpfm.so.4
+f74aa000-f74ab000 r--p 0000b000 08:02 96345885                           /home/kmahmou1/jikes/jikesrvm/libpfm.so.4
+f74ab000-f74b0000 rw-p 0000c000 08:02 96345885                           /home/kmahmou1/jikes/jikesrvm/libpfm.so.4
+f74b0000-f74b2000 rw-p 00000000 00:00 0 
+f74b2000-f74b5000 r-xp 00000000 08:02 42467337                           /lib32/libdl-2.24.so
+f74b5000-f74b6000 r--p 00002000 08:02 42467337                           /lib32/libdl-2.24.so
+f74b6000-f74b7000 rw-p 00003000 08:02 42467337                           /lib32/libdl-2.24.so
+f74b7000-f74d0000 r-xp 00000000 08:02 42467348                           /lib32/libpthread-2.24.so
+f74d0000-f74d1000 r--p 00018000 08:02 42467348                           /lib32/libpthread-2.24.so
+f74d1000-f74d2000 rw-p 00019000 08:02 42467348                           /lib32/libpthread-2.24.so
+f74d2000-f74d4000 rw-p 00000000 00:00 0 
+f74d4000-f7685000 r-xp 00000000 08:02 42467334                           /lib32/libc-2.24.so
+f7685000-f7686000 ---p 001b1000 08:02 42467334                           /lib32/libc-2.24.so
+f7686000-f7688000 r--p 001b1000 08:02 42467334                           /lib32/libc-2.24.so
+f7688000-f7689000 rw-p 001b3000 08:02 42467334                           /lib32/libc-2.24.so
+f7689000-f768c000 rw-p 00000000 00:00 0 
+f768c000-f76df000 r-xp 00000000 08:02 42467338                           /lib32/libm-2.24.so
+f76df000-f76e0000 r--p 00052000 08:02 42467338                           /lib32/libm-2.24.so
+f76e0000-f76e1000 rw-p 00053000 08:02 42467338                           /lib32/libm-2.24.so
+f76e5000-f76ef000 r-xp 00000000 08:02 96337942                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavaio.so
+f76ef000-f76f0000 r--p 00009000 08:02 96337942                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavaio.so
+f76f0000-f76f1000 rw-p 0000a000 08:02 96337942                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavaio.so
+f76f1000-f76f2000 rw-p 00000000 00:00 0 
+f76f2000-f76f3000 r-xp 00000000 08:02 96337955                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm_jni.so
+f76f3000-f76f4000 r--p 00000000 08:02 96337955                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm_jni.so
+f76f4000-f76f5000 rw-p 00001000 08:02 96337955                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm_jni.so
+f76f5000-f770b000 r-xp 00000000 08:02 96337934                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm.so
+f770b000-f770c000 r--p 00015000 08:02 96337934                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm.so
+f770c000-f770d000 rw-p 00016000 08:02 96337934                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm.so
+f770d000-f770f000 rw-p 00000000 00:00 0 
+f770f000-f7711000 r--p 00000000 00:00 0                                  [vvar]
+f7711000-f7713000 r-xp 00000000 00:00 0                                  [vdso]
+f7713000-f7736000 r-xp 00000000 08:02 42467330                           /lib32/ld-2.24.so
+f7736000-f7737000 r--p 00022000 08:02 42467330                           /lib32/ld-2.24.so
+f7737000-f7738000 rw-p 00023000 08:02 42467330                           /lib32/ld-2.24.so
+fff0d000-fff2f000 rw-p 00000000 00:00 0                                  [stack]
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 6 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 7 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting =====
+perf initializationshutdown hook is invoked!!
+logQueue size is : 0
+[print_counters_g] .... Number of threads is 642 
+Printing java.library.path below ...
+/home/kmahmou1/jikes/jikesrvm/energy/64
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by energy.Scaler (file:/home/kmahmou1/jikes/jikesrvm/) to field java.lang.ClassLoader.sys_paths
+WARNING: Please consider reporting this to the maintainers of energy.Scaler
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2201000
+2200000
+2100000
+2000000
+1900000
+1800000
+1700000
+1600000
+1500000
+1400000
+1300000
+1200000
+Attempting to unmask SIGQUIT...SUCCESS
+Using scaled threading model. 40 processors detected, 40 threads used to drive the workload, in a possible range of [1,512]
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 1 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 2 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 3 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 4 =====
+Header Chunk. Image width:512 height:512 depth:8 color type:2 compression type:0 filter type:0 interlace:0
+===== DaCapo 9.12 sunflow starting warmup 5 =====
+JikesRVM: Failing instruction starting at f778aa01 wasn't in RVM address space
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xdaa0400c - InsPtr:0xf778aa01 instFollowPtr:0xffffffff threadPtr:0x680d920c jtocPtr:0x600802f0
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0xf778aa01
+eax (T0)      (nil)
+ebx (ctrs)    0xf779a000
+ecx (S0)      0x1
+edx (T1)      (nil)
+esi (TR)      0x680d920c
+edi (S1)      0x7d602d18
+ebp           0x692d1860
+esp (SP)      0x692d1848
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010246
+fpregs        0xdaa04090
+oldmask       0x00020000
+cr2           0x00000000
+JikesRVM: unexpected hardware trap outside of RVM address space - 0xf778aa01 0x680d920c
+fault address (nil)
+eip           0xf778aa01
+eax (T0)      (nil)
+ebx (ctrs)    0xf779a000
+ecx (S0)      0x1
+edx (T1)      (nil)
+esi (TR)      0x680d920c
+edi (S1)      0x7d602d18
+ebp           0x692d1860
+esp (SP)      0x692d1848
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010246
+fpregs        0xdaa04090
+oldmask       0x00020000
+cr2           0x00000000
+attempting to dump proc map ...
+perf initialization5660f000-56613000 r-xp 00000000 08:02 96352688                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/JikesRVM
+56613000-56614000 r--p 00003000 08:02 96352688                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/JikesRVM
+56614000-56615000 rw-p 00004000 08:02 96352688                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/JikesRVM
+56a53000-56a96000 rw-p 00000000 00:00 0                                  [heap]
+60000000-62147000 rwxp 00000000 08:02 96337943                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/RVM.data.image
+64000000-64ee2000 rwxp 00000000 08:02 96337953                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/RVM.code.image
+67000000-67059000 r--p 00000000 08:02 96337929                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/RVM.rmap.image
+68000000-68400000 rwxp 00000000 00:00 0 
+68400000-b0000000 rwxp 00000000 00:00 0 
+c0000000-c00c1000 rw-p 00000000 00:00 0 
+c00c1000-c0100000 ---p 00000000 00:00 0 
+c01f4000-c01f5000 ---p 00000000 00:00 0 
+c01f5000-c09f5000 rw-p 00000000 00:00 0 
+c09f5000-c09f6000 ---p 00000000 00:00 0 
+c09f6000-c11f6000 rw-p 00000000 00:00 0 
+c11f6000-c11f7000 ---p 00000000 00:00 0 
+c11f7000-c19f7000 rw-p 00000000 00:00 0 
+c19f7000-c19f8000 ---p 00000000 00:00 0 
+c19f8000-c21f8000 rw-p 00000000 00:00 0 
+c21f8000-c21f9000 ---p 00000000 00:00 0 
+c21f9000-c29f9000 rw-p 00000000 00:00 0 
+c29f9000-c29fa000 ---p 00000000 00:00 0 
+c29fa000-c31fa000 rw-p 00000000 00:00 0 
+c31fa000-c31fb000 ---p 00000000 00:00 0 
+c31fb000-c39fb000 rw-p 00000000 00:00 0 
+c39fb000-c39fc000 ---p 00000000 00:00 0 
+c39fc000-c41fc000 rw-p 00000000 00:00 0 
+c41fc000-c41fd000 ---p 00000000 00:00 0 
+c41fd000-c49fd000 rw-p 00000000 00:00 0 
+c49fd000-c49fe000 ---p 00000000 00:00 0 
+c49fe000-c51fe000 rw-p 00000000 00:00 0 
+c51fe000-c51ff000 ---p 00000000 00:00 0 
+c51ff000-c59ff000 rw-p 00000000 00:00 0 
+c59ff000-c5a00000 ---p 00000000 00:00 0 
+c5a00000-c6200000 rw-p 00000000 00:00 0 
+c6200000-c6225000 rw-p 00000000 00:00 0 
+c6225000-c6300000 ---p 00000000 00:00 0 
+c63ff000-c6400000 ---p 00000000 00:00 0 
+c6400000-c6c00000 rw-p 00000000 00:00 0 
+c6c00000-c6c25000 rw-p 00000000 00:00 0 
+c6c25000-c6d00000 ---p 00000000 00:00 0 
+c6dff000-c6e00000 ---p 00000000 00:00 0 
+c6e00000-c7600000 rw-p 00000000 00:00 0 
+c7600000-c7625000 rw-p 00000000 00:00 0 
+c7625000-c7700000 ---p 00000000 00:00 0 
+c77ff000-c7800000 ---p 00000000 00:00 0 
+c7800000-c8000000 rw-p 00000000 00:00 0 
+c8000000-c8025000 rw-p 00000000 00:00 0 
+c8025000-c8100000 ---p 00000000 00:00 0 
+c81ff000-c8200000 ---p 00000000 00:00 0 
+c8200000-c8a00000 rw-p 00000000 00:00 0 
+c8a00000-c8a25000 rw-p 00000000 00:00 0 
+c8a25000-c8b00000 ---p 00000000 00:00 0 
+c8bff000-c8c00000 ---p 00000000 00:00 0 
+c8c00000-c9400000 rw-p 00000000 00:00 0 
+c9400000-c9425000 rw-p 00000000 00:00 0 
+c9425000-c9500000 ---p 00000000 00:00 0 
+c95ff000-c9600000 ---p 00000000 00:00 0 
+c9600000-c9e00000 rw-p 00000000 00:00 0 
+c9e00000-c9e25000 rw-p 00000000 00:00 0 
+c9e25000-c9f00000 ---p 00000000 00:00 0 
+c9fff000-ca000000 ---p 00000000 00:00 0 
+ca000000-ca800000 rw-p 00000000 00:00 0 
+ca800000-ca825000 rw-p 00000000 00:00 0 
+ca825000-ca900000 ---p 00000000 00:00 0 
+ca9ff000-caa00000 ---p 00000000 00:00 0 
+caa00000-cb200000 rw-p 00000000 00:00 0 
+cb200000-cb225000 rw-p 00000000 00:00 0 
+cb225000-cb300000 ---p 00000000 00:00 0 
+cb3ff000-cb400000 ---p 00000000 00:00 0 
+cb400000-cbc00000 rw-p 00000000 00:00 0 
+cbc00000-cbc25000 rw-p 00000000 00:00 0 
+cbc25000-cbd00000 ---p 00000000 00:00 0 
+cbdff000-cbe00000 ---p 00000000 00:00 0 
+cbe00000-cc600000 rw-p 00000000 00:00 0 
+cc600000-cc625000 rw-p 00000000 00:00 0 
+cc625000-cc700000 ---p 00000000 00:00 0 
+cc7ff000-cc800000 ---p 00000000 00:00 0 
+cc800000-cd000000 rw-p 00000000 00:00 0 
+cd000000-cd025000 rw-p 00000000 00:00 0 
+cd025000-cd100000 ---p 00000000 00:00 0 
+cd1ff000-cd200000 ---p 00000000 00:00 0 
+cd200000-cda00000 rw-p 00000000 00:00 0 
+cda00000-cda25000 rw-p 00000000 00:00 0 
+cda25000-cdb00000 ---p 00000000 00:00 0 
+cdbff000-cdc00000 ---p 00000000 00:00 0 
+cdc00000-ce400000 rw-p 00000000 00:00 0 
+ce400000-ce425000 rw-p 00000000 00:00 0 
+ce425000-ce500000 ---p 00000000 00:00 0 
+ce5ff000-ce600000 ---p 00000000 00:00 0 
+ce600000-cee00000 rw-p 00000000 00:00 0 
+cee00000-cee25000 rw-p 00000000 00:00 0 
+cee25000-cef00000 ---p 00000000 00:00 0 
+cefff000-cf000000 ---p 00000000 00:00 0 
+cf000000-cf800000 rw-p 00000000 00:00 0 
+cf800000-cf825000 rw-p 00000000 00:00 0 
+cf825000-cf900000 ---p 00000000 00:00 0 
+cf9ff000-cfa00000 ---p 00000000 00:00 0 
+cfa00000-d0200000 rw-p 00000000 00:00 0 
+d0200000-d0225000 rw-p 00000000 00:00 0 
+d0225000-d0300000 ---p 00000000 00:00 0 
+d03ff000-d0400000 ---p 00000000 00:00 0 
+d0400000-d0c00000 rw-p 00000000 00:00 0 
+d0c00000-d0c25000 rw-p 00000000 00:00 0 
+d0c25000-d0d00000 ---p 00000000 00:00 0 
+d0dff000-d0e00000 ---p 00000000 00:00 0 
+d0e00000-d1600000 rw-p 00000000 00:00 0 
+d1600000-d1625000 rw-p 00000000 00:00 0 
+d1625000-d1700000 ---p 00000000 00:00 0 
+d17ff000-d1800000 ---p 00000000 00:00 0 
+d1800000-d2000000 rw-p 00000000 00:00 0 
+d2000000-d2025000 rw-p 00000000 00:00 0 
+d2025000-d2100000 ---p 00000000 00:00 0 
+d21ff000-d2200000 ---p 00000000 00:00 0 
+d2200000-d2a00000 rw-p 00000000 00:00 0 
+d2a00000-d2a25000 rw-p 00000000 00:00 0 
+d2a25000-d2b00000 ---p 00000000 00:00 0 
+d2bff000-d2c00000 ---p 00000000 00:00 0 
+d2c00000-d3400000 rw-p 00000000 00:00 0 
+d3400000-d3425000 rw-p 00000000 00:00 0 
+d3425000-d3500000 ---p 00000000 00:00 0 
+d35ff000-d3600000 ---p 00000000 00:00 0 
+d3600000-d3e00000 rw-p 00000000 00:00 0 
+d3e00000-d3e25000 rw-p 00000000 00:00 0 
+d3e25000-d3f00000 ---p 00000000 00:00 0 
+d3fff000-d4000000 ---p 00000000 00:00 0 
+d4000000-d4800000 rw-p 00000000 00:00 0 
+d4800000-d4825000 rw-p 00000000 00:00 0 
+d4825000-d4900000 ---p 00000000 00:00 0 
+d49ff000-d4a00000 ---p 00000000 00:00 0 
+d4a00000-d5200000 rw-p 00000000 00:00 0 
+d5200000-d5225000 rw-p 00000000 00:00 0 
+d5225000-d5300000 ---p 00000000 00:00 0 
+d53ff000-d5400000 ---p 00000000 00:00 0 
+d5400000-d5c00000 rw-p 00000000 00:00 0 
+d5c00000-d5c25000 rw-p 00000000 00:00 0 
+d5c25000-d5d00000 ---p 00000000 00:00 0 
+d5dff000-d5e00000 ---p 00000000 00:00 0 
+d5e00000-d6600000 rw-p 00000000 00:00 0 
+d6600000-d6625000 rw-p 00000000 00:00 0 
+d6625000-d6700000 ---p 00000000 00:00 0 
+d67ff000-d6800000 ---p 00000000 00:00 0 
+d6800000-d7000000 rw-p 00000000 00:00 0 
+d7000000-d7025000 rw-p 00000000 00:00 0 
+d7025000-d7100000 ---p 00000000 00:00 0 
+d71fe000-d71ff000 ---p 00000000 00:00 0 
+d71ff000-d79ff000 rw-p 00000000 00:00 0 
+d79ff000-d7a00000 ---p 00000000 00:00 0 
+d7a00000-d8200000 rw-p 00000000 00:00 0 
+d8200000-d8225000 rw-p 00000000 00:00 0 
+d8225000-d8300000 ---p 00000000 00:00 0 
+d8300000-d8325000 rw-p 00000000 00:00 0 
+d8325000-d8400000 ---p 00000000 00:00 0 
+d8400000-d8425000 rw-p 00000000 00:00 0 
+d8425000-d8500000 ---p 00000000 00:00 0 
+d85fe000-d85ff000 ---p 00000000 00:00 0 
+d85ff000-d8dff000 rw-p 00000000 00:00 0 
+d8e00000-d8e25000 rw-p 00000000 00:00 0 
+d8e25000-d8f00000 ---p 00000000 00:00 0 
+d8fff000-d9000000 ---p 00000000 00:00 0 
+d9000000-d9800000 rw-p 00000000 00:00 0 
+d9800000-d9825000 rw-p 00000000 00:00 0 
+d9825000-d9900000 ---p 00000000 00:00 0 
+d99fe000-d99ff000 ---p 00000000 00:00 0 
+d99ff000-da1ff000 rw-p 00000000 00:00 0 
+da1ff000-da200000 ---p 00000000 00:00 0 
+da200000-daa00000 rw-p 00000000 00:00 0 
+daa00000-dab00000 rw-p 00000000 00:00 0 
+dabff000-dac00000 ---p 00000000 00:00 0 
+dac00000-db400000 rw-p 00000000 00:00 0 
+db400000-db425000 rw-p 00000000 00:00 0 
+db425000-db500000 ---p 00000000 00:00 0 
+db5ff000-db600000 ---p 00000000 00:00 0 
+db600000-dbe00000 rw-p 00000000 00:00 0 
+dbe00000-dbe25000 rw-p 00000000 00:00 0 
+dbe25000-dbf00000 ---p 00000000 00:00 0 
+dbfff000-dc000000 ---p 00000000 00:00 0 
+dc000000-dc800000 rw-p 00000000 00:00 0 
+dc800000-dc825000 rw-p 00000000 00:00 0 
+dc825000-dc900000 ---p 00000000 00:00 0 
+dc9ff000-dca00000 ---p 00000000 00:00 0 
+dca00000-dd200000 rw-p 00000000 00:00 0 
+dd200000-dd225000 rw-p 00000000 00:00 0 
+dd225000-dd300000 ---p 00000000 00:00 0 
+dd3ff000-dd400000 ---p 00000000 00:00 0 
+dd400000-ddc00000 rw-p 00000000 00:00 0 
+ddc00000-ddc25000 rw-p 00000000 00:00 0 
+ddc25000-ddd00000 ---p 00000000 00:00 0 
+dddff000-dde00000 ---p 00000000 00:00 0 
+dde00000-de600000 rw-p 00000000 00:00 0 
+de600000-de625000 rw-p 00000000 00:00 0 
+de625000-de700000 ---p 00000000 00:00 0 
+de7ff000-de800000 ---p 00000000 00:00 0 
+de800000-df000000 rw-p 00000000 00:00 0 
+df000000-df025000 rw-p 00000000 00:00 0 
+df025000-df100000 ---p 00000000 00:00 0 
+df1ff000-df200000 ---p 00000000 00:00 0 
+df200000-dfa00000 rw-p 00000000 00:00 0 
+dfa00000-dfa25000 rw-p 00000000 00:00 0 
+dfa25000-dfb00000 ---p 00000000 00:00 0 
+dfbff000-dfc00000 ---p 00000000 00:00 0 
+dfc00000-e0400000 rw-p 00000000 00:00 0 
+e0400000-e0425000 rw-p 00000000 00:00 0 
+e0425000-e0500000 ---p 00000000 00:00 0 
+e05ff000-e0600000 ---p 00000000 00:00 0 
+e0600000-e0e00000 rw-p 00000000 00:00 0 
+e0e00000-e0e25000 rw-p 00000000 00:00 0 
+e0e25000-e0f00000 ---p 00000000 00:00 0 
+e0fff000-e1000000 ---p 00000000 00:00 0 
+e1000000-e1800000 rw-p 00000000 00:00 0 
+e1800000-e1825000 rw-p 00000000 00:00 0 
+e1825000-e1900000 ---p 00000000 00:00 0 
+e19ff000-e1a00000 ---p 00000000 00:00 0 
+e1a00000-e2200000 rw-p 00000000 00:00 0 
+e2200000-e2225000 rw-p 00000000 00:00 0 
+e2225000-e2300000 ---p 00000000 00:00 0 
+e23ff000-e2400000 ---p 00000000 00:00 0 
+e2400000-e2c00000 rw-p 00000000 00:00 0 
+e2c00000-e2c25000 rw-p 00000000 00:00 0 
+e2c25000-e2d00000 ---p 00000000 00:00 0 
+e2dff000-e2e00000 ---p 00000000 00:00 0 
+e2e00000-e3600000 rw-p 00000000 00:00 0 
+e3600000-e3625000 rw-p 00000000 00:00 0 
+e3625000-e3700000 ---p 00000000 00:00 0 
+e37ff000-e3800000 ---p 00000000 00:00 0 
+e3800000-e4000000 rw-p 00000000 00:00 0 
+e4000000-e4025000 rw-p 00000000 00:00 0 
+e4025000-e4100000 ---p 00000000 00:00 0 
+e41ff000-e4200000 ---p 00000000 00:00 0 
+e4200000-e4a00000 rw-p 00000000 00:00 0 
+e4a00000-e4a25000 rw-p 00000000 00:00 0 
+e4a25000-e4b00000 ---p 00000000 00:00 0 
+e4bff000-e4c00000 ---p 00000000 00:00 0 
+e4c00000-e5400000 rw-p 00000000 00:00 0 
+e5400000-e5425000 rw-p 00000000 00:00 0 
+e5425000-e5500000 ---p 00000000 00:00 0 
+e55ff000-e5600000 ---p 00000000 00:00 0 
+e5600000-e5e00000 rw-p 00000000 00:00 0 
+e5e00000-e5e25000 rw-p 00000000 00:00 0 
+e5e25000-e5f00000 ---p 00000000 00:00 0 
+e5fff000-e6000000 ---p 00000000 00:00 0 
+e6000000-e6800000 rw-p 00000000 00:00 0 
+e6800000-e6825000 rw-p 00000000 00:00 0 
+e6825000-e6900000 ---p 00000000 00:00 0 
+e69ff000-e6a00000 ---p 00000000 00:00 0 
+e6a00000-e7200000 rw-p 00000000 00:00 0 
+e7200000-e7225000 rw-p 00000000 00:00 0 
+e7225000-e7300000 ---p 00000000 00:00 0 
+e73ff000-e7400000 ---p 00000000 00:00 0 
+e7400000-e7c00000 rw-p 00000000 00:00 0 
+e7c00000-e7c25000 rw-p 00000000 00:00 0 
+e7c25000-e7d00000 ---p 00000000 00:00 0 
+e7dff000-e7e00000 ---p 00000000 00:00 0 
+e7e00000-e8600000 rw-p 00000000 00:00 0 
+e8600000-e8625000 rw-p 00000000 00:00 0 
+e8625000-e8700000 ---p 00000000 00:00 0 
+e87ff000-e8800000 ---p 00000000 00:00 0 
+e8800000-e9000000 rw-p 00000000 00:00 0 
+e9000000-e9025000 rw-p 00000000 00:00 0 
+e9025000-e9100000 ---p 00000000 00:00 0 
+e91ff000-e9200000 ---p 00000000 00:00 0 
+e9200000-e9a00000 rw-p 00000000 00:00 0 
+e9a00000-e9a25000 rw-p 00000000 00:00 0 
+e9a25000-e9b00000 ---p 00000000 00:00 0 
+e9bff000-e9c00000 ---p 00000000 00:00 0 
+e9c00000-ea400000 rw-p 00000000 00:00 0 
+ea400000-ea425000 rw-p 00000000 00:00 0 
+ea425000-ea500000 ---p 00000000 00:00 0 
+ea5ff000-ea600000 ---p 00000000 00:00 0 
+ea600000-eae00000 rw-p 00000000 00:00 0 
+eae00000-eae25000 rw-p 00000000 00:00 0 
+eae25000-eaf00000 ---p 00000000 00:00 0 
+eafff000-eb000000 ---p 00000000 00:00 0 
+eb000000-eb800000 rw-p 00000000 00:00 0 
+eb800000-eb825000 rw-p 00000000 00:00 0 
+eb825000-eb900000 ---p 00000000 00:00 0 
+eb9ff000-eba00000 ---p 00000000 00:00 0 
+eba00000-ec200000 rw-p 00000000 00:00 0 
+ec200000-ec225000 rw-p 00000000 00:00 0 
+ec225000-ec300000 ---p 00000000 00:00 0 
+ec3ff000-ec400000 ---p 00000000 00:00 0 
+ec400000-ecc00000 rw-p 00000000 00:00 0 
+ecc00000-ecc25000 rw-p 00000000 00:00 0 
+ecc25000-ecd00000 ---p 00000000 00:00 0 
+ecdff000-ece00000 ---p 00000000 00:00 0 
+ece00000-ed600000 rw-p 00000000 00:00 0 
+ed600000-ed625000 rw-p 00000000 00:00 0 
+ed625000-ed700000 ---p 00000000 00:00 0 
+ed7ff000-ed800000 ---p 00000000 00:00 0 
+ed800000-ee000000 rw-p 00000000 00:00 0 
+ee000000-ee025000 rw-p 00000000 00:00 0 
+ee025000-ee100000 ---p 00000000 00:00 0 
+ee1ff000-ee200000 ---p 00000000 00:00 0 
+ee200000-eea00000 rw-p 00000000 00:00 0 
+eea00000-eea25000 rw-p 00000000 00:00 0 
+eea25000-eeb00000 ---p 00000000 00:00 0 
+eebff000-eec00000 ---p 00000000 00:00 0 
+eec00000-ef400000 rw-p 00000000 00:00 0 
+ef400000-ef425000 rw-p 00000000 00:00 0 
+ef425000-ef500000 ---p 00000000 00:00 0 
+ef5ff000-ef600000 ---p 00000000 00:00 0 
+ef600000-efe00000 rw-p 00000000 00:00 0 
+efe00000-efe25000 rw-p 00000000 00:00 0 
+efe25000-eff00000 ---p 00000000 00:00 0 
+effff000-f0000000 ---p 00000000 00:00 0 
+f0000000-f0800000 rw-p 00000000 00:00 0 
+f0800000-f0825000 rw-p 00000000 00:00 0 
+f0825000-f0900000 ---p 00000000 00:00 0 
+f09ff000-f0a00000 ---p 00000000 00:00 0 
+f0a00000-f1200000 rw-p 00000000 00:00 0 
+f1200000-f1225000 rw-p 00000000 00:00 0 
+f1225000-f1300000 ---p 00000000 00:00 0 
+f13ff000-f1400000 ---p 00000000 00:00 0 
+f1400000-f1c00000 rw-p 00000000 00:00 0 
+f1c00000-f1c25000 rw-p 00000000 00:00 0 
+f1c25000-f1d00000 ---p 00000000 00:00 0 
+f1dff000-f1e00000 ---p 00000000 00:00 0 
+f1e00000-f2600000 rw-p 00000000 00:00 0 
+f2600000-f2625000 rw-p 00000000 00:00 0 
+f2625000-f2700000 ---p 00000000 00:00 0 
+f27ff000-f2800000 ---p 00000000 00:00 0 
+f2800000-f3000000 rw-p 00000000 00:00 0 
+f3000000-f3025000 rw-p 00000000 00:00 0 
+f3025000-f3100000 ---p 00000000 00:00 0 
+f31ff000-f3200000 ---p 00000000 00:00 0 
+f3200000-f3a00000 rw-p 00000000 00:00 0 
+f3a00000-f3a25000 rw-p 00000000 00:00 0 
+f3a25000-f3b00000 ---p 00000000 00:00 0 
+f3bff000-f3c00000 ---p 00000000 00:00 0 
+f3c00000-f4400000 rw-p 00000000 00:00 0 
+f4400000-f4425000 rw-p 00000000 00:00 0 
+f4425000-f4500000 ---p 00000000 00:00 0 
+f45ff000-f4600000 ---p 00000000 00:00 0 
+f4600000-f4e00000 rw-p 00000000 00:00 0 
+f4e00000-f4e25000 rw-p 00000000 00:00 0 
+f4e25000-f4f00000 ---p 00000000 00:00 0 
+f4fff000-f5000000 ---p 00000000 00:00 0 
+f5000000-f5800000 rw-p 00000000 00:00 0 
+f5800000-f5825000 rw-p 00000000 00:00 0 
+f5825000-f5900000 ---p 00000000 00:00 0 
+f59ff000-f5a00000 ---p 00000000 00:00 0 
+f5a00000-f6200000 rw-p 00000000 00:00 0 
+f6200000-f6225000 rw-p 00000000 00:00 0 
+f6225000-f6300000 ---p 00000000 00:00 0 
+f6399000-f63b5000 r-xp 00000000 08:02 161484027                          /usr/lib32/libgcc_s.so.1
+f63b5000-f63b6000 r--p 0001b000 08:02 161484027                          /usr/lib32/libgcc_s.so.1
+f63b6000-f63b7000 rw-p 0001c000 08:02 161484027                          /usr/lib32/libgcc_s.so.1
+f63cb000-f63ed000 rw-p 00000000 00:00 0 
+f63ed000-f63fc000 r-xp 00000000 08:02 96337928                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavanio.so
+f63fc000-f63fd000 r--p 0000e000 08:02 96337928                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavanio.so
+f63fd000-f63fe000 rw-p 0000f000 08:02 96337928                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavanio.so
+f63fe000-f63ff000 rw-p 00000000 00:00 0 
+f63ff000-f6400000 ---p 00000000 00:00 0 
+f6400000-f6c00000 rw-p 00000000 00:00 0 
+f6c00000-f6c25000 rw-p 00000000 00:00 0 
+f6c25000-f6d00000 ---p 00000000 00:00 0 
+f6d04000-f6d1d000 r-xp 00000000 08:02 96337941                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavalang.so
+f6d1d000-f6d1e000 r--p 00018000 08:02 96337941                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavalang.so
+f6d1e000-f6d1f000 rw-p 00019000 08:02 96337941                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavalang.so
+f6d1f000-f6d20000 rw-p 00000000 00:00 0 
+f6d20000-f6d21000 ---p 00000000 00:00 0 
+f6d21000-f7523000 rw-p 00000000 00:00 0 
+f7523000-f752a000 r-xp 00000000 08:02 42467350                           /lib32/librt-2.24.so
+f752a000-f752b000 r--p 00006000 08:02 42467350                           /lib32/librt-2.24.so
+f752b000-f752c000 rw-p 00007000 08:02 42467350                           /lib32/librt-2.24.so
+f752c000-f7537000 r-xp 00000000 08:02 96345885                           /home/kmahmou1/jikes/jikesrvm/libpfm.so.4
+f7537000-f7538000 ---p 0000b000 08:02 96345885                           /home/kmahmou1/jikes/jikesrvm/libpfm.so.4
+f7538000-f7539000 r--p 0000b000 08:02 96345885                           /home/kmahmou1/jikes/jikesrvm/libpfm.so.4
+f7539000-f753e000 rw-p 0000c000 08:02 96345885                           /home/kmahmou1/jikes/jikesrvm/libpfm.so.4
+f753e000-f7540000 rw-p 00000000 00:00 0 
+f7540000-f7543000 r-xp 00000000 08:02 42467337                           /lib32/libdl-2.24.so
+f7543000-f7544000 r--p 00002000 08:02 42467337                           /lib32/libdl-2.24.so
+f7544000-f7545000 rw-p 00003000 08:02 42467337                           /lib32/libdl-2.24.so
+f7545000-f755e000 r-xp 00000000 08:02 42467348                           /lib32/libpthread-2.24.so
+f755e000-f755f000 r--p 00018000 08:02 42467348                           /lib32/libpthread-2.24.so
+f755f000-f7560000 rw-p 00019000 08:02 42467348                           /lib32/libpthread-2.24.so
+f7560000-f7562000 rw-p 00000000 00:00 0 
+f7562000-f7713000 r-xp 00000000 08:02 42467334                           /lib32/libc-2.24.so
+f7713000-f7714000 ---p 001b1000 08:02 42467334                           /lib32/libc-2.24.so
+f7714000-f7716000 r--p 001b1000 08:02 42467334                           /lib32/libc-2.24.so
+f7716000-f7717000 rw-p 001b3000 08:02 42467334                           /lib32/libc-2.24.so
+f7717000-f771a000 rw-p 00000000 00:00 0 
+f771a000-f776d000 r-xp 00000000 08:02 42467338                           /lib32/libm-2.24.so
+f776d000-f776e000 r--p 00052000 08:02 42467338                           /lib32/libm-2.24.so
+f776e000-f776f000 rw-p 00053000 08:02 42467338                           /lib32/libm-2.24.so
+f7773000-f777d000 r-xp 00000000 08:02 96337942                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavaio.so
+f777d000-f777e000 r--p 00009000 08:02 96337942                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavaio.so
+f777e000-f777f000 rw-p 0000a000 08:02 96337942                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjavaio.so
+f777f000-f7780000 rw-p 00000000 00:00 0 
+f7780000-f7781000 r-xp 00000000 08:02 96337955                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm_jni.so
+f7781000-f7782000 r--p 00000000 08:02 96337955                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm_jni.so
+f7782000-f7783000 rw-p 00001000 08:02 96337955                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm_jni.so
+f7783000-f7799000 r-xp 00000000 08:02 96337934                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm.so
+f7799000-f779a000 r--p 00015000 08:02 96337934                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm.so
+f779a000-f779b000 rw-p 00016000 08:02 96337934                           /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/libjvm.so
+f779b000-f779d000 rw-p 00000000 00:00 0 
+f779d000-f779f000 r--p 00000000 00:00 0                                  [vvar]
+f779f000-f77a1000 r-xp 00000000 00:00 0                                  [vdso]
+f77a1000-f77c4000 r-xp 00000000 08:02 42467330                           /lib32/ld-2.24.so
+f77c4000-f77c5000 r--p 00022000 08:02 42467330                           /lib32/ld-2.24.so
+f77c5000-f77c6000 rw-p 00023000 08:02 42467330                           /lib32/ld-2.24.so
+ffd2e000-ffd50000 rw-p 00000000 00:00 0                                  [stack]

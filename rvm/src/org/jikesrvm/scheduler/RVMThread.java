@@ -155,6 +155,9 @@ public final class RVMThread extends ThreadContext {
 
 
   //Kenan
+  public final static int STRIDE = 10;
+  public static int SAMPLES = 128;
+  public static int FREQ = 0;
   public final static int entrySize = 256;
   public int methodYPDisabledCount = 0;
   //Index for YPDisabledMethodID
@@ -172,6 +175,17 @@ public final class RVMThread extends ThreadContext {
   public int[] YPDisabledMethods = new int[entrySize];
   /**Counter for yield point disabled by GC only*/
   public int YPDisabledCountByGC = 0;
+  /**Kenan: time slice expired times for energy/hardware counter profiling*/
+  public int energyTimeSliceExpired = 0;
+  /**Kenan: time slice expired times for energy/hardware counter profiling*/
+  public int samplesThisTimerInterrupt = 128;
+  /**Kenan: Count invocations to trigger sample*/
+  public int skippedInvocations = STRIDE;
+  /**Kenan: Counter for method invocation*/
+  public int invocationCounter = 0;
+  /**Kenan: IS the first sample in the burst*/
+  public boolean isFirstSampleInBurst = true;
+
 
 
   /*
@@ -2807,6 +2821,9 @@ public final class RVMThread extends ThreadContext {
     return jniEnv != null && jniEnv.hasNativeStackFrame();
   }
 
+  
+  public static Object thread_stats_synch = new Object();
+
   /*
    * Starting and ending threads
    */
@@ -2831,9 +2848,14 @@ public final class RVMThread extends ThreadContext {
       }
       //kmahmou1-kenan-todo: Call the initialization of perf thread level details
       Scaler.perfThreadInit();
+      synchronized(thread_stats_synch) {
+      	sysCall.register_thread_stat();
+      }
       thread.run();
       sysCall.sysPerfEventDisable();
+      Scaler.perfThreadClose();
     } catch (Throwable t) {
+      Scaler.perfThreadClose();
       if (traceAcct) {
         VM.sysWriteln("Thread ",getThreadSlot()," exiting with exception.");
       }
@@ -2860,6 +2882,7 @@ public final class RVMThread extends ThreadContext {
   @SuppressWarnings({ "unused" })
   @Entrypoint
   private static void startoff() {
+ 
     bindIfRequested();
 
     RVMThread currentThread = getCurrentThread();
