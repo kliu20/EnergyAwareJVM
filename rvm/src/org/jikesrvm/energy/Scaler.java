@@ -33,7 +33,7 @@ public class Scaler implements ScalerOptions {
 	public static String[] perfEventNames;
 
 	public static void initScaler() {
-		//if(!isInitScaler) {
+		if(!isInitScaler) {
 			int core;
 			if(Controller.options.ENABLE_COUNTER_PROFILING) {
 				perfEventInit();
@@ -45,7 +45,7 @@ public class Scaler implements ScalerOptions {
 			governor = new byte[core][20];
 //			SysCall.sysCall.sysStartCounters(cacheTLBEvents, cacheTLBEvents.length);
 			isInitScaler = true;
-		//}
+		}
 	}
 	
 	public static void openDVFSFiles() {
@@ -122,7 +122,7 @@ public class Scaler implements ScalerOptions {
 	}
 	
 	/**
-	 * @return number of perf counters plus elapse time
+	 * @return number of perf counters 
 	 */
 	public static int getPerfEnerCounterNum() {
 
@@ -131,9 +131,9 @@ public class Scaler implements ScalerOptions {
 			perfCounters = Controller.options.ENABLE_COUNTER_PROFILING ? perfCounters : 0;
 			energyCounters = Controller.options.ENABLE_ENERGY_PROFILING ? EnergyCheckUtils.ENERGY_ENTRY_SIZE : 0;
 			
-			return (perfCounters + energyCounters) * EnergyCheckUtils.socketNum + 1;
+			return (perfCounters + energyCounters) * EnergyCheckUtils.socketNum;
 		}
-		return perfCounters * EnergyCheckUtils.socketNum + 1;
+		return perfCounters * EnergyCheckUtils.socketNum;
 	}
 	
 	  public static void perfEventInit() {
@@ -186,6 +186,17 @@ public class Scaler implements ScalerOptions {
 		    //Enable perf event counters
 		    sysCall.sysPerfEventEnable();
 	
+	  }
+
+	  public static void perfThreadClose() {
+
+		    sysCall.sysPerfEventDisable();
+
+		    for (int i = 0; i < perfCounters; i++) {
+		    	//Set up attributes and do perf_event_open for each event counter
+		  	sysCall.sysCloseFd(i);
+		    }
+
 	  }
 
 	/**Read event counters as a group*/

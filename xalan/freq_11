@@ -1,0 +1,73 @@
+Attempting to unmask SIGQUIT...SUCCESS
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 14529 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 12794 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 12842 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 12537 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 12432 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13186 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 12481 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 12461 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 12461 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting =====
+used = 270915 pgs = boot 0 pgs + immortal 0 pgs + meta 1 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 270931 pgs = boot 0 pgs + immortal 0 pgs + meta 17 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 1058.32 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 604.23 Mb + sanity 0.00 Mb + non-moving 1.67 Mb + sm-code 2.37 Mb + lg-code 0.48 Mb + ms 449.47 Mb
+used = 1058.32 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 604.23 Mb + sanity 0.00 Mb + non-moving 1.67 Mb + sm-code 2.37 Mb + lg-code 0.48 Mb + ms 449.47 Mb
+Died in GC:
+Thread 7: VM.sysFail(): We're in a (likely) recursive call to VM.sysFail(), 2 deep
+   sysFail was called with the message: Physical allocation failed when polling not allowed!
+Physical allocation failed when polling not allowed!
+Died in GC:
+Thread #18
+used = 270929 pgs = boot 0 pgs + immortal 0 pgs + meta 15 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 270923 pgs = boot 0 pgs + immortal 0 pgs + meta 9 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 270919 pgs = boot 0 pgs + immortal 0 pgs + meta 5 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 270928 pgs = boot 0 pgs + immortal 0 pgs + meta 14 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 1058.32 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 604.23 Mb + sanity 0.00 Mb + non-moving 1.67 Mb + sm-code 2.37 Mb + lg-code 0.48 Mb + ms 449.47 Mb
+used = 1058.32 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 604.23 Mb + sanity 0.00 Mb + non-moving 1.67 Mb + sm-code 2.37 Mb + lg-code 0.48 Mb + ms 449.47 Mb
+used = 270921 pgs = boot 0 pgs + immortal 0 pgs + meta 7 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 270924 pgs = boot 0 pgs + immortal 0 pgs + meta 10 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 270922 pgs = boot 0 pgs + immortal 0 pgs + meta 8 pgs + los 154685 pgs + sanity 0 pgs + non-moving 430 pgs + sm-code 608 pgs + lg-code 125 pgs + ms 115066 pgs
+used = 1058.32 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 604.23 Mb + sanity 0.00 Mb + non-moving 1.67 Mb + sm-code 2.37 Mb + lg-code 0.48 Mb + ms 449.47 Mb
+used = 1058.32 Mb = boot 0.00 Mb + immortal 0.00 Mb + meta 0.06 Mb + los 604.23 Mb + sanity 0.00 Mb + non-moving 1.67 Mb + sm-code 2.37 Mb + lg-code 0.48 Mb + ms 449.47 Mb
+Thread 19: VM.sysFail(): We're in a (likely) recursive call to VM.sysFail(), 5 deep
+   sysFail was called with the message: Physical allocation failed when polling not allowed!
+Thread 27: VM.sysFail(): We're in a (likely) recursive call to VM.sysFail(), 6 deep
+   sysFail was called with the message: Physical allocation failed when polling not allowed!
+used = 270917 pgs = booot 0 pg

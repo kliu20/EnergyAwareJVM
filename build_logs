@@ -1,0 +1,600 @@
+Deleting /home/kmahmou1/jikes/jikesrvm/target
+Java Home: 
+++++++++ Printing Java Version ++++++++++++
+java version "11.0.2" 2019-01-15 LTS
+Java(TM) SE Runtime Environment 18.9 (build 11.0.2+9-LTS)
+Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-LTS, mixed mode)
++++++++++++++ Printing Java Version
++++++++++++++java version after path set
+java version "1.6.0_45"
+Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
+/home/kmahmou1/jdk1.6.0_45/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+Buildfile: /home/kmahmou1/jikes/jikesrvm/build.xml
+
+compile-vmmagic-stub:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/vmmagic-stub/classes
+    [javac] Compiling 43 source files to /home/kmahmou1/jikes/jikesrvm/target/vmmagic-stub/classes
+
+compile-options:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/options/classes
+    [javac] Compiling 10 source files to /home/kmahmou1/jikes/jikesrvm/target/options/classes
+
+compile-mmtk:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/mmtk/classes
+    [javac] Compiling 332 source files to /home/kmahmou1/jikes/jikesrvm/target/mmtk/classes
+    [javac] /home/kmahmou1/jikes/jikesrvm/MMTk/src/org/mmtk/plan/semispace/gcspy/SSGCspy.java:15: warning: [deprecation] org.mmtk.plan.GCspyPlan in org.mmtk.plan has been deprecated
+    [javac] import org.mmtk.plan.GCspyPlan;
+    [javac]                     ^
+    [javac] /home/kmahmou1/jikes/jikesrvm/MMTk/src/org/mmtk/plan/semispace/gcspy/SSGCspy.java:115: warning: [deprecation] org.mmtk.plan.GCspyPlan in org.mmtk.plan has been deprecated
+    [javac] @Uninterruptible public class SSGCspy extends SS implements GCspyPlan {
+    [javac]                                                             ^
+    [javac] /home/kmahmou1/jikes/jikesrvm/MMTk/src/org/mmtk/policy/Space.java:431: warning: [deprecation] org.vmmagic.pragma.LogicallyUninterruptible in org.vmmagic.pragma has been deprecated
+    [javac]   @LogicallyUninterruptible
+    [javac]    ^
+    [javac] /home/kmahmou1/jikes/jikesrvm/MMTk/src/org/mmtk/utility/TraceGenerator.java:230: warning: [deprecation] org.vmmagic.pragma.LogicallyUninterruptible in org.vmmagic.pragma has been deprecated
+    [javac]   @LogicallyUninterruptible
+    [javac]    ^
+    [javac] 4 warnings
+    [javac] Creating empty /home/kmahmou1/jikes/jikesrvm/target/mmtk/classes/org/mmtk/plan/nogc/package-info.class
+    [javac] Creating empty /home/kmahmou1/jikes/jikesrvm/target/mmtk/classes/org/mmtk/plan/generational/immix/package-info.class
+    [javac] Creating empty /home/kmahmou1/jikes/jikesrvm/target/mmtk/classes/org/mmtk/vm/package-info.class
+    [javac] Creating empty /home/kmahmou1/jikes/jikesrvm/target/mmtk/classes/org/mmtk/plan/refcount/package-info.class
+    [javac] Creating empty /home/kmahmou1/jikes/jikesrvm/target/mmtk/classes/org/mmtk/plan/concurrent/marksweep/package-info.class
+      [jar] Building jar: /home/kmahmou1/jikes/jikesrvm/target/mmtk/mmtk.jar
+
+check-host-name:
+
+check-host-properties:
+
+check-config-properties:
+
+check-target-properties:
+     [echo] target.file /home/kmahmou1/jikes/jikesrvm/build/targets/x86_64-linux.properties
+
+check-classlibrary-properties:
+
+include-gcspy-check:
+
+prepare-ant-tasks:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/tasks/classes
+    [javac] Compiling 18 source files to /home/kmahmou1/jikes/jikesrvm/target/tasks/classes
+    [javac] Note: /home/kmahmou1/jikes/jikesrvm/tools/ant-tasks/src/org/jikesrvm/tools/template/GenerateFromTemplate.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+Trying to override old definition of task truncate
+
+check-components-properties:
+
+prepare-ant-tasks:
+
+ensure:
+
+prepare-ant-tasks:
+
+ensure:
+
+prepare-ant-tasks:
+
+ensure:
+[propertyfile] Updating property file: /home/kmahmou1/jikes/jikesrvm/components/components.properties
+
+prepare-ant-tasks:
+
+ensure:
+
+prepare-ant-tasks:
+
+ensure:
+
+check-classpath-properties:
+
+check-harmony-properties:
+
+check-gcspy-client-properties:
+
+check-gcspy-properties:
+
+check-mmtk-properties:
+
+check-properties:
+
+gen-options-uptodate-check:
+
+jburg-uptodate-check:
+
+gen-opt-ir-uptodate-check:
+
+gen-ia32-assembler-uptodate-check:
+
+gen-source-check:
+
+prepare-source:
+
+check-host-name:
+
+check-host-properties:
+
+check-config-properties:
+
+check-target-properties:
+     [echo] target.file /home/kmahmou1/jikes/jikesrvm/build/targets/x86_64-linux.properties
+
+check-classlibrary-properties:
+
+include-gcspy-check:
+
+prepare-ant-tasks:
+
+check-components-properties:
+
+prepare-ant-tasks:
+
+ensure:
+
+prepare-ant-tasks:
+
+ensure:
+
+prepare-ant-tasks:
+
+ensure:
+[propertyfile] Updating property file: /home/kmahmou1/jikes/jikesrvm/components/components.properties
+
+prepare-ant-tasks:
+
+ensure:
+
+prepare-ant-tasks:
+
+ensure:
+
+check-classpath-properties:
+
+check-harmony-properties:
+
+check-gcspy-client-properties:
+
+check-gcspy-properties:
+
+check-mmtk-properties:
+
+check-properties:
+
+gen-vmmagic-word:
+
+gen-options:
+
+build-jburg:
+
+gen-opt-ir:
+
+compile-vmmagic-stub:
+
+gen-ia32-assembler:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/ia32-assembler-opt
+     [copy] Copying 2 files to /home/kmahmou1/jikes/jikesrvm/target/ia32-assembler-opt
+     [copy] Copying 16 files to /home/kmahmou1/jikes/jikesrvm/target/ia32-assembler-opt
+     [copy] Copying 1 file to /home/kmahmou1/jikes/jikesrvm/target/ia32-assembler-opt/org/jikesrvm/compilers/common/assembler
+     [copy] Copying 1 file to /home/kmahmou1/jikes/jikesrvm/target/ia32-assembler-opt/org/jikesrvm/compilers/common/assembler
+     [copy] Copying 1 file to /home/kmahmou1/jikes/jikesrvm/target/ia32-assembler-opt/org/jikesrvm/compilers/common/assembler/ia32
+    [javac] Compiling 24 source files to /home/kmahmou1/jikes/jikesrvm/target/ia32-assembler-opt
+
+check-git-present:
+
+extract-git-version:
+
+get-git-version:
+
+gen-config-source:
+
+do-gen-source:
+
+gen-config-source-check:
+
+prepare-config-source:
+
+check-for-eclipse-project:
+
+update-eclipse-project:
+
+choose-classlib:
+
+do-checkstyle:
+
+compile:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/classes
+    [javac] Compiling 97 source files to /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/syscall/java
+    [javac] Compiling 28 source files
+    [javac] Note: Creating class org.jikesrvm.runtime.SysCallImpl
+     [echo] second compile (from /home/kmahmou1/jikes/jikesrvm/generated/main/java)
+    [javac] Compiling 1 source file to /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/classes
+
+compile-unit-tests:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/test-classes
+    [javac] Compiling 75 source files to /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/test-classes
+    [javac] Creating empty /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/test-classes/org/jikesrvm/junit/runners/package-info.class
+
+bootstrap-unit-tests:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/test-reports-bootstrap
+    [junit] Running org.jikesrvm.ClassLoadingJMXTest
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.ExampleTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.013 sec
+    [junit] Running org.jikesrvm.ExampleThatRequiresBootstrapVMTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.262 sec
+    [junit] Running org.jikesrvm.ExampleThatRequiresJikesRVMTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.JavaLangClassTest
+    [junit] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+    [junit] Running org.jikesrvm.classloader.FieldVectorTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.01 sec
+    [junit] Running org.jikesrvm.classloader.MethodVectorTest
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Skipped: 14, Time elapsed: 0.015 sec
+    [junit] Running org.jikesrvm.classloader.RVMClassTest
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.01 sec
+    [junit] Running org.jikesrvm.compilers.baseline.ia32.ArchBridgeDataExtractorTest
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.compilers.baseline.ia32.BaselineCompilerImplTest
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Skipped: 10, Time elapsed: 0.013 sec
+    [junit] Running org.jikesrvm.compilers.baseline.ia32.BaselineGCMapIteratorTest
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.compilers.common.BootImageCompilerTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.compilers.opt.bc2ir.GenerationContextTest
+    [junit] Tests run: 50, Failures: 0, Errors: 0, Skipped: 50, Time elapsed: 0.021 sec
+    [junit] Running org.jikesrvm.compilers.opt.bc2ir.OperandStackTest
+    [junit] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 sec
+    [junit] Running org.jikesrvm.compilers.opt.controlflow.TailRecursionEliminationTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 0.012 sec
+    [junit] Running org.jikesrvm.compilers.opt.escape.MethodSummaryTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+    [junit] Running org.jikesrvm.compilers.opt.inlining.CallSiteTreeTest
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.compilers.opt.inlining.InlineSequenceTest
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Skipped: 10, Time elapsed: 0.013 sec
+    [junit] Running org.jikesrvm.compilers.opt.lir2mir.SplitBasicBlockTest
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Skipped: 8, Time elapsed: 0.013 sec
+    [junit] Running org.jikesrvm.compilers.opt.regalloc.ActiveSetTest
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Skipped: 15, Time elapsed: 0.014 sec
+    [junit] Running org.jikesrvm.compilers.opt.regalloc.BasicIntervalTest
+    [junit] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+    [junit] Running org.jikesrvm.compilers.opt.regalloc.CompoundIntervalTest
+    [junit] Tests run: 36, Failures: 0, Errors: 0, Skipped: 36, Time elapsed: 0.018 sec
+    [junit] Running org.jikesrvm.compilers.opt.regalloc.MappedBasicIntervalTest
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+    [junit] Running org.jikesrvm.compilers.opt.regalloc.ScratchMapTest
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Skipped: 12, Time elapsed: 0.014 sec
+    [junit] Running org.jikesrvm.compilers.opt.regalloc.ia32.StackManagerTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.compilers.opt.runtimesupport.CodePatchSyncRequestVisitorTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 0.012 sec
+    [junit] Running org.jikesrvm.compilers.opt.util.BitSetTest
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 sec
+    [junit] Running org.jikesrvm.compilers.opt.util.CompoundEnumeratorTest
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+    [junit] Running org.jikesrvm.compilers.opt.util.DepthFirstEnumeratorTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 sec
+    [junit] Running org.jikesrvm.compilers.opt.util.QueueTest
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+    [junit] Running org.jikesrvm.compilers.opt.util.ReverseEnumeratorTest
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+    [junit] Running org.jikesrvm.compilers.opt.util.StackTest
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+    [junit] Running org.jikesrvm.compilers.opt.util.TreeTest
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 sec
+    [junit] Running org.jikesrvm.mm.mminterface.MemoryManagerTest
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Skipped: 8, Time elapsed: 0.013 sec
+    [junit] Running org.jikesrvm.osr.TypeStackTest
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+    [junit] Running org.jikesrvm.runtime.MagicTest
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.runtime.MemoryTest
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Skipped: 7, Time elapsed: 0.011 sec
+    [junit] Running org.jikesrvm.tools.oth.OptTestHarnessTest
+    [junit] Tests run: 47, Failures: 0, Errors: 0, Skipped: 47, Time elapsed: 0.021 sec
+    [junit] Running org.jikesrvm.util.AddressInputStreamTest
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Skipped: 11, Time elapsed: 0.014 sec
+    [junit] Running org.jikesrvm.util.BitVectorTest
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+    [junit] Running org.jikesrvm.util.EmptyEnumerationTest
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+    [junit] Running org.jikesrvm.util.EmptyIteratorTest
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+    [junit] Running org.jikesrvm.util.HashMapRVMTest
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+    [junit] Running org.jikesrvm.util.LinkedListIteratorRVMTest
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+    [junit] Running org.jikesrvm.util.LinkedListRVMTest
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+    [junit] Running org.jikesrvm.util.PairTest
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+    [junit] Running org.jikesrvm.util.PriorityQueueRVMTest
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+    [junit] Running org.jikesrvm.util.StringUtilitiesTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+
+compile-vmmagic:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/vmmagic/classes
+    [javac] Compiling 11 source files to /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/vmmagic/classes
+
+package-classpath:
+      [zip] Building zip: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/rvmrt.jar
+      [zip] gnu/classpath/VMStackWalker.class already added, skipping
+      [zip] gnu/classpath/VMSystemProperties.class already added, skipping
+      [zip] gnu/java/lang/VMCPStringBuilder.class already added, skipping
+      [zip] gnu/java/lang/VMInstrumentationImpl.class already added, skipping
+      [zip] gnu/java/lang/management/VMClassLoadingMXBeanImpl.class already added, skipping
+      [zip] gnu/java/lang/management/VMCompilationMXBeanImpl.class already added, skipping
+      [zip] gnu/java/lang/management/VMGarbageCollectorMXBeanImpl.class already added, skipping
+      [zip] gnu/java/lang/management/VMMemoryMXBeanImpl.class already added, skipping
+      [zip] gnu/java/lang/management/VMMemoryManagerMXBeanImpl.class already added, skipping
+      [zip] gnu/java/lang/management/VMMemoryPoolMXBeanImpl.class already added, skipping
+      [zip] gnu/java/lang/management/VMRuntimeMXBeanImpl.class already added, skipping
+      [zip] gnu/java/lang/management/VMThreadMXBeanImpl.class already added, skipping
+      [zip] gnu/java/nio/VMChannel$Kind.class already added, skipping
+      [zip] gnu/java/nio/VMChannel$State.class already added, skipping
+      [zip] gnu/java/nio/VMChannel.class already added, skipping
+      [zip] java/io/VMObjectStreamClass.class already added, skipping
+      [zip] java/lang/Class$1.class already added, skipping
+      [zip] java/lang/Class$StaticData.class already added, skipping
+      [zip] java/lang/Class.class already added, skipping
+      [zip] java/lang/Compiler.class already added, skipping
+      [zip] java/lang/Object.class already added, skipping
+      [zip] java/lang/VMClassLoader.class already added, skipping
+      [zip] java/lang/VMDouble.class already added, skipping
+      [zip] java/lang/VMFloat.class already added, skipping
+      [zip] java/lang/VMMath.class already added, skipping
+      [zip] java/lang/VMRuntime.class already added, skipping
+      [zip] java/lang/VMString.class already added, skipping
+      [zip] java/lang/VMSystem.class already added, skipping
+      [zip] java/lang/VMThread.class already added, skipping
+      [zip] java/lang/VMThrowable.class already added, skipping
+      [zip] java/lang/management/VMManagementFactory.class already added, skipping
+      [zip] java/lang/ref/PhantomReference.class already added, skipping
+      [zip] java/lang/ref/Reference.class already added, skipping
+      [zip] java/lang/ref/ReferenceQueue.class already added, skipping
+      [zip] java/lang/ref/SoftReference.class already added, skipping
+      [zip] java/lang/ref/WeakReference.class already added, skipping
+      [zip] java/lang/reflect/VMArray.class already added, skipping
+      [zip] java/lang/reflect/VMConstructor.class already added, skipping
+      [zip] java/lang/reflect/VMField.class already added, skipping
+      [zip] java/lang/reflect/VMMethod.class already added, skipping
+      [zip] java/nio/VMDirectByteBuffer.class already added, skipping
+      [zip] java/security/VMAccessController.class already added, skipping
+      [zip] java/util/VMTimeZone.class already added, skipping
+      [zip] java/util/concurrent/atomic/AtomicLong.class already added, skipping
+      [zip] sun/misc/Unsafe.class already added, skipping
+      [jar] Building jar: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/jksvm.jar
+
+package-harmony:
+
+package:
+
+prepare-asm:
+
+gen-asm:
+      [zip] Updating zip: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/rvmrt.jar
+
+gen-jni-headers:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/c
+
+gen-interface:
+     [java] == VMLayoutConstants ==
+     [java] LOG_ADDRESS_SPACE    = 32
+     [java] LOG_BYTES_IN_CHUNK   = 22
+     [java] BYTES_IN_CHUNK       = 4194304
+     [java] LOG_MAX_CHUNKS       = 10
+     [java] MAX_CHUNKS           = 1024
+     [java] HEAP_START      = 0x60000000
+     [java] HEAP_END        = 0xb0000000
+     [java] AVAILABLE_START = 0x68000000
+     [java] AVAILABLE_END   = 0xb0000000
+     [java] AVAILABLE_BYTES      = 0x48000000
+     [java] MAX_SPACE_EXTENT     = 0x80000000
+     [java] LOG_MMAP_CHUNK_BYTES = 20
+     [java] ==
+
+check-git-present:
+
+extract-git-version:
+
+get-git-version:
+
+gen-runbootimage:
+
+gen-booter-headers:
+
+build-bootimage-writer:
+    [mkdir] Created dir: /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/bootimage-writer
+    [javac] Compiling 12 source files to /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/bootimage-writer
+
+gen-primordial-list:
+
+build-bootimage:
+     [echo] Building bootimage. Output redirected to : /home/kmahmou1/jikes/jikesrvm/target/FullAdaptiveMarkSweep_x86_64-linux/BootImageWriterOutput.txt
+     [echo] MMTk properties = /home/kmahmou1/jikes/jikesrvm/build/mmtk/default.properties
+     [echo] Number of threads for compilation = 1
+     [java] BootImageWriter: compiler arg: O2
+
+init-image-dir-on-host-classpath:
+     [copy] Copying 5 files to /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux
+     [copy] Copying 1 file to /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux
+     [copy] Copying 1 file to /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux
+     [copy] Copying 3 files to /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/include
+     [echo] Dir.base /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux
+     [echo] Target Architecture is : ia32
+
+init-image-dir-on-host-harmony:
+
+init-image-dir-on-host:
+
+cross-compile-host:
+
+setup-filter-properties:
+
+check-bootloader-properties:
+
+build-gcspy-stub:
+
+gcspy-stub-to-runtime-dir:
+
+build-bootloader:
+     [echo] Creating jvm
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/sysPerfEvent.c:20:0: warning: "RVM_WITH_PERFEVENT" redefined
+     [exec]  #define RVM_WITH_PERFEVENT
+     [exec]  
+     [exec] <command-line>:0:0: note: this is the location of the previous definition
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘ProfileInit’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:53:13: warning: implicit declaration of function ‘get_nprocs’ [-Wimplicit-function-declaration]
+     [exec]   num_core = get_nprocs();
+     [exec]              ^~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:67:22: warning: implicit declaration of function ‘read_msr’ [-Wimplicit-function-declaration]
+     [exec]   uint64_t unit_info= read_msr(fd[0], MSR_RAPL_POWER_UNIT);
+     [exec]                       ^~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:68:2: warning: implicit declaration of function ‘get_msr_unit’ [-Wimplicit-function-declaration]
+     [exec]   get_msr_unit(&rapl_unit, unit_info);
+     [exec]   ^~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:69:2: warning: implicit declaration of function ‘get_wraparound_energy’ [-Wimplicit-function-declaration]
+     [exec]   get_wraparound_energy(rapl_unit.energy);
+     [exec]   ^~~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘SetPowerLimit’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:85:3: warning: implicit declaration of function ‘set_package_power_limit_enable’ [-Wimplicit-function-declaration]
+     [exec]    set_package_power_limit_enable(fd[i], enable, MSR_PKG_POWER_LIMIT);
+     [exec]    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:86:3: warning: implicit declaration of function ‘set_dram_power_limit_enable’ [-Wimplicit-function-declaration]
+     [exec]    set_dram_power_limit_enable(fd[i], enable, MSR_DRAM_POWER_LIMIT);
+     [exec]    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘GetPackagePowerSpec’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:105:2: warning: implicit declaration of function ‘get_rapl_pkg_parameters’ [-Wimplicit-function-declaration]
+     [exec]   get_rapl_pkg_parameters(fd[0], &rapl_unit, &parameters[PKG_DOMAIN]);
+     [exec]   ^~~~~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:106:2: warning: implicit declaration of function ‘getPowerSpec’ [-Wimplicit-function-declaration]
+     [exec]   getPowerSpec(result, parameters, PKG_DOMAIN);
+     [exec]   ^~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:116:9: warning: function returns address of local variable [-Wreturn-local-addr]
+     [exec]   return result;
+     [exec]          ^~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘GetDramPowerSpec’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:126:4: warning: implicit declaration of function ‘get_rapl_dram_parameters’ [-Wimplicit-function-declaration]
+     [exec]     get_rapl_dram_parameters(fd[0], &rapl_unit, &parameters[DRAM_DOMAIN]);
+     [exec]     ^~~~~~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:143:9: warning: function returns address of local variable [-Wreturn-local-addr]
+     [exec]   return result;
+     [exec]          ^~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘SetPackagePowerLimit’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:164:2: warning: implicit declaration of function ‘set_package_clamp_enable’ [-Wimplicit-function-declaration]
+     [exec]   set_package_clamp_enable(fd[socketId], MSR_PKG_POWER_LIMIT);
+     [exec]   ^~~~~~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:170:4: warning: implicit declaration of function ‘set_pkg_power_limit’ [-Wimplicit-function-declaration]
+     [exec]     set_pkg_power_limit(fd[socketId], MSR_PKG_POWER_LIMIT, parameters[PKG_DOMAIN].min_power);
+     [exec]     ^~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘SetPackageTimeWindowLimit’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:217:4: warning: implicit declaration of function ‘set_pkg_time_window_limit’ [-Wimplicit-function-declaration]
+     [exec]     set_pkg_time_window_limit(fd[socketId], MSR_PKG_POWER_LIMIT, parameters[PKG_DOMAIN].max_time_window);
+     [exec]     ^~~~~~~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘SetDramTimeWindowLimit’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:257:4: warning: implicit declaration of function ‘set_dram_time_window_limit’ [-Wimplicit-function-declaration]
+     [exec]     set_dram_time_window_limit(fd[socketId], MSR_DRAM_POWER_LIMIT, parameters[DRAM_DOMAIN].max_time_window);
+     [exec]     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘SetDramPowerLimit’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:291:4: warning: implicit declaration of function ‘set_dram_power_limit’ [-Wimplicit-function-declaration]
+     [exec]     set_dram_power_limit(fd[socketId], MSR_DRAM_POWER_LIMIT, parameters[DRAM_DOMAIN].min_power);
+     [exec]     ^~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: At top level:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:388:10: warning: return type defaults to ‘int’ [-Wimplicit-int]
+     [exec]  EXTERNAL EnergyStatCheck(char *ener_info) {
+     [exec]           ^~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:388:10: warning: conflicting types for ‘EnergyStatCheck’
+     [exec] In file included from /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:3:0:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/sys.h:140:15: note: previous declaration of ‘EnergyStatCheck’ was here
+     [exec]  EXTERNAL void EnergyStatCheck(char *);
+     [exec]                ^~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘SetGovernor’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:490:9: warning: implicit declaration of function ‘check_write_gov’ [-Wimplicit-function-declaration]
+     [exec]   return check_write_gov(num_core, name);
+     [exec]          ^~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: At top level:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:493:10: warning: return type defaults to ‘int’ [-Wimplicit-int]
+     [exec]  EXTERNAL GetGovernor(char* name) {
+     [exec]           ^~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘GetGovernor’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:497:21: warning: implicit declaration of function ‘sched_getcpu’ [-Wimplicit-function-declaration]
+     [exec]   int current_core = sched_getcpu();
+     [exec]                      ^~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c: In function ‘Scale’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/kenan.c:589:2: warning: implicit declaration of function ‘write_freq_all_cores’ [-Wimplicit-function-declaration]
+     [exec]   write_freq_all_cores(num_core, cur_freq, scal_freq, freq);
+     [exec]   ^~~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/log_queue.c: In function ‘assign_method_entry’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/log_queue.c:37:9: warning: passing argument 1 of ‘strcpy’ from incompatible pointer type [-Wincompatible-pointer-types]
+     [exec]   strcpy(&current_method_entry->names[log_indx],m);
+     [exec]          ^
+     [exec] In file included from /home/kmahmou1/jikes/jikesrvm/tools/bootloader/sys.h:30:0,
+     [exec]                  from /home/kmahmou1/jikes/jikesrvm/tools/bootloader/log_queue.c:6:
+     [exec] /usr/include/string.h:125:14: note: expected ‘char * restrict’ but argument is of type ‘char (*)[35]’
+     [exec]  extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+     [exec]               ^~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/log_queue.c:38:9: warning: passing argument 1 of ‘strcpy’ from incompatible pointer type [-Wincompatible-pointer-types]
+     [exec]   strcpy(&current_method_entry->classes[log_indx],c);
+     [exec]          ^
+     [exec] In file included from /home/kmahmou1/jikes/jikesrvm/tools/bootloader/sys.h:30:0,
+     [exec]                  from /home/kmahmou1/jikes/jikesrvm/tools/bootloader/log_queue.c:6:
+     [exec] /usr/include/string.h:125:14: note: expected ‘char * restrict’ but argument is of type ‘char (*)[55]’
+     [exec]  extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+     [exec]               ^~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c: In function ‘read_msr’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c:65:7: warning: implicit declaration of function ‘pread’ [-Wimplicit-function-declaration]
+     [exec]   if ( pread(fd, &data, sizeof data, which) != sizeof data ) {
+     [exec]        ^~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c: In function ‘write_msr’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c:87:7: warning: implicit declaration of function ‘pwrite’ [-Wimplicit-function-declaration]
+     [exec]   if ( pwrite(fd, &limit_info , sizeof limit_info, which) != sizeof limit_info)
+     [exec]        ^~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c: In function ‘get_rapl_pkg_parameters’:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c:263:2: warning: implicit declaration of function ‘get_rapl_parameters’ [-Wimplicit-function-declaration]
+     [exec]   get_rapl_parameters(fd, MSR_PKG_POWER_INFO, (rapl_msr_unit *)unit_obj, (rapl_msr_parameter *)paras);
+     [exec]   ^~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c: At top level:
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c:274:1: warning: conflicting types for ‘get_rapl_parameters’
+     [exec]  get_rapl_parameters(int fd, uint64_t msr_addr, rapl_msr_unit *unit_obj, rapl_msr_parameter *paras) {
+     [exec]  ^~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/msr.c:263:2: note: previous implicit declaration of ‘get_rapl_parameters’ was here
+     [exec]   get_rapl_parameters(fd, MSR_PKG_POWER_INFO, (rapl_msr_unit *)unit_obj, (rapl_msr_parameter *)paras);
+     [exec]   ^~~~~~~~~~~~~~~~~~~
+     [exec] /home/kmahmou1/jikes/jikesrvm/tools/bootloader/dvfs.c:76:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+     [exec]  write_freq_all_cores(int cores, char filename[][60], const char *cur_freq, const char *scal_freq, int freq) {
+     [exec]  ^~~~~~~~~~~~~~~~~~~~
+     [echo] Creating jvm.so
+     [echo] Creating jvm_jni.so
+     [echo] Creating JikesRVM
+     [exec] In file included from /home/kmahmou1/jikes/jikesrvm/tools/bootloader/main.c:51:0:
+     [exec] /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux/include/bootloader.h:3:53: warning: integer overflow in expression [-Woverflow]
+     [exec]  const unsigned heap_default_maximum_size = 5000*1024*1024;
+     [exec]                                                      ^
+
+build-debug-symbols:
+
+init-runtime-dir-on-target:
+     [copy] Copying 3 files to /home/kmahmou1/jikes/jikesrvm/dist/FullAdaptiveMarkSweep_x86_64-linux
+
+gcspy-client-to-runtime-dir:
+
+gcspy-to-runtime-dir:
+
+setup-runtime:
+
+cross-compile-target:
+
+runtime:
+
+rvm-unit-tests:
+
+main:
+
+BUILD SUCCESSFUL
+Total time: 1 minute 59 seconds

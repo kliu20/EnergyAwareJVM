@@ -31,6 +31,9 @@ class Scaler {
 			}
 		}
 		int[] a = freqAvailable();
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(a[i]);
+		}
 		if(Integer.parseInt(option) == 1) {
 			scale(a[0]);
 		} else if(Integer.parseInt(option) == 2) {

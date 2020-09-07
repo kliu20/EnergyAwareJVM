@@ -1,0 +1,131 @@
+Attempting to unmask SIGQUIT...SUCCESS
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 15809 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13929 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13888 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13707 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13508 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13386 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13791 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 13612 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 14007 msec =====
+Iteration Stopping
+Calling end iteration
+===== DaCapo xalan starting =====
+Normal completion.
+===== DaCapo xalan PASSED in 13472 msec =====
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd830400c - InsPtr:0x64ed2a93 instFollowPtr:0x64ed2a96 threadPtr:0x680b0e4c jtocPtr:0x60080300
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64ed2a93
+eax (T0)      (nil)
+ebx (ctrs)    (nil)
+ecx (S0)      0x60f239a2
+edx (T1)      0x60f20020
+esi (TR)      0x680b0e4c
+edi (S1)      0x13
+ebp           0x7d43e24c
+esp (SP)      0x69362dc0
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010202
+fpregs        0xd8304090
+oldmask       0x00020000
+cr2           0xfffffff4
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffff4
+JikesRVM: set vmr_ip to 0x64ed2a96
+JikesRVM: set vmr_fp to 0x69362df4
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec3f8c
+eax (T0)      (nil)
+ebx (ctrs)    (nil)
+ecx (S0)      0x60f239a2
+edx (T1)      0xfffffff4
+esi (TR)      0x680b0e4c
+edi (S1)      0x13
+ebp           0x6932fe8c
+esp (SP)      0x6932fe7c
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010202
+fpregs        0xd8304090
+oldmask       0x00020000
+cr2           0xfffffff4
+delivering hardware exception
+we have a thread = 0x680b0e4c
+it's in state = 1
+we have exception registers = 0x68068fe8
+
+Fatal error: NullPointerException within uninterruptible region.
+trapCode = 0
+trapInfo = 0xfffffff4
+Exiting virtual machine due to uninterruptibility violation.
+Thread #52
+-- Stack --
+(0x6932fe40 21358)   at [0x6932fe40, 0x64ec48d3] Lorg/jikesrvm/VM; sysFail(Ljava/lang/String;)V at line 2359 at bytecode index 14 at machine code offset 0x00000056
+(0x6932fe78 4565)   at [0x6932fe78, 0x64ed2a96] Lorg/jikesrvm/runtime/RuntimeEntrypoints; deliverHardwareException(ILorg/vmmagic/unboxed/Word;)V at line 772 at bytecode index 368 at machine code offset 0x00000947
+(0x6932fe8c 1)   at [0x6932fe8c, 0x64ed2a96] <hardware trap>
+(0x69362df4 21360)   at [0x69362df4, 0x64915a8f] Lorg/jikesrvm/VM; sysExit(I)V at line 2409 at bytecode index 16 at machine code offset 0x0000013a
+(0x69362e14 8267)   at [0x69362e14, 0x64916ed6] Ljava/lang/VMRuntime; exit(I)V at line 80 at bytecode index 1 at machine code offset 0x00000057
+   at [0x69362e14, 0x64916ed6] Ljava/lang/Runtime; halt(I)V at line 399 at bytecode index 14 at machine code offset 0x00000057
+(0x69362e4c 8263)   at [0x69362e4c, 0x64baeefe] Ljava/lang/Runtime; exit(I)V at line 174 at bytecode index 22 at machine code offset 0x00000076
+(0x69362e6c 5224)   at [0x69362e6c, 0x6883621a] Ljava/lang/System; exit(I)V at line 586 at bytecode index 4 at machine code offset 0x00000042
+(0x69362e88 23008)   at [0x69362e88, 0x64a65b4e] LHarness; main([Ljava/lang/String;)V at line 6 at bytecode index 5 at machine code offset 0x0000006e
+(0x69362ea0 -1)   at [0x69362ea0, 0x64ae7a04] <invisible method>
+(0x69362f2c 6572)   at [0x69362f2c, 0x648ab78a] Lorg/jikesrvm/runtime/Reflection; outOfLineInvoke(Lorg/jikesrvm/classloader/RVMMethod;Ljava/lang/Object;[Ljava/lang/Object;Z)Ljava/lang/Object; at line 223 at bytecode index 433 at machine code offset 0x000006b4
+(0x69362f80 13230)   at [0x69362f80, 0x64bd76ec] Lorg/jikesrvm/runtime/Reflection; invoke(Lorg/jikesrvm/classloader/RVMMethod;Lorg/jikesrvm/runtime/ReflectionBase;Ljava/lang/Object;[Ljava/lang/Object;Z)Ljava/lang/Object; at line 93 at bytecode index 50 at machine code offset 0x00000676
+   at [0x69362f80, 0x64bd76ec] Lorg/jikesrvm/scheduler/MainThread; run()V at line 201 at bytecode index 173 at machine code offset 0x00000676
+(0x69362fc0 22744)   at [0x69362fc0, 0x64eb815c] Lorg/jikesrvm/scheduler/RVMThread; run()V at line 2849 at bytecode index 70 at machine code offset 0x000002bc
+(0x69362ff8 22833)   at [0x69362ff8, 0xf77a276c] Lorg/jikesrvm/scheduler/RVMThread; startoff()V at line 2912 at bytecode index 78 at machine code offset 0x000001f4
+********************************************************************************
+*                      Abnormal termination of Jikes RVM                       *
+* Jikes RVM terminated abnormally indicating a problem in the virtual machine. *
+* Jikes RVM relies on community support to get debug information. Help improve *
+* Jikes RVM for everybody by reporting this error. Please see:                 *
+*                    http://www.jikesrvm.org/ReportingBugs/                    *
+********************************************************************************

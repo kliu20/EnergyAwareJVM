@@ -147,6 +147,15 @@ EXTERNAL void SetPowerLimit (int);
 EXTERNAL int GetSocketNum();
 EXTERNAL int ProfileInit();
 
+/** Adding LogQueue related definitions **/
+EXTERNAL void register_thread_stat();
+EXTERNAL void init_log_queue(int,int);
+EXTERNAL void print_logs();
+EXTERNAL void add_log_entry(double*,int,long long,int);
+EXTERNAL int add_method_entry(char*,char*);
+EXTERNAL void end_iteration();
+EXTERNAL int quota_expired(int cmid);
+
 // sysAlignmentCheck
 extern volatile int numEnableAlignCheckingCalls;
 EXTERNAL void sysEnableAlignmentChecking();
@@ -279,6 +288,7 @@ EXTERNAL void sysPerfEventInit(int events);
 EXTERNAL void sysPerfEventCreate(int id, const char *eventName);
 EXTERNAL void sysPerfEventEnable();
 EXTERNAL void sysPerfEventDisable();
+EXTERNAL void sysCloseFd(int id);
 EXTERNAL void sysPerfEventRead(int id, long long *values);
 // sysSignal
 EXTERNAL int inRVMAddressSpace(Address addr);

@@ -1,7 +1,9 @@
 package org.jikesrvm.energy;
 
 import org.jikesrvm.VM;
+import java.util.List;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import org.jikesrvm.adaptive.controller.Controller;
 
 /**
@@ -36,8 +38,8 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static void addStartLogQueue(int threadId, int methodId, Double[] profileAttrs) {
-		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
+	public static synchronized void addStartLogQueue(int threadId, int methodId, int invocationCounter, double[] profileAttrs) {
+		LogEntry entry = new LogEntry(threadId, methodId, invocationCounter, profileAttrs);
 		startLogQueue.offer(entry);
 	}
 
@@ -47,8 +49,8 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static void addEndLogQueue(int threadId, int methodId, Double[] profileAttrs) {
-		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
+	public static synchronized void addEndLogQueue(int threadId, int methodId, int invocationCounter, double[] profileAttrs) {
+		LogEntry entry = new LogEntry(threadId, methodId, invocationCounter, profileAttrs);
 		endLogQueue.offer(entry);
 	}
 
@@ -58,9 +60,10 @@ public class LogQueue implements ProfilingTypes {
 	 * @param methodId the corresponding method ID
 	 * @param profileAttrs    the profiling values which needs to be recorded 
 	 */
-	public static void addLogQueue(int threadId, int methodId, Double[] profileAttrs) {
-		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs);
+	public static void addLogQueue(int threadId, int methodId, double[] profileAttrs, long time, double hotMethodStartTime) {
+		LogEntry entry = new LogEntry(threadId, methodId, profileAttrs, time, hotMethodStartTime);
 		logQueue.offer(entry);
+
 	}
 
 
@@ -68,13 +71,27 @@ public class LogQueue implements ProfilingTypes {
 	 * Dump the profiling information with the data has been calculated
 	 */
 	public static void dumpLogQueue(String[] clsNameList, String[] methodNameList) {
+		int count = 0;
+		int i = 0;
 		for (LogEntry entry : logQueue) {
-			int timeEntry = entry.counters.length;
-			double totalWallClockTime = entry.counters[timeEntry];
-			double missRate = entry.counters[0] / entry.counters[1];
-			double missRateByTime = entry.counters[0] / totalWallClockTime;
+		//for (int i = logQueue.size() - 1; i >= 0; i--) {
 
-			DataPrinter.printProfInfoTwo(entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, missRate, missRateByTime);   
+			//DataPrinter.filePrinter.println("entry size remains: " + (logQueue.size() - count++) + " index is: " + i);
+			//DataPrinter.filePrinter.println("entry size remains: " + (logQueue.size() - count++));
+			//double missRate = entry.counters[0] / entry.counters[1];
+			//double missRateByTime = entry.counters[0] / totalWallClockTime;
+		//	LogEntry entry = logQueue.get(i);
+//			if (entry == null) {
+//				DataPrinter.filePrinter.println("Index: " + i + " is null");
+//				continue;
+//			}
+//			i++;
+			//DataPrinter.filePrinter.println(entry.threadId);
+			//DataPrinter.filePrinter.println(entry.counters[entry.counters.length - 1]);
+
+
+			DataPrinter.printProfInfoTwo(entry.threadId, entry.methodId, clsNameList[entry.methodId] + "." + methodNameList[entry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, entry.counters, entry.time, entry.hotMethodStartTime);   
+			DataPrinter.filePrinter.flush();
 		}
 	}
 
@@ -82,8 +99,6 @@ public class LogQueue implements ProfilingTypes {
 	 * Dump the profiling information with the data hasn't been calculated
 	 */
 	public static void dumpWithRawData(String[] clsNameList, String[] methodNameList) {
-		VM.sysWriteln("size of start LogQueue: " + startLogQueue.size());
-		VM.sysWriteln("size of end LogQueue: " + endLogQueue.size());
 
 		while (startLogQueue != null && !startLogQueue.isEmpty()) {
 
@@ -96,13 +111,11 @@ public class LogQueue implements ProfilingTypes {
 			for (LogEntry endEntry : endLogQueue) {
 				entryId++;
 				if (startEntry.threadId == endEntry.threadId && 
-					startEntry.methodId == endEntry.methodId) {
+					startEntry.invocationCounter == endEntry.invocationCounter) {
 					int timeEntry = endEntry.counters.length - 1;
 					double totalWallClockTime = endEntry.counters[timeEntry] - startEntry.counters[timeEntry];
 					double missRate = (endEntry.counters[0] - startEntry.counters[0]) / (endEntry.counters[1] - startEntry.counters[1]);
 					double missRateByTime = (endEntry.counters[0] - startEntry.counters[0]) / totalWallClockTime;
-
-
 					//DataPrinter.printProfInfoTwo(startEntry, clsNameList[startEntry.methodId] + "." + methodNameList[startEntry.methodId], Controller.options.FREQUENCY_TO_BE_PRINTED, TODO: result array, missRate, missRateByTime);   
 
 					endLogQueue.remove(entryId);

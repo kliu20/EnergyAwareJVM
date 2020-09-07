@@ -59,10 +59,26 @@ extractBitField(uint64_t inField, uint64_t width, uint64_t offset)
 uint64_t read_msr(int fd, uint64_t which) {
 
 	uint64_t data = 0;
+	uint64_t mask = 1;
+	mask <<= 31;
 
 	if ( pread(fd, &data, sizeof data, which) != sizeof data ) {
 	  printf("pread error!\n");
 	}
+
+	/*
+	if (data & mask != 0) {
+		if (which == MSR_DRAM_ENERGY_STATUS) {
+			printf("-----------------DRAM energy mask starts------------\n");
+		}
+		printf("negative!!!!%ld\n", data);
+		data ^= mask;	
+		printf("after mask!!!!%ld\n", data);
+		if (which == MSR_DRAM_ENERGY_STATUS) {
+			printf("-----------------DRAM energy mask ends------------\n");
+		}
+	}
+	*/
 	
 	return data;
 }
