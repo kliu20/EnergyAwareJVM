@@ -71,7 +71,7 @@ public class Scaler implements ScalerOptions {
 	}
 
 	public static void scale(int option){
-		VM.sysWriteln("Kenan: Frequency: " + freqs[option] + " is going to be written");
+		//VM.sysWriteln("Kenan: Frequency: " + freqs[option] + " is going to be written");
 		SysCall.sysCall.Scale(freqs[option]);
 	}
 	

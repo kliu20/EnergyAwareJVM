@@ -64,6 +64,7 @@ EXTERNAL int ProfileInit() {
 		fd[i] = open(msr_filename, O_RDWR);
 	}
 
+	printf("Profileinit read_msr\n");
 	uint64_t unit_info= read_msr(fd[0], MSR_RAPL_POWER_UNIT);
 	get_msr_unit(&rapl_unit, unit_info);
 	get_wraparound_energy(rapl_unit.energy);
@@ -487,7 +488,10 @@ EXTERNAL void ProfileDealloc() {
 
 /*Change governor*/
 EXTERNAL int SetGovernor(const char* name) {
-	return check_write_gov(num_core, name);
+	int core_id = getCurrentCpu();
+	char set_gov_file[60];
+	sprintf(set_gov_file, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", core_id);
+	return check_write_gov(set_gov_file, name);
 }
 
 EXTERNAL GetGovernor(char* name) {
@@ -574,20 +578,21 @@ EXTERNAL void closeDVFSFiles() {
 EXTERNAL int Scale(int name) {
 //	int num_core = core_num();
 //	int num_core = get_nprocs() / 2;
-	int i;
 
+	char set_gov_file[60];
+	char set_scale_file[60];
 	const char *usrSpace = "userspace";
-	const char *cur_freq = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq";
-	const char *scal_freq = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq";
 	const int freq = name;
 	const int core_id = sched_getcpu();
 
-	check_write_gov(core_id, usrSpace);
+	sprintf(set_gov_file, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", core_id);
+	check_write_gov(set_gov_file, usrSpace);
 
 	//free memory
 	//free (string);
 		//Write frequency
-	write_freq_coreId(core_id, cur_freq, scal_freq, freq);
+	sprintf(set_scale_file, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_setspeed", core_id);
+	write_freq_coreId(set_scale_file, freq);
 
     return 1;
 }

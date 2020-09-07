@@ -20,7 +20,7 @@ int get_pos_intnum(int value) {
 }
 
 
-int check_write_gov(int coreId, char gov_file[60], const char *target) {
+int check_write_gov(char gov_file[60], const char *target) {
 	int i;
 	int rc;
 	FILE *f;
@@ -71,7 +71,7 @@ int check_write_gov(int coreId, char gov_file[60], const char *target) {
 
 }
 
-write_freq_coreId(int coreId, char filename[60], const char *cur_freq, const char *scal_freq, int freq) {
+write_freq_coreId(char filename[60], int freq) {
 	FILE *f;
         int rc;
         size_t data_length, data_written;
@@ -102,21 +102,4 @@ write_freq_coreId(int coreId, char filename[60], const char *cur_freq, const cha
 		printf("Failed to close %s\n", filename);
 		return 1;
 	}
-	f = fopen(cur_freq, "r");
-	if (f == NULL) {
-		//LOGI("Failed to open %s: %s", filename, strerror(errno));
-		printf("Failed to open %s\n", cur_freq);
-		return 1;
-	}
-	
-	fscanf(f, "%d", &cpu_freq);
-	rc= fclose(f);
-	f = fopen(scal_freq, "r");
-	if (f == NULL) {
-		//LOGI("Failed to open %s: %s", filename, strerror(errno));
-		printf("Failed to open %s\n", scal_freq);
-		return 1;
-	}
-	fscanf(f, "%d", &scal_cpufreq);
-	rc= fclose(f);
 }
