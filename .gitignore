@@ -24,7 +24,6 @@ jikesrvm.iml
 # Directories generated during build
 /components/
 /dist/
-/generated/
 /results/
 /target/
 /*data*/
