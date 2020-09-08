@@ -16,9 +16,8 @@ public class Service implements ProfilingTypes, ScalerOptions {
 	public static String[] methodNameList = new String[INIT_SIZE];
 	public static long[] methodCount = new long[INIT_SIZE];
 	public static double[][] prevProfile = new double[INIT_SIZE*2][3];
-	public static boolean[] prevProfileInit = new boolean[INIT_SIZE*2];
 	public static boolean profileEnable = false;
-	public static long start_ts = System.currentTimeMillis(); 
+	public static long start_ts = System.currentTimeMillis();
 
 		/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
 		public static char [] info = {'i','o', '\n'};
@@ -55,14 +54,16 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		 * Do profile
 		 * @param profileAttrs the collection that contains profile information 
 		 */
-		  private static void getProfileAttrs(double[] profileAttrs) {
+		  private static void getProfileAttrs(double[] profileAttrs, String profilePoint, RVMThread thread) {
 			double perfCounter = 0.0d;
 			int eventId = 0;
 			int threadId = (int)Thread.currentThread().getId();
 			double startTime = 0.0d;
 			//Loop unwinding
-			if (!prevProfileInit[threadId]) {
-				prevProfileInit[threadId] = true;
+
+			if (thread.isFirstSampleInBurst || prevProfile[threadId][0] == 0 || profilePoint == ServiceConstants.STARTPROFILE) {
+				// If this thread is profiled at the first time, record the profile value.
+				// No matter if the it's the startProfile or endProfile.
 				if (Controller.options.ENABLE_COUNTER_PROFILING) {
 					for (int i = 0; i < Scaler.perfCounters; i++) {
 
@@ -79,7 +80,11 @@ public class Service implements ProfilingTypes, ScalerOptions {
 						eventId++;
 					}
 				}
-			} else {
+
+				thread.isFirstSampleInBurst = false;
+			} else if (profilePoint == ServiceConstants.ENDPROFILE) {
+				// If it's the endProfile point, then calculate the profile value.
+				
 				if (Controller.options.ENABLE_COUNTER_PROFILING) {
 					for (int i = 0; i < Scaler.perfCounters; i++) {
 
@@ -97,12 +102,6 @@ public class Service implements ProfilingTypes, ScalerOptions {
 					
 					for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
 						profileAttrs[eventId] = calculateEnergy(energy[i], prevProfile[threadId][eventId]);
-						if(profileAttrs[eventId] < 0) {
-							VM.sysWriteln("Oh my Goooooooood .... Minus Value Detected");
-							String both = prevProfile[threadId][eventId] + "-" + energy[i];
-							VM.sysWriteln(both);
-						}
-
 						prevProfile[threadId][eventId] = energy[i];
 						eventId++;
 					}
@@ -146,40 +145,64 @@ public class Service implements ProfilingTypes, ScalerOptions {
 			Scaler.setGovernor(ONDEMAND);	
 		}
 
+	public static void init_service() {
+		RVMThread.FREQ = Integer.parseInt(VM.KENAN_FREQ); 
+		RVMThread.SAMPLES = Integer.parseInt(VM.KENAN_SAMPLES);
+		VM.sysWriteln("[Service Constructor Invoked as Expected] ... ");
+		VM.sysWriteln("Samples");
+		VM.sysWriteln(RVMThread.SAMPLES);
+		VM.sysWriteln("Freq");
+		VM.sysWriteln(RVMThread.FREQ);
+	}
+
 	@Entrypoint
 	public static void startProfile(int cmid) {
-		profile(cmid);
+		profile(cmid, ServiceConstants.STARTPROFILE);
 	}
 
 	@Entrypoint
 	public static void endProfile(int cmid) {
-		profile(cmid);
+		profile(cmid, ServiceConstants.ENDPROFILE);
 	}
 
-	private static void profile(int cmid) {
+	public static void profile(int cmid, String profilePoint) {
 		RVMThread thread = RVMThread.getCurrentThread();
+		/*int expired = SysCall.sysCall.quota_expired(cmid);
+		if(expired>0) {
+			return;
+		}*/
+
 		//Using sampling based method to profile
-		if (thread.energyTimeSliceExpired >= 2) {
-
+		//
+		//SysCall.sysCall.quota_expired(0);
+		/*if(RVMThread.FREQ==0) {
+			init_service();
+		}*/
+		if (thread.energyTimeSliceExpired >= RVMThread.FREQ) {
 			thread.skippedInvocations--;
-
-			if (thread.skippedInvocations == 0) {	
-
+			if (thread.skippedInvocations == 0) {
 				/** Event values for the method */
 				double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
 				int threadId = (int) Thread.currentThread().getId();
 				
 				//Do profile	
-				getProfileAttrs(profileAttrs);
+				getProfileAttrs(profileAttrs, profilePoint, thread);
+				int ll = profileAttrs.length;
+				boolean discard_sample = profileAttrs[ll-1]<=0;
+
 				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
+				if(!discard_sample) {
+
 				SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
-				
+				}
+
 				thread.skippedInvocations = RVMThread.STRIDE;
 				thread.samplesThisTimerInterrupt--;
 
 				if (thread.samplesThisTimerInterrupt == 0) {
 					thread.samplesThisTimerInterrupt = RVMThread.SAMPLES;
 					thread.energyTimeSliceExpired = 0;
+					thread.isFirstSampleInBurst = true;
 				}
 			}
 		}

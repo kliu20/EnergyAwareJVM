@@ -438,4 +438,5 @@ public class BootRecord {
     public Address add_log_entryIP;
     public Address add_method_entryIP;
     public Address end_iterationIP;
+    public Address quota_expiredIP;
 }

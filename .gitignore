@@ -50,3 +50,5 @@ counter_based*
 *.csv
 *.jar
 *.class
+*iteration*
+*freq*

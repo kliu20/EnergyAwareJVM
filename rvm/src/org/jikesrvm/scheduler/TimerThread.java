@@ -62,12 +62,10 @@ public class TimerThread extends SystemThread {
           for (int i = 0; i < RVMThread.numThreads; ++i) {
             RVMThread candidate = RVMThread.threads[i];
             if (candidate != null && candidate.shouldBeSampled()) {
-
 	      candidate.timeSliceExpired++;
 	      candidate.takeYieldpoint = 1;
 
-	     candidate.energyTimeSliceExpired++;
-
+              candidate.energyTimeSliceExpired++;
             }
           }
           RVMThread.acctLock.unlock();

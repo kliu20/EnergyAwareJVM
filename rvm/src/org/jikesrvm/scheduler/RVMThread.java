@@ -155,8 +155,9 @@ public final class RVMThread extends ThreadContext {
 
 
   //Kenan
-  public final static int STRIDE = 20;
-  public final static int SAMPLES = 2;
+  public final static int STRIDE = 10;
+  public static int SAMPLES = 128;
+  public static int FREQ = 0;
   public final static int entrySize = 256;
   public int methodYPDisabledCount = 0;
   //Index for YPDisabledMethodID
@@ -177,11 +178,13 @@ public final class RVMThread extends ThreadContext {
   /**Kenan: time slice expired times for energy/hardware counter profiling*/
   public int energyTimeSliceExpired = 0;
   /**Kenan: time slice expired times for energy/hardware counter profiling*/
-  public int samplesThisTimerInterrupt = SAMPLES;
+  public int samplesThisTimerInterrupt = 128;
   /**Kenan: Count invocations to trigger sample*/
   public int skippedInvocations = STRIDE;
   /**Kenan: Counter for method invocation*/
   public int invocationCounter = 0;
+  /**Kenan: IS the first sample in the burst*/
+  public boolean isFirstSampleInBurst = true;
 
   /*
    * debug and statistics

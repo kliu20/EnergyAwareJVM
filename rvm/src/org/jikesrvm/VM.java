@@ -82,6 +82,31 @@ import org.jikesrvm.energy.Service;
 @Uninterruptible
 public class VM extends Properties {
 
+  public static String KENAN_SAMPLES ="8";
+  public static String KENAN_FREQ="2";
+  public static long  VM_START=0;  
+  public static long  VM_END=0;
+ 
+  //Very important Note: I intentionally used String here for KENAN_FREQ and KENAN_SAMPLES
+  //parseInt at this stage will casuse a lot of unexpected troubled.
+  public static void parseKenanArg(String value, String arg) {
+	sysWriteln("[VM.parseKenanArg] Parsing Kenan Arguments ... Stay tuned!");
+        String targ=arg.trim();
+	sysWriteln(value);
+	sysWriteln(targ);
+        
+	String arg_name  = targ.split("=")[0];
+	String arg_value = targ.split("=")[1];
+	
+	if(arg_name.startsWith("samples")) {
+		KENAN_SAMPLES=arg_value;
+	}
+
+	if(arg_name.startsWith("frequency")) {
+		KENAN_FREQ = arg_value;
+	}
+  }
+
   
   public static void print_hello() {
       sysWriteln("Hello from JikesRVM");		
@@ -484,493 +509,494 @@ public class VM extends Properties {
 
     //TODO::Kenan::Khaled::LogQueue::log_queue
     //Link Create a System Call for LogQueue
-    sysCall.init_log_queue(500,3);
+	    sysCall.init_log_queue(500,3);
 
-    if (VM.BuildForAdaptiveSystem) {
-      if (verboseBoot >= 1) VM.sysWriteln("Initializing adaptive system");
-      //Kenan: Initialize hardware counter/energy based profiling structures
-//      if(Controller.options.EVENTCOUNTER != null && Controller.options.EVENTCOUNTER.length() > 0){
-	if(Controller.options.ENABLE_COUNTER_PROFILING || Controller.options.ENABLE_ENERGY_PROFILING) {
-		VM.sysWrite("perf initialization");
-		sysCall.sysInitPerf();
-		Scaler.initScaler();
-		//Scaler.initScaler();
-		EnergyCheckUtils.initJrapl();
-		Scaler.openDVFSFiles();
-	//	    ProfileStack.InitStack(EnergyCheckUtils.socketNum);
-		ProfileMap.initProfileMap();
-		ProfileQueue.initSkippableMethod();
-		DataPrinter.initPrintStream();
-		LogQueue.initQueue(EnergyCheckUtils.socketNum);
+	    if (VM.BuildForAdaptiveSystem) {
+	      if (verboseBoot >= 1) VM.sysWriteln("Initializing adaptive system");
+	      //Kenan: Initialize hardware counter/energy based profiling structures
+	//      if(Controller.options.EVENTCOUNTER != null && Controller.options.EVENTCOUNTER.length() > 0){
+		if(Controller.options.ENABLE_COUNTER_PROFILING || Controller.options.ENABLE_ENERGY_PROFILING) {
+			VM.sysWrite("perf initialization");
+			sysCall.sysInitPerf();
+			Scaler.initScaler();
+			//Scaler.initScaler();
+			EnergyCheckUtils.initJrapl();
+			Scaler.openDVFSFiles();
+		//	    ProfileStack.InitStack(EnergyCheckUtils.socketNum);
+			ProfileMap.initProfileMap();
+			ProfileQueue.initSkippableMethod();
+			DataPrinter.initPrintStream();
+			LogQueue.initQueue(EnergyCheckUtils.socketNum);
 
-	    Runtime.getRuntime().addShutdownHook(new Thread() {
-		public void run() {
-			VM.sysWriteln("shutdown hook is invoked!!");
-			LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
+		    Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				VM.sysWriteln("shutdown hook is invoked!!");
+				LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
+			}
+	    });
+
 		}
-    });
+	//      }
+	      Controller.boot();
+	    }
 
-	}
-//      }
-      Controller.boot();
-    }
+	    // The first argument must be a class name.
+	    if (verboseBoot >= 1) VM.sysWriteln("Extracting name of class to execute");
+	    if (applicationArguments.length == 0) {
+	      pleaseSpecifyAClass();
+	    }
+	    if (applicationArguments.length > 0 && !TypeDescriptorParsing.isJavaClassName(applicationArguments[0])) {
+	      VM.sysWrite("vm: \"");
+	      VM.sysWrite(applicationArguments[0]);
+	      VM.sysWriteln("\" is not a legal Java class name.");
+	      pleaseSpecifyAClass();
+	    }
 
-    // The first argument must be a class name.
-    if (verboseBoot >= 1) VM.sysWriteln("Extracting name of class to execute");
-    if (applicationArguments.length == 0) {
-      pleaseSpecifyAClass();
-    }
-    if (applicationArguments.length > 0 && !TypeDescriptorParsing.isJavaClassName(applicationArguments[0])) {
-      VM.sysWrite("vm: \"");
-      VM.sysWrite(applicationArguments[0]);
-      VM.sysWriteln("\" is not a legal Java class name.");
-      pleaseSpecifyAClass();
-    }
+	    if (applicationArguments.length > 0 && applicationArguments[0].startsWith("-X")) {
+		VM.sysWrite("vm: \"");
+		VM.sysWrite(applicationArguments[0]);
+		VM.sysWriteln("\" is not a recognized Jikes RVM command line argument.");
+		VM.sysExit(EXIT_STATUS_BOGUS_COMMAND_LINE_ARG);
+	    }
 
-    if (applicationArguments.length > 0 && applicationArguments[0].startsWith("-X")) {
-        VM.sysWrite("vm: \"");
-        VM.sysWrite(applicationArguments[0]);
-        VM.sysWriteln("\" is not a recognized Jikes RVM command line argument.");
-        VM.sysExit(EXIT_STATUS_BOGUS_COMMAND_LINE_ARG);
-    }
+	    if (verboseBoot >= 1) VM.sysWriteln("Initializing Application Class Loader");
+	    RVMClassLoader.getApplicationClassLoader();
+	    RVMClassLoader.declareApplicationClassLoaderIsReady();
 
-    if (verboseBoot >= 1) VM.sysWriteln("Initializing Application Class Loader");
-    RVMClassLoader.getApplicationClassLoader();
-    RVMClassLoader.declareApplicationClassLoaderIsReady();
+	    if (verboseBoot >= 1) {
+	      VM.sysWriteln("Turning back on security checks.  Letting people see the ApplicationClassLoader.");
+	    }
+	    // Turn on security checks again.
+	    // Commented out because we haven't incorporated this into the main CVS
+	    // tree yet.
+	    // java.security.JikesRVMSupport.fullyBootedVM();
 
-    if (verboseBoot >= 1) {
-      VM.sysWriteln("Turning back on security checks.  Letting people see the ApplicationClassLoader.");
-    }
-    // Turn on security checks again.
-    // Commented out because we haven't incorporated this into the main CVS
-    // tree yet.
-    // java.security.JikesRVMSupport.fullyBootedVM();
+	    if (VM.BuildForGnuClasspath) {
+	      runClassInitializer("java.lang.ClassLoader$StaticData");
+	    }
 
-    if (VM.BuildForGnuClasspath) {
-      runClassInitializer("java.lang.ClassLoader$StaticData");
-    }
+	    if (VM.BuildForAdaptiveSystem) {
+	      CompilerAdvice.postBoot();
+	    }
 
-    if (VM.BuildForAdaptiveSystem) {
-      CompilerAdvice.postBoot();
-    }
+	    // enable alignment checking
+	    if (VM.AlignmentChecking) {
+	      SysCall.sysCall.sysEnableAlignmentChecking();
+	    }
 
-    // enable alignment checking
-    if (VM.AlignmentChecking) {
-      SysCall.sysCall.sysEnableAlignmentChecking();
-    }
+	    Time.boot();
 
-    Time.boot();
+	    // Set up properties for our custom JUnit test runner.
+	    Configuration.setupPropertiesForUnitTesting();
 
-    // Set up properties for our custom JUnit test runner.
-    Configuration.setupPropertiesForUnitTesting();
+	    // Schedule "main" thread for execution.
+	    if (verboseBoot >= 2) VM.sysWriteln("Creating main thread");
+	    // Create main thread.
+	    if (verboseBoot >= 1) VM.sysWriteln("Constructing mainThread");
+	    mainThread = new MainThread(applicationArguments);
 
-    // Schedule "main" thread for execution.
-    if (verboseBoot >= 2) VM.sysWriteln("Creating main thread");
-    // Create main thread.
-    if (verboseBoot >= 1) VM.sysWriteln("Constructing mainThread");
-    mainThread = new MainThread(applicationArguments);
+	    // Schedule "main" thread for execution.
+	    org.jikesrvm.energy.Service.init_service();
+	    if (verboseBoot >= 1) VM.sysWriteln("Starting main thread");
+	    mainThread.start();
 
-    // Schedule "main" thread for execution.
-    if (verboseBoot >= 1) VM.sysWriteln("Starting main thread");
-    mainThread.start();
+	    // End of boot thread.
+	    //
+	    if (VM.TraceThreads) RVMThread.trace("VM.boot", "completed - terminating");
+	    if (verboseBoot >= 2) {
+	      VM.sysWriteln("Boot sequence completed; finishing boot thread");
+	    }
 
-    // End of boot thread.
-    //
-    if (VM.TraceThreads) RVMThread.trace("VM.boot", "completed - terminating");
-    if (verboseBoot >= 2) {
-      VM.sysWriteln("Boot sequence completed; finishing boot thread");
-    }
+	    RVMThread.getCurrentThread().terminate();
+	    if (VM.VerifyAssertions) VM._assert(VM.NOT_REACHED);
+	  }
 
-    RVMThread.getCurrentThread().terminate();
-    if (VM.VerifyAssertions) VM._assert(VM.NOT_REACHED);
-  }
+	  @Interruptible
+	  private static void pleaseSpecifyAClass() {
+	    VM.sysWriteln("vm: Please specify a class to execute.");
+	    VM.sysWriteln("vm:   You can invoke the VM with the \"-help\" flag for usage information.");
+	    VM.sysExit(EXIT_STATUS_BOGUS_COMMAND_LINE_ARG);
+	  }
 
-  @Interruptible
-  private static void pleaseSpecifyAClass() {
-    VM.sysWriteln("vm: Please specify a class to execute.");
-    VM.sysWriteln("vm:   You can invoke the VM with the \"-help\" flag for usage information.");
-    VM.sysExit(EXIT_STATUS_BOGUS_COMMAND_LINE_ARG);
-  }
+	  /**
+	   * Run {@code <clinit>} method of specified class, if that class appears
+	   * in bootimage and actually has a clinit method (we are flexible to
+	   * allow one list of classes to work with different bootimages and
+	   * different version of classpath (eg 0.05 vs. cvs head).
+	   * <p>
+	   * This method is called only while the VM boots.
+	   *
+	   * @param className class whose initializer needs to be run
+	   */
+	  @Interruptible
+	  static void runClassInitializer(String className) {
+	    if (verboseBoot >= 2) {
+	      sysWrite("running class initializer for ");
+	      sysWriteln(className);
+	    }
+	    Atom classDescriptor = Atom.findOrCreateAsciiAtom(className.replace('.', '/')).descriptorFromClassName();
+	    TypeReference tRef =
+		TypeReference.findOrCreate(BootstrapClassLoader.getBootstrapClassLoader(), classDescriptor);
+	    RVMClass cls = (RVMClass) tRef.peekType();
+	    if (null == cls) {
+	      sysWrite("Failed to run class initializer for ");
+	      sysWrite(className);
+	      sysWriteln(" as the class does not exist.");
+	    } else if (!cls.isInBootImage()) {
+	      sysWrite("Failed to run class initializer for ");
+	      sysWrite(className);
+	      sysWriteln(" as the class is not in the boot image.");
+	    } else {
+	      RVMMethod clinit = cls.getClassInitializerMethod();
+	      if (clinit != null) {
+		clinit.compile();
+		if (verboseBoot >= 10) VM.sysWriteln("invoking method " + clinit);
+		try {
+		  Magic.invokeClassInitializer(clinit.getCurrentEntryCodeArray());
+		} catch (Error e) {
+		  throw e;
+		} catch (Throwable t) {
+		  ExceptionInInitializerError eieio =
+		      new ExceptionInInitializerError(t);
+		  throw eieio;
+		}
+		// <clinit> is no longer needed: reclaim space by removing references to it
+		clinit.invalidateCompiledMethod(clinit.getCurrentCompiledMethod());
+	      } else {
+		if (verboseBoot >= 10) VM.sysWriteln("has no clinit method ");
+	      }
+	      cls.setAllFinalStaticJTOCEntries();
+	    }
+	  }
 
-  /**
-   * Run {@code <clinit>} method of specified class, if that class appears
-   * in bootimage and actually has a clinit method (we are flexible to
-   * allow one list of classes to work with different bootimages and
-   * different version of classpath (eg 0.05 vs. cvs head).
-   * <p>
-   * This method is called only while the VM boots.
-   *
-   * @param className class whose initializer needs to be run
-   */
-  @Interruptible
-  static void runClassInitializer(String className) {
-    if (verboseBoot >= 2) {
-      sysWrite("running class initializer for ");
-      sysWriteln(className);
-    }
-    Atom classDescriptor = Atom.findOrCreateAsciiAtom(className.replace('.', '/')).descriptorFromClassName();
-    TypeReference tRef =
-        TypeReference.findOrCreate(BootstrapClassLoader.getBootstrapClassLoader(), classDescriptor);
-    RVMClass cls = (RVMClass) tRef.peekType();
-    if (null == cls) {
-      sysWrite("Failed to run class initializer for ");
-      sysWrite(className);
-      sysWriteln(" as the class does not exist.");
-    } else if (!cls.isInBootImage()) {
-      sysWrite("Failed to run class initializer for ");
-      sysWrite(className);
-      sysWriteln(" as the class is not in the boot image.");
-    } else {
-      RVMMethod clinit = cls.getClassInitializerMethod();
-      if (clinit != null) {
-        clinit.compile();
-        if (verboseBoot >= 10) VM.sysWriteln("invoking method " + clinit);
-        try {
-          Magic.invokeClassInitializer(clinit.getCurrentEntryCodeArray());
-        } catch (Error e) {
-          throw e;
-        } catch (Throwable t) {
-          ExceptionInInitializerError eieio =
-              new ExceptionInInitializerError(t);
-          throw eieio;
-        }
-        // <clinit> is no longer needed: reclaim space by removing references to it
-        clinit.invalidateCompiledMethod(clinit.getCurrentCompiledMethod());
-      } else {
-        if (verboseBoot >= 10) VM.sysWriteln("has no clinit method ");
-      }
-      cls.setAllFinalStaticJTOCEntries();
-    }
-  }
+	  //----------------------------------------------------------------------//
+	  //                         Execution environment.                       //
+	  //----------------------------------------------------------------------//
 
-  //----------------------------------------------------------------------//
-  //                         Execution environment.                       //
-  //----------------------------------------------------------------------//
+	  /**
+	   * Verify a runtime assertion (die w/traceback if assertion fails).<p>
+	   *
+	   * Note: code your assertion checks as
+	   * {@code if (VM.VerifyAssertions) VM._assert(xxx);}
+	   * @param b the assertion to verify
+	   */
+	  @Inline(value = Inline.When.AllArgumentsAreConstant)
+	  public static void _assert(boolean b) {
+	    _assert(b, null, null);
+	  }
 
-  /**
-   * Verify a runtime assertion (die w/traceback if assertion fails).<p>
-   *
-   * Note: code your assertion checks as
-   * {@code if (VM.VerifyAssertions) VM._assert(xxx);}
-   * @param b the assertion to verify
-   */
-  @Inline(value = Inline.When.AllArgumentsAreConstant)
-  public static void _assert(boolean b) {
-    _assert(b, null, null);
-  }
+	  /**
+	   * Verify a runtime assertion (die w/message and traceback if
+	   * assertion fails).<p>
+	   *
+	   * Note: code your assertion checks as
+	   * {@code if (VM.VerifyAssertions) VM._assert(xxx);}
+	   *
+	   * @param b the assertion to verify
+	   * @param message the message to print if the assertion is false
+	   */
+	  @Inline(value = Inline.When.ArgumentsAreConstant, arguments = {0})
+	  public static void _assert(boolean b, String message) {
+	    _assert(b, message, null);
+	  }
 
-  /**
-   * Verify a runtime assertion (die w/message and traceback if
-   * assertion fails).<p>
-   *
-   * Note: code your assertion checks as
-   * {@code if (VM.VerifyAssertions) VM._assert(xxx);}
-   *
-   * @param b the assertion to verify
-   * @param message the message to print if the assertion is false
-   */
-  @Inline(value = Inline.When.ArgumentsAreConstant, arguments = {0})
-  public static void _assert(boolean b, String message) {
-    _assert(b, message, null);
-  }
+	  @Inline(value = Inline.When.ArgumentsAreConstant, arguments = {0})
+	  public static void _assert(boolean b, String msg1, String msg2) {
+	    if (!VM.VerifyAssertions) {
+	      sysWriteln("vm: somebody forgot to conditionalize their call to assert with");
+	      sysWriteln("vm: if (VM.VerifyAssertions)");
+	      _assertionFailure("vm internal error: assert called when !VM.VerifyAssertions", null);
+	    }
+	    if (!b) _assertionFailure(msg1, msg2);
+	  }
 
-  @Inline(value = Inline.When.ArgumentsAreConstant, arguments = {0})
-  public static void _assert(boolean b, String msg1, String msg2) {
-    if (!VM.VerifyAssertions) {
-      sysWriteln("vm: somebody forgot to conditionalize their call to assert with");
-      sysWriteln("vm: if (VM.VerifyAssertions)");
-      _assertionFailure("vm internal error: assert called when !VM.VerifyAssertions", null);
-    }
-    if (!b) _assertionFailure(msg1, msg2);
-  }
+	  @NoInline
+	  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
+	  private static void _assertionFailure(String msg1, String msg2) {
+	    if (msg1 == null && msg2 == null) {
+	      msg1 = "vm internal error at:";
+	    }
+	    if (msg2 == null) {
+	      msg2 = msg1;
+	      msg1 = null;
+	    }
+	    if (VM.runningVM) {
+	      if (msg1 != null) {
+		sysWrite(msg1);
+	      }
+	      sysFail(msg2);
+	    }
+	    throw new RuntimeException((msg1 != null ? msg1 : "") + msg2);
+	  }
 
-  @NoInline
-  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
-  private static void _assertionFailure(String msg1, String msg2) {
-    if (msg1 == null && msg2 == null) {
-      msg1 = "vm internal error at:";
-    }
-    if (msg2 == null) {
-      msg2 = msg1;
-      msg1 = null;
-    }
-    if (VM.runningVM) {
-      if (msg1 != null) {
-        sysWrite(msg1);
-      }
-      sysFail(msg2);
-    }
-    throw new RuntimeException((msg1 != null ? msg1 : "") + msg2);
-  }
+	  @SuppressWarnings({"unused", "CanBeFinal", "UnusedDeclaration"})
+	  // accessed via EntryPoints
+	  @Entrypoint
+	  private static int sysWriteLock = 0;
+	  private static Offset sysWriteLockOffset = Offset.max();
 
-  @SuppressWarnings({"unused", "CanBeFinal", "UnusedDeclaration"})
-  // accessed via EntryPoints
-  @Entrypoint
-  private static int sysWriteLock = 0;
-  private static Offset sysWriteLockOffset = Offset.max();
+	  private static void swLock() {
+	    if (!VM.runningVM && !VM.writingBootImage) return;
+	    if (sysWriteLockOffset.isMax()) return;
+	    while (!Synchronization.testAndSet(Magic.getJTOC(), sysWriteLockOffset, 1)) {
+	      ;
+	    }
+	  }
 
-  private static void swLock() {
-    if (!VM.runningVM && !VM.writingBootImage) return;
-    if (sysWriteLockOffset.isMax()) return;
-    while (!Synchronization.testAndSet(Magic.getJTOC(), sysWriteLockOffset, 1)) {
-      ;
-    }
-  }
+	  private static void swUnlock() {
+	    if (!VM.runningVM && !VM.writingBootImage) return;
+	    if (sysWriteLockOffset.isMax()) return;
+	    Synchronization.fetchAndStore(Magic.getJTOC(), sysWriteLockOffset, 0);
+	  }
 
-  private static void swUnlock() {
-    if (!VM.runningVM && !VM.writingBootImage) return;
-    if (sysWriteLockOffset.isMax()) return;
-    Synchronization.fetchAndStore(Magic.getJTOC(), sysWriteLockOffset, 0);
-  }
+	  /**
+	   * Low level print to console.
+	   * @param value  what is printed
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  private static void write(Atom value) {
+	    value.sysWrite();
+	  }
 
-  /**
-   * Low level print to console.
-   * @param value  what is printed
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  private static void write(Atom value) {
-    value.sysWrite();
-  }
+	  /**
+	   * Low level print to console.
+	   * @param value  what is printed
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void write(RVMMember value) {
+	    write(value.getMemberRef());
+	  }
 
-  /**
-   * Low level print to console.
-   * @param value  what is printed
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void write(RVMMember value) {
-    write(value.getMemberRef());
-  }
+	  /**
+	   * Low level print to console.
+	   * @param value  what is printed
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void write(MemberReference value) {
+	    write(value.getType().getName());
+	    write(".");
+	    write(value.getName());
+	    write(" ");
+	    write(value.getDescriptor());
+	  }
 
-  /**
-   * Low level print to console.
-   * @param value  what is printed
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void write(MemberReference value) {
-    write(value.getType().getName());
-    write(".");
-    write(value.getName());
-    write(" ");
-    write(value.getDescriptor());
-  }
+	  /**
+	   * Low level print to console.
+	   * @param value   what is printed
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void write(String value) {
+	    if (value == null) {
+	      write("null");
+	    } else {
+	      if (runningVM) {
+		char[] chars = java.lang.JikesRVMSupport.getBackingCharArray(value);
+		int numChars = java.lang.JikesRVMSupport.getStringLength(value);
+		int offset = java.lang.JikesRVMSupport.getStringOffset(value);
+		for (int i = 0; i < numChars; i++) {
+		  write(chars[offset + i]);
+		}
+	      } else {
+		writeNotRunningVM(value);
+	      }
+	    }
+	  }
+	  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
+	  private static void writeNotRunningVM(String value) {
+	    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
+	    System.err.print(value);
+	  }
 
-  /**
-   * Low level print to console.
-   * @param value   what is printed
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void write(String value) {
-    if (value == null) {
-      write("null");
-    } else {
-      if (runningVM) {
-        char[] chars = java.lang.JikesRVMSupport.getBackingCharArray(value);
-        int numChars = java.lang.JikesRVMSupport.getStringLength(value);
-        int offset = java.lang.JikesRVMSupport.getStringOffset(value);
-        for (int i = 0; i < numChars; i++) {
-          write(chars[offset + i]);
-        }
-      } else {
-        writeNotRunningVM(value);
-      }
-    }
-  }
-  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
-  private static void writeNotRunningVM(String value) {
-    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
-    System.err.print(value);
-  }
+	  /**
+	   * Low level print to console.
+	   * @param value character array that is printed
+	   * @param len number of characters printed
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void write(char[] value, int len) {
+	    for (int i = 0, n = len; i < n; ++i) {
+	      if (runningVM) {
+		//  Avoid triggering a potential read barrier
+		write(Services.getArrayNoBarrier(value, i));
+	      } else {
+		write(value[i]);
+	      }
+	    }
+	  }
 
-  /**
-   * Low level print to console.
-   * @param value character array that is printed
-   * @param len number of characters printed
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void write(char[] value, int len) {
-    for (int i = 0, n = len; i < n; ++i) {
-      if (runningVM) {
-        //  Avoid triggering a potential read barrier
-        write(Services.getArrayNoBarrier(value, i));
-      } else {
-        write(value[i]);
-      }
-    }
-  }
+	  /**
+	   * Low level print of a <code>char</code>to console.
+	   * @param value       The character to print
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void write(char value) {
+	    if (runningVM) {
+	      sysCall.sysConsoleWriteChar(value);
+	    } else {
+	      writeNotRunningVM(value);
+	    }
+	  }
+	  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
+	  private static void writeNotRunningVM(char value) {
+	    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
+	    System.err.print(value);
+	  }
 
-  /**
-   * Low level print of a <code>char</code>to console.
-   * @param value       The character to print
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void write(char value) {
-    if (runningVM) {
-      sysCall.sysConsoleWriteChar(value);
-    } else {
-      writeNotRunningVM(value);
-    }
-  }
-  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
-  private static void writeNotRunningVM(char value) {
-    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
-    System.err.print(value);
-  }
+	  /**
+	   * Low level print of <code>double</code> to console.
+	   *
+	   * @param value               <code>double</code> to be printed
+	   * @param postDecimalDigits   Number of decimal places
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void write(double value, int postDecimalDigits) {
+	    if (runningVM) {
+	      sysCall.sysConsoleWriteDouble(value, postDecimalDigits);
+	    } else {
+	      writeNotRunningVM(value);
+	    }
+	  }
+	  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
+	  private static void writeNotRunningVM(double value) {
+	    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
+	    System.err.print(value);
+	  }
 
-  /**
-   * Low level print of <code>double</code> to console.
-   *
-   * @param value               <code>double</code> to be printed
-   * @param postDecimalDigits   Number of decimal places
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void write(double value, int postDecimalDigits) {
-    if (runningVM) {
-      sysCall.sysConsoleWriteDouble(value, postDecimalDigits);
-    } else {
-      writeNotRunningVM(value);
-    }
-  }
-  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
-  private static void writeNotRunningVM(double value) {
-    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
-    System.err.print(value);
-  }
+	  /**
+	   * Low level print of an <code>int</code> to console.
+	   * @param value       what is printed
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void write(int value) {
+	    if (runningVM) {
+	      int mode = (value < -(1 << 20) || value > (1 << 20)) ? 2 : 0; // hex only or decimal only
+	      sysCall.sysConsoleWriteInteger(value, mode);
+	    } else {
+	      writeNotRunningVM(value);
+	    }
+	  }
+	  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
+	  private static void writeNotRunningVM(int value) {
+	    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
+	    System.err.print(value);
+	  }
 
-  /**
-   * Low level print of an <code>int</code> to console.
-   * @param value       what is printed
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void write(int value) {
-    if (runningVM) {
-      int mode = (value < -(1 << 20) || value > (1 << 20)) ? 2 : 0; // hex only or decimal only
-      sysCall.sysConsoleWriteInteger(value, mode);
-    } else {
-      writeNotRunningVM(value);
-    }
-  }
-  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
-  private static void writeNotRunningVM(int value) {
-    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
-    System.err.print(value);
-  }
+	  /**
+	   * Low level print to console.
+	   * @param value       What is printed, as hex only
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeHex(int value) {
+	    if (runningVM) {
+	      sysCall.sysConsoleWriteInteger(value, 2 /*just hex*/);
+	    } else {
+	      writeHexNotRunningVM(value);
+	    }
+	  }
+	  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
+	  private static void writeHexNotRunningVM(int value) {
+	    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
+	    System.err.print(Integer.toHexString(value));
+	  }
 
-  /**
-   * Low level print to console.
-   * @param value       What is printed, as hex only
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeHex(int value) {
-    if (runningVM) {
-      sysCall.sysConsoleWriteInteger(value, 2 /*just hex*/);
-    } else {
-      writeHexNotRunningVM(value);
-    }
-  }
-  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
-  private static void writeHexNotRunningVM(int value) {
-    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
-    System.err.print(Integer.toHexString(value));
-  }
+	  /**
+	   * Low level print to console.
+	   * @param value       what is printed, as hex only
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeHex(long value) {
+	    if (runningVM) {
+	      sysCall.sysConsoleWriteLong(value, 2);
+	    } else {
+	      writeHexNotRunningVM(value);
+	    }
+	  }
+	  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
+	  private static void writeHexNotRunningVM(long value) {
+	    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
+	    System.err.print(Long.toHexString(value));
+	  }
 
-  /**
-   * Low level print to console.
-   * @param value       what is printed, as hex only
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeHex(long value) {
-    if (runningVM) {
-      sysCall.sysConsoleWriteLong(value, 2);
-    } else {
-      writeHexNotRunningVM(value);
-    }
-  }
-  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
-  private static void writeHexNotRunningVM(long value) {
-    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
-    System.err.print(Long.toHexString(value));
-  }
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeDec(Word value) {
+	    if (VM.BuildFor32Addr) {
+	      write(value.toInt());
+	    } else {
+	      write(value.toLong());
+	    }
+	  }
 
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeDec(Word value) {
-    if (VM.BuildFor32Addr) {
-      write(value.toInt());
-    } else {
-      write(value.toLong());
-    }
-  }
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeHex(Word value) {
+	    if (VM.BuildFor32Addr) {
+	      writeHex(value.toInt());
+	    } else {
+	      writeHex(value.toLong());
+	    }
+	  }
 
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeHex(Word value) {
-    if (VM.BuildFor32Addr) {
-      writeHex(value.toInt());
-    } else {
-      writeHex(value.toLong());
-    }
-  }
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeHex(Address value) {
+	    writeHex(value.toWord());
+	  }
 
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeHex(Address value) {
-    writeHex(value.toWord());
-  }
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeHex(ObjectReference value) {
+	    writeHex(value.toAddress().toWord());
+	  }
 
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeHex(ObjectReference value) {
-    writeHex(value.toAddress().toWord());
-  }
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeHex(Extent value) {
+	    writeHex(value.toWord());
+	  }
 
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeHex(Extent value) {
-    writeHex(value.toWord());
-  }
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeHex(Offset value) {
+	    writeHex(value.toWord());
+	  }
 
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeHex(Offset value) {
-    writeHex(value.toWord());
-  }
+	  /**
+	   * Low level print to console.
+	   * @param value       what is printed, as int only
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void writeInt(int value) {
+	    if (runningVM) {
+	      sysCall.sysConsoleWriteInteger(value, 0 /*just decimal*/);
+	    } else {
+	      writeNotRunningVM(value);
+	    }
+	  }
+	  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
+	  private static void writeNotRunningVM(long value) {
+	    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
+	    System.err.print(value);
+	  }
 
-  /**
-   * Low level print to console.
-   * @param value       what is printed, as int only
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void writeInt(int value) {
-    if (runningVM) {
-      sysCall.sysConsoleWriteInteger(value, 0 /*just decimal*/);
-    } else {
-      writeNotRunningVM(value);
-    }
-  }
-  @UninterruptibleNoWarn("Interruptible code not reachable at runtime")
-  private static void writeNotRunningVM(long value) {
-    if (VM.VerifyAssertions) VM._assert(!VM.runningVM);
-    System.err.print(value);
-  }
-
-  /**
-   * Low level print to console.
-   * @param value   what is printed
-   */
-  @NoInline
-  /* don't waste code space inlining these --dave */
-  public static void write(long value) {
+	  /**
+	   * Low level print to console.
+	   * @param value   what is printed
+	   */
+	  @NoInline
+	  /* don't waste code space inlining these --dave */
+	  public static void write(long value) {
     write(value, true);
   }
 
