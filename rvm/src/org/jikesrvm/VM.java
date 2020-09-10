@@ -74,7 +74,7 @@ import org.vmmagic.unboxed.Offset;
 import org.vmmagic.unboxed.Word;
 import org.jikesrvm.energy.LogQueue;
 import org.jikesrvm.energy.Service;
-
+import java.io.*;
 
 /**
  * A virtual machine.
@@ -86,6 +86,7 @@ public class VM extends Properties {
   public static String KENAN_FREQ="2";
   public static long  VM_START=0;  
   public static long  VM_END=0;
+  public static double start_energy=0;
  
   //Very important Note: I intentionally used String here for KENAN_FREQ and KENAN_SAMPLES
   //parseInt at this stage will casuse a lot of unexpected troubled.
@@ -507,6 +508,10 @@ public class VM extends Properties {
 
     if (VM.verboseClassLoading || verboseBoot >= 1) VM.sysWriteln("[VM booted]");
 
+    		
+	Scaler.initScaler();
+	//Scaler.initScaler();
+	EnergyCheckUtils.initJrapl();
     //TODO::Kenan::Khaled::LogQueue::log_queue
     //Link Create a System Call for LogQueue
 	    sysCall.init_log_queue(500,3);
@@ -518,22 +523,15 @@ public class VM extends Properties {
 		if(Controller.options.ENABLE_COUNTER_PROFILING || Controller.options.ENABLE_ENERGY_PROFILING) {
 			VM.sysWrite("perf initialization");
 			sysCall.sysInitPerf();
-			Scaler.initScaler();
 			//Scaler.initScaler();
-			EnergyCheckUtils.initJrapl();
+			//Scaler.initScaler();
+			//EnergyCheckUtils.initJrapl();
 			Scaler.openDVFSFiles();
 		//	    ProfileStack.InitStack(EnergyCheckUtils.socketNum);
 			ProfileMap.initProfileMap();
 			ProfileQueue.initSkippableMethod();
 			DataPrinter.initPrintStream();
 			LogQueue.initQueue(EnergyCheckUtils.socketNum);
-
-		    Runtime.getRuntime().addShutdownHook(new Thread() {
-			public void run() {
-				VM.sysWriteln("shutdown hook is invoked!!");
-				LogQueue.dumpLogQueue(Service.clsNameList, Service.methodNameList);
-			}
-	    });
 
 		}
 	//      }
@@ -597,6 +595,8 @@ public class VM extends Properties {
 
 	    // Schedule "main" thread for execution.
 	    org.jikesrvm.energy.Service.init_service();
+	    double[] energy = EnergyCheckUtils.getEnergyStats();
+	    //start_energy = energy[2];
 	    if (verboseBoot >= 1) VM.sysWriteln("Starting main thread");
 	    mainThread.start();
 
@@ -2472,6 +2472,14 @@ public class VM extends Properties {
   public static void shutdown(int value) {
     //TODO::Kenan::Khaled::LogQueue::log_queue
     //sysCall.print_logs();
+    double end_energy = 0;
+    double[] energy = EnergyCheckUtils.getEnergyStats();
+    end_energy = energy[2];
+    double total_energy = end_energy - start_energy;
+    write_to_file("kenan_energy",total_energy);
+
+
+    
     handlePossibleRecursiveShutdown();
 
     if (VM.VerifyAssertions) VM._assert(VM.runningVM);
@@ -2499,6 +2507,20 @@ public class VM extends Properties {
     if (VM.VerifyAssertions) VM._assert(VM.NOT_REACHED);
   }
 
+
+  public static void write_to_file(String file_name, double value) {
+	try {
+	  	FileWriter  fileWriter  = new FileWriter(file_name);
+		PrintWriter filePrinter = new PrintWriter(fileWriter);
+		filePrinter.printf("%f",value);
+		filePrinter.close();
+		fileWriter.close();
+	} catch(Exception e) {
+		e.printStackTrace();
+	}
+
+  }
+
   private static int inSysFail = 0;
 
   public static boolean sysFailInProgress() {
@@ -2521,7 +2543,7 @@ public class VM extends Properties {
 
   private static int inShutdown = 0;
 
-  /** Used only by VM.shutdown() */
+  /** Used only by VM.shutdowg() */
   private static void handlePossibleRecursiveShutdown() {
     handlePossibleRecursiveExit("shutdown", ++inShutdown);
   }

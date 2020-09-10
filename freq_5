@@ -1,7 +1,19 @@
 Attempting to unmask SIGQUIT...SUCCESS
-perf initializationOIteration Callback started
+[VM.parseKenanArg] Parsing Kenan Arguments ... Stay tuned!
+-X:kenan:
+frequency=0
+[VM.parseKenanArg] Parsing Kenan Arguments ... Stay tuned!
+-X:kenan:
+samples=0
+Profileinit read_msr
+[Service Constructor Invoked as Expected] ... 
+Samples
+0
+Freq
+0
+OIteration Callback started
 Invovation Successfull
-1591893213466
+1599700409549
 ===== DaCapo hsqldb starting warmup =====
 *********************************************************
 * PseudoJDBCBench v1.1                                  *
@@ -44,7 +56,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 7432 msec =====
+===== DaCapo hsqldb completed warmup in 4549 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -91,7 +103,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3581 msec =====
+===== DaCapo hsqldb completed warmup in 2724 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -138,7 +150,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3432 msec =====
+===== DaCapo hsqldb completed warmup in 2457 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -185,7 +197,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3360 msec =====
+===== DaCapo hsqldb completed warmup in 2350 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -232,7 +244,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3417 msec =====
+===== DaCapo hsqldb completed warmup in 2381 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -279,7 +291,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3390 msec =====
+===== DaCapo hsqldb completed warmup in 2434 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -326,7 +338,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3347 msec =====
+===== DaCapo hsqldb completed warmup in 2309 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -373,7 +385,7 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3427 msec =====
+===== DaCapo hsqldb completed warmup in 3405 msec =====
 Iteration Stopping
 Calling end iteration
 
@@ -420,58 +432,11 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3378 msec =====
+===== DaCapo hsqldb completed warmup in 2359 msec =====
 Iteration Stopping
 Calling end iteration
 
  Current Iteration 9 
-===== DaCapo hsqldb starting warmup =====
-*********************************************************
-* PseudoJDBCBench v1.1                                  *
-*********************************************************
-
-Scale factor value: 64
-Number of clients: 20
-Number of transactions per client: 40
-
-Initializing dataset...DBMS: HSQL Database Engine
-In transaction mode
-	80000	 records inserted
-	160000	 records inserted
-	240000	 records inserted
-	320000	 records inserted
-	400000	 records inserted
-	480000	 records inserted
-	560000	 records inserted
-	640000	 records inserted
-done.
-
-* Starting Benchmark Run *
-
-* Benchmark Report *
-* Featuring <direct queries> <auto-commit> 
---------------------
-0 / 800 failed to complete.
-
-* Benchmark Report *
-* Featuring <direct queries> <transactions> 
---------------------
-0 / 800 failed to complete.
-
-* Benchmark Report *
-* Featuring <prepared statements> <auto-commit> 
---------------------
-0 / 800 failed to complete.
-
-* Benchmark Report *
-* Featuring <prepared statements> <transactions> 
---------------------
-0 / 800 failed to complete.
-===== DaCapo hsqldb completed warmup in 3263 msec =====
-Iteration Stopping
-Calling end iteration
-
- Current Iteration 10 
 ===== DaCapo hsqldb starting =====
 *********************************************************
 * PseudoJDBCBench v1.1                                  *
@@ -514,6 +479,86 @@ done.
 * Featuring <prepared statements> <transactions> 
 --------------------
 0 / 800 failed to complete.
-===== DaCapo hsqldb PASSED in 3267 msec =====
-shutdown hook is invoked!!
-logQueue size is : 0
+===== DaCapo hsqldb PASSED in 2353 msec =====
+JikesRVM: hardwareTrapHandler SignalNO:11 Context:0xd790800c - InsPtr:0x64ed3f17 instFollowPtr:0x64ed3f1a threadPtr:0x680b0e4c jtocPtr:0x60080300
+JikesRVM: hardwareTrapHandler: trap context:
+eip           0x64ed3f17
+eax (T0)      (nil)
+ebx (ctrs)    (nil)
+ecx (S0)      0x60f072b2
+edx (T1)      0x60f00020
+esi (TR)      0x680b0e4c
+edi (S1)      0x13
+ebp           0x70b6dfbc
+esp (SP)      0x69362dc0
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010202
+fpregs        0xd7908090
+oldmask       0x00020000
+cr2           0xfffffff4
+JikesRVM: trap code is 0
+JikesRVM: trap info is fffffff4
+JikesRVM: set vmr_ip to 0x64ed3f1a
+JikesRVM: set vmr_fp to 0x69362df4
+JikesRVM: hardwareTrapHandler: trap context on exit:
+eip           0x64ec5068
+eax (T0)      (nil)
+ebx (ctrs)    (nil)
+ecx (S0)      0x60f072b2
+edx (T1)      0xfffffff4
+esi (TR)      0x680b0e4c
+edi (S1)      0x13
+ebp           0x6932fe8c
+esp (SP)      0x6932fe7c
+cs            0x23
+ds            0x2b
+es            0x2b
+fs            (nil)
+gs            0x63
+ss            0x2b
+trapno        0x0000000e
+err           0x00000004
+eflags        0x00010202
+fpregs        0xd7908090
+oldmask       0x00020000
+cr2           0xfffffff4
+delivering hardware exception
+we have a thread = 0x680b0e4c
+it's in state = 1
+we have exception registers = 0x68068fe8
+
+Fatal error: NullPointerException within uninterruptible region.
+trapCode = 0
+trapInfo = 0xfffffff4
+Exiting virtual machine due to uninterruptibility violation.
+Thread #52
+-- Stack --
+(0x6932fe40 21363)   at [0x6932fe40, 0x64ec59af] Lorg/jikesrvm/VM; sysFail(Ljava/lang/String;)V at line 2384 at bytecode index 14 at machine code offset 0x00000056
+(0x6932fe78 4570)   at [0x6932fe78, 0x64ed3f1a] Lorg/jikesrvm/runtime/RuntimeEntrypoints; deliverHardwareException(ILorg/vmmagic/unboxed/Word;)V at line 772 at bytecode index 368 at machine code offset 0x00000947
+(0x6932fe8c 1)   at [0x6932fe8c, 0x64ed3f1a] <hardware trap>
+(0x69362df4 21365)   at [0x69362df4, 0x64915c5f] Lorg/jikesrvm/VM; sysExit(I)V at line 2434 at bytecode index 16 at machine code offset 0x0000013a
+(0x69362e14 8272)   at [0x69362e14, 0x649170a6] Ljava/lang/VMRuntime; exit(I)V at line 80 at bytecode index 1 at machine code offset 0x00000057
+   at [0x69362e14, 0x649170a6] Ljava/lang/Runtime; halt(I)V at line 399 at bytecode index 14 at machine code offset 0x00000057
+(0x69362e4c 8268)   at [0x69362e4c, 0x64bafefa] Ljava/lang/Runtime; exit(I)V at line 174 at bytecode index 22 at machine code offset 0x00000076
+(0x69362e6c 5229)   at [0x69362e6c, 0x6883621a] Ljava/lang/System; exit(I)V at line 586 at bytecode index 4 at machine code offset 0x00000042
+(0x69362e88 23014)   at [0x69362e88, 0x64a66b8a] LHarness; main([Ljava/lang/String;)V at line 6 at bytecode index 5 at machine code offset 0x0000006e
+(0x69362ea0 -1)   at [0x69362ea0, 0x64ae8a00] <invisible method>
+(0x69362f2c 6577)   at [0x69362f2c, 0x648ab95a] Lorg/jikesrvm/runtime/Reflection; outOfLineInvoke(Lorg/jikesrvm/classloader/RVMMethod;Ljava/lang/Object;[Ljava/lang/Object;Z)Ljava/lang/Object; at line 223 at bytecode index 433 at machine code offset 0x000006b4
+(0x69362f80 13234)   at [0x69362f80, 0x64bd86e8] Lorg/jikesrvm/runtime/Reflection; invoke(Lorg/jikesrvm/classloader/RVMMethod;Lorg/jikesrvm/runtime/ReflectionBase;Ljava/lang/Object;[Ljava/lang/Object;Z)Ljava/lang/Object; at line 93 at bytecode index 50 at machine code offset 0x00000676
+   at [0x69362f80, 0x64bd86e8] Lorg/jikesrvm/scheduler/MainThread; run()V at line 201 at bytecode index 173 at machine code offset 0x00000676
+(0x69362fc0 22750)   at [0x69362fc0, 0x64eb9230] Lorg/jikesrvm/scheduler/RVMThread; run()V at line 2852 at bytecode index 70 at machine code offset 0x000002bc
+(0x69362ff8 22839)   at [0x69362ff8, 0xf76a877c] Lorg/jikesrvm/scheduler/RVMThread; startoff()V at line 2915 at bytecode index 78 at machine code offset 0x000001f4
+********************************************************************************
+*                      Abnormal termination of Jikes RVM                       *
+* Jikes RVM terminated abnormally indicating a problem in the virtual machine. *
+* Jikes RVM relies on community support to get debug information. Help improve *
+* Jikes RVM for everybody by reporting this error. Please see:                 *
+*                    http://www.jikesrvm.org/ReportingBugs/                    *
+********************************************************************************
