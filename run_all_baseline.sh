@@ -1,6 +1,5 @@
 expname=$1
 iters=$2
-frequency=$3
 
 mkdir $expname
 sudo bash jikes.sh jython old $((iters+1)) $expname

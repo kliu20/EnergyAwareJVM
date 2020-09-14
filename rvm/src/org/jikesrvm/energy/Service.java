@@ -12,6 +12,7 @@ import org.jikesrvm.runtime.SysCall;
 public class Service implements ProfilingTypes, ScalerOptions {
 	public native static int scale(int freq);
 	public static final int INIT_SIZE = 1000;
+	public static final int HIGH_FREQ = 2201000; 
 	public static String[] clsNameList = new String[INIT_SIZE];
 	public static String[] methodNameList = new String[INIT_SIZE];
 	public static long[] methodCount = new long[INIT_SIZE];
@@ -136,6 +137,15 @@ public class Service implements ProfilingTypes, ScalerOptions {
 			Scaler.scale(freq);
 		}
 
+		/**
+		 * Set userspace governnor and speficy the highest CPU frequency
+		 * @param freq The CPU frequency
+		 */
+		@Entrypoint
+		public static void changeToHighestFreq() {
+			Scaler.setGovernor(USERSPACE);	
+			Scaler.scale(HIGH_FREQ);
+		}
 		/**
 		 * Set userspace governnor and speficy the CPU frequency
 		 * @param freq The CPU frequency

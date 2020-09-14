@@ -85,6 +85,7 @@ public class Instrumentation {
 			} 
 
 			Instruction changeUserSpaceFreqInst = null;
+			Instruction changeToHighestFreqInst = null;
 			Instruction changeOnDemandFreqInst = null;
 			Instruction startProfInst = null;
 			Instruction endProfInst = null;
@@ -92,6 +93,7 @@ public class Instrumentation {
 			NormalMethod startProfileMtd = Entrypoints.startProfile;
 			NormalMethod endProfileMtd = Entrypoints.endProfile;
 			NormalMethod changeUserSpaceFreqMtd = Entrypoints.changeUserSpaceFreq;
+			NormalMethod changeToHighestFreqMtd = Entrypoints.changeToHighestFreq;
 			NormalMethod changeOnDemandFreqMtd = Entrypoints.changeOnDemandFreq;
 			StringConstantOperand clsName = new StringConstantOperand(
 				cls.toString(), Offset.fromIntSignExtend(cls
@@ -139,19 +141,26 @@ public class Instrumentation {
 								IRTools.AC(endProfileMtd.getOffset()),
 								MethodOperand.STATIC(endProfileMtd),
 								new IntConstantOperand(method.methodID));
-						changeOnDemandFreqInst = Call.create1(CALL, null,
-								IRTools.AC(changeOnDemandFreqMtd.getOffset()),
-								MethodOperand.STATIC(changeOnDemandFreqMtd),
-								new IntConstantOperand((int)Controller.options.FREQUENCY_TO_BE_PRINTED));
+//						changeOnDemandFreqInst = Call.create1(CALL, null,
+//								IRTools.AC(changeOnDemandFreqMtd.getOffset()),
+//								MethodOperand.STATIC(changeOnDemandFreqMtd),
+//								new IntConstantOperand((int)Controller.options.FREQUENCY_TO_BE_PRINTED));
+						changeToHighestFreqInst = Call.create0(CALL, null,
+								IRTools.AC(changeToHighestFreqMtd.getOffset()),
+								MethodOperand.STATIC(changeToHighestFreqMtd));
+
 						// Insert change ondemand governor before return.
 						//changeOnDemandFreqInst.position = inst.position;
 						//changeOnDemandFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
-						inst.insertBefore(changeOnDemandFreqInst);
+						//inst.insertBefore(changeOnDemandFreqInst);
+						inst.insertBefore(changeToHighestFreqInst);
 
 						// Insert end profile before change ondemand governor
-						endProfInst.position = changeOnDemandFreqInst.position;
+						//endProfInst.position = changeOnDemandFreqInst.position;
+						endProfInst.position = changeToHighestFreqInst.position;
 						endProfInst.bcIndex = RUNTIME_SERVICES_BCI;
-						changeOnDemandFreqInst.insertBefore(endProfInst);
+						//changeOnDemandFreqInst.insertBefore(endProfInst);
+						changeToHighestFreqInst.insertBefore(endProfInst);
 					}
 				}
 
