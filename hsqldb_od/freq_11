@@ -1,0 +1,519 @@
+Attempting to unmask SIGQUIT...SUCCESS
+perf initializationOIteration Callback started
+Invovation Successfull
+1591679354874
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 9346 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 1 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4612 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 2 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4654 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 3 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4851 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 4 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4719 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 5 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4627 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 6 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4680 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 7 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4715 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 8 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4679 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 9 
+===== DaCapo hsqldb starting warmup =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb completed warmup in 4682 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 10 
+===== DaCapo hsqldb starting =====
+*********************************************************
+* PseudoJDBCBench v1.1                                  *
+*********************************************************
+
+Scale factor value: 64
+Number of clients: 20
+Number of transactions per client: 40
+
+Initializing dataset...DBMS: HSQL Database Engine
+In transaction mode
+	80000	 records inserted
+	160000	 records inserted
+	240000	 records inserted
+	320000	 records inserted
+	400000	 records inserted
+	480000	 records inserted
+	560000	 records inserted
+	640000	 records inserted
+done.
+
+* Starting Benchmark Run *
+
+* Benchmark Report *
+* Featuring <direct queries> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <direct queries> <transactions> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <auto-commit> 
+--------------------
+0 / 800 failed to complete.
+
+* Benchmark Report *
+* Featuring <prepared statements> <transactions> 
+--------------------
+0 / 800 failed to complete.
+===== DaCapo hsqldb PASSED in 4713 msec =====
+shutdown hook is invoked!!
+logQueue size is : 0

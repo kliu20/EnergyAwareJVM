@@ -9,16 +9,10 @@ import org.jikesrvm.adaptive.controller.Controller;
 import org.vmmagic.pragma.Entrypoint;
 import org.jikesrvm.runtime.SysCall;
 
-public class Service implements ProfilingTypes {
-	double[] energy_first = new double[Scaler.getPerfEnerCounterNum()];
-	public static final long THREASHOLD = 500;
-	public static final boolean changed = false;
-	public static boolean isJraplInit = false;
-	public static boolean isSamplingInit = false;
+public class Service implements ProfilingTypes, ScalerOptions {
 	public native static int scale(int freq);
-	public native static int[] freqAvailable();
 	public static final int INIT_SIZE = 1000;
-	public static boolean titleIsPrinted = false;
+	public static final int HIGH_FREQ = 2201000; 
 	public static String[] clsNameList = new String[INIT_SIZE];
 	public static String[] methodNameList = new String[INIT_SIZE];
 	public static long[] methodCount = new long[INIT_SIZE];
@@ -55,6 +49,7 @@ public class Service implements ProfilingTypes {
 			fullName+="\0";
 			return SysCall.sysCall.add_method_entry(fullName.getBytes(),"".getBytes());	
 		}
+
 
 		/**
 		 * Do profile
@@ -107,22 +102,58 @@ public class Service implements ProfilingTypes {
 					double[] energy = EnergyCheckUtils.getEnergyStats();
 					
 					for (int i = 0; i < EnergyCheckUtils.ENERGY_ENTRY_SIZE; i++) {
-						profileAttrs[eventId] = energy[i]- prevProfile[threadId][eventId];
-						if(energy[i]>0) {
-
-
+						profileAttrs[eventId] = calculateEnergy(energy[i], prevProfile[threadId][eventId]);
 						prevProfile[threadId][eventId] = energy[i];
-						}
 						eventId++;
 					}
 				}
 			}
 		  }
 
+		  public static double calculateEnergy(double end, double start) {
+			double delta = 0;
+			delta = end - start;
+
+			if(delta < 0) {
+				//If the value is set to be 0 during the measurement, it would be negative
+				delta += (double)EnergyCheckUtils.wraparoundValue;
+			}
+
+			return delta;
+		  }
+
 		  public static void enableProfile() {
 			VM.sysWriteln("Profiling Enabled ... Stay tuned!");
 		  	profileEnable = true;
 	 	 }
+
+		/**
+		 * Set userspace governnor and speficy the CPU frequency
+		 * @param freq The CPU frequency
+		 */
+		@Entrypoint
+		public static void changeUserSpaceFreq(int freq) {
+			Scaler.setGovernor(USERSPACE);	
+			Scaler.scale(freq);
+		}
+
+		/**
+		 * Set userspace governnor and speficy the highest CPU frequency
+		 * @param freq The CPU frequency
+		 */
+		@Entrypoint
+		public static void changeToHighestFreq() {
+			Scaler.setGovernor(USERSPACE);	
+			Scaler.scale(HIGH_FREQ);
+		}
+		/**
+		 * Set userspace governnor and speficy the CPU frequency
+		 * @param freq The CPU frequency
+		 */
+		@Entrypoint
+		public static void changeOnDemandFreq(int freq) {
+			Scaler.setGovernor(ONDEMAND);	
+		}
 
 	public static void init_service() {
 		RVMThread.FREQ = Integer.parseInt(VM.KENAN_FREQ); 
@@ -144,7 +175,6 @@ public class Service implements ProfilingTypes {
 		profile(cmid, ServiceConstants.ENDPROFILE);
 	}
 
-	//400 or 300
 	public static void profile(int cmid, String profilePoint) {
 		RVMThread thread = RVMThread.getCurrentThread();
 		/*int expired = SysCall.sysCall.quota_expired(cmid);

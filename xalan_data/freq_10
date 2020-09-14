@@ -1,0 +1,79 @@
+Attempting to unmask SIGQUIT...SUCCESS
+perf initializationOIteration Callback started
+Invovation Successfull
+1591679354874
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 2747 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 1 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1890 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 2 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1806 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 3 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1667 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 4 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1616 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 5 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1572 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 6 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1580 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 7 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1546 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 8 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1481 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 9 
+===== DaCapo xalan starting warmup =====
+Normal completion.
+===== DaCapo xalan completed warmup in 1552 msec =====
+Iteration Stopping
+Calling end iteration
+
+ Current Iteration 10 
+===== DaCapo xalan starting =====
+Normal completion.
+===== DaCapo xalan PASSED in 1477 msec =====
+shutdown hook is invoked!!
+logQueue size is : 0

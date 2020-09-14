@@ -26,6 +26,7 @@ import org.jikesrvm.compilers.opt.ir.operand.RegisterOperand;
 import org.jikesrvm.compilers.opt.ir.operand.StringConstantOperand;
 import org.jikesrvm.runtime.Entrypoints;
 import org.jikesrvm.runtime.Magic;
+import org.jikesrvm.adaptive.controller.Controller;
 import org.vmmagic.unboxed.Address;
 import org.vmmagic.unboxed.Offset;
 
@@ -82,46 +83,111 @@ public class Instrumentation {
 				
 				method.methodID = Service.addMethodEntry(cls.toString(), method.getName().toString());
 			} 
+
+			Instruction changeUserSpaceFreqInst = null;
+			Instruction changeToHighestFreqInst = null;
+			Instruction changeOnDemandFreqInst = null;
+			Instruction startProfInst = null;
+			Instruction endProfInst = null;
+
 			NormalMethod startProfileMtd = Entrypoints.startProfile;
 			NormalMethod endProfileMtd = Entrypoints.endProfile;
-
-			Instruction start;
+			NormalMethod changeUserSpaceFreqMtd = Entrypoints.changeUserSpaceFreq;
+			NormalMethod changeToHighestFreqMtd = Entrypoints.changeToHighestFreq;
+			NormalMethod changeOnDemandFreqMtd = Entrypoints.changeOnDemandFreq;
 			StringConstantOperand clsName = new StringConstantOperand(
-					cls.toString(), Offset.fromIntSignExtend(cls
-							.getDescriptor().getStringLiteralOffset()));
+				cls.toString(), Offset.fromIntSignExtend(cls
+				.getDescriptor().getStringLiteralOffset()));
 
-
-
-			start = Call
+			startProfInst = Call
 					.create1(CALL, null,
 							IRTools.AC(startProfileMtd.getOffset()),
 							MethodOperand.STATIC(startProfileMtd), clsName,
 							new IntConstantOperand(method.methodID));
 
-			start.position = ir.firstInstructionInCodeOrder().position;
-			start.bcIndex = RUNTIME_SERVICES_BCI;
+			// Set userspace frequency for the specific method.
+			if (cls.toString().equals(Controller.options.DVFS_CLS) && method.getName().toString().equals(Controller.options.DVFS_MTH)) {
+				VM.sysWriteln("DVFS class name is invoked " + cls.toString() + " method is: " + method.getName());
+				
+				changeUserSpaceFreqInst = Call
+						.create1(CALL, null,
+								IRTools.AC(changeUserSpaceFreqMtd.getOffset()),
+								MethodOperand.STATIC(changeUserSpaceFreqMtd),
+								new IntConstantOperand((int)Controller.options.FREQUENCY_TO_BE_PRINTED));
+
+				changeUserSpaceFreqInst.position = ir.firstInstructionInCodeOrder().position;
+				changeUserSpaceFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
+				// Insert the DVFS instrument to the beginning of candidate method 
+				ir.firstBasicBlockInCodeOrder()
+						.prependInstructionRespectingPrologue(changeUserSpaceFreqInst);
+			
+				//startProfInst.position = changeUserSpaceFreqInst.nextInstructionInCodeOrder().position;
+				//startProfInst.bcIndex = RUNTIME_SERVICES_BCI;
+
+				// Insert start profile after change user space frequency instruction
+				changeUserSpaceFreqInst.insertAfter(startProfInst);
+
+			//	ir.firstBasicBlockInCodeOrder()
+			//			.prependInstructionRespectingPrologue(startProfInst);
+				
+				// traverse the instruction starting from start profile inst (after change user space frequency inst).
+				for (Instruction inst = startProfInst.nextInstructionInCodeOrder(); inst != null; inst = inst
+						.nextInstructionInCodeOrder()) {
+					
+	//				VM.sysWriteln("Ir method: " + ir.getMethod().getName().toString() + " operator: "+ inst.operator.toString() + " opcode: " + (int)inst.getOpcode() + " RETURN_opcode: " + (int)RETURN_opcode);
+	//				if (inst.operator.toString().equalsIgnoreCase("return")) {
+					if (inst.getOpcode() == RETURN_opcode) {
+						endProfInst = Call.create1(CALL, null,
+								IRTools.AC(endProfileMtd.getOffset()),
+								MethodOperand.STATIC(endProfileMtd),
+								new IntConstantOperand(method.methodID));
+//						changeOnDemandFreqInst = Call.create1(CALL, null,
+//								IRTools.AC(changeOnDemandFreqMtd.getOffset()),
+//								MethodOperand.STATIC(changeOnDemandFreqMtd),
+//								new IntConstantOperand((int)Controller.options.FREQUENCY_TO_BE_PRINTED));
+						changeToHighestFreqInst = Call.create0(CALL, null,
+								IRTools.AC(changeToHighestFreqMtd.getOffset()),
+								MethodOperand.STATIC(changeToHighestFreqMtd));
+
+						// Insert change ondemand governor before return.
+						//changeOnDemandFreqInst.position = inst.position;
+						//changeOnDemandFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
+						//inst.insertBefore(changeOnDemandFreqInst);
+						inst.insertBefore(changeToHighestFreqInst);
+
+						// Insert end profile before change ondemand governor
+						//endProfInst.position = changeOnDemandFreqInst.position;
+						endProfInst.position = changeToHighestFreqInst.position;
+						endProfInst.bcIndex = RUNTIME_SERVICES_BCI;
+						//changeOnDemandFreqInst.insertBefore(endProfInst);
+						changeToHighestFreqInst.insertBefore(endProfInst);
+					}
+				}
+
+				return;
+			}
+
+			// If no method can be matched, just insert start profile and end profile method then.
+			startProfInst.position = ir.firstInstructionInCodeOrder().position;
+			startProfInst.bcIndex = RUNTIME_SERVICES_BCI;
 			ir.firstBasicBlockInCodeOrder()
-					.prependInstructionRespectingPrologue(start);
-			for (Instruction inst = start.nextInstructionInCodeOrder(); inst != null; inst = inst
+					.prependInstructionRespectingPrologue(startProfInst);
+			for (Instruction inst = startProfInst.nextInstructionInCodeOrder(); inst != null; inst = inst
 					.nextInstructionInCodeOrder()) {
 				
 //				VM.sysWriteln("Ir method: " + ir.getMethod().getName().toString() + " operator: "+ inst.operator.toString() + " opcode: " + (int)inst.getOpcode() + " RETURN_opcode: " + (int)RETURN_opcode);
 //				if (inst.operator.toString().equalsIgnoreCase("return")) {
 				if (inst.getOpcode() == RETURN_opcode) {
-					Instruction end = Call.create1(CALL, null,
+					endProfInst = Call.create1(CALL, null,
 							IRTools.AC(endProfileMtd.getOffset()),
 							MethodOperand.STATIC(endProfileMtd),
 							new IntConstantOperand(method.methodID));
-					end.position = inst.position;
-					end.bcIndex = RUNTIME_SERVICES_BCI;
-					inst.insertBefore(end);
+					//endProfInst.position = inst.position;
+					//endProfInst.bcIndex = RUNTIME_SERVICES_BCI;
+					inst.insertBefore(endProfInst);
 				}
 			}
-			Instruction end = Call.create1(CALL, null,
-					IRTools.AC(endProfileMtd.getOffset()),
-					MethodOperand.STATIC(endProfileMtd),
-					new IntConstantOperand(method.methodID));
-//			end.positionir.lastInstructionInCodeOrder().position;
+
 		} catch (UTFDataFormatException e) {
 			e.printStackTrace();
 		}
