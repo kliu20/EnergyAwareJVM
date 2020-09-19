@@ -6,8 +6,8 @@ ptype=$2
 iters="$3"
 ifreq="$4"
 expected=$iters
-mname="setline"
-cname="org.python.core.PyFrame"
+mname="intersect"
+cname="sunflow.core.accel.KDTree"
 if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
