@@ -36,13 +36,17 @@ kkfreq="0"
 #cache-misses,cache-references
 
 runJikesProfile() {
-		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}"  "-X:aos:enable_counter_profiling=false" "-X:aos:enable_energy_profiling=false" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-cp" "$dacapoJar:." "Harness" "-s" "$size" "-n" "${iters}" "-c" "$callbackClass"  "$bench"
+		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm "-cp" "$dacapoJar:." "Harness" "-s" "$size" "-n" "${iters}" "-c" "$callbackClass"  "$bench"
 }
 
 
        	i="$frq"
 	sudo java energy.Scaler $i userspace
-	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
 	
-
-
+	./read_energy.o > start_energy
+	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4
+	./read_energy.o > end_energy
+	starte=$(head -1 start_energy)
+	ende=$(head -1 end_energy)
+	call="print(-${starte} + ${ende})"
+	#python -c "$call" > kenan_energy

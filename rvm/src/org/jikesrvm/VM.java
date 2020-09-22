@@ -596,7 +596,7 @@ public class VM extends Properties {
 	    // Schedule "main" thread for execution.
 	    org.jikesrvm.energy.Service.init_service();
 	    double[] energy = EnergyCheckUtils.getEnergyStats();
-	    //start_energy = energy[2];
+	    start_energy = energy[energy.length-1];
 	    if (verboseBoot >= 1) VM.sysWriteln("Starting main thread");
 	    mainThread.start();
 
@@ -2474,7 +2474,7 @@ public class VM extends Properties {
     //sysCall.print_logs();
     double end_energy = 0;
     double[] energy = EnergyCheckUtils.getEnergyStats();
-    end_energy = energy[2];
+    end_energy = energy[energy.length-1];
     double total_energy = end_energy - start_energy;
     write_to_file("kenan_energy",total_energy);
 
