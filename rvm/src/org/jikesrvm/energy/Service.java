@@ -143,8 +143,9 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		 */
 		@Entrypoint
 		public static void changeToHighestFreq() {
-			Scaler.setGovernor(USERSPACE);	
-			Scaler.scale(HIGH_FREQ);
+			//Scaler.setGovernor(USERSPACE);	
+			//Scaler.scale(HIGH_FREQ);
+			changeOnDemandFreq(0);
 		}
 		/**
 		 * Set userspace governnor and speficy the CPU frequency

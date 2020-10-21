@@ -6,13 +6,12 @@ ptype=$2
 iters="$3"
 ifreq="$4"
 expected=$iters
-mname="intersect"
-cname="sunflow.core.accel.KDTree"
+mname="$6"
+cname="$5"
 if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
 	callbackClass="kenan.OIterationCallBack"
-	expected=$((iters-1))
 else
 
 	callbackClass="kenan.IterationCallBack"
@@ -20,7 +19,6 @@ else
 fi	
 
 #callbackClass="kenan.IterationCallBack"
-echo "Number of expected lines in iteration_times is $expected"
 bench="$pbench"
 size="default"
 
@@ -37,10 +35,16 @@ freqScaling=1
 #cache-misses,cache-references
 
 runJikesProfile() {
-		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:kenan:frequency=0" "-X:kenan:samples=0" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=0.1" "-X:aos:hot_method_time_max=1" "-X:aos:dvfs_class_name=org.hsqldb.Column" "-X:aos:dvfs_method_name=compare" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=false" "-X:aos:enable_energy_profiling=false" "-X:aos:profiler_file=doubleSampleWindow_1ms.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=false" "-cp" "$dacapoJar:." "Harness" "-s" "$size" "-n" "${iters}" "-c" "$callbackClass"  "$bench" &> freq_${kkfreq}
+		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:kenan:frequency=0" "-X:kenan:samples=0" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}" "-X:aos:enable_recompilation=true" "-X:aos:hot_method_time_min=0.1" "-X:aos:hot_method_time_max=1" "-X:aos:dvfs_class_name=$cname" "-X:aos:dvfs_method_name=$mname" "-X:aos:frequency_to_be_printed=${2}" "-X:aos:event_counter=${3}" "-X:aos:enable_counter_profiling=false" "-X:aos:enable_energy_profiling=false" "-X:aos:profiler_file=doubleSampleWindow_1ms.csv" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=false" "-cp" "$dacapoJar:." "Harness" "-s" "$size" "-n" "${iters}" "-c" "$callbackClass"  "$bench" &> freq_${kkfreq}
 	}
 
 kkfreq="$ifreq"
 timeSlice=$((${timeSlice}))		
 sudo java energy.Scaler 1 ondemand
 runJikesProfile 4 ${freq[$kkfreq]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+
+cp kenan_energy "kenan_energy_${bench}_${ifreq}_${cname}.${mname}"
+cp execution_time "execution_time_${bench}_${ifreq}_${cname}.${mname}"
+cp "freq_$kkfreq" "freq_${bench}_${ifreq}_${cnameV}.${mname}"
+cp "iteration_times" "iteration_times_${bench}_${ifreq}_${cnameV}.${mname}"
+killall JikesRVM

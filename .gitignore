@@ -47,6 +47,14 @@ counter_based*
 /*_data
 /kmahmou1/
 /kmahmou1_old_data/
+/firstTrial
+/baseline23
+/baseline40
+/baseline40_fixed
+/optimization_results
+/*_gitignore
+/*_exp
+/baseline_*
 *.csv
 *.jar
 *.class
