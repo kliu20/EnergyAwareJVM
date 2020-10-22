@@ -59,10 +59,8 @@ public class AOSExternalOptions implements Cloneable {
   public double HOT_METHOD_TIME_MIN				= -1;
   /**What is the maximum time of hot method*/
   public double HOT_METHOD_TIME_MAX				= -1;
-  /**What is the class name of the DVFS method*/
-  public String DVFS_CLS						= "";
-  /**What is the method name of the DVFS method*/
-  public String DVFS_MTH						= "";
+  /**What is the name of the DVFS method (including class name)*/
+  public String DVFS_CLS_MTH						= "";
   /**Which event counter do we need to profile? Events are based on command "perf list"*/
   public String EVENTCOUNTER 					= "";
   /**Specify output file name of energy/hardware counter profiling information*/
@@ -392,12 +390,8 @@ public class AOSExternalOptions implements Cloneable {
     	HOT_METHOD_TIME_MAX = CommandLineArgs.primitiveParseFloat(value);;
     	return true;
     }
-    if(name.equals("dvfs_class_name")) {
-    	DVFS_CLS = value;
-    	return true;
-    }
-    if(name.equals("dvfs_method_name")) {
-    	DVFS_MTH = value;
+    if(name.equals("dvfs_class_method_name")) {
+    	DVFS_CLS_MTH = value;
     	return true;
     }
     if(name.equals("enable_scaling_by_counters")) {
@@ -798,8 +792,7 @@ public class AOSExternalOptions implements Cloneable {
     result.append("\tprofiler_file					=").append(PROFILER_FILE).append("\n");
     result.append("\thot_method_time_min			=").append(HOT_METHOD_TIME_MIN).append("\n");
     result.append("\thot_method_time_max			=").append(HOT_METHOD_TIME_MAX).append("\n");
-    result.append("\tdvfs_class_name			=").append(DVFS_CLS).append("\n");
-    result.append("\tdvfs_method_name			=").append(DVFS_MTH).append("\n");
+    result.append("\tdvfs_class_method_name			=").append(DVFS_CLS_MTH).append("\n");
 
     result.append("\tenable_recompilation           = ").append(ENABLE_RECOMPILATION).append("\n");
     result.append("\tenable_advice_generation       = ").append(ENABLE_ADVICE_GENERATION).append("\n");
@@ -873,8 +866,7 @@ public class AOSExternalOptions implements Cloneable {
     VM.sysWriteln("\tcorrelation_events				= ",CORRELATION_EVENTS);
     VM.sysWriteln("\thot_method_time_min			= ",HOT_METHOD_TIME_MIN);
     VM.sysWriteln("\thot_method_time_max			= ",HOT_METHOD_TIME_MAX);
-    VM.sysWriteln("\tdvfs_method_name			= ",DVFS_MTH);
-    VM.sysWriteln("\tdvfs_class_name			= ",DVFS_CLS);
+    VM.sysWriteln("\tdvfs_class_method_name			= ",DVFS_CLS_MTH);
     VM.sysWriteln("\tprofiler_file			= ",PROFILER_FILE);
 
     // Begin generated option value printing
