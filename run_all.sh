@@ -1,4 +1,3 @@
-q
 expname=$1
 iters=$2
 samples="1"

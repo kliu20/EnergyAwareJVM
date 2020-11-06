@@ -21,7 +21,6 @@ fi
 #callbackClass="kenan.IterationCallBack"
 bench="$pbench"
 size="default"
-size="small"
 freqOpt=8
 freq=('0' '2201000' '2200000' '2100000' '2000000' '1900000' '1800000' '1700000' '1600000' '1500000' '1400000' '1300000' '1200000')
 #freq=('0' '2601000' '2400000' '2200000' '2000000' '1800000' '1600000' '1400000' '1200000' '2600000');
@@ -33,22 +32,12 @@ threads=('2' '4' '8')
 eventNum=8
 freqScaling=1
 kkfreq="0"
+size="small"
 #cache-misses,cache-references
-
+#-Xmx4000M
 runJikesProfile() {
 		sudo dist/FullAdaptiveMarkSweep_x86_64-linux/rvm  "-Xmx4000M" "-X:gc:eagerMmapSpaces=true"  "-X:vm:errorsFatal=true" "-X:gc:printPhaseStats=true" "-X:vm:interruptQuantum=${4}"  "-X:aos:enable_counter_profiling=false" "-X:aos:enable_energy_profiling=false" "-X:aos:enable_scaling_by_counters=false" "-X:aos:enable_counter_printer=true" "-cp" "$dacapoJar:." "Harness" "-s" "$size" "-n" "${iters}" "-c" "$callbackClass"  "$bench"
 }
-
-for((i=1;i<=12;i++))
-do
-
-       	sudo java energy.Scaler $i userspace
-	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
-	
-	mv execution_time "${pbench}_${i}_execution_time"
-	mv kenan_energy "${pbench}_${i}_kenan_energy"
-done
-
 
 sudo java energy.Scaler 1 ondemand
 i=0
