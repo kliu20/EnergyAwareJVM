@@ -119,14 +119,26 @@ public class Instrumentation {
 			String[] candidateDvfsMth = getDvfsMthNames();
 			// Set userspace frequency for the specific method.
 			for (int i = 0; i < candidateDvfsMth.length; i++) {
-				if (currentMth.equals(candidateDvfsMth[i])) {
+
+				String candidate="";
+				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
+				if(freq==19) {
+					String[] kenan_fields = candidateDvfsMth[i].split(":");
+					candidate = kenan_fields[0];
+					freq = Integer.parseInt(kenan_fields[1]);
+				} else {
+					candidate = candidateDvfsMth[i];
+				}
+
+
+				if (currentMth.equals(candidate)) {
 					VM.sysWriteln("DVFS method name: " + currentMth + " is invoked!");
 					
 					changeUserSpaceFreqInst = Call
 							.create1(CALL, null,
 									IRTools.AC(changeUserSpaceFreqMtd.getOffset()),
 									MethodOperand.STATIC(changeUserSpaceFreqMtd),
-									new IntConstantOperand((int)Controller.options.FREQUENCY_TO_BE_PRINTED));
+									new IntConstantOperand(freq));
 
 					changeUserSpaceFreqInst.position = ir.firstInstructionInCodeOrder().position;
 					changeUserSpaceFreqInst.bcIndex = RUNTIME_SERVICES_BCI;

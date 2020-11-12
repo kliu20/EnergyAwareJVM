@@ -14,11 +14,11 @@ fi
 #array+=("lusearch")
 #array+=("luindex")
 #array+=("sunflow")
-array+=("bloat")
-array+=("antlr")
+#array+=("bloat")
+#array+=("antlr")
 #array+=("lusearch")
 #array+=("luindex")
-#array=(pmd lusearch luindex avrora jython fop)
+array=(pmd lusearch luindex avrora jython fop sunflow antlr bloat)
 for i in "${array[@]}"
 do
 	bash optimize_bench.sh $i $name $settings
