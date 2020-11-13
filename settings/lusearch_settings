@@ -1,0 +1,5 @@
+lusearch;new;10;org.apache.lucene.store.BufferedIndexInput.readBytes
+lusearch;new;10;org.apache.lucene.util.UnicodeUtil.UTF8toUTF16
+lusearch;new;10;org.dacapo.harness.FileDigest.getText
+lusearch;new;10;org.apache.lucene.index.SegmentTermEnum.next
+lusearch;new;10;org.apache.lucene.analysis.Token.initTermBuffer

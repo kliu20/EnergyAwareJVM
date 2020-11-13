@@ -1,0 +1,5 @@
+antlr;old;20;antlr.CharScanner.LA
+antlr;old;20;antlr.CodeGenerator.println
+antlr;old;20;antlr.collections.impl.Vector.size
+antlr;old;20;antlr.collections.impl.Vector.elementAt
+antlr;old;20;antlr.collections.impl.BitSet.degree

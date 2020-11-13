@@ -74,6 +74,11 @@ public class Instrumentation {
 	}
 
 	public void perform() {
+
+	
+		int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
+		//VM.sysWriteln("WWWWWWWWWWWW Frequency:" + freq);	
+
 		try {
 			if (Util.irrelevantType(cls) || Util.isJavaClass(cls)) {
 				return;
@@ -118,27 +123,29 @@ public class Instrumentation {
 
 			String[] candidateDvfsMth = getDvfsMthNames();
 			// Set userspace frequency for the specific method.
+			int kenan=freq;
 			for (int i = 0; i < candidateDvfsMth.length; i++) {
 
 				String candidate="";
-				int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
 				if(freq==19) {
 					String[] kenan_fields = candidateDvfsMth[i].split(":");
 					candidate = kenan_fields[0];
-					freq = Integer.parseInt(kenan_fields[1]);
+					kenan = Integer.parseInt(kenan_fields[1]);
+					VM.sysWriteln(candidate);
 				} else {
 					candidate = candidateDvfsMth[i];
+					kenan=freq;
 				}
 
 
 				if (currentMth.equals(candidate)) {
-					VM.sysWriteln("DVFS method name: " + currentMth + " is invoked!");
+					//VM.sysWriteln("DVFS method name: " + currentMth + " is invoked!");
 					
 					changeUserSpaceFreqInst = Call
 							.create1(CALL, null,
 									IRTools.AC(changeUserSpaceFreqMtd.getOffset()),
 									MethodOperand.STATIC(changeUserSpaceFreqMtd),
-									new IntConstantOperand(freq));
+									new IntConstantOperand(kenan));
 
 					changeUserSpaceFreqInst.position = ir.firstInstructionInCodeOrder().position;
 					changeUserSpaceFreqInst.bcIndex = RUNTIME_SERVICES_BCI;

@@ -1,0 +1,5 @@
+fop;old;20;org.apache.fop.layout.FontState.mapChar
+fop;old;20;org.apache.fop.render.ps.PSStream.write
+fop;old;20;org.apache.fop.fo.PropertyListBuilder.computeProperty
+fop;old;20;org.apache.fop.fo.PropertyList.getExplicit
+fop;old;20;org.apache.fop.fo.PropertyList.get
