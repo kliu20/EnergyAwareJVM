@@ -70,9 +70,9 @@ public class Scaler implements ScalerOptions {
 //		return govBuf;
 	}
 
-	public static void scale(int option){
+	public static void scale(int freq){
 		//VM.sysWriteln("Kenan: Frequency: " + freqs[option] + " is going to be written");
-		SysCall.sysCall.Scale(freqs[option]);
+		SysCall.sysCall.Scale(freq);
 	}
 	
 	public static void pkgPowerLimit(int option, double power) {

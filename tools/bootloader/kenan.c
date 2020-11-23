@@ -489,9 +489,7 @@ EXTERNAL void ProfileDealloc() {
 /*Change governor*/
 EXTERNAL int SetGovernor(const char* name) {
 	int core_id = getCurrentCpu();
-	char set_gov_file[60];
-	sprintf(set_gov_file, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", core_id);
-	return check_write_gov(set_gov_file, name);
+	return check_write_gov(gov_file[core_id], name, core_id);
 }
 
 EXTERNAL GetGovernor(char* name) {
@@ -522,9 +520,10 @@ EXTERNAL void openDVFSFiles() {
 	scale_file = (FILE **)malloc(num_core * sizeof(FILE *));
 	gov_file = (FILE **)malloc(num_core * sizeof(FILE *));
 	for (i = 0; i < num_core; i++) {
+		//printf("open DVFS files: core id is: %d\n", i);
 		/*Open the Scaling files*/
 		sprintf(filename[i], "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_setspeed", i);
-		scale_file[i] = fopen(filename[i], "w");
+		scale_file[i] = fopen(filename[i], "r+");
 //		printf("kenan: open the scaling file: %d!!!!!!\n", i);
 		if (scale_file[i] == NULL) {
 			//LOGI("Failed to open %s: %s", filename, strerror(errno));
@@ -550,8 +549,8 @@ EXTERNAL void openDVFSFiles() {
 EXTERNAL void closeDVFSFiles() {
 	int i;
 	int rc;
-	char filename[2][60];
-	for (i = 0; i < 2; i++) {
+	char filename[num_core][60];
+	for (i = 0; i < num_core; i++) {
 
 		/*Close scaler files*/
 		sprintf(filename[i], "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_setspeed", i);
@@ -585,14 +584,15 @@ EXTERNAL int Scale(int name) {
 	const int freq = name;
 	const int core_id = sched_getcpu();
 
+	//printf("begin to scale!!!!\n");
 	sprintf(set_gov_file, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", core_id);
-	check_write_gov(set_gov_file, usrSpace);
+	check_write_gov(gov_file[core_id], usrSpace, core_id);
 
 	//free memory
 	//free (string);
 		//Write frequency
 	sprintf(set_scale_file, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_setspeed", core_id);
-	write_freq_coreId(set_scale_file, freq);
+	write_freq_coreId(scale_file[core_id], freq, core_id);
 
     return 1;
 }

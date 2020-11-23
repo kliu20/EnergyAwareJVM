@@ -75,6 +75,8 @@ import org.vmmagic.unboxed.Word;
 import org.jikesrvm.energy.LogQueue;
 import org.jikesrvm.energy.Service;
 import java.io.*;
+import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * A virtual machine.
@@ -87,7 +89,7 @@ public class VM extends Properties {
   public static long  VM_START=0;  
   public static long  VM_END=0;
   public static double start_energy=0;
- 
+
   //Very important Note: I intentionally used String here for KENAN_FREQ and KENAN_SAMPLES
   //parseInt at this stage will casuse a lot of unexpected troubled.
   public static void parseKenanArg(String value, String arg) {
@@ -532,8 +534,9 @@ public class VM extends Properties {
 			ProfileQueue.initSkippableMethod();
 			DataPrinter.initPrintStream();
 			LogQueue.initQueue(EnergyCheckUtils.socketNum);
-
 		}
+		//TODO: add DVFS enable later
+		Scaler.openDVFSFiles();
 	//      }
 	      Controller.boot();
 	    }
@@ -2478,7 +2481,7 @@ public class VM extends Properties {
     double total_energy = end_energy - start_energy;
     write_to_file("kenan_energy",total_energy);
 
-
+    Scaler.closeDVFSFiles();
     
     handlePossibleRecursiveShutdown();
 

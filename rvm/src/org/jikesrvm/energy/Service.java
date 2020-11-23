@@ -133,6 +133,7 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		 */
 		@Entrypoint
 		public static void changeUserSpaceFreq(int freq) {
+			//VM.sysWriteln("Start the method level DVFS, set frequency to be: " + freq);
 			Scaler.setGovernor(USERSPACE);	
 			Scaler.scale(freq);
 		}
@@ -143,6 +144,7 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		 */
 		@Entrypoint
 		public static void changeToHighestFreq() {
+			//VM.sysWriteln("End the method level DVFS, set governor to be: ondemand");
 			//Scaler.setGovernor(USERSPACE);	
 			//Scaler.scale(HIGH_FREQ);
 			changeOnDemandFreq(0);

@@ -91,8 +91,10 @@ public class Instrumentation {
 //			VM.sysWriteln("methodCount.length");
 //			VM.sysWriteln(Service.methodCount.length);
 			
+			if (method.methodID != -1) {
+				return;
+			}
 			if (method.methodID == -1){
-				
 				method.methodID = Service.addMethodEntry(cls.toString(), method.getName().toString());
 			} 
 
@@ -110,7 +112,6 @@ public class Instrumentation {
 			StringConstantOperand clsName = new StringConstantOperand(
 				cls.toString(), Offset.fromIntSignExtend(cls
 				.getDescriptor().getStringLiteralOffset()));
-
 			startProfInst = Call
 					.create1(CALL, null,
 							IRTools.AC(startProfileMtd.getOffset()),
@@ -124,103 +125,77 @@ public class Instrumentation {
 			String[] candidateDvfsMth = getDvfsMthNames();
 			// Set userspace frequency for the specific method.
 			int kenan=freq;
-			for (int i = 0; i < candidateDvfsMth.length; i++) {
 
-				String candidate="";
-				if(freq==19) {
-					String[] kenan_fields = candidateDvfsMth[i].split(":");
-					candidate = kenan_fields[0];
-					kenan = Integer.parseInt(kenan_fields[1]);
-					VM.sysWriteln(candidate);
-				} else {
-					candidate = candidateDvfsMth[i];
-					kenan=freq;
+			if (Controller.options.ENABLE_ENERGY_PROFILING) {
+				// If no method can be matched, just insert start profile and end profile method then.
+				startProfInst.position = ir.firstInstructionInCodeOrder().position;
+				startProfInst.bcIndex = RUNTIME_SERVICES_BCI;
+				ir.firstBasicBlockInCodeOrder()
+						.prependInstructionRespectingPrologue(startProfInst);
+
+				for (Instruction inst = startProfInst.nextInstructionInCodeOrder(); inst != null; inst = inst
+						.nextInstructionInCodeOrder()) {
+					
+	//				VM.sysWriteln("Ir method: " + ir.getMethod().getName().toString() + " operator: "+ inst.operator.toString() + " opcode: " + (int)inst.getOpcode() + " RETURN_opcode: " + (int)RETURN_opcode);
+	//				if (inst.operator.toString().equalsIgnoreCase("return")) {
+					if (inst.getOpcode() == RETURN_opcode) {
+						endProfInst = Call.create1(CALL, null,
+								IRTools.AC(endProfileMtd.getOffset()),
+								MethodOperand.STATIC(endProfileMtd),
+								new IntConstantOperand(method.methodID));
+						endProfInst.position = inst.position;
+						endProfInst.bcIndex = RUNTIME_SERVICES_BCI;
+						inst.insertBefore(endProfInst);
+					}
 				}
+			} else {
 
-
-				if (currentMth.equals(candidate)) {
-					//VM.sysWriteln("DVFS method name: " + currentMth + " is invoked!");
-					
-					changeUserSpaceFreqInst = Call
-							.create1(CALL, null,
-									IRTools.AC(changeUserSpaceFreqMtd.getOffset()),
-									MethodOperand.STATIC(changeUserSpaceFreqMtd),
-									new IntConstantOperand(kenan));
-
-					changeUserSpaceFreqInst.position = ir.firstInstructionInCodeOrder().position;
-					changeUserSpaceFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
-					// Insert the DVFS instrument to the beginning of candidate method 
-					ir.firstBasicBlockInCodeOrder()
-							.prependInstructionRespectingPrologue(changeUserSpaceFreqInst);
-				
-					//startProfInst.position = changeUserSpaceFreqInst.nextInstructionInCodeOrder().position;
-					//startProfInst.bcIndex = RUNTIME_SERVICES_BCI;
-
-					// Insert start profile after change user space frequency instruction
-					changeUserSpaceFreqInst.insertAfter(startProfInst);
-
-				//	ir.firstBasicBlockInCodeOrder()
-				//			.prependInstructionRespectingPrologue(startProfInst);
-					
-					// traverse the instruction starting from start profile inst (after change user space frequency inst).
-					for (Instruction inst = startProfInst.nextInstructionInCodeOrder(); inst != null; inst = inst
-							.nextInstructionInCodeOrder()) {
-						
-		//				VM.sysWriteln("Ir method: " + ir.getMethod().getName().toString() + " operator: "+ inst.operator.toString() + " opcode: " + (int)inst.getOpcode() + " RETURN_opcode: " + (int)RETURN_opcode);
-		//				if (inst.operator.toString().equalsIgnoreCase("return")) {
-						if (inst.getOpcode() == RETURN_opcode) {
-							endProfInst = Call.create1(CALL, null,
-									IRTools.AC(endProfileMtd.getOffset()),
-									MethodOperand.STATIC(endProfileMtd),
-									new IntConstantOperand(method.methodID));
-	//						changeOnDemandFreqInst = Call.create1(CALL, null,
-	//								IRTools.AC(changeOnDemandFreqMtd.getOffset()),
-	//								MethodOperand.STATIC(changeOnDemandFreqMtd),
-	//								new IntConstantOperand((int)Controller.options.FREQUENCY_TO_BE_PRINTED));
-							changeToHighestFreqInst = Call.create0(CALL, null,
-									IRTools.AC(changeToHighestFreqMtd.getOffset()),
-									MethodOperand.STATIC(changeToHighestFreqMtd));
-
-							// Insert change ondemand governor before return.
-							//changeOnDemandFreqInst.position = inst.position;
-							//changeOnDemandFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
-							//inst.insertBefore(changeOnDemandFreqInst);
-							inst.insertBefore(changeToHighestFreqInst);
-
-							// Insert end profile before change ondemand governor
-							//endProfInst.position = changeOnDemandFreqInst.position;
-							endProfInst.position = changeToHighestFreqInst.position;
-							endProfInst.bcIndex = RUNTIME_SERVICES_BCI;
-							//changeOnDemandFreqInst.insertBefore(endProfInst);
-							changeToHighestFreqInst.insertBefore(endProfInst);
-						}
+				for (int i = 0; i < candidateDvfsMth.length; i++) {
+					String candidate="";
+					if(freq==19) {
+						String[] kenan_fields = candidateDvfsMth[i].split(":");
+						candidate = kenan_fields[0];
+						kenan = Integer.parseInt(kenan_fields[1]);
+						VM.sysWriteln(candidate);
+					} else {
+						candidate = candidateDvfsMth[i];
+						kenan=freq;
 					}
 
-					return;
+					if (currentMth.equals(candidate)) {
+						changeUserSpaceFreqInst = Call
+								.create1(CALL, null,
+										IRTools.AC(changeUserSpaceFreqMtd.getOffset()),
+										MethodOperand.STATIC(changeUserSpaceFreqMtd),
+										new IntConstantOperand(kenan));
+
+						changeUserSpaceFreqInst.position = ir.firstInstructionInCodeOrder().position;
+						changeUserSpaceFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
+						// Insert the DVFS instrument to the beginning of candidate method 
+						
+						ir.firstBasicBlockInCodeOrder()
+								.prependInstructionRespectingPrologue(changeUserSpaceFreqInst);
+		
+						for (Instruction inst = changeUserSpaceFreqInst.nextInstructionInCodeOrder(); inst != null; inst = inst
+								.nextInstructionInCodeOrder()) {
+							
+			//				VM.sysWriteln("Ir method: " + ir.getMethod().getName().toString() + " operator: "+ inst.operator.toString() + " opcode: " + (int)inst.getOpcode() + " RETURN_opcode: " + (int)RETURN_opcode);
+			//				if (inst.operator.toString().equalsIgnoreCase("return")) {
+							if (inst.getOpcode() == RETURN_opcode) {
+								changeToHighestFreqInst = Call.create0(CALL, null,
+											IRTools.AC(changeToHighestFreqMtd.getOffset()),
+											MethodOperand.STATIC(changeToHighestFreqMtd));
+
+								changeToHighestFreqInst.position = inst.position;
+								changeToHighestFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
+								inst.insertBefore(changeToHighestFreqInst);
+
+								VM.sysWriteln("Method level DVFS insertion succeed!!!! Method is : " + candidate);
+							}
+						}
+					}
 				}
 			}
-
-			// If no method can be matched, just insert start profile and end profile method then.
-			startProfInst.position = ir.firstInstructionInCodeOrder().position;
-			startProfInst.bcIndex = RUNTIME_SERVICES_BCI;
-			ir.firstBasicBlockInCodeOrder()
-					.prependInstructionRespectingPrologue(startProfInst);
-			for (Instruction inst = startProfInst.nextInstructionInCodeOrder(); inst != null; inst = inst
-					.nextInstructionInCodeOrder()) {
-				
-//				VM.sysWriteln("Ir method: " + ir.getMethod().getName().toString() + " operator: "+ inst.operator.toString() + " opcode: " + (int)inst.getOpcode() + " RETURN_opcode: " + (int)RETURN_opcode);
-//				if (inst.operator.toString().equalsIgnoreCase("return")) {
-				if (inst.getOpcode() == RETURN_opcode) {
-					endProfInst = Call.create1(CALL, null,
-							IRTools.AC(endProfileMtd.getOffset()),
-							MethodOperand.STATIC(endProfileMtd),
-							new IntConstantOperand(method.methodID));
-					//endProfInst.position = inst.position;
-					//endProfInst.bcIndex = RUNTIME_SERVICES_BCI;
-					inst.insertBefore(endProfInst);
-				}
-			}
-
 		} catch (UTFDataFormatException e) {
 			e.printStackTrace();
 		}
