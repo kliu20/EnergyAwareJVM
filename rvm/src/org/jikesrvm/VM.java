@@ -95,8 +95,8 @@ public class VM extends Properties {
   public static void parseKenanArg(String value, String arg) {
 	sysWriteln("[VM.parseKenanArg] Parsing Kenan Arguments ... Stay tuned!");
         String targ=arg.trim();
-	sysWriteln(value);
-	sysWriteln(targ);
+	//sysWriteln(value);
+	//sysWriteln(targ);
         
 	String arg_name  = targ.split("=")[0];
 	String arg_value = targ.split("=")[1];
@@ -2434,7 +2434,6 @@ public class VM extends Properties {
   @UninterruptibleNoWarn("We're never returning to the caller, so even though this code is preemptible it is safe to call from any context")
   public static void sysExit(int value) {
 
-	  VM.sysWriteln("logQueue size is : " + LogQueue.logQueue.size());
     final Thread mainThread = Thread.currentThread();
     handlePossibleRecursiveCallToSysExit();
 
@@ -2463,9 +2462,12 @@ public class VM extends Properties {
 
 
   public static void end_iteration() {
-  	sysCall.end_iteration();
+  	//sysCall.end_iteration();
   }
 
+
+  public static int totalInvocationCount=0;
+  public static Object invocationLock = new Object(); 
   /**
    * Shut down the virtual machine.
    * Should only be called if the VM is running.
@@ -2475,13 +2477,15 @@ public class VM extends Properties {
   public static void shutdown(int value) {
     //TODO::Kenan::Khaled::LogQueue::log_queue
     //sysCall.print_logs();
+    VM.sysWriteln("Number of Total Method Invocations :");
+    VM.sysWriteln("" + VM.totalInvocationCount);
     double end_energy = 0;
     double[] energy = EnergyCheckUtils.getEnergyStats();
     end_energy = energy[energy.length-1];
     double total_energy = end_energy - start_energy;
     write_to_file("kenan_energy",total_energy);
 
-    Scaler.closeDVFSFiles();
+    //Scaler.closeDVFSFiles();
     
     handlePossibleRecursiveShutdown();
 

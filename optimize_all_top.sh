@@ -7,7 +7,7 @@ then
 	mkdir $name
 fi
 
-#array+=("pmd")
+array+=("pmd")
 #array+=("avrora")
 #array+=("fop")
 #array+=("jython")
@@ -18,7 +18,8 @@ fi
 #array+=("antlr")
 #array+=("lusearch")
 #array+=("luindex")
-array=(pmd lusearch luindex avrora jython fop sunflow antlr bloat)
+#array=(pmd lusearch luindex avrora jython fop sunflow antlr bloat)
+#array=(pmd luindex avrora jython fop sunflow antlr)
 for i in "${array[@]}"
 do
 	bash optimize_bench_top.sh $i $name $settings

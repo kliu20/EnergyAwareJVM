@@ -1,6 +1,8 @@
 benchname="$1"
 expname="$2"
 settings_path="$3"
+trace="$4"
+
 
 if [ -d $benchname ];
 then
@@ -19,6 +21,12 @@ do
 	do 
 		echo "bash dvfs_on_demand.sh $benchname $which $iters $i $mname"
 		bash dvfs_on_demand.sh $benchname $which $iters $i $mname
+		
+		if [ "$trace" == "true" ];
+		then
+			break;
+		fi
+	
 	done
 
 done < "${settings_path}/${benchname}_settings"
@@ -26,7 +34,7 @@ done < "${settings_path}/${benchname}_settings"
 mv execution_time* $benchname/
 mv kenan_energy* $benchname/
 mv freq* $benchname/
-mv iteration_times $benchmark/
+mv iteration_times* $benchmark/
 
 cp -r $benchname $expname
 

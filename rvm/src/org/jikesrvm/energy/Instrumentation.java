@@ -96,7 +96,10 @@ public class Instrumentation {
 			}
 			if (method.methodID == -1){
 				method.methodID = Service.addMethodEntry(cls.toString(), method.getName().toString());
-			} 
+			}
+
+			//I have a question ?
+			//How will you implement sampling based optimization here ?	
 
 			Instruction changeUserSpaceFreqInst = null;
 			Instruction changeToHighestFreqInst = null;
@@ -156,7 +159,7 @@ public class Instrumentation {
 						String[] kenan_fields = candidateDvfsMth[i].split(":");
 						candidate = kenan_fields[0];
 						kenan = Integer.parseInt(kenan_fields[1]);
-						VM.sysWriteln(candidate);
+						//VM.sysWriteln(candidate);
 					} else {
 						candidate = candidateDvfsMth[i];
 						kenan=freq;
@@ -190,7 +193,7 @@ public class Instrumentation {
 								changeToHighestFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
 								inst.insertBefore(changeToHighestFreqInst);
 
-								VM.sysWriteln("Method level DVFS insertion succeed!!!! Method is : " + candidate);
+								//VM.sysWriteln("Method level DVFS insertion succeed!!!! Method is : " + candidate);
 							}
 						}
 					}

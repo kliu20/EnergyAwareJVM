@@ -46,6 +46,7 @@ do
 	
 	mv execution_time "${pbench}_${i}_execution_time"
 	mv kenan_energy "${pbench}_${i}_kenan_energy"
+	mv iteration_times "${pbench}_${i}_iteration_times"
 done
 
 
@@ -54,3 +55,4 @@ i=0
 runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
 mv execution_time "${pbench}_${i}_execution_time"
 mv kenan_energy "${pbench}_${i}_kenan_energy"
+mv iteration_times "${pbench}_${i}_iteration_times"

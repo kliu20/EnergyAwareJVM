@@ -161,6 +161,10 @@ public final class RVMThread extends ThreadContext {
   public final static int entrySize = 256;
   public int methodYPDisabledCount = 0;
   //Index for YPDisabledMethodID
+ 
+  public static Object invocationLock = new Object(); 
+  public static int totalInvocationCount=0; 
+  public int invocationCount=0;
   public int YPNextIndex = 0;
 	/*
 	 * Energy/hardware counter measurement when yieldpoint of methods are disabled when yieldpoint() gets invoked.
@@ -185,7 +189,11 @@ public final class RVMThread extends ThreadContext {
   public int invocationCounter = 0;
   /**Kenan: IS the first sample in the burst*/
   public boolean isFirstSampleInBurst = true;
-
+  /**Kenan: DVFS is set for the method*/
+  public boolean dvfsIsSet = false;
+  /**Kenan: time slice expired times for method-level DVFS */
+  public int dvfsSliceExpired = 0;
+ 
   /*
    * debug and statistics
    */
@@ -2849,10 +2857,15 @@ public final class RVMThread extends ThreadContext {
       synchronized(thread_stats_synch) {
       	sysCall.register_thread_stat();
       }
+      VM.sysWriteln("Thread Is Starting ... Please Stay Tuned! Very very tuned!");
+      VM.sysWriteln("We have to figure it out!");
       thread.run();
-      sysCall.sysPerfEventDisable();
-      Scaler.perfThreadClose();
+      VM.sysWriteln("Thread finished ... Very nice thrad ... very very nice thread");      
+      //sysCall.sysPerfEventDisable();
+      //Scaler.perfThreadClose();
     } catch (Throwable t) {
+      
+      VM.sysWriteln("Oh my Goooood. Very very exception ... Very very exception");
       Scaler.perfThreadClose();
       if (traceAcct) {
         VM.sysWriteln("Thread ",getThreadSlot()," exiting with exception.");
@@ -2869,6 +2882,7 @@ public final class RVMThread extends ThreadContext {
         handler.uncaughtException(thread, t);
       } catch (Throwable ignore) {
       }
+    }finally { 
     }
   }
 

@@ -193,6 +193,7 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		}*/
 		if (thread.energyTimeSliceExpired >= RVMThread.FREQ) {
 			thread.skippedInvocations--;
+			VM.totalInvocationCount++;
 			if (thread.skippedInvocations == 0) {
 				/** Event values for the method */
 				double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];
