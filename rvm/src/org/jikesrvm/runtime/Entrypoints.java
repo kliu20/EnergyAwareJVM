@@ -40,7 +40,7 @@ public class Entrypoints {
 	public static final NormalMethod changeToHighestFreq =
 			getMethod(org.jikesrvm.energy.Service.class, "changeToHighestFreq", "()V");
 	public static final NormalMethod changeOnDemandFreq =
-			getMethod(org.jikesrvm.energy.Service.class, "changeOnDemandFreq", "(I)V");
+			getMethod(org.jikesrvm.energy.Service.class, "changeOnDemandFreq", "()V");
 
 
 

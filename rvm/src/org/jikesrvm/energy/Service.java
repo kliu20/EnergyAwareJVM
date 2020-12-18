@@ -133,9 +133,21 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		 */
 		@Entrypoint
 		public static void changeUserSpaceFreq(int freq) {
-			//VM.sysWriteln("Start the method level DVFS, set frequency to be: " + freq);
-			Scaler.setGovernor(USERSPACE);	
-			Scaler.scale(freq);
+			RVMThread thread = RVMThread.getCurrentThread();
+
+			String dvfsNames = Controller.options.DVFS_CLS_MTH;
+			String[] names = dvfsNames.split(",");
+
+			if (names.length > 1 && thread.dvfsSliceExpired > 0 && thread.dvfsSliceExpired % 2 == 0) {
+				Scaler.setGovernor(USERSPACE);	
+				Scaler.scale(freq);
+				thread.dvfsIsSet = true;
+			} else if (names.length == 1 && thread.dvfsSliceExpired >= RVMThread.FREQ) {
+				//VM.sysWriteln("Start the method level DVFS, set frequency to be: " + freq);
+				Scaler.setGovernor(USERSPACE);	
+				Scaler.scale(freq);
+				thread.dvfsIsSet = true;
+			}
 		}
 
 		/**
@@ -147,15 +159,20 @@ public class Service implements ProfilingTypes, ScalerOptions {
 			//VM.sysWriteln("End the method level DVFS, set governor to be: ondemand");
 			//Scaler.setGovernor(USERSPACE);	
 			//Scaler.scale(HIGH_FREQ);
-			changeOnDemandFreq(0);
+			changeOnDemandFreq();
 		}
 		/**
 		 * Set userspace governnor and speficy the CPU frequency
 		 * @param freq The CPU frequency
 		 */
 		@Entrypoint
-		public static void changeOnDemandFreq(int freq) {
-			Scaler.setGovernor(ONDEMAND);	
+		public static void changeOnDemandFreq() {
+			RVMThread thread = RVMThread.getCurrentThread();
+
+			if (thread.dvfsIsSet) {
+				Scaler.setGovernor(ONDEMAND);	
+				thread.dvfsIsSet = false;
+			}
 		}
 
 	public static void init_service() {

@@ -127,7 +127,7 @@ public class Instrumentation {
 
 			String[] candidateDvfsMth = getDvfsMthNames();
 			// Set userspace frequency for the specific method.
-			int kenan=freq;
+			int scaleFreq=freq;
 
 			if (Controller.options.ENABLE_ENERGY_PROFILING) {
 				// If no method can be matched, just insert start profile and end profile method then.
@@ -158,11 +158,11 @@ public class Instrumentation {
 					if(freq==19) {
 						String[] kenan_fields = candidateDvfsMth[i].split(":");
 						candidate = kenan_fields[0];
-						kenan = Integer.parseInt(kenan_fields[1]);
+						scaleFreq = Integer.parseInt(kenan_fields[1]);
 						//VM.sysWriteln(candidate);
 					} else {
 						candidate = candidateDvfsMth[i];
-						kenan=freq;
+						scaleFreq=freq;
 					}
 
 					if (currentMth.equals(candidate)) {
@@ -170,7 +170,7 @@ public class Instrumentation {
 								.create1(CALL, null,
 										IRTools.AC(changeUserSpaceFreqMtd.getOffset()),
 										MethodOperand.STATIC(changeUserSpaceFreqMtd),
-										new IntConstantOperand(kenan));
+										new IntConstantOperand(scaleFreq));
 
 						changeUserSpaceFreqInst.position = ir.firstInstructionInCodeOrder().position;
 						changeUserSpaceFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
