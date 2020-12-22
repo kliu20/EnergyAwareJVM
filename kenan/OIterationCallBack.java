@@ -28,7 +28,8 @@ public class OIterationCallBack extends Callback {
   /* Start the timer and announce the begining of an iteration */
   public void start(String benchmark) {
    	super.start(benchmark);
-	//startWarmup(benchmark);
+        System.out.println("Benchmark Last Iteration is starting ...");
+	startWarmup(benchmark);
   };
 
   public void startWarmup(String benchmark) {
@@ -44,8 +45,9 @@ public class OIterationCallBack extends Callback {
     super.stopWarmup();
   }
   /* Announce completion of the benchmark (pass or fail) */
-  public void complete(String benchmark, boolean valid) {
+  public void complete(String benchmark, boolean valid) { 
     super.complete(benchmark,valid);
+    completeWarmup(benchmark, valid);
     try {
       FileWriter fileWriter = new FileWriter("iteration_times");
       PrintWriter printWriter = new PrintWriter(fileWriter);
