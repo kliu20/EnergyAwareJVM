@@ -2485,7 +2485,7 @@ public class VM extends Properties {
     double total_energy = end_energy - start_energy;
     write_to_file("kenan_energy",total_energy);
 
-    //Scaler.closeDVFSFiles();
+    Scaler.closeDVFSFiles();
     
     handlePossibleRecursiveShutdown();
 

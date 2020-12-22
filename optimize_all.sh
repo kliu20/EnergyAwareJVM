@@ -8,22 +8,24 @@ then
 	mkdir $name
 fi
 
-array+=("pmd")
+#array+=("pmd")
 #array+=("avrora")
 #array+=("fop")
 #array+=("jython")
 #array+=("lusearch")
 #array+=("luindex")
-#array+=("sunflow")
+#Earray+=("sunflow")
 #array+=("bloat")
 #array+=("antlr")
 #array+=("lusearch")
 #array+=("luindex")
 #array=(pmd lusearch luindex avrora jython fop sunflow antlr bloat)
 #array=(sunflow antlr bloat jython lusearch luindex avrora fop pmd)
-#array=(sunflow antlr bloat jython luindex fop pmd avrora lusearch)
+#array=(sunflow antlr bloat jython fop pmd avrora lusearch luindex)
+#array=(pmd avrora lusearch luindex)
 #array=(luindex avrora fop pmd lusearch)
-#array=("antlr")
+
+array=("pmd")
 for i in "${array[@]}"
 do
 	bash optimize_bench.sh $i $name $settings $trace

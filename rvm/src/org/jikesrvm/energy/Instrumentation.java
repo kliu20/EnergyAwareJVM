@@ -66,10 +66,17 @@ public class Instrumentation {
 //
 //	}
 //
-	
+
+
+	public static int method_len=-1;
+
+
 	private String[] getDvfsMthNames() {
 		String dvfsNames = Controller.options.DVFS_CLS_MTH;	
 		String[] names = dvfsNames.split(",");
+		if(method_len==-1) {		
+			method_len = names.length;
+		}
 		return names;
 	}
 
@@ -78,7 +85,7 @@ public class Instrumentation {
 	
 		int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
 		//VM.sysWriteln("WWWWWWWWWWWW Frequency:" + freq);	
-
+		//VM.sysWriteln("[Instrumentation#perform] ...");
 		try {
 			if (Util.irrelevantType(cls) || Util.isJavaClass(cls)) {
 				return;
@@ -165,7 +172,10 @@ public class Instrumentation {
 						scaleFreq=freq;
 					}
 
+
+					
 					if (currentMth.equals(candidate)) {
+						//VM.sysWriteln("[Instrumentation#perform] Candidate Selected for Instrumentation:  " + candidate);
 						changeUserSpaceFreqInst = Call
 								.create1(CALL, null,
 										IRTools.AC(changeUserSpaceFreqMtd.getOffset()),

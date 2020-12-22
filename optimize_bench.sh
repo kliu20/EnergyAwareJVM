@@ -21,12 +21,6 @@ do
 	do 
 		echo "bash dvfs_on_demand.sh $benchname $which $iters $i $mname"
 		bash dvfs_on_demand.sh $benchname $which $iters $i $mname
-		
-		if [ "$trace" == "true" ];
-		then
-			break;
-		fi
-	
 	done
 
 done < "${settings_path}/${benchname}_settings"

@@ -20,6 +20,8 @@ public class Service implements ProfilingTypes, ScalerOptions {
 	public static boolean profileEnable = false;
 	public static long start_ts = System.currentTimeMillis();
 
+
+
 		/**Index is composed by hashcode of "method ID#thread ID" in order to differentiate method invocations by different threads*/
 		public static char [] info = {'i','o', '\n'};
 
@@ -133,20 +135,29 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		 */
 		@Entrypoint
 		public static void changeUserSpaceFreq(int freq) {
+			//VM.totalInvocationCount++;
 			RVMThread thread = RVMThread.getCurrentThread();
+ 			//String dvfsNames = Controller.options.DVFS_CLS_MTH;
+			//String[] names = dvfsNames.split(",");
+			int mlen = Instrumentation.method_len;
 
-			String dvfsNames = Controller.options.DVFS_CLS_MTH;
-			String[] names = dvfsNames.split(",");
-
-			if (names.length > 1 && thread.dvfsSliceExpired > 0 && thread.dvfsSliceExpired % 2 == 0) {
+			// If the number of candidate is more than one. Then reduce
+			// the sapmling rate.
+			if (mlen > 1 && thread.dvfsSliceExpired > RVMThread.FREQ && thread.dvfsSliceExpired % 2 == 0) {
 				Scaler.setGovernor(USERSPACE);	
 				Scaler.scale(freq);
 				thread.dvfsIsSet = true;
-			} else if (names.length == 1 && thread.dvfsSliceExpired >= RVMThread.FREQ) {
+				return;
+			} 
+			
+			// If the number of candidate is only one. Then check if the 
+			// time inverval is up or not.
+			if (mlen == 1 && thread.dvfsSliceExpired > RVMThread.FREQ) {
 				//VM.sysWriteln("Start the method level DVFS, set frequency to be: " + freq);
 				Scaler.setGovernor(USERSPACE);	
 				Scaler.scale(freq);
 				thread.dvfsIsSet = true;
+				return;
 			}
 		}
 
@@ -159,6 +170,7 @@ public class Service implements ProfilingTypes, ScalerOptions {
 			//VM.sysWriteln("End the method level DVFS, set governor to be: ondemand");
 			//Scaler.setGovernor(USERSPACE);	
 			//Scaler.scale(HIGH_FREQ);
+			
 			changeOnDemandFreq();
 		}
 		/**
@@ -168,10 +180,12 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		@Entrypoint
 		public static void changeOnDemandFreq() {
 			RVMThread thread = RVMThread.getCurrentThread();
-
+			
 			if (thread.dvfsIsSet) {
+				//VM.sysWriteln("[Service#changeOnDemandFreq] Setting to OnDemand");
 				Scaler.setGovernor(ONDEMAND);	
 				thread.dvfsIsSet = false;
+				thread.dvfsSliceExpired = 0;
 			}
 		}
 

@@ -27,7 +27,8 @@ public class OIterationCallBack extends Callback {
   
   /* Start the timer and announce the begining of an iteration */
   public void start(String benchmark) {
-    super.start(benchmark);
+   	super.start(benchmark);
+	//startWarmup(benchmark);
   };
 
   public void startWarmup(String benchmark) {

@@ -2857,15 +2857,11 @@ public final class RVMThread extends ThreadContext {
       synchronized(thread_stats_synch) {
       	sysCall.register_thread_stat();
       }
-      VM.sysWriteln("Thread Is Starting ... Please Stay Tuned! Very very tuned!");
-      VM.sysWriteln("We have to figure it out!");
       thread.run();
-      VM.sysWriteln("Thread finished ... Very nice thrad ... very very nice thread");      
-      //sysCall.sysPerfEventDisable();
-      //Scaler.perfThreadClose();
+      sysCall.sysPerfEventDisable();
+      Scaler.perfThreadClose();
     } catch (Throwable t) {
       
-      VM.sysWriteln("Oh my Goooood. Very very exception ... Very very exception");
       Scaler.perfThreadClose();
       if (traceAcct) {
         VM.sysWriteln("Thread ",getThreadSlot()," exiting with exception.");
