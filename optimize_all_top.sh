@@ -8,13 +8,13 @@ then
 fi
 
 array+=("pmd")
-#array+=("avrora")
+array+=("avrora")
 #array+=("fop")
 #array+=("jython")
 #array+=("lusearch")
 #array+=("luindex")
-#array+=("sunflow")
-#array+=("bloat")
+array+=("sunflow")
+array+=("bloat")
 #array+=("antlr")
 #array+=("lusearch")
 #array+=("luindex")

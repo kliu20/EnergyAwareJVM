@@ -25,7 +25,7 @@ fi
 #array=(pmd avrora lusearch luindex)
 #array=(luindex avrora fop pmd lusearch)
 
-array=("lusearch")
+array=("luindex")
 for i in "${array[@]}"
 do
 	bash optimize_bench.sh $i $name $settings $trace
