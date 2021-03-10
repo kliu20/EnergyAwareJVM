@@ -140,7 +140,10 @@ public class Service implements ProfilingTypes, ScalerOptions {
  			//String dvfsNames = Controller.options.DVFS_CLS_MTH;
 			//String[] names = dvfsNames.split(",");
 			int mlen = Instrumentation.method_len;
+			thread.invocationCounter++;
 
+			//if(thread.invocationCounter%20==0) {
+			//}
 			// If the number of candidate is more than one. Then reduce
 			// the sapmling rate.
 			if (mlen > 1 && thread.dvfsSliceExpired > RVMThread.FREQ && thread.dvfsSliceExpired % 2 == 0) {
@@ -180,9 +183,9 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		@Entrypoint
 		public static void changeOnDemandFreq() {
 			RVMThread thread = RVMThread.getCurrentThread();
-			
 			if (thread.dvfsIsSet) {
 				//VM.sysWriteln("[Service#changeOnDemandFreq] Setting to OnDemand");
+				thread.invocationCount++;
 				Scaler.setGovernor(ONDEMAND);	
 				thread.dvfsIsSet = false;
 				thread.dvfsSliceExpired = 0;
@@ -224,7 +227,7 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		}*/
 		if (thread.energyTimeSliceExpired >= RVMThread.FREQ) {
 			thread.skippedInvocations--;
-			VM.totalInvocationCount++;
+			//VM.totalInvocationCount++;
 			if (thread.skippedInvocations == 0) {
 				/** Event values for the method */
 				double[] profileAttrs = new double[Scaler.getPerfEnerCounterNum()];

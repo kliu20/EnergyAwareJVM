@@ -12,10 +12,10 @@ if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
 	callbackClass="kenan.OIterationCallBack"
-	expected=$((iters-1))
+	expected=$((iters))
 else
 
-	callbackClass="kenan.IterationCallBack"
+	callbackClass="kenian.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
 fi	
 
@@ -50,6 +50,10 @@ i=0
 timeSlice=$((${timeSlice}))		
 
 repeat="true"
+
+##Added this for purpuse of consistency ... Sampling at the same time
+samples=$(($samples/2))
+
 while [ "$repeat" = "true" ]
 do
 	sudo java energy.Scaler 1 ondemand

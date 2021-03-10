@@ -2854,10 +2854,14 @@ public final class RVMThread extends ThreadContext {
       }
       //kmahmou1-kenan-todo: Call the initialization of perf thread level details
       Scaler.perfThreadInit();
+
       synchronized(thread_stats_synch) {
       	sysCall.register_thread_stat();
       }
       thread.run();
+      
+      VM.sysWriteln("invocationCount:"+invocationCount);
+
       sysCall.sysPerfEventDisable();
       Scaler.perfThreadClose();
     } catch (Throwable t) {

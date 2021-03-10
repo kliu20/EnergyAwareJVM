@@ -2462,7 +2462,9 @@ public class VM extends Properties {
 
 
   public static void end_iteration() {
-  	//sysCall.end_iteration();
+	  if(Controller.options.ENABLE_ENERGY_PROFILING) {
+	  	sysCall.end_iteration();
+	  }
   }
 
 

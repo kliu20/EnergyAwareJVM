@@ -12,7 +12,7 @@ if [ "$ptype" == "old" ];
 then
 	dacapoJar="dacapo-2006-10-MR2.jar"
 	callbackClass="kenan.OIterationCallBack"
-	expected=$((iters-1))
+	expected=$((iters))
 else
 
 	callbackClass="kenan.IterationCallBack"
@@ -56,10 +56,13 @@ do
 		samples=$(($samplesorg/2))
        fi
 
-       if [ "$samples" = "0" ]
-       then
+        ##TODO: For consistency of number of samples, I will always use one number of samples for all frequencies ....
+	##TODO The below statement was added after meeting on Wednesday, March 10, 2021
+	samples=$(($samplesorg/2))
+       	if [ "$samples" = "0" ]
+       	then
        		samples="1"
-       fi
+       	fi
        
 
        repeat="true"	

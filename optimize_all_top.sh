@@ -18,8 +18,9 @@ array+=("bloat")
 #array+=("antlr")
 #array+=("lusearch")
 #array+=("luindex")
-#array=(pmd lusearch luindex avrora jython fop sunflow antlr bloat)
+array=(pmd avrora jython fop sunflow antlr bloat lusearch luindex)
 #array=(pmd luindex avrora jython fop sunflow antlr)
+#array=("avrora");
 for i in "${array[@]}"
 do
 	bash optimize_bench_top.sh $i $name $settings

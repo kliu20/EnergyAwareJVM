@@ -109,7 +109,6 @@ public class Instrumentation {
 			//How will you implement sampling based optimization here ?	
 
 			Instruction changeUserSpaceFreqInst = null;
-			Instruction changeToHighestFreqInst = null;
 			Instruction changeOnDemandFreqInst = null;
 			Instruction startProfInst = null;
 			Instruction endProfInst = null;
@@ -117,7 +116,6 @@ public class Instrumentation {
 			NormalMethod startProfileMtd = Entrypoints.startProfile;
 			NormalMethod endProfileMtd = Entrypoints.endProfile;
 			NormalMethod changeUserSpaceFreqMtd = Entrypoints.changeUserSpaceFreq;
-			NormalMethod changeToHighestFreqMtd = Entrypoints.changeToHighestFreq;
 			NormalMethod changeOnDemandFreqMtd = Entrypoints.changeOnDemandFreq;
 			StringConstantOperand clsName = new StringConstantOperand(
 				cls.toString(), Offset.fromIntSignExtend(cls
@@ -195,13 +193,13 @@ public class Instrumentation {
 			//				VM.sysWriteln("Ir method: " + ir.getMethod().getName().toString() + " operator: "+ inst.operator.toString() + " opcode: " + (int)inst.getOpcode() + " RETURN_opcode: " + (int)RETURN_opcode);
 			//				if (inst.operator.toString().equalsIgnoreCase("return")) {
 							if (inst.getOpcode() == RETURN_opcode) {
-								changeToHighestFreqInst = Call.create0(CALL, null,
-											IRTools.AC(changeToHighestFreqMtd.getOffset()),
-											MethodOperand.STATIC(changeToHighestFreqMtd));
+								changeOnDemandFreqInst = Call.create0(CALL, null,
+											IRTools.AC(changeOnDemandFreqMtd.getOffset()),
+											MethodOperand.STATIC(changeOnDemandFreqMtd));
 
-								changeToHighestFreqInst.position = inst.position;
-								changeToHighestFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
-								inst.insertBefore(changeToHighestFreqInst);
+								changeOnDemandFreqInst.position = inst.position;
+								changeOnDemandFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
+								inst.insertBefore(changeOnDemandFreqInst);
 
 								//VM.sysWriteln("Method level DVFS insertion succeed!!!! Method is : " + candidate);
 							}
