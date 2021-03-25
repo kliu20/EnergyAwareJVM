@@ -14,6 +14,7 @@ import org.jikesrvm.classloader.RVMClassLoader;
 import org.jikesrvm.classloader.TypeReference;
 import org.jikesrvm.compilers.common.CompiledMethod;
 import org.jikesrvm.compilers.common.CompiledMethods;
+import org.jikesrvm.compilers.opt.hir2lir.ExpandRuntimeServices;
 import org.jikesrvm.compilers.opt.ir.BasicBlock;
 import org.jikesrvm.compilers.opt.ir.Call;
 import org.jikesrvm.compilers.opt.ir.IR;
@@ -33,6 +34,18 @@ import org.vmmagic.unboxed.Offset;
 import static org.jikesrvm.compilers.opt.ir.Operators.CALL;
 import static org.jikesrvm.compilers.opt.driver.OptConstants.RUNTIME_SERVICES_BCI;
 import static org.jikesrvm.mm.mminterface.Barriers.NEEDS_LONG_ALOAD_BARRIER;
+
+class Singleton {
+	private static ExpandRuntimeServices ers_instance = null;
+
+	public static ExpandRuntimeServices Singleton() {
+		if (ers_instance == null) {
+			ers_instance = new ExpandRuntimeServices();
+		}
+
+		return ers_instance;
+	}
+}
 
 public class Instrumentation {
 	IR ir;
@@ -82,7 +95,8 @@ public class Instrumentation {
 
 	public void perform() {
 
-	
+		ExpandRuntimeServices ers = Singleton.Singleton();	
+
 		int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
 		//VM.sysWriteln("WWWWWWWWWWWW Frequency:" + freq);	
 		//VM.sysWriteln("[Instrumentation#perform] ...");
@@ -140,6 +154,8 @@ public class Instrumentation {
 				startProfInst.bcIndex = RUNTIME_SERVICES_BCI;
 				ir.firstBasicBlockInCodeOrder()
 						.prependInstructionRespectingPrologue(startProfInst);
+				// Inline
+				ers.inline(startProfInst, ir);
 
 				for (Instruction inst = startProfInst.nextInstructionInCodeOrder(); inst != null; inst = inst
 						.nextInstructionInCodeOrder()) {
@@ -154,8 +170,11 @@ public class Instrumentation {
 						endProfInst.position = inst.position;
 						endProfInst.bcIndex = RUNTIME_SERVICES_BCI;
 						inst.insertBefore(endProfInst);
+						// Inline
+						ers.inline(endProfInst, ir);
 					}
 				}
+
 			} else {
 
 				for (int i = 0; i < candidateDvfsMth.length; i++) {
@@ -186,7 +205,9 @@ public class Instrumentation {
 						
 						ir.firstBasicBlockInCodeOrder()
 								.prependInstructionRespectingPrologue(changeUserSpaceFreqInst);
-		
+						// Inline
+						ers.inline(changeUserSpaceFreqInst, ir);
+
 						for (Instruction inst = changeUserSpaceFreqInst.nextInstructionInCodeOrder(); inst != null; inst = inst
 								.nextInstructionInCodeOrder()) {
 							
@@ -201,6 +222,8 @@ public class Instrumentation {
 								changeOnDemandFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
 								inst.insertBefore(changeOnDemandFreqInst);
 
+								// Inline
+								ers.inline(changeOnDemandFreqInst, ir);
 								//VM.sysWriteln("Method level DVFS insertion succeed!!!! Method is : " + candidate);
 							}
 						}

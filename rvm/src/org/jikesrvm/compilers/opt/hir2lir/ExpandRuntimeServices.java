@@ -99,7 +99,7 @@ public final class ExpandRuntimeServices extends CompilerPhase {
   /** Cache of branch optimizations if used to tidy up */
   private BranchOptimizations branchOpts;
   /** Did we expand something? */
-  private boolean didSomething = false;
+  public boolean didSomething = false;
   /** Pointer for next instruction during perform() */
   private Instruction next;
 
@@ -626,11 +626,11 @@ public final class ExpandRuntimeServices extends CompilerPhase {
     next = barrier.prevInstructionInCodeOrder();
   }
 
-  private void inline(Instruction inst, IR ir) {
+  public void inline(Instruction inst, IR ir) {
     inline(inst, ir, false);
   }
 
-  private void inline(Instruction inst, IR ir, boolean noCalleeExceptions) {
+  public void inline(Instruction inst, IR ir, boolean noCalleeExceptions) {
     // Save and restore inlining control state.
     // Some options have told us to inline this runtime service,
     // so we have to be sure to inline it "all the way" not
