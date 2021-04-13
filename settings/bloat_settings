@@ -1,5 +1,5 @@
-bloat;old;20;EDU.purdue.cs.bloat.util.Graph$2.next
-bloat;old;20;EDU.purdue.cs.bloat.cfg.Block.toString
-bloat;old;20;EDU.purdue.cs.bloat.editor.Type.shortName
-bloat;old;20;EDU.purdue.cs.bloat.util.Graph$4.hasNext
-bloat;old;20;EDU.purdue.cs.bloat.tree.PhiStmt.defs
+bloat;old;20;EDU.purdue.cs.bloat.util.Graph.succs
+bloat;old;20;EDU.purdue.cs.bloat.util.Graph$EdgeSet.size
+bloat;old;20;EDU.purdue.cs.bloat.tree.Expr.setDef
+bloat;old;20;EDU.purdue.cs.bloat.util.Graph$1.size
+bloat;old;20;EDU.purdue.cs.bloat.util.Graph$EdgeSet.add

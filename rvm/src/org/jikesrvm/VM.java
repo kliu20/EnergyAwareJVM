@@ -95,8 +95,8 @@ public class VM extends Properties {
   public static void parseKenanArg(String value, String arg) {
 	sysWriteln("[VM.parseKenanArg] Parsing Kenan Arguments ... Stay tuned!");
         String targ=arg.trim();
-	//sysWriteln(value);
-	//sysWriteln(targ);
+	sysWriteln(value);
+	sysWriteln(targ);
         
 	String arg_name  = targ.split("=")[0];
 	String arg_value = targ.split("=")[1];

@@ -3,6 +3,7 @@ expname="$2"
 settings_path="$3"
 trace="$4"
 
+echo "Trace is $trace"
 
 if [ -d $benchname ];
 then

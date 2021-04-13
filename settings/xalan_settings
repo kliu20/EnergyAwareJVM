@@ -1,5 +1,0 @@
-xalan,old,org.apache.xalan.serialize.SerializerToHTML,characters
-xalan,old,org.apache.xalan.serialize.SerializerToXML,canConvert
-xalan,old,org.apache.xml.dtm.ref.DTMDefaultBase,_exptype
-xalan,old,org.apache.xml.utils.SuballocatedIntVector,addElement
-xalan,old,org.apache.xpath.axes.NodeSequence,nextNode

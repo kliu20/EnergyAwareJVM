@@ -1,5 +1,5 @@
-avrora;new;10;avrora.arch.legacy.LegacyInterpreter.visit
-avrora;new;10;avrora.arch.legacy.LegacyInstr$PUSH.accept
-avrora;new;10;avrora.arch.legacy.LegacyInstr$POP.accept
-avrora;new;10;avrora.arch.legacy.LegacyInstr$LDS.accept
-avrora;new;10;org.dacapo.harness.TeeOutputStream.write
+avrora;new;20;avrora.sim.clock.MainClock.getCount
+avrora;new;20;avrora.arch.legacy.LegacyInstr$CPSE.accept
+avrora;new;20;avrora.sim.RWRegister.write
+avrora;new;20;avrora.arch.legacy.LegacyInstr$SBCI.accept
+avrora;new;20;cck.text.StringUtil.justify

@@ -1,5 +1,5 @@
-luindex;new;20;org.apache.lucene.store.BufferedIndexOutput.writeByte
-luindex;new;20;org.apache.lucene.analysis.standard.StandardFilter.next
-luindex;new;20;org.apache.lucene.analysis.standard.StandardTokenizer.next
-luindex;new;20;org.apache.lucene.index.FreqProxTermsWriterPerField.addTerm
-luindex;new;20;org.apache.lucene.analysis.CharArraySet.getSlot
+luindex;new;20;org.apache.lucene.index.FreqProxTermsWriterPerField.newTerm
+luindex;new;20;org.apache.lucene.analysis.Token.setTermLength
+luindex;new;20;org.apache.lucene.store.IndexOutput.writeInt
+luindex;new;20;org.apache.lucene.store.BufferedIndexOutput.getFilePointer
+luindex;new;20;org.apache.lucene.analysis.standard.StandardTokenizerImpl.zzRefill

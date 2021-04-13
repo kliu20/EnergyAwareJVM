@@ -141,7 +141,6 @@ public class Service implements ProfilingTypes, ScalerOptions {
 			//String[] names = dvfsNames.split(",");
 			int mlen = Instrumentation.method_len;
 			thread.invocationCounter++;
-
 			//if(thread.invocationCounter%20==0) {
 			//}
 			// If the number of candidate is more than one. Then reduce
@@ -150,6 +149,9 @@ public class Service implements ProfilingTypes, ScalerOptions {
 				Scaler.setGovernor(USERSPACE);	
 				Scaler.scale(freq);
 				thread.dvfsIsSet = true;
+				thread.dvfsSliceExpired = 0;
+				//System.out.println("[changeUserSpaceFreq] [trace-call] - " + RVMThread.FREQ + "-" + thread.dvfsSliceExpired);
+				
 				return;
 			} 
 			
@@ -160,6 +162,8 @@ public class Service implements ProfilingTypes, ScalerOptions {
 				Scaler.setGovernor(USERSPACE);	
 				Scaler.scale(freq);
 				thread.dvfsIsSet = true;
+				thread.dvfsSliceExpired = 0;
+				//System.out.println("[changeUserSpaceFreq] [trace-call]");
 				return;
 			}
 		}
@@ -188,7 +192,6 @@ public class Service implements ProfilingTypes, ScalerOptions {
 				thread.invocationCount++;
 				Scaler.setGovernor(ONDEMAND);	
 				thread.dvfsIsSet = false;
-				thread.dvfsSliceExpired = 0;
 			}
 		}
 

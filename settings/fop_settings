@@ -1,5 +1,5 @@
-fop;old;20;org.apache.fop.layout.FontState.mapChar
-fop;old;20;org.apache.fop.render.ps.PSStream.write
-fop;old;20;org.apache.fop.fo.PropertyListBuilder.computeProperty
-fop;old;20;org.apache.fop.fo.PropertyList.getExplicit
-fop;old;20;org.apache.fop.fo.PropertyList.get
+fop;old;20;org.apache.fop.render.ps.PSRenderer.renderInlineSpace
+fop;old;20;org.apache.fop.render.ps.PSRenderer.useColor
+fop;old;20;org.apache.fop.fo.PropertyListBuilder.findMaker
+fop;old;20;org.apache.fop.layout.inline.InlineSpace.render
+fop;old;20;org.apache.fop.render.pdf.CodePointMapping.mapChar

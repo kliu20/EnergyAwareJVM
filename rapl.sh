@@ -49,16 +49,7 @@ timeSlice=$((${timeSlice}))
 #
 for((i=1;i<=12;i++))
 do
-       #i=11
-       kkfreq="$i"
-       if [ "$i" -gt "7" ]
-       then
-		samples=$(($samplesorg/2))
-       fi
-
-        ##TODO: For consistency of number of samples, I will always use one number of samples for all frequencies ....
-	##TODO The below statement was added after meeting on Wednesday, March 10, 2021
-	samples=$(($samplesorg/2))
+        kkfreq="$i"
        	if [ "$samples" = "0" ]
        	then
        		samples="1"
@@ -75,6 +66,8 @@ do
        		runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
        		sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
        		sudo mv iteration_times counter_based_sampling_iteration_times_$i
+		sudo mv kenan_energy kenan_energy_$i
+		sudo mv execution_time execution_time_$i
 		echo "Iter count: $itercount, expected: $expected"
 		itercount=$(wc -l counter_based_sampling_iteration_times_$i)
 		itercount=$(echo $itercount | cut -d' ' -f 1)
@@ -83,6 +76,8 @@ do
 		    repeat="false"
 		else
 		    
+			##The else should not be needed anymore
+			repeat="false"
 			mem=$(grep malloc freq_$i)
 			if [ "$mem" = "" ]
 			then

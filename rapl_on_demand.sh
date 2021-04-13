@@ -15,7 +15,7 @@ then
 	expected=$((iters))
 else
 
-	callbackClass="kenian.IterationCallBack"
+	callbackClass="kenan.IterationCallBack"
 	dacapoJar="dacapo-9.12-bach.jar"
 fi	
 
@@ -51,8 +51,6 @@ timeSlice=$((${timeSlice}))
 
 repeat="true"
 
-##Added this for purpuse of consistency ... Sampling at the same time
-samples=$(($samples/2))
 
 while [ "$repeat" = "true" ]
 do
@@ -65,6 +63,9 @@ do
 	then
 		repeat="false"
 	else
+		
+		#TODO:Remove Below ... It is added for tracing purposes only
+		repeat="false"
 		mem=$(grep malloc freq_$1)
 		if [ "$mem" = "" ]
 		then
@@ -86,3 +87,5 @@ done
 
 sudo mv iteration_times counter_based_sampling_iteration_times_$i
 sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv
+sudo mv kenan_energy_$i
+sudo mv execution_time execution_time_${i}.csv
