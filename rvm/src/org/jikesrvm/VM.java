@@ -2467,6 +2467,12 @@ public class VM extends Properties {
 	  }
   }
 
+  public static double read_energy() {
+    double[] energy = EnergyCheckUtils.getEnergyStats();
+    double energy_value= energy[energy.length-1];
+    return energy_value;
+  }
+
 
   public static int totalInvocationCount=0;
   public static Object invocationLock = new Object(); 
@@ -2485,7 +2491,8 @@ public class VM extends Properties {
     double[] energy = EnergyCheckUtils.getEnergyStats();
     end_energy = energy[energy.length-1];
     double total_energy = end_energy - start_energy;
-    write_to_file("kenan_energy",total_energy);
+    //This file will be written by Dacapo ....
+    //write_to_file("kenan_energy",total_energy);
 
     Scaler.closeDVFSFiles();
     

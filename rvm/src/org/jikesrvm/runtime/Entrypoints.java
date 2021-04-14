@@ -35,12 +35,10 @@ public class Entrypoints {
 			getMethod(org.jikesrvm.energy.Service.class, "startProfile", "(I)V");
 	public static final NormalMethod endProfile =
 			getMethod(org.jikesrvm.energy.Service.class, "endProfile", "(I)V");
-	public static final NormalMethod changeUserSpaceFreq =
-			getMethod(org.jikesrvm.energy.Service.class, "changeUserSpaceFreq", "(I)V");
-	public static final NormalMethod changeToHighestFreq =
-			getMethod(org.jikesrvm.energy.Service.class, "changeToHighestFreq", "()V");
-	public static final NormalMethod changeOnDemandFreq =
-			getMethod(org.jikesrvm.energy.Service.class, "changeOnDemandFreq", "()V");
+	public static final NormalMethod startFreqOptimization =
+			getMethod(org.jikesrvm.energy.Service.class, "startFreqOptimization", "(I)V");
+	public static final NormalMethod endFreqOptimization =
+			getMethod(org.jikesrvm.energy.Service.class, "endFreqOptimization", "()V");
 
 
 

@@ -523,6 +523,8 @@ public abstract class SysCall {
 	   public abstract void FreqAvailable(int[] freq);
 	   @SysCallTemplate
 	   public abstract void openDVFSFiles();
+	   @SysCallTemplate
+	   public abstract int checkFrequency();
 
 	   @SysCallTemplate
 	   public abstract void closeDVFSFiles();

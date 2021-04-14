@@ -134,66 +134,141 @@ public class Service implements ProfilingTypes, ScalerOptions {
 		 * @param freq The CPU frequency
 		 */
 		@Entrypoint
-		public static void changeUserSpaceFreq(int freq) {
-			//VM.totalInvocationCount++;
+		public static void startFreqOptimization(int freq) {
+
 			RVMThread thread = RVMThread.getCurrentThread();
- 			//String dvfsNames = Controller.options.DVFS_CLS_MTH;
-			//String[] names = dvfsNames.split(",");
+
 			int mlen = Instrumentation.method_len;
-			thread.invocationCounter++;
-			//if(thread.invocationCounter%20==0) {
-			//}
 			// If the number of candidate is more than one. Then reduce
 			// the sapmling rate.
-			if (mlen > 1 && thread.dvfsSliceExpired > RVMThread.FREQ && thread.dvfsSliceExpired % 2 == 0) {
-				Scaler.setGovernor(USERSPACE);	
-				Scaler.scale(freq);
-				thread.dvfsIsSet = true;
-				thread.dvfsSliceExpired = 0;
-				//System.out.println("[changeUserSpaceFreq] [trace-call] - " + RVMThread.FREQ + "-" + thread.dvfsSliceExpired);
+
+			/** Without counter based sampling*/
+//			if (mlen == 1 && thread.dvfsSliceExpired > RVMThread.FREQ || 
+//					mlen > 1 && thread.dvfsSliceExpired > RVMThread.FREQ && 
+//					thread.dvfsSliceExpired % 2 == 0) {
+//	
+//				thread.prevGov = Scaler.getGovernor();
+//
+//				if (thread.prevGov.equalsIgnoreCase("userspace")) {
+//					thread.prevFreq = Scaler.checkCpuFrequency();
+//				}
+//
+//				changeUserSpaceFreq(freq);
+//				thread.dvfsIsSet = true;
+//				thread.dvfsSliceExpired = 0;
+//			}
+//
+			/** Counter based sampling*/
+			if (mlen == 1 && thread.dvfsSliceExpired > RVMThread.FREQ || 
+					mlen > 1 && thread.dvfsSliceExpired > RVMThread.FREQ && 
+					thread.dvfsSliceExpired % 2 == 0) {
+
+				thread.skippedInvDvfs--;
+				//VM.sysWriteln("startFreqOptimization is invoked. The skippedInvDefs is: " + thread.skippedInvDvfs);
 				
-				return;
+				if (thread.skippedInvDvfs == 0) {
+					thread.prevGov = Scaler.getGovernor();
+
+					//VM.sysWriteln("startFreqOptimization: sample is taken. the current governor before setting is: " + thread.prevGov);
+					if (thread.prevGov.equalsIgnoreCase("userspace")) {
+						thread.prevFreq = Scaler.checkCpuFrequency();
+					}
+
+					changeUserSpaceFreq(freq);
+
+					thread.skippedInvDvfs = RVMThread.STRIDE;
+					thread.samplesPerTimerDvfs--;
+
+					if (thread.samplesPerTimerDvfs == 0) {
+						thread.samplesPerTimerDvfs = RVMThread.SAMPLES;
+						thread.dvfsSliceExpired = 0;
+					}
+				}
 			} 
-			
-			// If the number of candidate is only one. Then check if the 
-			// time inverval is up or not.
-			if (mlen == 1 && thread.dvfsSliceExpired > RVMThread.FREQ) {
-				//VM.sysWriteln("Start the method level DVFS, set frequency to be: " + freq);
-				Scaler.setGovernor(USERSPACE);	
-				Scaler.scale(freq);
-				thread.dvfsIsSet = true;
-				thread.dvfsSliceExpired = 0;
-				//System.out.println("[changeUserSpaceFreq] [trace-call]");
-				return;
-			}
+		}
+
+		/**
+		 * Set userspace governnor and speficy the CPU frequency
+		 * @param freq The CPU frequency
+		 */
+		public static void changeUserSpaceFreq(int freq) {
+			Scaler.setGovernor(USERSPACE);	
+			Scaler.scale(freq);
 		}
 
 		/**
 		 * Set userspace governnor and speficy the highest CPU frequency
 		 * @param freq The CPU frequency
 		 */
-		@Entrypoint
 		public static void changeToHighestFreq() {
-			//VM.sysWriteln("End the method level DVFS, set governor to be: ondemand");
-			//Scaler.setGovernor(USERSPACE);	
-			//Scaler.scale(HIGH_FREQ);
-			
-			changeOnDemandFreq();
+			Scaler.setGovernor(USERSPACE);	
+			Scaler.scale(HIGH_FREQ);
 		}
+
 		/**
-		 * Set userspace governnor and speficy the CPU frequency
-		 * @param freq The CPU frequency
+		 * Set ondemand governnor 
 		 */
-		@Entrypoint
 		public static void changeOnDemandFreq() {
-			RVMThread thread = RVMThread.getCurrentThread();
-			if (thread.dvfsIsSet) {
-				//VM.sysWriteln("[Service#changeOnDemandFreq] Setting to OnDemand");
-				thread.invocationCount++;
-				Scaler.setGovernor(ONDEMAND);	
-				thread.dvfsIsSet = false;
+			Scaler.setGovernor(ONDEMAND);	
+		}
+
+		/**
+		 * Reset governor and frequency to be the one before setting to the userspace governor
+		 */
+		public static void resetGovAndFreq(RVMThread thread) {
+			String targetGov = thread.prevGov;
+
+			//VM.sysWriteln("endFreqOptimization: sample is taken. the governor needs to be set is: " + targetGov);
+			if (targetGov != "") {
+				byte[] gov = targetGov.equalsIgnoreCase("userspace") ? USERSPACE : ONDEMAND;
+				Scaler.setGovernor(gov);	
+				if (targetGov.equalsIgnoreCase("userspace")) {
+					Scaler.scale(thread.prevFreq);
+				}
+
+			} else {
+				Scaler.setGovernor(ONDEMAND);
 			}
 		}
+
+		/**
+		 * In the end of frequency optimization.
+		 */
+		@Entrypoint
+		public static void endFreqOptimization() {
+			RVMThread thread = RVMThread.getCurrentThread();
+			int mlen = Instrumentation.method_len;
+
+			/** Without counter based sampling*/
+//			if (thread.dvfsIsSet) {
+//				resetGovAndFreq(thread);
+//				thread.dvfsIsSet = false;
+//			}
+//
+			/** Counter based sampling*/
+			if (mlen == 1 && thread.dvfsSliceExpired > RVMThread.FREQ || 
+				mlen > 1 && thread.dvfsSliceExpired > RVMThread.FREQ && 
+				thread.dvfsSliceExpired % 2 == 0) {
+
+				thread.skippedInvDvfs--;
+				
+				//VM.sysWriteln("startFreqOptimization is invoked. The skippedInvDefs is: " + thread.skippedInvDvfs);
+				if (thread.skippedInvDvfs == 0) {
+
+					resetGovAndFreq(thread);
+
+					thread.skippedInvDvfs = RVMThread.STRIDE;
+					thread.samplesPerTimerDvfs--;
+
+					if (thread.samplesPerTimerDvfs == 0) {
+						thread.samplesPerTimerDvfs = RVMThread.SAMPLES;
+						thread.dvfsSliceExpired = 0;
+					}
+				}
+			} 		
+
+		}
+		
 
 	public static void init_service() {
 		RVMThread.FREQ = Integer.parseInt(VM.KENAN_FREQ); 

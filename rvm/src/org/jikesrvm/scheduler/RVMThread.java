@@ -156,7 +156,7 @@ public final class RVMThread extends ThreadContext {
 
   //Kenan
   public final static int STRIDE = 10;
-  public static int SAMPLES = 128;
+  public static int SAMPLES = 32;
   public static int FREQ = 0;
   public final static int entrySize = 256;
   public int methodYPDisabledCount = 0;
@@ -179,20 +179,29 @@ public final class RVMThread extends ThreadContext {
   public int[] YPDisabledMethods = new int[entrySize];
   /**Counter for yield point disabled by GC only*/
   public int YPDisabledCountByGC = 0;
-  /**Kenan: time slice expired times for energy/hardware counter profiling*/
+  /**time slice expired times for energy/hardware counter profiling*/
   public int energyTimeSliceExpired = 0;
-  /**Kenan: time slice expired times for energy/hardware counter profiling*/
-  public int samplesThisTimerInterrupt = 128;
-  /**Kenan: Count invocations to trigger sample*/
+  /**Samples need to be taken in this timer interrupt for profiling*/
+  public int samplesThisTimerInterrupt = SAMPLES;
+  /**Invocation samples to be skipped*/
   public int skippedInvocations = STRIDE;
-  /**Kenan: Counter for method invocation*/
+  /**Counter for method invocation*/
   public int invocationCounter = 0;
-  /**Kenan: IS the first sample in the burst*/
+  /**IS the first sample in the burst*/
   public boolean isFirstSampleInBurst = true;
-  /**Kenan: DVFS is set for the method*/
+  /**DVFS is set for the method*/
   public boolean dvfsIsSet = false;
-  /**Kenan: time slice expired times for method-level DVFS */
+  /**time slice expired times for method-level DVFS */
   public int dvfsSliceExpired = 0;
+  /**Store the governor before setting to be userspace when doing frequency optimization*/
+  public String prevGov = "";
+  /**Store the frequency before setting to be userspace when doing frequency optimization*/
+  public int prevFreq = 0;
+  /**Samples need to be taken in this timer interrupt for frequency optimization*/
+  public int samplesPerTimerDvfs = SAMPLES;
+  /**Invocation samples to be skipped for frequency optmization*/
+  public int skippedInvDvfs = STRIDE;
+ 
  
   /*
    * debug and statistics

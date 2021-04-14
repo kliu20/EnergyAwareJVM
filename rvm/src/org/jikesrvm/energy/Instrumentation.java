@@ -122,15 +122,15 @@ public class Instrumentation {
 			//I have a question ?
 			//How will you implement sampling based optimization here ?	
 
-			Instruction changeUserSpaceFreqInst = null;
-			Instruction changeOnDemandFreqInst = null;
+			Instruction startFreqOptimizationInst = null;
+			Instruction endFreqOptimizationInst = null;
 			Instruction startProfInst = null;
 			Instruction endProfInst = null;
 
 			NormalMethod startProfileMtd = Entrypoints.startProfile;
 			NormalMethod endProfileMtd = Entrypoints.endProfile;
-			NormalMethod changeUserSpaceFreqMtd = Entrypoints.changeUserSpaceFreq;
-			NormalMethod changeOnDemandFreqMtd = Entrypoints.changeOnDemandFreq;
+			NormalMethod startFreqOptimizationMtd = Entrypoints.startFreqOptimization;
+			NormalMethod endFreqOptimizationMtd = Entrypoints.endFreqOptimization;
 			StringConstantOperand clsName = new StringConstantOperand(
 				cls.toString(), Offset.fromIntSignExtend(cls
 				.getDescriptor().getStringLiteralOffset()));
@@ -155,7 +155,7 @@ public class Instrumentation {
 				ir.firstBasicBlockInCodeOrder()
 						.prependInstructionRespectingPrologue(startProfInst);
 				// Inline
-				ers.inline(startProfInst, ir);
+				// ers.inline(startProfInst, ir);
 
 				for (Instruction inst = startProfInst.nextInstructionInCodeOrder(); inst != null; inst = inst
 						.nextInstructionInCodeOrder()) {
@@ -171,7 +171,7 @@ public class Instrumentation {
 						endProfInst.bcIndex = RUNTIME_SERVICES_BCI;
 						inst.insertBefore(endProfInst);
 						// Inline
-						ers.inline(endProfInst, ir);
+						// ers.inline(endProfInst, ir);
 					}
 				}
 
@@ -193,37 +193,37 @@ public class Instrumentation {
 					
 					if (currentMth.equals(candidate)) {
 						//VM.sysWriteln("[Instrumentation#perform] Candidate Selected for Instrumentation:  " + candidate);
-						changeUserSpaceFreqInst = Call
+						startFreqOptimizationInst = Call
 								.create1(CALL, null,
-										IRTools.AC(changeUserSpaceFreqMtd.getOffset()),
-										MethodOperand.STATIC(changeUserSpaceFreqMtd),
+										IRTools.AC(startFreqOptimizationMtd.getOffset()),
+										MethodOperand.STATIC(startFreqOptimizationMtd),
 										new IntConstantOperand(scaleFreq));
 
-						changeUserSpaceFreqInst.position = ir.firstInstructionInCodeOrder().position;
-						changeUserSpaceFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
+						startFreqOptimizationInst.position = ir.firstInstructionInCodeOrder().position;
+						startFreqOptimizationInst.bcIndex = RUNTIME_SERVICES_BCI;
 						// Insert the DVFS instrument to the beginning of candidate method 
 						
 						ir.firstBasicBlockInCodeOrder()
-								.prependInstructionRespectingPrologue(changeUserSpaceFreqInst);
+								.prependInstructionRespectingPrologue(startFreqOptimizationInst);
 						// Inline
-						ers.inline(changeUserSpaceFreqInst, ir);
+						 // ers.inline(startFreqOptimizationInst, ir);
 
-						for (Instruction inst = changeUserSpaceFreqInst.nextInstructionInCodeOrder(); inst != null; inst = inst
+						for (Instruction inst = startFreqOptimizationInst.nextInstructionInCodeOrder(); inst != null; inst = inst
 								.nextInstructionInCodeOrder()) {
 							
 			//				VM.sysWriteln("Ir method: " + ir.getMethod().getName().toString() + " operator: "+ inst.operator.toString() + " opcode: " + (int)inst.getOpcode() + " RETURN_opcode: " + (int)RETURN_opcode);
 			//				if (inst.operator.toString().equalsIgnoreCase("return")) {
 							if (inst.getOpcode() == RETURN_opcode) {
-								changeOnDemandFreqInst = Call.create0(CALL, null,
-											IRTools.AC(changeOnDemandFreqMtd.getOffset()),
-											MethodOperand.STATIC(changeOnDemandFreqMtd));
+								endFreqOptimizationInst = Call.create0(CALL, null,
+											IRTools.AC(endFreqOptimizationMtd.getOffset()),
+											MethodOperand.STATIC(endFreqOptimizationMtd));
 
-								changeOnDemandFreqInst.position = inst.position;
-								changeOnDemandFreqInst.bcIndex = RUNTIME_SERVICES_BCI;
-								inst.insertBefore(changeOnDemandFreqInst);
+								endFreqOptimizationInst.position = inst.position;
+								endFreqOptimizationInst.bcIndex = RUNTIME_SERVICES_BCI;
+								inst.insertBefore(endFreqOptimizationInst);
 
 								// Inline
-								ers.inline(changeOnDemandFreqInst, ir);
+								 //ers.inline(endFreqOptimizationInst, ir);
 								//VM.sysWriteln("Method level DVFS insertion succeed!!!! Method is : " + candidate);
 							}
 						}

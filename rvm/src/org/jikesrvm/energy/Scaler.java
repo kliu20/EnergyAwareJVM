@@ -70,6 +70,10 @@ public class Scaler implements ScalerOptions {
 //		return govBuf;
 	}
 
+	public static int checkCpuFrequency() {
+		return SysCall.sysCall.checkFrequency();
+	}
+
 	public static void scale(int freq){
 		//VM.sysWriteln("Kenan: Frequency: " + freqs[option] + " is going to be written");
 		SysCall.sysCall.Scale(freq);
