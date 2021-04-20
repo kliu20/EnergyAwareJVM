@@ -21,6 +21,7 @@ import static org.jikesrvm.objectmodel.ThinLockConstants.TL_THREAD_ID_SHIFT;
 
 import java.security.AccessController;
 import java.security.PrivilegedAction;
+import java.util.Random;
 import org.jikesrvm.adaptive.controller.Controller;
 
 
@@ -159,6 +160,7 @@ public final class RVMThread extends ThreadContext {
   public static int SAMPLES = 32;
   public static int FREQ = 0;
   public final static int entrySize = 256;
+  public static final int PROFILE_ENTRY_SIZE = 3;
   public int methodYPDisabledCount = 0;
   //Index for YPDisabledMethodID
  
@@ -187,8 +189,6 @@ public final class RVMThread extends ThreadContext {
   public int skippedInvocations = STRIDE;
   /**Counter for method invocation*/
   public int invocationCounter = 0;
-  /**IS the first sample in the burst*/
-  public boolean isFirstSampleInBurst = true;
   /**DVFS is set for the method*/
   public boolean dvfsIsSet = false;
   /**time slice expired times for method-level DVFS */
@@ -201,6 +201,10 @@ public final class RVMThread extends ThreadContext {
   public int samplesPerTimerDvfs = SAMPLES;
   /**Invocation samples to be skipped for frequency optmization*/
   public int skippedInvDvfs = STRIDE;
+ /**Record the previous energy profiling information*/
+  public double[] prevProfile = new double[PROFILE_ENTRY_SIZE];
+  /**Random object for each thread*/
+  //public Random rand = new Random();
  
  
   /*
