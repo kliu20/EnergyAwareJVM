@@ -1,1 +1,1 @@
-pmd;old;20;org.jaxen.expr.iter.IterableChildAxis.supportsNamedAccess:2200000,org.jaxen.ContextSupport.getNavigator:1400000
+pmd;old;20;org.jaxen.util.SingleObjectIterator.hasNext:1800000,net.sourceforge.pmd.ast.SimpleNode.<init>:2000000

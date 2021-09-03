@@ -1,5 +1,5 @@
 jython;old;20;org.python.core.PyMethod.__call__
-jython;old;20;org.python.core.PyFloat.<init>
-jython;old;20;org.python.core.PySequenceIter.__iternext__
-jython;old;20;org.python.core.PyFloat.__sub__
+jython;old;20;org.python.core.AbstractArray.ensureCapacity
 jython;old;20;org.python.core.PyTableCode.call
+jython;old;20;org.python.core.PyList$1exposed_append.__call__
+jython;old;20;org.python.core.PyFloat.__add__

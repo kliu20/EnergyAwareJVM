@@ -1,5 +1,4 @@
-sunflow;new;10;org.sunflow.core.primitive.TriangleMesh$WaldTriangle.intersect
-sunflow;new;10;org.sunflow.core.Ray.transform
-sunflow;new;10;org.sunflow.core.accel.BoundingIntervalHierarchy.intersect
-sunflow;new;10;org.sunflow.core.primitive.Sphere.intersectPrimitive
-sunflow;new;10;org.sunflow.core.primitive.TriangleMesh.intersectPrimitive
+sunflow;new;10;org.sunflow.core.light.TriangleMeshLight.getRadiance
+sunflow;new;10;org.sunflow.math.Matrix4.transformP
+sunflow;new;10;org.sunflow.util.IntArray.add
+sunflow;new;10;org.sunflow.core.accel.KDTree.pack

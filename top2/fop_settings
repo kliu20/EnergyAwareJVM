@@ -1,1 +1,1 @@
-fop;old;20;org.apache.fop.layout.inline.InlineSpace.render:2200000,org.apache.fop.render.ps.PSRenderer.useColor:1800000
+fop;old;20;org.apache.fop.fo.PropertyListBuilder.findMaker:1500000,org.apache.fop.render.ps.PSRenderer.movetoCurrPosition:1200000

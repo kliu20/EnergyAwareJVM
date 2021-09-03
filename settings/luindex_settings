@@ -1,5 +1,5 @@
-luindex;new;20;org.apache.lucene.index.FreqProxTermsWriterPerField.newTerm
 luindex;new;20;org.apache.lucene.analysis.Token.setTermLength
-luindex;new;20;org.apache.lucene.store.IndexOutput.writeInt
-luindex;new;20;org.apache.lucene.store.BufferedIndexOutput.getFilePointer
-luindex;new;20;org.apache.lucene.analysis.standard.StandardTokenizerImpl.zzRefill
+luindex;new;20;org.apache.lucene.index.FreqProxTermsWriterPerField.newTerm
+luindex;new;20;org.dacapo.harness.TeeOutputStream.write
+luindex;new;20;org.apache.lucene.index.NormsWriterPerField.finish
+luindex;new;20;org.apache.lucene.index.ByteSliceReader.eof

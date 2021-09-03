@@ -22,6 +22,8 @@ public OIterationCallBack() {
   }
 
 
+
+
 public static double read_jikesrvm_energy() {
 		double ev=0.0;
 		try {
@@ -91,7 +93,7 @@ public static double read_jikesrvm_energy() {
 	long iter_time = STOP_ITER_TS[i-1] - START_ITER_TS[i-1];
 	double iter_en = STOP_ITER_EN[i-1] - START_ITER_EN[i-1];
 	//execution_time+= iter_time;
-	if(i>=5) {	
+	if(i>=6) {	
 		execution_time+= iter_time;
 		total_energy+=iter_en;
 	}
@@ -114,6 +116,7 @@ public static double read_jikesrvm_energy() {
     super.completeWarmup(benchmark, valid);
     STOP_ITER_TS[CURRENT_ITERATION-1] = System.currentTimeMillis();
     STOP_ITER_EN[CURRENT_ITERATION-1] = read_jikesrvm_energy();
+    
     CURRENT_ITERATION++;
     System.out.println("Iteration Stopping");
     try {

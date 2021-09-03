@@ -1,7 +1,0 @@
-StringRegion_0.1 {
-  global :
-	 Java_StringRegion_setVerboseOff;
-	 Java_StringRegion_testStringRegion;
-	 Java_StringRegion_testStringCritical;
-  local : *;
-};

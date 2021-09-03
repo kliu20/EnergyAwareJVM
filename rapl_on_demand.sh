@@ -52,38 +52,11 @@ timeSlice=$((${timeSlice}))
 repeat="true"
 
 
-while [ "$repeat" = "true" ]
-do
-	sudo java energy.Scaler 1 ondemand
-	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
+sudo java energy.Scaler 1 ondemand
+runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
 
-	itercount=$(wc -l iteration_times)
-	itercount=$(echo $itercount | cut -d' ' -f 1)
-	if [ $itercount = $expected ]
-	then
-		repeat="false"
-	else
-		
-		#TODO:Remove Below ... It is added for tracing purposes only
-		repeat="false"
-		mem=$(grep malloc freq_$1)
-		if [ "$mem" = "" ]
-		then
-			echo "No Malloc"
-		else
-			samples=$((samples/2))			
-		fi
-
-		if [ "$samples" = "0" ]
-		then
-			repeat="false"
-		fi
-
-		rm -r scratch
-		killall JikesRVM
-		killall java
-	fi
-done
+itercount=$(wc -l iteration_times)
+itercount=$(echo $itercount | cut -d' ' -f 1)
 
 sudo mv iteration_times counter_based_sampling_iteration_times_$i
 sudo mv kenan.csv counter_based_sampling_kenan.${i}.csv

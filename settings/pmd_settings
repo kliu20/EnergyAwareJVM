@@ -1,5 +1,5 @@
 pmd;old;20;org.jaxen.expr.DefaultAllNodeStep.matches
-pmd;old;20;net.sourceforge.pmd.jaxen.DocumentNavigator.getAttributeName
-pmd;old;20;org.jaxen.expr.iter.IterableChildAxis.supportsNamedAccess
-pmd;old;20;net.sourceforge.pmd.jaxen.DocumentNavigator.isAttribute
-pmd;old;20;org.jaxen.ContextSupport.getNavigator
+pmd;old;20;org.jaxen.Context.getNavigator
+pmd;old;20;net.sourceforge.pmd.jaxen.DocumentNavigator.isText
+pmd;old;20;org.jaxen.util.SingleObjectIterator.hasNext
+pmd;old;20;net.sourceforge.pmd.ast.SimpleNode.<init>

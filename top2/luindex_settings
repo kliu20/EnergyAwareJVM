@@ -1,1 +1,1 @@
-luindex;new;20;org.apache.lucene.store.IndexOutput.writeInt:1800000,org.apache.lucene.analysis.Token.setTermLength:2000000
+luindex;new;20;org.apache.lucene.index.ByteSliceReader.eof:2000000,org.apache.lucene.analysis.Token.setTermLength:2000000

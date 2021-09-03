@@ -41,18 +41,20 @@ runJikesProfile() {
 for((i=1;i<=12;i++))
 do
 
-       	sudo java energy.Scaler $i userspace
+       	sudo java energy.Scaler $i powersave
 	runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 4 
 	
 	mv execution_time "${pbench}_${i}_execution_time"
 	mv kenan_energy "${pbench}_${i}_kenan_energy"
 	mv iteration_times "${pbench}_${i}_iteration_times"
+	mv iteration_energy "${pbench}_${i}_iteration_energy"
 done
 
 
-sudo java energy.Scaler 1 ondemand
+sudo java energy.Scaler 1 performance
 i=0
 runJikesProfile 4 ${freq[$i]} ${events[0]},${events[1]} ${timeSlice[2]} Energy -t 8 
 mv execution_time "${pbench}_${i}_execution_time"
 mv kenan_energy "${pbench}_${i}_kenan_energy"
 mv iteration_times "${pbench}_${i}_iteration_times"
+mv iteration_energy "${pbench}_${i}_iteration_energy"

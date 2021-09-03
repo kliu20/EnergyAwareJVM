@@ -1,1 +1,1 @@
-avrora;new;20;avrora.arch.legacy.LegacyInstr$CPSE.accept:2100000,avrora.sim.clock.MainClock.getCount:1900000
+avrora;new;20;avrora.arch.legacy.LegacyInstr$ST.accept:2200000,avrora.arch.legacy.LegacyInstr$SBRC.accept:2200000

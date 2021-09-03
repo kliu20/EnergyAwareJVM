@@ -1,2 +1,0 @@
-Exception in thread "MainThread" java.lang.NullPointerException
-   at test.org.jikesrvm.basic.bugs.RVM_966.main(RVM_966.java:23)

@@ -1,5 +1,5 @@
+fop;old;20;org.apache.fop.layout.LineArea.isSpace
+fop;old;20;org.apache.fop.render.ps.PSRenderer.movetoCurrPosition
 fop;old;20;org.apache.fop.render.ps.PSRenderer.renderInlineSpace
-fop;old;20;org.apache.fop.render.ps.PSRenderer.useColor
 fop;old;20;org.apache.fop.fo.PropertyListBuilder.findMaker
-fop;old;20;org.apache.fop.layout.inline.InlineSpace.render
-fop;old;20;org.apache.fop.render.pdf.CodePointMapping.mapChar
+fop;old;20;org.apache.fop.datatypes.Length.mvalue

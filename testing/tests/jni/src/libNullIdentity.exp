@@ -1,8 +1,0 @@
-NullIdentity_0.1 {
-  global :
-	 Java_NullIdentity_setVerboseOff;
-	 Java_NullIdentity_nullFirst;
-	 Java_NullIdentity_nullSecond;
-	 Java_NullIdentity_nullForceSpill;
-  local : *;
-};

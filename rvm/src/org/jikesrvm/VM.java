@@ -89,6 +89,12 @@ public class VM extends Properties {
   public static long  VM_START=0;  
   public static long  VM_END=0;
   public static double start_energy=0;
+  public static boolean start_profiling=false;
+
+
+  public static void set_start_profile() {
+	start_profiling=true;
+  }
 
   //Very important Note: I intentionally used String here for KENAN_FREQ and KENAN_SAMPLES
   //parseInt at this stage will casuse a lot of unexpected troubled.

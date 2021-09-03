@@ -156,7 +156,7 @@ public final class RVMThread extends ThreadContext {
 
 
   //Kenan
-  public final static int STRIDE = 10;
+  public final static int STRIDE = 7;
   public static int SAMPLES = 32;
   public static int FREQ = 0;
   public final static int entrySize = 256;

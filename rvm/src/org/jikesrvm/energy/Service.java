@@ -128,7 +128,7 @@ public class Service implements ProfilingTypes, ScalerOptions {
 					int freq = (int) Controller.options.FREQUENCY_TO_BE_PRINTED;
 					if(!discard_sample) {
 
-						SysCall.sysCall.add_log_entry(profileAttrs,cmid,System.currentTimeMillis() - start_ts,freq);
+						SysCall.sysCall.add_log_entry(profileAttrs,cmid,0,freq);
 					}
 
 
@@ -194,7 +194,8 @@ public class Service implements ProfilingTypes, ScalerOptions {
 					//thread.skippedInvDvfs = RVMThread.STRIDE + RandomSingleton.getInstance().nextInt(RAND_OFFSET);
 					// (int)(Math.random() * RAND_OFFSET + 1 to make the random range as 1 to 10 to make odd and 
 					// even number has same possibility
-					thread.skippedInvDvfs = RVMThread.STRIDE + Math.abs((int)(Math.random() * RAND_OFFSET + 1));
+					thread.skippedInvDvfs = RVMThread.STRIDE;
+					//thread.skippedInvDvfs = RVMThread.STRIDE + Math.abs((int)(Math.random() * RAND_OFFSET + 1));
 
 					thread.samplesPerTimerDvfs--;
 
@@ -291,7 +292,8 @@ public class Service implements ProfilingTypes, ScalerOptions {
 				//VM.sysWriteln("endFreqOptimization is invoked. The skippedInvDefs is: " + thread.skippedInvDvfs);
 				if (thread.skippedInvDvfs == 0) {
 
-					thread.skippedInvDvfs = RVMThread.STRIDE + Math.abs((int)(Math.random() * RAND_OFFSET + 1));
+					//thread.skippedInvDvfs = RVMThread.STRIDE + Math.abs((int)(Math.random() * RAND_OFFSET + 1));
+					thread.skippedInvDvfs = RVMThread.STRIDE;
 
 					thread.samplesPerTimerDvfs--;
 

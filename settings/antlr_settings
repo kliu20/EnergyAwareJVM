@@ -1,5 +1,5 @@
-antlr;old;20;antlr.collections.impl.Vector.size
+antlr;old;20;antlr.BlockEndElement.<init>
+antlr;old;20;antlr.CSharpCharFormatter.escapeChar
+antlr;old;20;antlr.CharScanner.makeToken
+antlr;old;20;antlr.CodeGenerator.println
 antlr;old;20;antlr.LLkAnalyzer.look
-antlr;old;20;antlr.Lookahead.containsEpsilon
-antlr;old;20;antlr.CodeGenerator._print
-antlr;old;20;antlr.SimpleTokenManager.getTokenSymbol
